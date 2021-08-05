@@ -54,7 +54,7 @@ public class MovementHG : MonoBehaviour
         if(HanselPos.anchoredPosition.x > 490.0f){
            HanselX -= 4.0f;
            HanselPos.anchoredPosition = new Vector3(HanselX,-245.0f);
-           if 
+        //    if 
        }
     }
 
