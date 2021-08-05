@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MovementHG : MonoBehaviour
 {
@@ -16,9 +17,9 @@ public class MovementHG : MonoBehaviour
     private GameObject rock2;
     private GameObject rock3;
 
-    private Image RockLeft;
-    private Image RockMiddle;
-    private Image RockRight;
+    private Color RockLeft;
+    private Color RockMiddle;
+    private Color RockRight;
     // Start is called before the first frame update
     void Start(){
         Gratel = GameObject.Find("Gratel");
@@ -34,9 +35,9 @@ public class MovementHG : MonoBehaviour
         rock2 = GameObject.Find("rock2");
         rock3 = GameObject.Find("rock3");
 
-        RockLeft = rock1.GetComponent<Image>();
-        RockMiddle = rock2.GetComponent<Image>();
-        RockRight = rock3.GetComponent<Image>();
+        RockLeft = rock1.GetComponent<Image>().color;
+        RockMiddle = rock2.GetComponent<Image>().color;
+        RockRight = rock3.GetComponent<Image>().color;
         
         // Gratel.GetComponent<RectTransform>().anchoredPosition = new Vector2(110,-290);
 
@@ -53,6 +54,7 @@ public class MovementHG : MonoBehaviour
         if(HanselPos.anchoredPosition.x > 490.0f){
            HanselX -= 4.0f;
            HanselPos.anchoredPosition = new Vector3(HanselX,-245.0f);
+           if 
        }
     }
 
