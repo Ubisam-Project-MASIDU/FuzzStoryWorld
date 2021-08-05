@@ -46,56 +46,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mvifl_setVoiceInfoList:
   - svt_voiceType: 0
-    sstr_words: 
+    sstr_words: "\uD5E8\uC824\uACFC \uADF8\uB808\uD154 \uBF08\uB2E4\uADC0\uB97C \uC190
+      \uB300\uC2E0 \uC8FC\uC5C8\uC5B4\uC694(\uB4DC\uB798\uADF8). \uD55C\uCC38\uC744
+      \uC0B4\uC774 \uCC0C\uC9C0 \uC54A\uC790 \uCC38\uC9C0 \uBABB\uD55C \uB9C8\uB140\uB294
+      \uB458\uB2E4 \uC7A1\uC544\uBA39\uC73C\uB824 \uD558\uC600\uC5B4\uC694. \uAC81\uC5D0
+      \uC9C8\uB9B0 \uC544\uC774\uB4E4\uC740 \uB9C8\uB140\uC5D0\uAC8C \uBC97\uC5B4\uB098\uB824\uACE0
+      \uC2DC\uB3C4\uD558\uC600\uC5B4\uC694. "
     sf_pitch: 0
     sf_speakingRate: 
     sac_voiceAudioClip: {fileID: 0}
-  - svt_voiceType: 0
-    sstr_words: 
-    sf_pitch: 0
-    sf_speakingRate: 
-    sac_voiceAudioClip: {fileID: 0}
-  - svt_voiceType: 0
-    sstr_words: 
-    sf_pitch: 0
-    sf_speakingRate: 
-    sac_voiceAudioClip: {fileID: 0}
-  - svt_voiceType: 0
-    sstr_words: 
-    sf_pitch: 0
-    sf_speakingRate: 
-    sac_voiceAudioClip: {fileID: 0}
-  - svt_voiceType: 0
-    sstr_words: 
-    sf_pitch: 0
-    sf_speakingRate: 
-    sac_voiceAudioClip: {fileID: 0}
-  - svt_voiceType: 0
-    sstr_words: 
-    sf_pitch: 0
-    sf_speakingRate: 
-    sac_voiceAudioClip: {fileID: 0}
-  - svt_voiceType: 0
-    sstr_words: 
-    sf_pitch: 0
-    sf_speakingRate: 
-    sac_voiceAudioClip: {fileID: 0}
-  - svt_voiceType: 0
-    sstr_words: 
-    sf_pitch: 0
-    sf_speakingRate: 
-    sac_voiceAudioClip: {fileID: 0}
-  - svt_voiceType: 0
-    sstr_words: 
-    sf_pitch: 0
-    sf_speakingRate: 
-    sac_voiceAudioClip: {fileID: 0}
-  - svt_voiceType: 0
-    sstr_words: 
-    sf_pitch: 0
-    sf_speakingRate: 
-    sac_voiceAudioClip: {fileID: 0}
-  mc_loadingScene: {fileID: 2641264804734032775, guid: 38d1874bc80f843439a1cd81bef23ac9, type: 3}
+  mc_loadingScene: {fileID: 2641264804734032775, guid: 38d1874bc80f843439a1cd81bef23ac9,
+    type: 3}
   mb_checkSceneReady: 0
 --- !u!82 &2824697826455121867
 AudioSource:

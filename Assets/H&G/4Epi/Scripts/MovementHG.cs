@@ -7,81 +7,60 @@ public class MovementHG : MonoBehaviour
 {
     private GameObject Gratel;
     private GameObject Hansel;
-    private RectTransform GratelPos;
-    private RectTransform HanselPos;
+    private GameObject Rock;
 
-    float gratelX = 0.0f;
-    float HanselX = 0.0f;
+    private Vector3 GratelPos;
+    private Vector3 HanselPos;
 
-    // private GameObject rock1;
-    // private GameObject rock2;
-    // private GameObject rock3;
+    private GameObject RockRight;
+    private GameObject RockMid;
+    private GameObject RockLeft;
 
-    // private Image RockLeft;
-    // private Image RockMiddle;
-    // private Image RockRight;
-    private Color RockLeft;
-    private Color RockMiddle;
-    private Color RockRight;
-    // Start is called before the first frame update
+    private Vector3 RockRightPosBefore;
+    private Vector3 RockMidPosBefore;
+    private Vector3 RockLeftPosBefore;
+
+    private Vector3 RockRightPosAfter;
+    private Vector3 RockMidPosAfter;
+    private Vector3 RockLeftPosAfter;
+
+
     void Start(){
         Gratel = GameObject.Find("Gratel");
         Hansel = GameObject.Find("Hansel");
 
-        GratelPos = Gratel.GetComponent<RectTransform>();
-        HanselPos = Hansel.GetComponent<RectTransform>();
+        GratelPos = new Vector3(-0.5f,-6.1f,20.0f);
+        HanselPos = new Vector3(1.0f,-5.9f,20.0f);
 
-        gratelX = GratelPos.anchoredPosition.x;
-        HanselX = HanselPos.anchoredPosition.x;
+        RockRight = GameObject.Find("rockright");
+        RockMid = GameObject.Find("rockmid");
+        RockLeft = GameObject.Find("rockleft");
 
-        // rock1 = GameObject.Find("rock1");
-        // rock2 = GameObject.Find("rock2");
-        // rock3 = GameObject.Find("rock3");
+        RockRightPosBefore = new Vector3(2.0f,-6.6f,20.0f);
+        RockMidPosBefore = new Vector3(2.0f,-6.6f,20.0f);
+        RockLeftPosBefore = new Vector3(1.0f,-6.6f,20.0f);
 
-        // RockLeft = rock1.GetComponent<Image>();
-        // RockMiddle = rock2.GetComponent<Image>();
-        // RockRight = rock3.GetComponent<Image>();
+        RockRightPosAfter = new Vector3(4.0f,-6.8f,20.0f);
+        RockMidPosAfter = new Vector3(3.0f,-6.8f,20.0f);
+        RockLeftPosAfter = new Vector3(2.0f,-6.8f,20.0f);
 
-        
-        
-        // Gratel.GetComponent<RectTransform>().anchoredPosition = new Vector2(110,-290);
-
-        // Hansel.GetComponent<RectTransform>().anchoredPosition = new Vector2(110,-290);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-       if(GratelPos.anchoredPosition.x > -115.0f){
-           gratelX -= 13.0f;
-           GratelPos.anchoredPosition = new Vector3(gratelX,-309.0f);
-       }
-        if(HanselPos.anchoredPosition.x > 220.0f){
-            if(HanselPos.anchoredPosition.x <= 682.0f){
-            //    RockRight.color = new Color(RockRight.color.r,RockRight.color.g,RockRight.color.b,1.0f);
-                GameObject.Find("rock3").GetComponent<Image>().color = new Color(1.0f,1.0f,1.0f,1.0f);   
-                if(HanselPos.anchoredPosition.x <= 442.0f){
-                    GameObject.Find("rock2").GetComponent<Image>().color = new Color(1.0f,1.0f,1.0f,1.0f);   
-                    if(HanselPos.anchoredPosition.x <= 260.0f){
-                        GameObject.Find("rock1").GetComponent<Image>().color = new Color(1.0f,1.0f,1.0f,1.0f);   
-                    }                
+    void Update(){
+        Gratel.transform.position = Vector3.MoveTowards(Gratel.transform.position, GratelPos, 0.05f);
+        Hansel.transform.position = Vector3.MoveTowards(Hansel.transform.position, HanselPos, 0.05f);
+
+        RockRight.transform.position = Vector3.MoveTowards(RockRight.transform.position, RockRightPosBefore, 0.05f);
+        RockMid.transform.position = Vector3.MoveTowards(RockMid.transform.position, RockMidPosBefore, 0.05f);
+        RockLeft.transform.position = Vector3.MoveTowards(RockLeft.transform.position, RockLeftPosBefore, 0.05f);
+        if(Hansel.transform.position.x <= 3) {
+            RockRight.transform.position = Vector3.MoveTowards(RockRight.transform.position,RockRightPosAfter,0.1f);
+            if(Hansel.transform.position.x <= 2) {
+                RockMid.transform.position = Vector3.MoveTowards(RockMid.transform.position,RockMidPosAfter,0.1f);
+                if(Hansel.transform.position.x <= 1.6) {
+                    RockLeft.transform.position = Vector3.MoveTowards(RockLeft.transform.position,RockLeftPosAfter,0.1f);
                 }
-
             }
-            // else if(HanselPos.anchoredPosition.x <= 442.0f){
-            //     GameObject.Find("rock2").GetComponent<Image>().color = new Color(1.0f,1.0f,1.0f,1.0f);   
-            // }
-            // else if(HanselPos.anchoredPosition.x <= 260.0f){
-            //     GameObject.Find("rock1").GetComponent<Image>().color = new Color(1.0f,1.0f,1.0f,1.0f);   
-            // }
-           HanselX -= 13.0f;
-           HanselPos.anchoredPosition = new Vector3(HanselX,-245.0f);
-
-       }
+        }   
     }
-
-    // public void ChangeHGRectTransform(){
-    //     GratelPos.anchoredPosition = new Vector3(110,-245,0);
-    //     HanselPos.anchoredPosition = new Vector3(110,-245,0);
-    // }
 }
