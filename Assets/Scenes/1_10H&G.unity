@@ -313,7 +313,9 @@ GameObject:
   - component: {fileID: 459230310}
   - component: {fileID: 459230309}
   - component: {fileID: 459230308}
+  - component: {fileID: 459230312}
   - component: {fileID: 459230311}
+  - component: {fileID: 459230313}
   m_Layer: 0
   m_Name: BoneStick2
   m_TagString: Untagged
@@ -398,32 +400,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.425}
---- !u!61 &459230311
-BoxCollider2D:
+--- !u!65 &459230311
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459230307}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.800002, y: 6.400001, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &459230312
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459230307}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12.8, y: 6.4}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2dcd8361f0aa849b484a06abd6b25f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &459230313
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459230307}
   serializedVersion: 2
-  m_Size: {x: 12.8, y: 6.4}
-  m_EdgeRadius: 0
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &781880559
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -436,6 +453,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: VoiceManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
+        type: 3}
+      propertyPath: mc_loadingScene
+      value: 
+      objectReference: {fileID: 1248292531506328455, guid: 38d1874bc80f843439a1cd81bef23ac9,
+        type: 3}
     - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[0].sf_pitch
@@ -524,6 +547,7 @@ GameObject:
   - component: {fileID: 1188531260}
   - component: {fileID: 1188531259}
   - component: {fileID: 1188531258}
+  - component: {fileID: 1188531261}
   m_Layer: 0
   m_Name: Witch
   m_TagString: Untagged
@@ -531,18 +555,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1188531258
-MonoBehaviour:
+--- !u!65 &1188531258
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1188531257}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2775b0f320a19764a9d810de0fd940d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 2
+  m_Size: {x: 5.3699994, y: 7.9999995, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!212 &1188531259
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -608,6 +633,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1188531261
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1188531257}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1475267097
 GameObject:
   m_ObjectHideFlags: 0
@@ -619,7 +660,9 @@ GameObject:
   - component: {fileID: 1475267100}
   - component: {fileID: 1475267099}
   - component: {fileID: 1475267098}
+  - component: {fileID: 1475267102}
   - component: {fileID: 1475267101}
+  - component: {fileID: 1475267103}
   m_Layer: 0
   m_Name: BoneStick1
   m_TagString: Untagged
@@ -704,32 +747,47 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.425}
---- !u!61 &1475267101
-BoxCollider2D:
+--- !u!65 &1475267101
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475267097}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 12.800002, y: 6.400001, z: 3}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1475267102
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1475267097}
   m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 12.8, y: 6.4}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc2dcd8361f0aa849b484a06abd6b25f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &1475267103
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475267097}
   serializedVersion: 2
-  m_Size: {x: 12.8, y: 6.4}
-  m_EdgeRadius: 0
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1492056902
 GameObject:
   m_ObjectHideFlags: 0
@@ -1108,7 +1166,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1889099424}
   - component: {fileID: 1889099423}
-  - component: {fileID: 1889099422}
   m_Layer: 0
   m_Name: Grengel
   m_TagString: Untagged
@@ -1116,18 +1173,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1889099422
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889099421}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2775b0f320a19764a9d810de0fd940d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1889099423
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1203,7 +1248,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2115427296}
   - component: {fileID: 2115427295}
-  - component: {fileID: 2115427294}
   - component: {fileID: 2115427297}
   m_Layer: 0
   m_Name: Hansel
@@ -1212,18 +1256,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2115427294
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2115427293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2775b0f320a19764a9d810de0fd940d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &2115427295
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Epi10_TTS : MonoBehaviour
 {
-private bool mb_CheckOncePlaying = true;
+    private bool mb_CheckOncePlaying = true;
     private VoiceManager mvm_PlayVoiceManager;
     // Start is called before the first frame update
     void Start()
