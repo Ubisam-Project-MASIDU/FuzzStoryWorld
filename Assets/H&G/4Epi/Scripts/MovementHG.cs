@@ -7,10 +7,15 @@ public class MovementHG : MonoBehaviour
 {
     private GameObject Gratel;
     private GameObject Hansel;
-    private GameObject Rock;
+
+    private GameObject Dad;
+    private GameObject Mom;
 
     private Vector3 GratelPos;
     private Vector3 HanselPos;
+
+    private Vector3 DadPos;
+    private Vector3 MomPos;
 
     private GameObject RockRight;
     private GameObject RockMid;
@@ -29,8 +34,14 @@ public class MovementHG : MonoBehaviour
         Gratel = GameObject.Find("Gratel");
         Hansel = GameObject.Find("Hansel");
 
-        GratelPos = new Vector3(-0.5f,-6.1f,20.0f);
+        Dad = GameObject.Find("Dad");
+        Mom = GameObject.Find("Mom");
+
+        GratelPos = new Vector3(0.0f,-6.1f,20.0f);
         HanselPos = new Vector3(1.0f,-5.9f,20.0f);
+
+        DadPos = new Vector3(-5.0f,-6.1f,20.0f);
+        MomPos = new Vector3(-5.0f,-5.9f,20.0f);
 
         RockRight = GameObject.Find("rockright");
         RockMid = GameObject.Find("rockmid");
@@ -47,6 +58,9 @@ public class MovementHG : MonoBehaviour
     }
 
     void Update(){
+        Dad.transform.position = Vector3.MoveTowards(Dad.transform.position,DadPos,0.5f);
+        Mom.transform.position = Vector3.MoveTowards(Mom.transform.position,MomPos,0.5f);
+
         Gratel.transform.position = Vector3.MoveTowards(Gratel.transform.position, GratelPos, 0.05f);
         Hansel.transform.position = Vector3.MoveTowards(Hansel.transform.position, HanselPos, 0.05f);
 
