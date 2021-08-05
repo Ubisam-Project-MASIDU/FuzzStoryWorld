@@ -19,6 +19,8 @@ public class PlayVoice : MonoBehaviour
         if (mvm_PlayVoiceManager.mb_checkSceneReady && mb_CheckOncePlaying) {
             mvm_PlayVoiceManager.playVoice(0);
             mb_CheckOncePlaying = false;
+        }
+        if (!mvm_PlayVoiceManager.isPlaying() && mvm_PlayVoiceManager.mb_checkSceneReady) {
             Invoke("nextSceneLoad", 2f);
         }
     }
