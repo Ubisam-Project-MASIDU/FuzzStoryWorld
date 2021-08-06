@@ -1,4 +1,4 @@
-using System.Collections;
+嚜簑sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,18 +33,6 @@ public class PopItem : MonoBehaviour
             }
             delta = 0;
         }
-
-        Debug.Log(StopFlag);
-    }
-
-    void OnCollisionEnter(Collision cCollidObj)
-    {
-        //Debug.Log("醱給 馬雖");
-        if (StopFlag == true)
-        {
-            Debug.Log("醱給 馬雖");
-        }
-        
     }
 
     public bool ReturnStopFlag()
