@@ -65,7 +65,11 @@ public class ManageArray : MonoBehaviour
                     //가로로 확인
                     for (int k = j + 1; k < 7; k++)
                     {
-                        if (cursor != ItemArray[i, k] && distance < 3)
+                        if(cursor == 9)
+                        {
+                            break;
+                        }
+                        else if (cursor != ItemArray[i, k] && distance < 3)
                         {
                             break;
                         }
@@ -75,34 +79,21 @@ public class ManageArray : MonoBehaviour
                         }
                         else if (cursor == ItemArray[i, k] && k == 6 || cursor != ItemArray[i, k] && distance >= 3)
                         {
-                            Debug.Log("i : " + i + " j : " + j + " cursor : " + cursor);
+                            Debug.Log("i : " + i + " j : " + j + " cursor : " + cursor + " distance : " + distance);
                             
-                            /*
-                            for (int n = 0; n <= distance; n++)
+                            
+                            for (int n = 0; n < distance; n++)
                             {
-                                //ItemArray[i, j+n] = -1;
-                                
-                                if (j == 1)
-                                    GameDirector.GetComponent<GenerateItem>().v_DestroyObject(i, j + n);
-                                else if (j == 2)
-                                    GameDirector.GetComponent<GenerateItem>().v_DestroyObject(i, j + n);
-                                else if (j == 3)
-                                    GameDirector.GetComponent<GenerateItem>().v_DestroyObject(i, j + n);
-                                else if (j == 4)
-                                    GameDirector.GetComponent<GenerateItem>().v_DestroyObject(i, j + n);
-                                else if (j == 5)
-                                    GameDirector.GetComponent<GenerateItem>().v_DestroyObject(i, j + n);
-                                else if (j == 6)
-                                    GameDirector.GetComponent<GenerateItem>().v_DestroyObject(i, j + n);
-
+                                ItemArray[i, j+n] = 9;
+                                GameDirector.GetComponent<GenerateItem>().v_DestroyObject(j+n+1, i);
                             }
-                            */  
+                            
                             break;
                         }
                     }
                 }
             }
-            //ShowItemArray();
+            ShowItemArray();
         }
 
 
@@ -122,6 +113,7 @@ public class ManageArray : MonoBehaviour
 
     public void ShowItemArray()
     {
+        TextArray = "아이템 배치표\n";
         for (int i=0; i<6; i++)
         {
             for (int j=0; j<7; j++)

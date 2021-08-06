@@ -33,18 +33,6 @@ public class PopItem : MonoBehaviour
             }
             delta = 0;
         }
-
-        Debug.Log(StopFlag);
-    }
-
-    void OnCollisionEnter(Collision cCollidObj)
-    {
-        //Debug.Log("충돌 감지");
-        if (StopFlag == true)
-        {
-            Debug.Log("충돌 감지");
-        }
-        
     }
 
     public bool ReturnStopFlag()

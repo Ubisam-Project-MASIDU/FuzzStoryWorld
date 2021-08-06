@@ -14,35 +14,36 @@ public class GenerateItem : MonoBehaviour
     GameObject GenItem;
     GameObject DeletedObject;
 
-    GameObject Row1;
-    GameObject Row2;
-    GameObject Row3;
-    GameObject Row4;
-    GameObject Row5;
-    GameObject Row6;
-    GameObject Row7;
+    GameObject Col1;
+    GameObject Col2;
+    GameObject Col3;
+    GameObject Col4;
+    GameObject Col5;
+    GameObject Col6;
+    GameObject Col7;
     float delta = 0;
 
+    bool IsStopFlag = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        Row1 = GameObject.Find("Row1");
-        Row2 = GameObject.Find("Row2");
-        Row3 = GameObject.Find("Row3");
-        Row4 = GameObject.Find("Row4");
-        Row5 = GameObject.Find("Row5");
-        Row6 = GameObject.Find("Row6");
-        Row7 = GameObject.Find("Row7");
+        Col1 = GameObject.Find("Col1");
+        Col2 = GameObject.Find("Col2");
+        Col3 = GameObject.Find("Col3");
+        Col4 = GameObject.Find("Col4");
+        Col5 = GameObject.Find("Col5");
+        Col6 = GameObject.Find("Col6");
+        Col7 = GameObject.Find("Col7");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        IsStop();
     }
 
-    public void v_GenItem(int ItemNumber, int RowNumber)
+    public void v_GenItem(int ItemNumber, int ColNumber)
     {
 
         if (ItemNumber == 1)
@@ -60,51 +61,77 @@ public class GenerateItem : MonoBehaviour
         else if (ItemNumber == 7)
             GenItem = Instantiate(Item7_Star) as GameObject;
 
-        if (RowNumber == 1)
+        if (ColNumber == 1)
         {
-            GenItem.transform.SetParent(Row1.transform);
+            GenItem.transform.SetParent(Col1.transform);
             GenItem.transform.position = new Vector3(-6, 8, 0);
         }
-        else if (RowNumber == 2)
+        else if (ColNumber == 2)
         {
-            GenItem.transform.SetParent(Row2.transform);
+            GenItem.transform.SetParent(Col2.transform);
             GenItem.transform.position = new Vector3(-4, 8, 0);
         }
-        else if (RowNumber == 3)
+        else if (ColNumber == 3)
         {
-            GenItem.transform.SetParent(Row3.transform);
+            GenItem.transform.SetParent(Col3.transform);
             GenItem.transform.position = new Vector3(-2, 8, 0);
         }
-        else if (RowNumber == 4)
+        else if (ColNumber == 4)
         {
-            GenItem.transform.SetParent(Row4.transform);
+            GenItem.transform.SetParent(Col4.transform);
             GenItem.transform.position = new Vector3(0, 8, 0);
         }
-        else if (RowNumber == 5)
+        else if (ColNumber == 5)
         {
-            GenItem.transform.SetParent(Row5.transform);
+            GenItem.transform.SetParent(Col5.transform);
             GenItem.transform.position = new Vector3(2, 8, 0);
         }
-        else if (RowNumber == 6)
+        else if (ColNumber == 6)
         {
-            GenItem.transform.SetParent(Row6.transform);
+            GenItem.transform.SetParent(Col6.transform);
             GenItem.transform.position = new Vector3(4, 8, 0);
         }
-        else if (RowNumber == 7)
+        else if (ColNumber == 7)
         {
-            GenItem.transform.SetParent(Row7.transform);
+            GenItem.transform.SetParent(Col7.transform);
             GenItem.transform.position = new Vector3(6, 8, 0);
         }
     }
 
-    public void v_DestroyObject(int RowNumber, int ChildNumber)
+    public void v_DestroyObject(int ColNumber, int ChildNumber)
     {
-        if (Row1.transform.childCount == 6)
+        if (IsStopFlag == true)
         {
-            DeletedObject = Row1.transform.GetChild(6 - ChildNumber).gameObject;
-            if(DeletedObject.gameObject != null)
+            if(ColNumber == 1)
+                DeletedObject = Col1.transform.GetChild(5 - ChildNumber).gameObject;
+            else if(ColNumber == 2)
+                DeletedObject = Col2.transform.GetChild(5 - ChildNumber).gameObject;
+            else if (ColNumber == 3)
+                DeletedObject = Col3.transform.GetChild(5 - ChildNumber).gameObject;
+            else if (ColNumber == 4)
+                DeletedObject = Col4.transform.GetChild(5 - ChildNumber).gameObject;
+            else if (ColNumber == 5)
+                DeletedObject = Col5.transform.GetChild(5 - ChildNumber).gameObject;
+            else if (ColNumber == 6)
+                DeletedObject = Col6.transform.GetChild(5 - ChildNumber).gameObject;
+
+            Debug.Log("ColNumber : " + ColNumber + " ChildNumber : " + ChildNumber);
+            if (DeletedObject.gameObject != null)
                 Destroy(DeletedObject.gameObject, 3);
+            DeletedObject = null;
         }
     }
 
+    public void IsStop()
+    {
+        if (Col1.transform.childCount == 6 && Col2.transform.childCount == 6 && Col3.transform.childCount == 6 && Col4.transform.childCount == 6 && Col5.transform.childCount == 6 && Col6.transform.childCount == 6)
+            IsStopFlag = true;
+        else
+            IsStopFlag = false;
+    }
+
+    public bool ReturnIsStopFlag()
+    {
+        return IsStopFlag;
+    }
 }
