@@ -1,0 +1,25 @@
+fileFormatVersion: 2
+guid: 1e779b7d5213ff644882effc23861f17
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - mg_Item1Orange: {fileID: 3379337205994270722, guid: 77fd8b7e605f9f843b8bd695a803564a,
+      type: 3}
+  - mg_Item2Red: {fileID: 977602731366415420, guid: 4cc86d30494c9e740893b9854475b534,
+      type: 3}
+  - mg_Item3Purple: {fileID: 1704777919335554325, guid: 44b90ccfb02f9424a8182339dbd4cf54,
+      type: 3}
+  - mg_Item4Blue: {fileID: 5495854519203807407, guid: 3794452f1edb21d4d89006b627a3c2eb,
+      type: 3}
+  - mg_Item5Green: {fileID: 7879551490013462303, guid: 6d04e9ce7f465fe4e8a693b1bffb717e,
+      type: 3}
+  - mg_Item6Yellow: {fileID: 1189471027636258171, guid: 5e726663e720fb84493d403c475a9b2c,
+      type: 3}
+  - mg_Item7Star: {fileID: 354651604439116722, guid: dd9f056ed09f6d2429d2c694445c45bb,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
