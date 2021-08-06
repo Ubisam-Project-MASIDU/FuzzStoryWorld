@@ -297,10 +297,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1.2
-  m_Text: "         \n           \uC61B\uB0A0\uC61B\uC801 \uC5B4\uB290 \uC2DC\uACE8\uB9C8\uC744\uC5D0
-    \uD5E8\uC824\uACFC \uADF8\uB808\uD154\uC774 \uC0B4\uACE0 \uC788\uC5C8\uC5B4\uC694.
-    \n        \uD5E8\uC824\uACFC \uADF8\uB808\uD154\uC740 \uAC00\uB09C\uD55C \uB098\uBB34\uAFBC
-    \uC544\uBE60\uC640 \uC0C8\uC5C4\uB9C8\uC640 \uD568\uAED8 \uC0B4\uC558\uC5B4\uC694.      
+  m_Text: "         \n               \uD5E8\uC824\uC740 \uBD80\uBAA8\uB2D8\uC758
+    \uC774\uC57C\uAE30\uB97C \uB4E3\uACE0, \n       \uBAB0\uB798 \uBC16\uC73C\uB85C
+    \uB098\uAC00 \uC870\uC57D\uB3CC\uC744 \uC90D\uAE30 \uC2DC\uC791\uD588\uC5B4\uC694.   
     \n"
 --- !u!114 &5016832935403608145
 MonoBehaviour:
