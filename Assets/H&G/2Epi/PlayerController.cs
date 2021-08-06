@@ -12,5 +12,10 @@ public class PlayerController : MonoBehaviour
     public void ButtonDown()
     {
         transform.Translate(1, 0, 0);
+        Debug.Log("buttonPress");
+        
     }
+
+ 
+    
 }

@@ -1,17 +1,45 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
+
 
 public class Click : MonoBehaviour
 {
+    Rigidbody rb;
+    public float speed;
 
-    public void LeftClick()
+    int count = 0;
+
+    public Text DoorClickText;
+
+    void Start()
     {
+        rb.GetComponent<Rigidbody>();
+        DoorClickText.text = "";
 
-        Debug.Log("Left");
     }
-    
+
+    void Update()
+    {
+        
+    }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.tag == "stop")
+        {
+            Debug.Log("Ãæµ¹");
+            DoorClickText.text = "";
+            
+            //ÆË¾÷Ã¢ ¶ç¿ö¼­ ºÎ¸ð´Ô ¾ê±âÇÏ´Â°Å µé¸®°ÔÇÏ±â
+        }
+
+
+
+    }
+
 
     // Start is called before the first frame update
-    
+
 }
