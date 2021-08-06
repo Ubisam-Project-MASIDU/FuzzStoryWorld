@@ -9,9 +9,7 @@ public class ManageArray : MonoBehaviour
     string TextArray = "아이템 배치표\n";
 
     GameObject GameDirector;
-    GameObject DestroyObject;
     float delta = 0;
-    bool InitFlag = false;
     bool GenerateFlag = true;
     int i = 5;
 

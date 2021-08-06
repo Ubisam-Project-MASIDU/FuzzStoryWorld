@@ -21,7 +21,6 @@ public class GenerateItem : MonoBehaviour
     GameObject Col5;
     GameObject Col6;
     GameObject Col7;
-    float delta = 0;
 
     bool IsStopFlag = false;
 
