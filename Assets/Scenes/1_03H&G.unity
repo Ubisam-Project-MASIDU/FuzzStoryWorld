@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -428,12 +428,8 @@ PrefabInstance:
     - target: {fileID: 5016832935403608147, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
         type: 3}
       propertyPath: m_Text
-      value: "          \n         \uD5E8\uC824\uACFC \uADF8\uB808\uD154\uC740 \uBF08\uB2E4\uADC0\uB97C
-        \uC190 \uB300\uC2E0 \uB0B4\uBC00\uC5C8\uC2B5\uB2C8\uB2E4. \n         \uD55C\uCC38\uC774
-        \uC9C0\uB098\uB3C4\uC0B4\uC774 \uCC0C\uC9C0 \uC54A\uC790 \uCC38\uC9C0 \uBABB\uD55C
-        \uB9C8\uB140\uB294 \uB458\uB2E4 \uC7A1\uC544\uBA39\uC73C\uB824 \uD588\uC2B5\uB2C8\uB2E4.\r    
-        \n\uAC81\uC5D0 \uC9C8\uB9B0 \uC544\uC774\uB4E4\uC740 \uB9C8\uB140\uC5D0\uAC8C
-        \uBC97\uC5B4\uB098\uB824\uACE0 \uC2DC\uB3C4\uD588\uC2B5\uB2C8\uB2E4.\r\n"
+      value: "      \uD5E8\uC824\uC740 \uBAB0\uB798 \uBC16\uC73C\uB85C \uB098\uAC00
+        \uBC18\uC9DD\uC774\uB294 \uC870\uC57D\uB3CC\uC744 \uC90D\uAE30 \uC2DC\uC791\uD588\uC5B4\uC694.    "
       objectReference: {fileID: 0}
     - target: {fileID: 5016832935403608147, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
         type: 3}
