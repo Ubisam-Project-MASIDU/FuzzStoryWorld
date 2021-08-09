@@ -66,7 +66,7 @@ public class Movement : MonoBehaviour
     void Start(){
         mgo_Gratel = GameObject.Find("Gratel");
         mgo_Hansel = GameObject.Find("Hansel");
-        mv3_GratelPos = new Vector3(-1.5f,6.8f,-6.0f);
+        mv3_GratelPos = new Vector3(-1.5f,6.8f,-6.0f);           // 그레텔 이동할 목표위치 
         mv3_HanselPos = new Vector3(0.4f,7.0f,-6.0f);
 
         mgo_Dad = GameObject.Find("Dad");
@@ -89,31 +89,31 @@ public class Movement : MonoBehaviour
     }
 
     void Update(){
-        if (vm.mb_checkSceneReady){                                                 //tts 사용전 작업이 다 준비되면
-            ChangePosition(mgo_Gratel,mv3_GratelPos,0.05f);                         //그레텔 이동
-            ChangePosition(mgo_Hansel,mv3_HanselPos,0.05f);                         //헨젤 이동
+        if (vm.mb_checkSceneReady){                                                 // tts 사용전 작업이 다 준비되면
+            ChangePosition(mgo_Gratel,mv3_GratelPos,0.05f);                         // 그레텔 이동
+            ChangePosition(mgo_Hansel,mv3_HanselPos,0.05f);                         // 헨젤 이동
 
-            ChangePosition(mgo_Dad,mv3_DadPos,0.1f);                                //아버지 이동
-            ChangePosition(mgo_Mom,mv3_MomPos,0.1f);                                //어머니 이동
+            ChangePosition(mgo_Dad,mv3_DadPos,0.1f);                                // 아버지 이동
+            ChangePosition(mgo_Mom,mv3_MomPos,0.1f);                                // 어머니 이동
 
-            ChangePosition(mgo_RockRight,mv3_RockRightPosBefore,0.05f);             //첫번째 돌 이동
-            ChangePosition(mgo_RockMid,mv3_RockMidPosBefore,0.05f);                 //두번째 돌 이동
-            ChangePosition(mgo_RockLeft,mv3_RockLeftPosBefore,0.05f);               //세번째 돌 이동
+            ChangePosition(mgo_RockRight,mv3_RockRightPosBefore,0.05f);             // 첫번째 돌 이동
+            ChangePosition(mgo_RockMid,mv3_RockMidPosBefore,0.05f);                 // 두번째 돌 이동
+            ChangePosition(mgo_RockLeft,mv3_RockLeftPosBefore,0.05f);               // 세번째 돌 이동
 
             if(mgo_Hansel.transform.position.x <= 8) {
-                ChangePosition(mgo_RockRight,mv3_RockRightPosAfter,0.05f);          //첫번째 돌 떨어뜨리기
-                else if(mgo_Hansel.transform.position.x <= 5) {
-                    ChangePosition(mgo_RockMid,mv3_RockMidPosAfter,0.05f);          //두번째 돌 떨어뜨리기
-                    else if(mgo_Hansel.transform.position.x <= 2) {
-                        ChangePosition(mgo_RockLeft,mv3_RockLeftPosAfter,0.05f);    //세번째 돌 떨어뜨리기    
-                    }
+                ChangePosition(mgo_RockRight,mv3_RockRightPosAfter,0.05f);          // 첫번째 돌 떨어뜨리기
+                if(mgo_Hansel.transform.position.x <= 5) {
+                   ChangePosition(mgo_RockMid,mv3_RockMidPosAfter,0.05f);          // 두번째 돌 떨어뜨리기
+                   if(mgo_Hansel.transform.position.x <= 2) {
+                        ChangePosition(mgo_RockLeft,mv3_RockLeftPosAfter,0.05f);    // 세번째 돌 떨어뜨리기    
+                   }
                 }
             }   
         }
     }
 
-    //go_Object가  v3_Pos위치로 f_Velocity 속력으로 이동하는 함수 
-    void ChangePosition(GameObject go_Object,Vector3 v3_Pos,float f_Velocity){
-        go_Object.transform.position = Vector3.MoveTowards(go_Object.transform.position,v3_Pos,f_Velocity);
+    // goObject가  v3Pos위치로 fVelocity 속력으로 이동하는 함수 
+    void ChangePosition(GameObject goObject, Vector3 v3Pos, float fVelocity){
+        goObject.transform.position = Vector3.MoveTowards(goObject.transform.position,v3Pos,fVelocity);
     }
 }
