@@ -5,11 +5,13 @@ using UnityEngine;
 public class Collision : MonoBehaviour
 {
     Vector3 mv3_initPos;
+    public int count;
    
     // Start is called before the first frame update
     void Start()
     {
         mv3_initPos = this.transform.position;
+        count = 0;
     }
 
     // Update is called once per frame
@@ -25,6 +27,7 @@ public class Collision : MonoBehaviour
             if (collision.tag == this.tag)
             {
                 Debug.Log("2");
+                count++;
                 Destroy(this.gameObject);
             }
         }
