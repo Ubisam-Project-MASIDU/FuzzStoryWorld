@@ -66,23 +66,24 @@ public class Movement : MonoBehaviour
     void Start(){
         mgo_Gratel = GameObject.Find("Gratel");
         mgo_Hansel = GameObject.Find("Hansel");
-        mv3_GratelPos = new Vector3(0.0f,-6.1f,20.0f);
-        mv3_HanselPos = new Vector3(1.0f,-5.9f,20.0f);
+        mv3_GratelPos = new Vector3(-1.5f,6.8f,-6.0f);
+        mv3_HanselPos = new Vector3(0.4f,7.0f,-6.0f);
 
         mgo_Dad = GameObject.Find("Dad");
         mgo_Mom = GameObject.Find("Mom");
-        mv3_DadPos = new Vector3(-5.0f,-6.1f,20.0f);
-        mv3_MomPos = new Vector3(-5.0f,-5.9f,20.0f);
+        mv3_DadPos = new Vector3(-13.0f,7.5f,-6.0f);
+        mv3_MomPos = new Vector3(-12.0f,7.5f,-6.0f);
 
         mgo_RockRight = GameObject.Find("rockright");
         mgo_RockMid = GameObject.Find("rockmid");
         mgo_RockLeft = GameObject.Find("rockleft");
-        mv3_RockRightPosBefore = new Vector3(2.0f,-6.6f,20.0f);
-        mv3_RockMidPosBefore = new Vector3(2.0f,-6.6f,20.0f);
-        mv3_RockLeftPosBefore = new Vector3(1.0f,-6.6f,20.0f);
-        mv3_RockRightPosAfter = new Vector3(4.0f,-6.8f,20.0f);
-        mv3_RockMidPosAfter = new Vector3(3.0f,-6.8f,20.0f);
-        mv3_RockLeftPosAfter = new Vector3(2.0f,-6.8f,20.0f);
+        
+        mv3_RockRightPosBefore = new Vector3(0.4f,7.0f,-6.0f);
+        mv3_RockMidPosBefore = new Vector3(0.4f,6.0f,-6.0f);
+        mv3_RockLeftPosBefore = new Vector3(0.4f,6.0f,-6.0f);
+        mv3_RockRightPosAfter = new Vector3(9.0f,6.0f,-6.0f);
+        mv3_RockMidPosAfter = new Vector3(6.0f,6.0f,-6.0f);
+        mv3_RockLeftPosAfter = new Vector3(3.0f,6.0f,-6.0f);
 
         this.vm = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();
     }
@@ -99,18 +100,18 @@ public class Movement : MonoBehaviour
             ChangePosition(mgo_RockMid,mv3_RockMidPosBefore,0.05f);                 //두번째 돌 이동
             ChangePosition(mgo_RockLeft,mv3_RockLeftPosBefore,0.05f);               //세번째 돌 이동
 
-            if(mgo_Hansel.transform.position.x <= 3) {
+            if(mgo_Hansel.transform.position.x <= 8) {
                 ChangePosition(mgo_RockRight,mv3_RockRightPosAfter,0.05f);          //첫번째 돌 떨어뜨리기
-                if(mgo_Hansel.transform.position.x <= 2) {
+                if(mgo_Hansel.transform.position.x <= 5) {
                     ChangePosition(mgo_RockMid,mv3_RockMidPosAfter,0.05f);          //두번째 돌 떨어뜨리기
-                    if(mgo_Hansel.transform.position.x <= 1.6) {
+                    if(mgo_Hansel.transform.position.x <= 2) {
                         ChangePosition(mgo_RockLeft,mv3_RockLeftPosAfter,0.05f);    //세번째 돌 떨어뜨리기    
                     }
                 }
             }   
         }
     }
-    
+
     //go_Object가  v3_Pos위치로 f_Velocity 속력으로 이동하는 함수 
     void ChangePosition(GameObject go_Object,Vector3 v3_Pos,float f_Velocity){
         go_Object.transform.position = Vector3.MoveTowards(go_Object.transform.position,v3_Pos,f_Velocity);

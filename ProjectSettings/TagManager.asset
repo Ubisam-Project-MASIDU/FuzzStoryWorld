@@ -7,6 +7,14 @@ TagManager:
   - Square
   - Circle
   - Triangle
+  - Purple
+  - Blue
+  - Orange
+  - Red
+  - Green
+  - Star
+  - Yellow
+  - stop
   layers:
   - Default
   - TransparentFX
