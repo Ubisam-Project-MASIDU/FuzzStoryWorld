@@ -13,8 +13,10 @@
  * mg_GameDirector                                  오브젝트 연결을 위한 변수 -> 게임디렉터 오브젝트 내 다른 속성에 접근할때 사용한다.
  * ma2_ItemArray                                    아이템 배치값을 저장해두는 2차원 배열 
  * ms_TextArray                                     아이템 배치값을 저장해두는 String
- * 
- * 
+ * mf_delta                                         흐른 시간을 저장해두는 변수
+ * mn_i                                             처음 아이템 생성을 위해 사용되는 변수
+ * mn_cursor                                        값이 같은지 확인하기 위해 값을 저장해 두는 변수
+ * mn_distance                                      아이템의 같은 값이 얼마나 있는지 저장해두는 변수
  * 
  * - Function
  * v_GenItem(int ItemNumber, int ColNumber)         아이템을 생성해주는 함수
@@ -34,23 +36,17 @@ public class ManageArray : MonoBehaviour
     int[,] ma2_ItemArray = new int[6,7];                                    // 아이템 배치값을 저장해두는 2차원 배열 
     string ms_TextArray = "아이템 배치표\n";                                // 아이템 배치값을 저장해두는 String
     float mf_delta = 0;                                                     // 흐른 시간을 저장해두는 변수
-    int mn_i = 5;                                                           // 
-
-    int cursor;
-    int distance;
-
-
-
-
+    int mn_i = 5;                                                           // 처음 아이템 생성을 위해 사용되는 변수
+    int mn_cursor;                                                          // 값이 같은지 확인하기 위해 값을 저장해 두는 변수
+    int mn_distance;                                                        // 아이템의 같은 값이 얼마나 있는지 저장해두는 변수
 
     // Start is called before the first frame update
     void Start()
     {
-        mg_GameDirector = GameObject.Find("GameDirector");
+        mg_GameDirector = GameObject.Find("GameDirector");                  // 오브젝트 연결
 
-        InitItemArray();
-        ShowItemArray();
-
+        InitItemArray();                                                    // 아이템 관리 배열 생성
+        ShowItemArray();                                                    // 생성된 아이템 관리배열을 로그에 출력
     }
 
     // Update is called once per frame
@@ -73,35 +69,35 @@ public class ManageArray : MonoBehaviour
 
 
         //터지는거 확인
-        if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true)
+        if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true)                // 움직이지 않는 상태인지 확인하고 실행
         {
             for (int i = 0; i < 6; i++)
             {
                 for (int j = 0; j < 7; j++)
                 {
-                    distance = 1;
-                    cursor = ma2_ItemArray[i, j];
+                    mn_distance = 1;
+                    mn_cursor = ma2_ItemArray[i, j];
                     //가로로 확인
                     for (int k = j + 1; k < 7; k++)
                     {
-                        if(cursor == 9)
+                        if(mn_cursor == 9)
                         {
                             break;
                         }
-                        else if (cursor != ma2_ItemArray[i, k] && distance < 3)
+                        else if (mn_cursor != ma2_ItemArray[i, k] && mn_distance < 3)
                         {
                             break;
                         }
-                        else if (cursor == ma2_ItemArray[i, k] && k <= 6)
+                        else if (mn_cursor == ma2_ItemArray[i, k] && k <= 6)
                         {
-                            distance++;
+                            mn_distance++;
                         }
-                        if (cursor == ma2_ItemArray[i, k] && k == 6 && distance >= 3|| cursor != ma2_ItemArray[i, k] && distance >= 3)
+                        if (mn_cursor == ma2_ItemArray[i, k] && k == 6 && mn_distance >= 3|| mn_cursor != ma2_ItemArray[i, k] && mn_distance >= 3)
                         {
-                            Debug.Log("i : " + i + " j : " + j + " cursor : " + cursor + " distance : " + distance);
+                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : " + mn_cursor + " mn_distance : " + mn_distance);
                             
                             
-                            for (int n = 0; n < distance; n++)
+                            for (int n = 0; n < mn_distance; n++)
                             {
                                 ma2_ItemArray[i, j+n] = 9;
                                 mg_GameDirector.GetComponent<ManageItem>().v_DestroyObject(j+n+1, i);
@@ -118,7 +114,11 @@ public class ManageArray : MonoBehaviour
 
 
     }
+    #region 함수 선언부
 
+    /// <summary>
+    /// 처음 아이템 관리 배열을 생성해주는 함수
+    /// </summary>
     public void InitItemArray()
     {
         for (int i = 0; i < 6; i++)
@@ -130,6 +130,9 @@ public class ManageArray : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 아이템 관리 배열을 출력해주는 함수
+    /// </summary>
     public void ShowItemArray()
     {
         ms_TextArray = "아이템 배치표\n";
@@ -143,5 +146,5 @@ public class ManageArray : MonoBehaviour
         }
         Debug.Log(ms_TextArray);
     }
-
+    #endregion
 }
