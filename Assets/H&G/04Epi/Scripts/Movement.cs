@@ -102,9 +102,9 @@ public class Movement : MonoBehaviour
 
             if(mgo_Hansel.transform.position.x <= 8) {
                 ChangePosition(mgo_RockRight,mv3_RockRightPosAfter,0.05f);          //첫번째 돌 떨어뜨리기
-                if(mgo_Hansel.transform.position.x <= 5) {
+                else if(mgo_Hansel.transform.position.x <= 5) {
                     ChangePosition(mgo_RockMid,mv3_RockMidPosAfter,0.05f);          //두번째 돌 떨어뜨리기
-                    if(mgo_Hansel.transform.position.x <= 2) {
+                    else if(mgo_Hansel.transform.position.x <= 2) {
                         ChangePosition(mgo_RockLeft,mv3_RockLeftPosAfter,0.05f);    //세번째 돌 떨어뜨리기    
                     }
                 }
