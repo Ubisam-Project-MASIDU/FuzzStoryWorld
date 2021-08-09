@@ -47,7 +47,7 @@ public class EatBread : MonoBehaviour
     private bool mb_tellonce = false;
 
 
-    // Epi6 시작하자마자 나레이션 출력
+    // 나레이션 출력
     void Start() {
         mvm_VoiceManager = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();
     }
@@ -60,7 +60,7 @@ public class EatBread : MonoBehaviour
     }
 
     if(mvm_VoiceManager.isPlaying() == false && mvm_VoiceManager.mb_checkSceneReady && !mb_tellonce) {
-        // 음성 출력이 끝나면 다음 씬으로 이동
+    // 음성 출력이 끝나면 다음 씬으로 이동
         changeNextScene();  
         mb_tellonce = true;
     }
