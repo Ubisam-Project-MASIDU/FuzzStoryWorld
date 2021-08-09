@@ -15,6 +15,11 @@ TagManager:
   - Star
   - Yellow
   - stop
+  - FxTemporaire
+  - homeController
+  - backController
+  - moving bird
+  - HAG
   layers:
   - Default
   - TransparentFX
