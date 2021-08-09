@@ -74,8 +74,6 @@ public class Movement : MonoBehaviour
         mv3_DadPos = new Vector3(-13.0f,7.5f,-6.0f);
         mv3_MomPos = new Vector3(-12.0f,7.5f,-6.0f);
 
-        Debug.Log(mgo_Mom.transform.position);
-
         mgo_RockRight = GameObject.Find("rockright");
         mgo_RockMid = GameObject.Find("rockmid");
         mgo_RockLeft = GameObject.Find("rockleft");
