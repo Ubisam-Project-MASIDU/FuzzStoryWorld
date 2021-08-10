@@ -21,8 +21,15 @@ TagManager:
   - moving bird
   - HAG
   - Pink
-  - bb1
-  - bb2
+  - puzzle2
+  - puzzle1
+  - puzzle3
+  - puzzle4
+  - puzzle5
+  - puzzle6
+  - puzzle7
+  - puzzle8
+  - puzzle9
   layers:
   - Default
   - TransparentFX
