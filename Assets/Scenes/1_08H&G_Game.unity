@@ -133,9 +133,9 @@ GameObject:
   m_Component:
   - component: {fileID: 47625645}
   - component: {fileID: 47625646}
-  - component: {fileID: 47625647}
   - component: {fileID: 47625648}
   - component: {fileID: 47625649}
+  - component: {fileID: 47625647}
   m_Layer: 0
   m_Name: Candy1
   m_TagString: Pink
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 47625644}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f71d1b48dcfe4664a4c47cd04f107b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 62ba769aac6fa4139a06de5557b3a60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!58 &47625648
@@ -342,9 +342,9 @@ GameObject:
   m_Component:
   - component: {fileID: 274107400}
   - component: {fileID: 274107401}
-  - component: {fileID: 274107402}
   - component: {fileID: 274107403}
   - component: {fileID: 274107404}
+  - component: {fileID: 274107402}
   m_Layer: 0
   m_Name: Candy3
   m_TagString: Blue
@@ -427,7 +427,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 274107399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f71d1b48dcfe4664a4c47cd04f107b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 62ba769aac6fa4139a06de5557b3a60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!58 &274107403
@@ -469,6 +469,7 @@ GameObject:
   - component: {fileID: 282595902}
   - component: {fileID: 282595901}
   - component: {fileID: 282595903}
+  - component: {fileID: 282595904}
   m_Layer: 0
   m_Name: RandomImage
   m_TagString: Untagged
@@ -557,6 +558,18 @@ MonoBehaviour:
   - {fileID: 1444003413273745160, guid: 0f4cab0131c4b4e7d82e5606d5368351, type: 3}
   - {fileID: 7076796846908671455, guid: 0f4cab0131c4b4e7d82e5606d5368351, type: 3}
   - {fileID: -2124064222441753371, guid: 0f4cab0131c4b4e7d82e5606d5368351, type: 3}
+--- !u!114 &282595904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282595900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ba769aac6fa4139a06de5557b3a60c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &342054908
 GameObject:
   m_ObjectHideFlags: 0
@@ -743,9 +756,9 @@ GameObject:
   m_Component:
   - component: {fileID: 488328145}
   - component: {fileID: 488328146}
-  - component: {fileID: 488328147}
   - component: {fileID: 488328148}
   - component: {fileID: 488328149}
+  - component: {fileID: 488328147}
   m_Layer: 0
   m_Name: Candy2
   m_TagString: Yellow
@@ -828,7 +841,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 488328144}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f71d1b48dcfe4664a4c47cd04f107b6, type: 3}
+  m_Script: {fileID: 11500000, guid: 62ba769aac6fa4139a06de5557b3a60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!58 &488328148
@@ -1248,6 +1261,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &960274977
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960274978}
+  - component: {fileID: 960274979}
+  m_Layer: 0
+  m_Name: GameDirector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &960274978
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960274977}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.153655, y: 2.1770864, z: -7.8710203}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &960274979
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960274977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 891d810782dbb4c93aefa09ec9bbffe7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1116710178
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1484,6 +1540,8 @@ GameObject:
   - component: {fileID: 1257072893}
   - component: {fileID: 1257072892}
   - component: {fileID: 1257072894}
+  - component: {fileID: 1257072895}
+  - component: {fileID: 1257072896}
   m_Layer: 0
   m_Name: Hansel
   m_TagString: Untagged
@@ -1566,12 +1624,45 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 1}
   serializedVersion: 2
   m_Radius: 1.2
+--- !u!114 &1257072895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257072891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ba769aac6fa4139a06de5557b3a60c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &1257072896
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1257072891}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &1401595373
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1983,6 +2074,8 @@ GameObject:
   - component: {fileID: 2071587775}
   - component: {fileID: 2071587774}
   - component: {fileID: 2071587776}
+  - component: {fileID: 2071587777}
+  - component: {fileID: 2071587778}
   m_Layer: 0
   m_Name: Gratel
   m_TagString: Untagged
@@ -2065,9 +2158,42 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.1, y: 1}
   serializedVersion: 2
   m_Radius: 1.2
+--- !u!114 &2071587777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071587773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62ba769aac6fa4139a06de5557b3a60c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &2071587778
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071587773}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
