@@ -20,6 +20,7 @@ TagManager:
   - backController
   - moving bird
   - HAG
+  - Pink
   layers:
   - Default
   - TransparentFX
