@@ -745,10 +745,12 @@ PrefabInstance:
     - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[0].sstr_words
-      value: "\uC61B\uB0A0\uC61B\uC801 \uC5B4\uB290 \uC2DC\uACE8\uB9C8\uC744\uC5D0
-        \uD5E8\uC824\uACFC \uADF8\uB808\uD154\uC774 \uC0B4\uACE0 \uC788\uC5C8\uC5B4\uC694.
-        \uD5E8\uC824\uACFC \uADF8\uB808\uD154\uC740 \uAC00\uB09C\uD55C \uB098\uBB34\uAFBC
-        \uC544\uBE60\uC640 \uC0C8\uC5C4\uB9C8\uC640 \uD568\uAED8 \uC0B4\uC558\uC5B4\uC694."
+      value: Apple is delicious
+      objectReference: {fileID: 0}
+    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[0].svt_voiceType
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
         type: 3}
