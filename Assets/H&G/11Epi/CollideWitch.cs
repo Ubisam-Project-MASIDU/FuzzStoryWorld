@@ -5,10 +5,14 @@ using UnityEngine;
 public class CollideWitch : MonoBehaviour
 {
 
-    void OnTriggerEnter2D(Collider2D cCollider) {
+    void OnTriggerEnter(Collider cCollider) {
 
-        if (this.tag == "bb1" ){
-            Destroy(this.gameObject);          
+        if (cCollider.tag == "bb1" ){
+            Destroy(cCollider.gameObject);          
         }    
+        
+        else if (cCollider.tag == "bb2" ){
+            Destroy(cCollider.gameObject);          
+        }  
     }
 }
