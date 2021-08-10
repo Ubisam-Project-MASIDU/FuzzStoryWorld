@@ -21,6 +21,8 @@ TagManager:
   - moving bird
   - HAG
   - Pink
+  - bb1
+  - bb2
   layers:
   - Default
   - TransparentFX
