@@ -42,6 +42,7 @@ public class ManageArray : MonoBehaviour
     int mn_ColDistance;
     bool mb_RowBreakFlag = false;
     bool mb_ColBreakFlag = false;
+    bool mb_InitGenItemFlag = false;
 
     // Start is called before the first frame update
     void Start()
@@ -57,7 +58,7 @@ public class ManageArray : MonoBehaviour
     {
         // 초기 아이템 7x6 생성
         this.mf_delta += Time.deltaTime;
-        if (this.mf_delta > 1)
+        if (this.mf_delta > 1 && mb_InitGenItemFlag == false)
         {
             for (int j = 0; j < 7; j++)
             {
@@ -68,6 +69,8 @@ public class ManageArray : MonoBehaviour
             }
             this.mf_delta = 0;
             mn_i--;
+            if (mn_i == -1)
+                mb_InitGenItemFlag = true;
         }
 
 
@@ -101,7 +104,7 @@ public class ManageArray : MonoBehaviour
                                         mn_distance++;
                                     }
 
-                                    if ((ma2_ItemArray[i, k] == 1 && k == 6 && mn_distance >= 3) || (ma2_ItemArray[i, k] != 1 || ma2_ItemArray[i, k] != 11 && mn_distance >= 3))
+                                    if ((ma2_ItemArray[i, k] == 1 && k == 6 && mn_distance >= 3) || ((ma2_ItemArray[i, k] != 1 || ma2_ItemArray[i, k] != 11) && mn_distance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 1 mn_distance : " + mn_distance);
 
@@ -122,7 +125,7 @@ public class ManageArray : MonoBehaviour
                                         mn_distance++;
                                     }
 
-                                    if ((ma2_ItemArray[i, k] == 2 && k == 6 && mn_distance >= 3) || (ma2_ItemArray[i, k] != 2 || ma2_ItemArray[i, k] != 12 && mn_distance >= 3))
+                                    if ((ma2_ItemArray[i, k] == 2 && k == 6 && mn_distance >= 3) || ((ma2_ItemArray[i, k] != 2 || ma2_ItemArray[i, k] != 12) && mn_distance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 2 mn_distance : " + mn_distance);
 
@@ -143,7 +146,7 @@ public class ManageArray : MonoBehaviour
                                         mn_distance++;
                                     }
 
-                                    if ((ma2_ItemArray[i, k] == 3 && k == 6 && mn_distance >= 3) || (ma2_ItemArray[i, k] != 3 || ma2_ItemArray[i, k] != 13 && mn_distance >= 3))
+                                    if ((ma2_ItemArray[i, k] == 3 && k == 6 && mn_distance >= 3) || ((ma2_ItemArray[i, k] != 3 || ma2_ItemArray[i, k] != 13) && mn_distance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 3 mn_distance : " + mn_distance);
 
@@ -164,7 +167,7 @@ public class ManageArray : MonoBehaviour
                                         mn_distance++;
                                     }
 
-                                    if ((ma2_ItemArray[i, k] == 4 && k == 6 && mn_distance >= 3) || (ma2_ItemArray[i, k] != 4 || ma2_ItemArray[i, k] != 14 && mn_distance >= 3))
+                                    if ((ma2_ItemArray[i, k] == 4 && k == 6 && mn_distance >= 3) || ((ma2_ItemArray[i, k] != 4 || ma2_ItemArray[i, k] != 14) && mn_distance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 4 mn_distance : " + mn_distance);
 
@@ -185,7 +188,7 @@ public class ManageArray : MonoBehaviour
                                         mn_distance++;
                                     }
 
-                                    if ((ma2_ItemArray[i, k] == 5 && k == 6 && mn_distance >= 3) || (ma2_ItemArray[i, k] != 5 || ma2_ItemArray[i, k] != 15 && mn_distance >= 3))
+                                    if ((ma2_ItemArray[i, k] == 5 && k == 6 && mn_distance >= 3) || ((ma2_ItemArray[i, k] != 5 || ma2_ItemArray[i, k] != 15) && mn_distance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 5 mn_distance : " + mn_distance);
 
@@ -206,7 +209,7 @@ public class ManageArray : MonoBehaviour
                                         mn_distance++;
                                     }
 
-                                    if ((ma2_ItemArray[i, k] == 6 && k == 6 && mn_distance >= 3) || (ma2_ItemArray[i, k] != 6 || ma2_ItemArray[i, k] != 16 && mn_distance >= 3))
+                                    if ((ma2_ItemArray[i, k] == 6 && k == 6 && mn_distance >= 3) || ((ma2_ItemArray[i, k] != 6 || ma2_ItemArray[i, k] != 16) && mn_distance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 6 mn_distance : " + mn_distance);
 
@@ -227,7 +230,7 @@ public class ManageArray : MonoBehaviour
                                         mn_distance++;
                                     }
 
-                                    if ((ma2_ItemArray[i, k] == 7 && k == 6 && mn_distance >= 3) || (ma2_ItemArray[i, k] != 7 || ma2_ItemArray[i, k] != 17 && mn_distance >= 3))
+                                    if ((ma2_ItemArray[i, k] == 7 && k == 6 && mn_distance >= 3) || ((ma2_ItemArray[i, k] != 7 || ma2_ItemArray[i, k] != 17) && mn_distance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 7 mn_distance : " + mn_distance);
 
@@ -412,6 +415,57 @@ public class ManageArray : MonoBehaviour
                     }
                 }
             }
+        }
+
+
+
+
+        // 빈자리 배열 정리
+        if(mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == false && mb_InitGenItemFlag == true)
+        {
+            // 숫자 값 맨 밑으로 내리고 빈자리 99로 채운다.
+            for (int i = 5; i > -1; i--)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    if (ma2_ItemArray[i, j] > 10)
+                    {
+                        if (i==0)
+                            ma2_ItemArray[i, j] = 99;
+
+                        for (int k = i - 1; k > -1; k--)
+                        {
+                            if (ma2_ItemArray[k, j] < 10)
+                            {
+                                ma2_ItemArray[i, j] = ma2_ItemArray[k, j];
+                                ma2_ItemArray[k, j] = 99;
+                                break;
+                            }
+                            else if (k <= 0)
+                            {
+                                ma2_ItemArray[i, j] = 99;
+                            }
+                        }
+                    }
+                }
+            }
+            ShowItemArray();
+            for (int i = 5; i > -1; i--)
+            {
+                if (this.mf_delta > 1)
+                {
+                    for (int j = 0; j < 7; j++)
+                    {
+                        if (ma2_ItemArray[i, j] == 99)
+                        {
+                            ma2_ItemArray[i, j] = Random.Range(1, 5);
+                            mg_GameDirector.GetComponent<ManageItem>().v_GenItem(ma2_ItemArray[i, j], (j + 1));
+                            this.mf_delta = 0;
+                        }
+                    }
+                }
+            }
+            ShowItemArray();
         }
     }
 
