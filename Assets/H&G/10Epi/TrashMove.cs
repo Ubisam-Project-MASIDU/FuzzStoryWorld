@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StoneMove : MonoBehaviour{
+public class TrashMove : MonoBehaviour{
     float rightMax = 7.0f;                              // 좌로 이동가능한 (x)최대값
     float leftMax = -3.0f;                              // 우로 이동가능한 (x)최대값
     float currentPosition;                              // 현재 위치(x) 저장
@@ -31,3 +31,4 @@ public class StoneMove : MonoBehaviour{
         transform.position = new Vector3(currentPosition, this.transform.position.y , this.transform.position.z);
     }
 }
+

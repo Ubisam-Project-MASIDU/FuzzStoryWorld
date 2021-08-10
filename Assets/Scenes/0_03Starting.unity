@@ -1134,3 +1134,72 @@ Skybox:
   m_GameObject: {fileID: 2024992599}
   m_Enabled: 1
   m_CustomSkybox: {fileID: 2100000, guid: 8bb73fdd72f6d40fcb8a8807cc075a0f, type: 2}
+--- !u!1001 &7469000484047617034
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7469000484905359781, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_Name
+      value: VMController
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469000484905359803, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469000484905359803, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 12.14948
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469000484905359803, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.9953388
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469000484905359803, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.222789
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469000484905359803, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469000484905359803, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469000484905359803, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469000484905359803, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469000484905359803, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469000484905359803, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469000484905359803, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 32d23423ea1de4bfd997ff5333159e3a, type: 3}
