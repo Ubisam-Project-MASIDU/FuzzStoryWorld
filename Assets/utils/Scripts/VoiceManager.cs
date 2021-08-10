@@ -18,32 +18,33 @@
  * 2021-07-22 : thread에게 TTS 통신 처리 위임, TTS 통신 처리 중에 로드 화면 추가.
  * 2021-07-23 : isPlaying() 함수 추가.
  * 2021-07-27 : 피드백에 의한 주석 변경.
+ * 2021-08-10 : 피드백 요구사항 변경으로 인한 추가적인 기능 구현 시작.
  *
  * - VoiceManager Member Variable 
  * 
- * VoiceInfo[] mvifl_setVoiceInfoList : 인스펙터창에서 음성 커스터마이징 할 수 있는 정보를 가진 struct 데이터이다. 구조체 안을 보면, {
-    public Voice svt_voiceType : 원하는 구글 TTS API의 기본 보이스를 설정하는 enum 데이터이다. 필요한 데이터만 정리를 하여 쓸것만 enum형식으로 재구성 하였다. enum 종류로는, KR_FEMALE_A, KR_FEMALE_B, KR_MALE_A, KR_MALE_B, EN_FEMALE_A, EN_FEMALE_B, EN_MALE_A, EN_MALE_B로 구성되어 있다.
-    public string sstr_words : 음성이 무슨 말을 출력할지를 string 형식으로 저장하는 변수이다.
-    public float sf_pitch : 음성의 음조(높낮이)를 조절하는 변수이다.
-    public string sf_speakingRate : 음성의 말 빠르기를 조절하는 변수이다.
-    public AudioClip sac_voiceAudioClip : 최종적으로 TTS 와의 통신으로 받아낸 음성 데이터를 저장하는 변수이다.
+ * VoiceInfo[] mvifl_setVoiceInfoList           인스펙터창에서 음성 커스터마이징 할 수 있는 정보를 가진 struct 데이터이다. 구조체 안을 보면, {
+    public Voice svt_voiceType                  원하는 구글 TTS API의 기본 보이스를 설정하는 enum 데이터이다. 필요한 데이터만 정리를 하여 쓸것만 enum형식으로 재구성 하였다. enum 종류로는, KR_FEMALE_A, KR_FEMALE_B, KR_MALE_A, KR_MALE_B, EN_FEMALE_A, EN_FEMALE_B, EN_MALE_A, EN_MALE_B로 구성되어 있다.
+    public string sstr_words                    음성이 무슨 말을 출력할지를 string 형식으로 저장하는 변수이다.
+    public float sf_pitch                       음성의 음조(높낮이)를 조절하는 변수이다.
+    public string sf_speakingRate               음성의 말 빠르기를 조절하는 변수이다.
+    public AudioClip sac_voiceAudioClip         최종적으로 TTS 와의 통신으로 받아낸 음성 데이터를 저장하는 변수이다.
  }
- * mtts_getVoice : TTS 통신을 정의한 클래스이다.
- * mas_playVoice : 최종적으로 반환받은 AudioClip을 이 유니티 컴포넌트 클래스를 통하여 씬에 출력하게 된다.
- * mc_loadingScene : TTS 통신 중이라면, 이 변수에 저장된 프리팹을 생성하도록 하는 변수이다..
- * mgo_loadingScene : 위의 변수에서 생성된 인스턴스를 저장하는 변수이다.
- * mn_checkCurInx : 스레드의 작업물의 결과로 인덱싱하기 위해서 필요한 변수이다.
- *  mquefa_queue : 메인 스레드와 생성된 스레드의 데이터 통신을 위한 큐로, 생성된 스레드는 이 큐에 작업물을 저장하게 되며, 그때 메인 스레드에서는 이 작업물을 통해 음성을 만들게 된다.
- * mth_workThread : 위에서 언급된 생성된 스레드이다. TTS 통신을 대신 작업하게 된다.
- * mb_checkSceneReady : 작업이 다 끝났다면 true로 만들어 다른 스크립트에서 감지할 수 있게 해주는 변수이다.
+ * mtts_getVoice                                TTS 통신을 정의한 클래스이다.
+ * mas_playVoice                                최종적으로 반환받은 AudioClip을 이 유니티 컴포넌트 클래스를 통하여 씬에 출력하게 된다.
+ * mc_loadingScene                              TTS 통신 중이라면, 이 변수에 저장된 프리팹을 생성하도록 하는 변수이다..
+ * mgo_loadingScene                             위의 변수에서 생성된 인스턴스를 저장하는 변수이다.
+ * mn_checkCurInx                               스레드의 작업물의 결과로 인덱싱하기 위해서 필요한 변수이다.
+ *  mquefa_queue                                메인 스레드와 생성된 스레드의 데이터 통신을 위한 큐로, 생성된 스레드는 이 큐에 작업물을 저장하게 되며, 그때 메인 스레드에서는 이 작업물을 통해 음성을 만들게 된다.
+ * mth_workThread                               위에서 언급된 생성된 스레드이다. TTS 통신을 대신 작업하게 된다.
+ * mb_checkSceneReady                           작업이 다 끝났다면 true로 만들어 다른 스크립트에서 감지할 수 있게 해주는 변수이다.
  * 
  * - VoiceManager Member Function
  *
- * Start() : VoiceManager 게임 오브젝트가 생성될 때 최초로 실행되는 함수로, 인스펙터 창에 입력된 음성 세팅값들을 통해 씬에서 필요한 음성 데이터를 만든다.
- * playVoice(int nPlayVoiceClipId) : 생성된 음성 데이터를 가지고 있다가 이 함수가 호출되면 음성을 씬에 출력한다.
- * isPlaying() : 현재 AudioSource를 통해 음성이 출력되고 있는지 아닌지를 반환해주는 함수. 출력되고 있다면 true, 아니라면 false를 반환한다.
- * runThread() : mth_workThread 스레드의 TTS 처리 코드가 실행되는 함수. 작업된 float array 반환 값은 mquefa_queue 큐에 저장하게 된다.
- * Update() : 메인 스레드에서는 업데이트 함수를 통해 mquefa_queue에 데이터가 쌓이면, 그것을 가지고 AudioClip으로 만들고 mvifl_setVoiceInfoList struct 안의 sac_voiceAudioClip에 저장하게 된다.
+ * Start()                                      VoiceManager 게임 오브젝트가 생성될 때 최초로 실행되는 함수로, 인스펙터 창에 입력된 음성 세팅값들을 통해 씬에서 필요한 음성 데이터를 만든다.
+ * playVoice(int nPlayVoiceClipId)              생성된 음성 데이터를 가지고 있다가 이 함수가 호출되면 음성을 씬에 출력한다.
+ * isPlaying()                                  현재 AudioSource를 통해 음성이 출력되고 있는지 아닌지를 반환해주는 함수. 출력되고 있다면 true, 아니라면 false를 반환한다.
+ * runThread()                                  mth_workThread 스레드의 TTS 처리 코드가 실행되는 함수. 작업된 float array 반환 값은 mquefa_queue 큐에 저장하게 된다.
+ * Update()                                     메인 스레드에서는 업데이트 함수를 통해 mquefa_queue에 데이터가 쌓이면, 그것을 가지고 AudioClip으로 만들고 mvifl_setVoiceInfoList struct 안의 sac_voiceAudioClip에 저장하게 된다.
  *
  */
 
@@ -53,26 +54,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
 
-// 인스펙터창에 입력되는 음성 세팅 값을 저장하는 struct이다.
-[System.Serializable]
-public struct VoiceInfo {
-    [SerializeField]
-    public Voice svt_voiceType;
 
-    [SerializeField]
-    public string sstr_words;
-    [SerializeField]
-    public float sf_pitch;
-    public string sf_speakingRate;
-    [SerializeField]
-    public AudioClip sac_voiceAudioClip;
-}
 
 // 씬에서 음성을 출력하는 게임오브젝트에 적용되는 VoiceManager 클래스이다.
 /// <summary>
 /// 씬에 VoiceManager의 인스펙터 창에서 설정한 음성 세팅값을 playVoice 함수를 통해 씬에 출력해주도록 도와주는 클래스.
 /// </summary>
 public class VoiceManager : MonoBehaviour {
+
+    // 인스펙터창에 입력되는 음성 세팅 값을 저장하는 struct이다.
+    [System.Serializable]
+    public struct VoiceInfo {
+        [SerializeField]
+        public TTS.Voice svt_voiceType;
+
+        [SerializeField]
+        public string sstr_words;
+        [SerializeField]
+        public float sf_pitch;
+        public string sf_speakingRate;
+        [SerializeField]
+        public AudioClip sac_voiceAudioClip;
+    }
+
     public VoiceInfo[] mvifl_setVoiceInfoList;
     public GameObject mc_loadingScene;
     private GameObject mgo_loadingScene;
@@ -102,7 +106,6 @@ public class VoiceManager : MonoBehaviour {
 
             ac_createAudioClip.SetData(fa_convertFloatArray, 0);
             mvifl_setVoiceInfoList[mn_checkCurInx].sac_voiceAudioClip = ac_createAudioClip;
-
             mn_checkCurInx++;
         }
         if(mn_checkCurInx == mvifl_setVoiceInfoList.Length) {
@@ -118,8 +121,7 @@ public class VoiceManager : MonoBehaviour {
         for(int i = 0; i < mvifl_setVoiceInfoList.Length; i++) {
             if (float.TryParse(mvifl_setVoiceInfoList[i].sf_speakingRate, out tempSpeakRate)) {
                 mquefa_queue.Enqueue(mtts_getVoice.CreateAudio(mvifl_setVoiceInfoList[i].sstr_words, mvifl_setVoiceInfoList[i].svt_voiceType, mvifl_setVoiceInfoList[i].sf_pitch, tempSpeakRate));
-            }
-            else {
+            } else {
                 mquefa_queue.Enqueue(mtts_getVoice.CreateAudio(mvifl_setVoiceInfoList[i].sstr_words, mvifl_setVoiceInfoList[i].svt_voiceType, mvifl_setVoiceInfoList[i].sf_pitch));
             }
         }
