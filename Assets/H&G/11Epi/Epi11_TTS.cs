@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Epi11_TTS : MonoBehaviour
+public class Epi10_TTS : MonoBehaviour
 {
     private bool mb_CheckOncePlaying = true;
     private VoiceManager mvm_PlayVoiceManager;
