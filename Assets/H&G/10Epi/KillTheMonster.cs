@@ -26,7 +26,6 @@ using UnityEngine.SceneManagement;
 public class KillTheMonster : MonoBehaviour
 {
     private int T_Monster_HP = 2;               // 세균의 채력 범위 설정
-    int n_num = 6;
     GameObject ControlMonster;
     
     void Start(){
