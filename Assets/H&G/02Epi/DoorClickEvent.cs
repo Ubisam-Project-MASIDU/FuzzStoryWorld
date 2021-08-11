@@ -27,6 +27,7 @@ public class DoorClickEvent : MonoBehaviour
     {
         mgo_Hansel = GameObject.Find("Hansel");
         mgo_Gretel = GameObject.Find("Gretel");
+
         mbtn_Door = transform.GetComponent<Button>();
         mbtn_Door.onClick.AddListener(fOnMouseDown);
 
@@ -44,13 +45,10 @@ public class DoorClickEvent : MonoBehaviour
     {
         if (mvm_VoiceManager.mb_checkSceneReady && !mb_playOne)
         {
+
             // 나레이션 한번 출력 
             mvm_VoiceManager.playVoice(0);
             mb_playOne = true;
-
-
-            Invoke("fNarration", 9f);
-
         }
 
         if (mvm_VoiceManager.isPlaying() == false && mvm_VoiceManager.mb_checkSceneReady && mb_playTwo)
@@ -61,8 +59,11 @@ public class DoorClickEvent : MonoBehaviour
         }
 
     }
-        void fOnMouseDown()
+    void fOnMouseDown()
+    {
+        if (mvm_VoiceManager.isPlaying() == false)
         {
+            fNarration();
             if (mgo_Gretel.transform.position.x < 9)
             {
                 mgo_Gretel.transform.Translate(1, 0, 0);
@@ -80,20 +81,19 @@ public class DoorClickEvent : MonoBehaviour
                 mb_playTwo = true;
             }
         }
+    }
 
-        void fNarration()
-        {
-            mt_DoorClickText.text = "\n     문을 터치해주세요        \n";
+    void fNarration()
+    {
+        mt_DoorClickText.text = "\n     문을 터치해주세요        \n";
 
-            m_DoorClickBlink.SetActive(true);
-            m_DoorClickBlink.GetComponent<BlinkObject>().ChangBlinkFlagTrue();
-        }
+        m_DoorClickBlink.SetActive(true);
+        m_DoorClickBlink.GetComponent<BlinkObject>().ChangBlinkFlagTrue();
+    }
 
-        void changeNextScene()
-        {
-            SceneManager.LoadScene("1_03H&G");
-        }
-
-    
+    void changeNextScene()
+    {
+        SceneManager.LoadScene("1_03H&G");
+    }
 }
 
