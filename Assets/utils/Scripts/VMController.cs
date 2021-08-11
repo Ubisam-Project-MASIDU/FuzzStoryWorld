@@ -3,12 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class VMController : MonoBehaviour {
+
+    public enum Country {
+        KR,
+        JP,
+        EN,
+        CN
+    }
+
     public int mn_LanguageLength = 4;
     private int mn_CurrentVMIdx = 0;
     public bool mb_checkSceneReady = false;
     private GameObject mgo_loadingScene;
     public GameObject mc_loadingScene;
-
+    public Country mct_CheckCountry = Country.KR;
 
     void Awake() {
         DontDestroyOnLoad(gameObject);
@@ -31,5 +39,9 @@ public class VMController : MonoBehaviour {
                 mn_CurrentVMIdx++;
             }
         }
+    }
+
+    void SetCountry(Country ctStrCountry) {
+        mct_CheckCountry = ctStrCountry;
     }
 }
