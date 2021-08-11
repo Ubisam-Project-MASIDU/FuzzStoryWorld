@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3379337205994270721}
   - component: {fileID: 6196609719972480358}
   - component: {fileID: 4516422487704299648}
+  - component: {fileID: -4493294957209230187}
   m_Layer: 0
   m_Name: Item1_Orange
   m_TagString: Orange
@@ -27,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3379337205994270722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.7, z: 0}
+  m_LocalPosition: {x: 5, y: 0, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -121,3 +122,15 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.7
+--- !u!114 &-4493294957209230187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3379337205994270722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c339f37822e05a2449c1c6ddeaa42840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
