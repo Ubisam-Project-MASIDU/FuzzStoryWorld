@@ -44,6 +44,9 @@ public class ManageArray : MonoBehaviour
     bool mb_RowBreakFlag = false;
     bool mb_ColBreakFlag = false;
     bool mb_InitGenItemFlag = false;
+    bool mb_SwapFlag = false;
+
+    int mn_j, mn_k;
 
     // Start is called before the first frame update
     void Start()
@@ -412,7 +415,7 @@ public class ManageArray : MonoBehaviour
                 {
                     if(ma2_ItemArray[i,j] > 10)
                     {
-                        mg_GameDirector.GetComponent<ManageItem>().v_DestroyObject(j + 1, i);
+                            mg_GameDirector.GetComponent<ManageItem>().v_DestroyObject(j + 1, i);
                     }
                 }
             }
@@ -459,7 +462,7 @@ public class ManageArray : MonoBehaviour
                     {
                         if (ma2_ItemArray[i, j] == 99)
                         {
-                            ma2_ItemArray[i, j] = Random.Range(1, 5);
+                            ma2_ItemArray[i, j] = Random.Range(1, 8);
                             mg_GameDirector.GetComponent<ManageItem>().v_GenItem(ma2_ItemArray[i, j], (j + 1));
                             this.mf_delta = 0;
                         }
@@ -468,6 +471,16 @@ public class ManageArray : MonoBehaviour
             }
             ShowItemArray();
         }
+
+        if(mb_SwapFlag == true)
+        {
+
+
+
+            ChangeSwapFlagFalse();
+        }
+
+
     }
 
     #region 함수 선언부
@@ -481,7 +494,7 @@ public class ManageArray : MonoBehaviour
         {
             for (int j = 0; j < 7; j++)
             {
-                ma2_ItemArray[i, j] = Random.Range(1, 5);           //아이템 범위 지정 (초기값:8)
+                ma2_ItemArray[i, j] = Random.Range(1, 8);           //아이템 범위 지정 (초기값:8)
             }
         }
     }
@@ -502,5 +515,91 @@ public class ManageArray : MonoBehaviour
         }
         Debug.Log(ms_TextArray);
     }
+
+    public void ChangeSwapFalgTrue()
+    {
+        mb_SwapFlag = true;
+    }
+
+    public void ChangeSwapFlagFalse()
+    {
+        mb_SwapFlag = false;
+    }
+
+    public void DragToUp(GameObject gItem)
+    {
+        ChangeSwapFalgTrue();
+        int ItemPositionX = (int)gItem.transform.position.x;
+        int ItemPositionY = (int)gItem.transform.position.y;
+        //Debug.Log("x : " + ItemPositionX + " y : " + ItemPositionY);
+
+        switch (ItemPositionX)
+        {
+            case -6:
+                mn_k = 0;
+                break;
+            case -4:
+                mn_k = 1;
+                break;
+            case -2:
+                mn_k = 2;
+                break;
+            case 0:
+                mn_k = 3;
+                break;
+            case 2:
+                mn_k = 4;
+                break;
+            case 4:
+                mn_k = 5;
+                break;
+            case 6:
+                mn_k = 6;
+                break;
+        }
+        switch (ItemPositionY)
+        {
+            case 5:
+                mn_j = 0;
+                break;
+            case 3:
+                mn_j = 1;
+                break;
+            case 1:
+                mn_j = 2;
+                break;
+            case 0:
+                mn_j = 3;
+                break;
+            case -1:
+                mn_j = 4;
+                break;
+            case -3:
+                mn_j = 5;
+                break;
+        }
+        Debug.Log("바꿀아이템 좌표 : j : " + mn_j + " k : " + mn_k);
+        if (mn_j == 0)
+        {
+            Debug.Log("맨 위 아이템은 위로 드래그 불가능");
+        }
+        else
+        {
+            // 위치 이동
+            gItem.transform.position = new Vector2(gItem.transform.position.x, gItem.transform.position.y + 2);
+            // Child 순서 변경
+            gItem.transform.SetSiblingIndex(gItem.transform.GetSiblingIndex() + 1);
+
+            // 배열 이동
+            int temp = ma2_ItemArray[mn_j, mn_k];
+            ma2_ItemArray[mn_j, mn_k] = ma2_ItemArray[mn_j - 1, mn_k];
+            ma2_ItemArray[mn_j - 1, mn_k] = temp;
+
+
+        }
+
+    }
+
+
     #endregion
 }

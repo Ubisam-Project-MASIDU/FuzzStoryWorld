@@ -38,13 +38,14 @@ public class SwapItem : MonoBehaviour
     Vector3 mv3_EndPoint;
 
     int DragDirection;
+    GameObject mg_GameDirector;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        mg_GameDirector = GameObject.Find("GameDirector");
     }
 
     // Update is called once per frame
@@ -73,6 +74,29 @@ public class SwapItem : MonoBehaviour
             //Debug.Log("마우스 업 : " + mv3_EndPoint);
             DragDirection = n_CalculateTheAngle(mv3_StartPoint, mv3_EndPoint);
             ShowMeDragDirection(DragDirection);
+            mg_GameDirector.GetComponent<ManageArray>().ChangeSwapFalgTrue();
+
+            switch (DragDirection)
+            {
+                case -1:
+                    //Debug.Log("드래그 안함");
+                    break;
+                case 0:
+                    //Debug.Log("드래그 방향 : Left");
+                    break;
+                case 1:
+                    //Debug.Log("드래그 방향 : Down");
+                    break;
+                case 2:
+                    //Debug.Log("드래그 방향 : Right");
+                    break;
+                case 3:
+                    //Debug.Log("드래그 방향 : Up");
+                    //transform.position = new Vector2(transform.position.x, transform.position.y + 2);
+                    //Debug.Log("x : " + transform.position.x + " y : " + transform.position.y);
+                    mg_GameDirector.GetComponent<ManageArray>().DragToUp(this.gameObject);
+                    break;
+            }
         }
     }
 
