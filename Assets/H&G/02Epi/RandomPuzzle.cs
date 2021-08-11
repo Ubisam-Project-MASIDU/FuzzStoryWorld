@@ -9,7 +9,7 @@ public class RandomPuzzle : MonoBehaviour
     public Sprite[] puzzleImage = new Sprite[9];
     private GameObject[] slot = new GameObject[9];
     
-    int[] randNumArray = new int[9];
+    public int[] randNumArray = new int[9];
 
     private GameObject Slot1;
     private GameObject Slot2;
@@ -61,7 +61,10 @@ public class RandomPuzzle : MonoBehaviour
         for (int i = 0; i < 9; i++)
         {
             slot[i].GetComponent<SpriteRenderer>().sprite = puzzleImage[randNumArray[i]];
+            slot[i].name = randNumArray[i].ToString();
         }  
+        
+        
     }
 }
             
