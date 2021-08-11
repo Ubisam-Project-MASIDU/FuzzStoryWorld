@@ -93,7 +93,7 @@ public class DoorClickEvent : MonoBehaviour
 
     void changeNextScene()
     {
-        SceneManager.LoadScene("1_03H&G");
+        SceneManager.LoadScene("1_02H&G_Game");
     }
 }
 
