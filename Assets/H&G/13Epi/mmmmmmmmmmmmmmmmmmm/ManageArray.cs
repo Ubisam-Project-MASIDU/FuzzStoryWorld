@@ -48,6 +48,7 @@ public class ManageArray : MonoBehaviour
     bool mb_SwapFlag = false;
     bool mb_PopFlag = false;
     bool mb_FailToDragFlag = false;
+    bool mb_DragFlag = false;
 
     int mn_j, mn_k;
 
@@ -93,7 +94,10 @@ public class ManageArray : MonoBehaviour
             this.mf_delta = 0;
             mn_i--;
             if (mn_i == -1)
+            {
                 mb_InitGenItemFlag = true;
+                mb_DragFlag = true;
+            }
         }
 
 
@@ -981,6 +985,21 @@ public class ManageArray : MonoBehaviour
     public bool b_ReturnFailToDragFlag()
     {
         return mb_FailToDragFlag;
+    }
+
+    public bool b_ReturnDragFlag()
+    {
+        return mb_DragFlag;
+    }
+
+    public void v_ChangeDragFlagFalse()
+    {
+        mb_DragFlag = false;
+    }
+
+    public void v_ChangeDragFlagTrue()
+    {
+        mb_DragFlag = true;
     }
     #endregion
 }
