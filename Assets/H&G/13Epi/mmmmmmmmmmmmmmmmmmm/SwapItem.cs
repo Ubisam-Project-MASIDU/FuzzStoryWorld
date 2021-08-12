@@ -7,7 +7,8 @@
  * 
  * - History
  * 1) 2021-08-11 : 어느방향으로 드래그하였는지 알려주는 함수 작성
- *  
+ * 2) 2021-08-12 : 상하좌우 방향으로 드래그 기능 구현
+ * 
  * - Variable 
  * mb_DragFlag                                      Flag 값 -> Flag값이 True일 경우에만 어느방향으로 드래그하였는지 알려줌
  * mv3_screenSpace                                  월드좌표를 화면좌표로 변경하여 저장해두는 변수
@@ -83,18 +84,27 @@ public class SwapItem : MonoBehaviour
                     break;
                 case 0:
                     //Debug.Log("드래그 방향 : Left");
+                    v_DragLeft();
+                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true)
+                        Invoke("v_DragRight", 2f);
                     break;
                 case 1:
                     //Debug.Log("드래그 방향 : Down");
+                    v_DragDown();
+                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true)
+                        Invoke("v_DragUp", 1.5f);
                     break;
                 case 2:
                     //Debug.Log("드래그 방향 : Right");
+                    v_DragRight();
+                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true)
+                        Invoke("v_DragLeft", 2f);
                     break;
                 case 3:
                     //Debug.Log("드래그 방향 : Up");
-                    //transform.position = new Vector2(transform.position.x, transform.position.y + 2);
-                    //Debug.Log("x : " + transform.position.x + " y : " + transform.position.y);
-                    mg_GameDirector.GetComponent<ManageArray>().DragToUp(this.gameObject);
+                    v_DragUp();
+                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true)
+                        Invoke("v_DragDown", 1.5f);
                     break;
             }
         }
@@ -148,5 +158,24 @@ public class SwapItem : MonoBehaviour
                 Debug.Log("드래그 방향 : Up");
                 break;
         }
+    }
+
+    public void v_DragDown()
+    {
+        mg_GameDirector.GetComponent<ManageArray>().DragToDown(this.gameObject);
+    }
+
+    public void v_DragUp()
+    {
+        mg_GameDirector.GetComponent<ManageArray>().DragToUp(this.gameObject);
+    }
+    public void v_DragRight()
+    {
+        mg_GameDirector.GetComponent<ManageArray>().DragToRight(this.gameObject);
+    }
+
+    public void v_DragLeft()
+    {
+        mg_GameDirector.GetComponent<ManageArray>().DragToLeft(this.gameObject);
     }
 }
