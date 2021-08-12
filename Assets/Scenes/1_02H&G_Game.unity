@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 101081493}
   m_Layer: 0
   m_Name: Slot5
-  m_TagString: Untagged
+  m_TagString: puzzle5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -378,7 +378,7 @@ GameObject:
   - component: {fileID: 142605092}
   m_Layer: 0
   m_Name: 4
-  m_TagString: puzzle1
+  m_TagString: 4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 263665075}
   m_Layer: 0
   m_Name: 2
-  m_TagString: puzzle1
+  m_TagString: 2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -724,7 +724,7 @@ GameObject:
   - component: {fileID: 521637270}
   m_Layer: 0
   m_Name: 7
-  m_TagString: puzzle1
+  m_TagString: 7
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -966,7 +966,7 @@ GameObject:
   - component: {fileID: 539208414}
   m_Layer: 0
   m_Name: Slot7
-  m_TagString: Untagged
+  m_TagString: puzzle7
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1122,7 +1122,7 @@ GameObject:
   - component: {fileID: 744940049}
   m_Layer: 0
   m_Name: 1
-  m_TagString: puzzle1
+  m_TagString: 1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1256,7 +1256,7 @@ GameObject:
   - component: {fileID: 750492477}
   m_Layer: 0
   m_Name: Slot3
-  m_TagString: Untagged
+  m_TagString: puzzle3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1661,7 +1661,7 @@ GameObject:
   - component: {fileID: 895721562}
   m_Layer: 0
   m_Name: 8
-  m_TagString: puzzle1
+  m_TagString: 8
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1877,7 +1877,7 @@ GameObject:
   - component: {fileID: 1055716510}
   m_Layer: 0
   m_Name: Slot6
-  m_TagString: Untagged
+  m_TagString: puzzle6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2035,7 +2035,7 @@ GameObject:
   - component: {fileID: 1187357498}
   m_Layer: 0
   m_Name: Slot8
-  m_TagString: Untagged
+  m_TagString: puzzle8
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2193,7 +2193,7 @@ GameObject:
   - component: {fileID: 1222097652}
   m_Layer: 0
   m_Name: Slot1
-  m_TagString: Untagged
+  m_TagString: puzzle1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2351,7 +2351,7 @@ GameObject:
   - component: {fileID: 1355308463}
   m_Layer: 0
   m_Name: Slot4
-  m_TagString: Untagged
+  m_TagString: puzzle4
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2553,7 +2553,7 @@ GameObject:
   - component: {fileID: 1622585798}
   m_Layer: 0
   m_Name: Slot9
-  m_TagString: Untagged
+  m_TagString: puzzle9
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2709,7 +2709,7 @@ GameObject:
   - component: {fileID: 1745440612}
   m_Layer: 0
   m_Name: 5
-  m_TagString: puzzle1
+  m_TagString: 5
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2841,7 +2841,7 @@ GameObject:
   - component: {fileID: 1765311190}
   m_Layer: 0
   m_Name: 3
-  m_TagString: puzzle1
+  m_TagString: 3
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3196,7 +3196,7 @@ GameObject:
   - component: {fileID: 2116735351}
   m_Layer: 0
   m_Name: 6
-  m_TagString: puzzle1
+  m_TagString: 6
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3328,7 +3328,7 @@ GameObject:
   - component: {fileID: 2129184290}
   m_Layer: 0
   m_Name: 0
-  m_TagString: puzzle1
+  m_TagString: 0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3462,7 +3462,7 @@ GameObject:
   - component: {fileID: 2132032128}
   m_Layer: 0
   m_Name: Slot2
-  m_TagString: Untagged
+  m_TagString: puzzle2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

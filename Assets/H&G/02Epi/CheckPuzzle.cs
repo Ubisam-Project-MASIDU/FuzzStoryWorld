@@ -32,7 +32,7 @@ public class CheckPuzzle : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
 
-            if (col.name.ToString() == this.name)
+            if (col.tag == this.tag)
             {
                 col.gameObject.SetActive(false);
                
