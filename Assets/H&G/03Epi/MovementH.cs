@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MovementH : MonoBehaviour
 {
@@ -23,5 +24,10 @@ public class MovementH : MonoBehaviour
     {
         mg_Hansel.transform.position = Vector3.MoveTowards(mg_Hansel.transform.position, mv3_TargetPoint, 0.07f);
 
+    }
+
+    public void v_NextScene()
+    {
+        SceneManager.LoadScene("1_03H&G_Game");
     }
 }
