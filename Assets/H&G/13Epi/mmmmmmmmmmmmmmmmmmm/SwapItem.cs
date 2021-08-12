@@ -109,7 +109,7 @@ public class SwapItem : MonoBehaviour
                     break;
             }
             mg_GameDirector.GetComponent<ManageArray>().v_ChangeFailToDragFlagFalse();
-            Invoke("v_TurnOnMouseDrag", 2);
+            Invoke("v_TurnOnMouseDrag", 1.5f);
         }
     }
 
