@@ -15,7 +15,7 @@ public class AnswerCheck : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void AnswerCount()
@@ -28,7 +28,7 @@ public class AnswerCheck : MonoBehaviour
             Invoke("changeNextScene", 2f);
         }
     }
-    void changeNextScene()
+    public void changeNextScene()
     {
         SceneManager.LoadScene("1_03H&G");
     }
