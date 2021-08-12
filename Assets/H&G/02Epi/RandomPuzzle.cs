@@ -61,6 +61,7 @@ public class RandomPuzzle : MonoBehaviour
         for (int i = 0; i < 9; i++)
         {
             slot[i].GetComponent<SpriteRenderer>().sprite = puzzleImage[randNumArray[i]];
+            slot[i].name = randNumArray[i].ToString();
         }  
     }
 }
