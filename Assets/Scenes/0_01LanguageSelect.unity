@@ -690,6 +690,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[5].svt_voiceType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[6].svt_voiceType
       value: 12
       objectReference: {fileID: 0}
@@ -894,6 +899,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[1].svt_voiceType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[2].svt_voiceType
       value: 4
       objectReference: {fileID: 0}
@@ -909,7 +919,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[5].svt_voiceType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[6].svt_voiceType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[7].svt_voiceType
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
