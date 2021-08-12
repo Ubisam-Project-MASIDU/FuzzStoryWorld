@@ -1799,9 +1799,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 1222097648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f616cfe8b10b394dacbe1193e4a24fc, type: 3}
+  m_Script: {fileID: 11500000, guid: 9cb0c616359a65b40a9fee3ed63af90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puzzleImage:
+  - {fileID: 21300000, guid: 096f107becb95ec458179c846b5cb14d, type: 3}
+  - {fileID: 21300000, guid: e19dc305c489f144a9f7575039019950, type: 3}
+  - {fileID: 21300000, guid: 1b68753a36056ff419687818e9296164, type: 3}
+  - {fileID: 21300000, guid: ca37fdf76ea544448833a038d83bb4ad, type: 3}
+  - {fileID: 21300000, guid: 6e6f7616574b31e4ca428c71a4076987, type: 3}
+  - {fileID: 21300000, guid: 9af1a60a282af4e4f93aebc45a59cac0, type: 3}
+  - {fileID: 21300000, guid: f502c0c5ce023b7488fcf00791490616, type: 3}
+  - {fileID: 21300000, guid: 6be5ffb95d05ad54a9bbec086a11dfaa, type: 3}
+  - {fileID: 21300000, guid: c652d82390f37dc4e8a7675835cd23ef, type: 3}
 --- !u!4 &1222097650
 Transform:
   m_ObjectHideFlags: 0
