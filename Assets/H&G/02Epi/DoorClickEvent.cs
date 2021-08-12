@@ -43,10 +43,13 @@ public class DoorClickEvent : MonoBehaviour{
     private bool mb_playOne = false;                                                                                                //첫번째 나레이션의 실행 유무를 위한 flag
     private bool mb_playTwo = false;                                                                                                //두번째 나레이션의 실행 유무를 위한 flag
 
+    public GameObject popup;
+
     void Start(){
         //오브젝트 연결
         mg_Hansel = GameObject.Find("Hansel");
         mg_Gretel = GameObject.Find("Gretel");
+        
         mt_Text = GameObject.Find("Text").GetComponent<Text>();
         mvm_VoiceManager = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();
         mg_DoorClickBlink = GameObject.Find("arrow");
@@ -55,6 +58,8 @@ public class DoorClickEvent : MonoBehaviour{
         mbtn_Door.onClick.AddListener(v_GotoDoor);                                                                                  //버튼을 클릭하면 괄호안에 있는 함수를 불러옴
 
         mg_DoorClickBlink.SetActive(false);                                                                                         //처음에는 문 클릭 지시 애니메이션을 비활성화
+
+        popup.SetActive(false);
     }
     void Update(){
         if (mvm_VoiceManager.mb_checkSceneReady && !mb_playOne){                                                                    //나레이션1 실행조건 검사
@@ -90,7 +95,7 @@ public class DoorClickEvent : MonoBehaviour{
     }
 
     //다음 씬으로 넘어가기 위한 함수
-    void v_changeNextScene(){
+    public void v_changeNextScene(){
         SceneManager.LoadScene("1_03H&G");
     }
 }
