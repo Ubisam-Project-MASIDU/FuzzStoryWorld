@@ -25,9 +25,8 @@
  * mct_CheckCountry         현재 선택된 언어를 뜻한다.
  *
  * - Function
- * Update()                     클릭 이벤트가 발생되면, 레이져를 쏜 후에 그곳에 오브젝트가 있다면, 어떤 오브젝트인지를 switch문으로 판별하여 그에 따른 언어를 로드하게 되어 있다.
- * Awake()
- * 
+ * Awake()                  생성된 VMController 오브젝트를 씬 전환시 파괴되지 않도록 DonDestroyOnLoad에 저장하고, 로딩화면을 화면에 띄운다.
+ * Update()                 각각 맡은 언어의 VoiceManager 오브젝트의 로드를 구현하고, 언어 설정을 담당하는 함수이다.
  * 
  * 
  */
@@ -36,6 +35,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 지원하는 언어의 VoiceManager를 관리하기 위한 스크립트 클래스이다.
 public class VMController : MonoBehaviour {
 
     public enum Country {
@@ -53,12 +53,15 @@ public class VMController : MonoBehaviour {
     public GameObject mc_loadingScene;
     private Country mct_CheckCountry = Country.KR;
 
+
+    // VMController와 KRVoiceManager, ENVoiceManager, JPVoiceManager, CNVoiceManager는 씬이 전환되어도 유지되어야 하므로, DonDestroyOnLoad 함수로 Destroy 되지 않도록 한다.
     void Awake() {
         DontDestroyOnLoad(gameObject);
         mgo_loadingScene = Instantiate(mc_loadingScene);
         mgo_loadingScene.SetActive(true);
     }
     
+    // VoiceManager들을 로딩하고, 언어를 선택하면 언어와 동일한 VoiceManager를 선택하도록 한다.
     void Update() {
         if (mn_CurrentVMIdx >= mn_LanguageLength && !mb_CheckSceneReady) {
             mb_CheckSceneReady = true;
@@ -84,6 +87,11 @@ public class VMController : MonoBehaviour {
         }
     }
 
+
+    // 음성 출력의 언어를 세팅하는 함수.
+    /// <summary>
+    /// 음성 출력의 언어를 세팅하는 함수. 매개변수는 enum Country로 언어를 선택할 수 있다.
+    /// </summary>
     public void SetCountry(Country ctStrCountry) {
         mct_CheckCountry = ctStrCountry;
         mb_CheckLanguageReady = false;
