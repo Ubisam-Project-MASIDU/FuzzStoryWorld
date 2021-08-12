@@ -283,7 +283,7 @@ public class ManageArray : MonoBehaviour
                                         mn_ColDistance++;
                                     }
 
-                                    if ((ma2_ItemArray[k, j] == 1 && k == 5 && mn_ColDistance >= 3) || (ma2_ItemArray[k, j] != 1 || ma2_ItemArray[k, j] != 11 && mn_ColDistance >= 3))
+                                    if ((ma2_ItemArray[k, j] == 1 && k == 5 && mn_ColDistance >= 3) || ((ma2_ItemArray[k, j] != 1 || ma2_ItemArray[k, j] != 11) && mn_ColDistance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 1 mn_ColDistance : " + mn_ColDistance);
 
@@ -304,7 +304,7 @@ public class ManageArray : MonoBehaviour
                                         mn_ColDistance++;
                                     }
 
-                                    if ((ma2_ItemArray[k, j] == 2 && k == 5 && mn_ColDistance >= 3) || (ma2_ItemArray[k, j] != 2 || ma2_ItemArray[k, j] != 12 && mn_ColDistance >= 3))
+                                    if ((ma2_ItemArray[k, j] == 2 && k == 5 && mn_ColDistance >= 3) || ((ma2_ItemArray[k, j] != 2 || ma2_ItemArray[k, j] != 12) && mn_ColDistance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 2 mn_ColDistance : " + mn_ColDistance);
 
@@ -325,7 +325,7 @@ public class ManageArray : MonoBehaviour
                                         mn_ColDistance++;
                                     }
 
-                                    if ((ma2_ItemArray[k, j] == 3 && k == 5 && mn_ColDistance >= 3) || (ma2_ItemArray[k, j] != 3 || ma2_ItemArray[k, j] != 13 && mn_ColDistance >= 3))
+                                    if ((ma2_ItemArray[k, j] == 3 && k == 5 && mn_ColDistance >= 3) || ((ma2_ItemArray[k, j] != 3 || ma2_ItemArray[k, j] != 13) && mn_ColDistance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 3 mn_ColDistance : " + mn_ColDistance);
 
@@ -346,7 +346,7 @@ public class ManageArray : MonoBehaviour
                                         mn_ColDistance++;
                                     }
 
-                                    if ((ma2_ItemArray[k, j] == 4 && k == 5 && mn_ColDistance >= 3) || (ma2_ItemArray[k, j] != 4 || ma2_ItemArray[k, j] != 14 && mn_ColDistance >= 3))
+                                    if ((ma2_ItemArray[k, j] == 4 && k == 5 && mn_ColDistance >= 3) || ((ma2_ItemArray[k, j] != 4 || ma2_ItemArray[k, j] != 14) && mn_ColDistance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 4 mn_ColDistance : " + mn_ColDistance);
 
@@ -367,7 +367,7 @@ public class ManageArray : MonoBehaviour
                                         mn_ColDistance++;
                                     }
 
-                                    if ((ma2_ItemArray[k, j] == 5 && k == 5 && mn_ColDistance >= 3) || (ma2_ItemArray[k, j] != 5 || ma2_ItemArray[k, j] != 15 && mn_ColDistance >= 3))
+                                    if ((ma2_ItemArray[k, j] == 5 && k == 5 && mn_ColDistance >= 3) || ((ma2_ItemArray[k, j] != 5 || ma2_ItemArray[k, j] != 15) && mn_ColDistance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 5 mn_ColDistance : " + mn_ColDistance);
 
@@ -388,7 +388,7 @@ public class ManageArray : MonoBehaviour
                                         mn_ColDistance++;
                                     }
 
-                                    if ((ma2_ItemArray[k, j] == 6 && k == 5 && mn_ColDistance >= 3) || (ma2_ItemArray[k, j] != 6 || ma2_ItemArray[k, j] != 16 && mn_ColDistance >= 3))
+                                    if ((ma2_ItemArray[k, j] == 6 && k == 5 && mn_ColDistance >= 3) || ((ma2_ItemArray[k, j] != 6 || ma2_ItemArray[k, j] != 16) && mn_ColDistance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 6 mn_ColDistance : " + mn_ColDistance);
 
@@ -409,7 +409,7 @@ public class ManageArray : MonoBehaviour
                                         mn_ColDistance++;
                                     }
 
-                                    if ((ma2_ItemArray[k, j] == 7 && k == 5 && mn_ColDistance >= 3) || (ma2_ItemArray[k, j] != 7 || ma2_ItemArray[k, j] != 17 && mn_ColDistance >= 3))
+                                    if ((ma2_ItemArray[k, j] == 7 && k == 5 && mn_ColDistance >= 3) || ((ma2_ItemArray[k, j] != 7 || ma2_ItemArray[k, j] != 17) && mn_ColDistance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 7 mn_ColDistance : " + mn_ColDistance);
 
@@ -935,5 +935,6 @@ public class ManageArray : MonoBehaviour
         }
 
     }
+
     #endregion
 }
