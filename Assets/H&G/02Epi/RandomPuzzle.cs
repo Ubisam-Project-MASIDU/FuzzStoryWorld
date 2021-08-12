@@ -107,6 +107,7 @@ public class RandomPuzzle : MonoBehaviour
 
         for (int i = 0; i < 9; i++)
         {
+<<<<<<< Updated upstream
             slot[i].GetComponent<SpriteRenderer>().sprite = puzzleImage2[randNumArray[i]];
             slot[i].name = randNumArray[i].ToString();
         }
@@ -130,6 +131,11 @@ public class RandomPuzzle : MonoBehaviour
         Answer7.SetActive(true);
         Answer8.SetActive(true);
         Answer9.SetActive(true);
+=======
+            slot[i].GetComponent<SpriteRenderer>().sprite = puzzleImage[randNumArray[i]];
+            slot[i].name = randNumArray[i].ToString();
+        }  
+>>>>>>> Stashed changes
     }
 }
             

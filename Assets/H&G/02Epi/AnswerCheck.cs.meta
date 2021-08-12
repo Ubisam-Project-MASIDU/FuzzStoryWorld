@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< Updated upstream:Assets/H&G/02Epi/AnswerCheck.cs.meta
 guid: 203864ab6393a5148a83d65bcf285d7b
+=======
+guid: 44b8cab668a1c20448a63a6947639b25
+>>>>>>> Stashed changes:Assets/H&G/02Epi/CheckPuzzle.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
