@@ -35,31 +35,26 @@ public class EpisodeController : MonoBehaviour {
     public GameObject mgo_Bird;                     // 새 오브젝트
     public GameObject mgo_BirdPrefab;               // 새 프리팹
     public GameObject mgo_HAG;                      // 헨젤과 그레텔 오브젝트
+    private float[] mfa_CheckBirdPos = new float[2];
+    private float[] mfa_CheckHAGPos = new float[2];
+    private int mn_checkCurScene = 0;
 
-    private bool mb_CheckScenarioFirst = false;     // 시나리오 첫번째 인지 두번째인지 판단.
-    private bool mb_CheckScenarioFirstOnce = false; // 각 시나리오가 한 번씩만 실행되는지 판단.
-    private bool mb_CheckScenarioSecondOnce = false;
-    private bool mb_CheckScenarioSecond = false;
 
+    void Start() {
+        mfa_CheckBirdPos[0] = -10f; mfa_CheckBirdPos[1] = 8.7f;
+        mfa_CheckHAGPos[0] = -13f; mfa_CheckHAGPos[1] = 6f;
+    }
 
     // 새 오브젝트가 x 좌표로 어느정도 왔는지 판단하고 시나리오를 실행한다.
     void Update() {
-        if(mgo_Bird != null) {
-            if(mgo_Bird.transform.position.x > -4.2 && !mb_CheckScenarioFirst && !mb_CheckScenarioFirstOnce) {
+        if (mn_checkCurScene < mfa_CheckBirdPos.Length) {
+            if (mgo_Bird.transform.localPosition.x > mfa_CheckBirdPos[mn_checkCurScene]) {
                 waitPlayer();
-                mb_CheckScenarioFirst = true;
-            } else if (mgo_HAG.transform.position.x > -4.8 && mb_CheckScenarioFirst && !mb_CheckScenarioFirstOnce) {
+            } else if (mgo_HAG.transform.localPosition.x > mfa_CheckHAGPos[mn_checkCurScene]) {
                 restartFlying();
-                mb_CheckScenarioFirstOnce = true;
-            } else if(mgo_Bird.transform.position.x > 1&& !mb_CheckScenarioSecond && !mb_CheckScenarioSecondOnce) {
-                waitPlayer();
-                mb_CheckScenarioSecond = true;
-            } else if (mgo_HAG.transform.position.x > 0 && mb_CheckScenarioSecond && !mb_CheckScenarioSecondOnce) {
-                restartFlying();
-                mb_CheckScenarioSecondOnce = true;
+                mn_checkCurScene++;
             }
         }
-        
     }
 
     // 시나리오에서 필요한 동작을 정의한 함수. 플레이어를 기다린다.
@@ -73,6 +68,6 @@ public class EpisodeController : MonoBehaviour {
     void restartFlying() {
         Transform temp = mgo_Bird.transform;
         Destroy(mgo_Bird);
-        mgo_Bird = Instantiate(mgo_BirdPrefab, temp.position, mgo_BirdPrefab.transform.rotation);
+        mgo_Bird = Instantiate(mgo_BirdPrefab, temp.position, mgo_BirdPrefab.transform.rotation, transform);
     }
 }

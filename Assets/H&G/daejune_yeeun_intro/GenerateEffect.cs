@@ -9,7 +9,6 @@ public class GenerateEffect : MonoBehaviour
     public GameObject mg_SetEffect;
     void OnTriggerEnter(Collider cCollider) {
         Destroy(mg_RepresentChar);
-        // Instantiate(mg_SetEffect, transform.position, transform.rotation);
         this.transform.GetChild(0).gameObject.SetActive(true);
         Invoke("loadNextScene", 1f);
     }

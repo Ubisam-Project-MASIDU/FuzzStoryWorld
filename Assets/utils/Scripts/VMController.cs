@@ -6,17 +6,18 @@ public class VMController : MonoBehaviour {
 
     public enum Country {
         KR,
-        JP,
         EN,
+        JP,
         CN
     }
 
     public int mn_LanguageLength = 4;
     private int mn_CurrentVMIdx = 0;
     public bool mb_checkSceneReady = false;
+    public bool mb_CheckLanguageReady = false;
     private GameObject mgo_loadingScene;
     public GameObject mc_loadingScene;
-    public Country mct_CheckCountry = Country.KR;
+    private Country mct_CheckCountry = Country.KR;
 
     void Awake() {
         DontDestroyOnLoad(gameObject);
@@ -30,6 +31,14 @@ public class VMController : MonoBehaviour {
             mgo_loadingScene.SetActive(false);
             return;
         }
+        if (!mb_CheckLanguageReady) {
+            for (int i = 0; i < mn_LanguageLength; i++) {
+                if (i != (int)mct_CheckCountry) {
+                    transform.GetChild(i).gameObject.SetActive(false);
+                }
+            }
+            mb_CheckLanguageReady = true;
+        }        
         if (mn_CurrentVMIdx < mn_LanguageLength) {
             GameObject go_GetChild = transform.GetChild(mn_CurrentVMIdx).gameObject;
 
@@ -41,7 +50,8 @@ public class VMController : MonoBehaviour {
         }
     }
 
-    void SetCountry(Country ctStrCountry) {
+    public void SetCountry(Country ctStrCountry) {
         mct_CheckCountry = ctStrCountry;
+        mb_CheckLanguageReady = true;
     }
 }

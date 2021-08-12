@@ -27,7 +27,7 @@ public class ChangeNextScene : MonoBehaviour {
     // 해당 오브젝트의 컴포넌트에서 콜라이더 박스에 무언가 닿았다면 호출된다.
     private void OnTriggerEnter(Collider cCollider) {
         if (cCollider.tag == "HAG") {
-            Invoke("v_changeNextScene", 1f);
+            Invoke("v_changeNextScene", 0.2f);
         }
     }
 

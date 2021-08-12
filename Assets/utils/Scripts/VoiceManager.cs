@@ -31,8 +31,6 @@
  }
  * mtts_getVoice                                TTS 통신을 정의한 클래스이다.
  * mas_playVoice                                최종적으로 반환받은 AudioClip을 이 유니티 컴포넌트 클래스를 통하여 씬에 출력하게 된다.
- * mc_loadingScene                              TTS 통신 중이라면, 이 변수에 저장된 프리팹을 생성하도록 하는 변수이다..
- * mgo_loadingScene                             위의 변수에서 생성된 인스턴스를 저장하는 변수이다.
  * mn_checkCurInx                               스레드의 작업물의 결과로 인덱싱하기 위해서 필요한 변수이다.
  *  mquefa_queue                                메인 스레드와 생성된 스레드의 데이터 통신을 위한 큐로, 생성된 스레드는 이 큐에 작업물을 저장하게 되며, 그때 메인 스레드에서는 이 작업물을 통해 음성을 만들게 된다.
  * mth_workThread                               위에서 언급된 생성된 스레드이다. TTS 통신을 대신 작업하게 된다.
@@ -78,8 +76,6 @@ public class VoiceManager : MonoBehaviour {
     }
 
     public VoiceInfo[] mvifl_setVoiceInfoList;
-    public GameObject mc_loadingScene;
-    private GameObject mgo_loadingScene;
     private int mn_checkCurInx = 0;
     private TTS mtts_getVoice;
     private Queue<float[]> mquefa_queue = new Queue<float[]>();
@@ -89,8 +85,6 @@ public class VoiceManager : MonoBehaviour {
 
     // 해당 스크립트가 들어간 게임 오브젝트가 생성될 때, 인스펙터창에 저장된 음성 세팅 값들을 통해서 스레드를 하나 생성하여 TTS 통신 작업을 위임시킨다.
     void Start() {
-        mgo_loadingScene = Instantiate(mc_loadingScene);
-        mgo_loadingScene.SetActive(true);
         mas_playVoice = gameObject.GetComponent<AudioSource>();
         mtts_getVoice = TTS.GetInstance();
         mth_workThread = new Thread(runThread);
@@ -109,7 +103,6 @@ public class VoiceManager : MonoBehaviour {
             mn_checkCurInx++;
         }
         if(mn_checkCurInx == mvifl_setVoiceInfoList.Length) {
-            Destroy(mgo_loadingScene);
             mb_checkSceneReady = true;
         }
     }
