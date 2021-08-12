@@ -1,4 +1,4 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -18,7 +18,7 @@ public class Score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mg_Score.GetComponent<Text>().text = "¡°ºˆ : " + score;
+        mg_Score.GetComponent<Text>().text = "Ï†êÏàò : " + score;
     }
 
     public void v_IncreaseScore()

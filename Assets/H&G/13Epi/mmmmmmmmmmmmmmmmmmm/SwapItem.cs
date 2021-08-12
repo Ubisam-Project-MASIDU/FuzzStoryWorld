@@ -31,7 +31,7 @@ using UnityEngine;
 
 public class SwapItem : MonoBehaviour
 {
-    bool mb_DragFlag = true;
+    bool mb_DragFlag = false;
     private Vector3 mv3_screenSpace;
     private Vector3 mv3_offset;
 
@@ -52,7 +52,7 @@ public class SwapItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        mb_DragFlag = mg_GameDirector.GetComponent<ManageArray>().b_ReturnDragFlag();
     }
 
     private void OnMouseDown()
@@ -70,6 +70,7 @@ public class SwapItem : MonoBehaviour
     {
         if (mb_DragFlag == true)
         {
+            mg_GameDirector.GetComponent<ManageArray>().v_ChangeDragFlagFalse();
             var curmv3_screenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, mv3_screenSpace.z);
             mv3_EndPoint = Camera.main.ScreenToWorldPoint(curmv3_screenSpace) + mv3_offset;
             //Debug.Log("마우스 업 : " + mv3_EndPoint);
@@ -85,28 +86,30 @@ public class SwapItem : MonoBehaviour
                 case 0:
                     //Debug.Log("드래그 방향 : Left");
                     v_DragLeft();
-                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true)
+                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true && mg_GameDirector.GetComponent<ManageArray>().b_ReturnFailToDragFlag() == false)
                         Invoke("v_DragRight", 2f);
                     break;
                 case 1:
                     //Debug.Log("드래그 방향 : Down");
                     v_DragDown();
-                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true)
+                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true && mg_GameDirector.GetComponent<ManageArray>().b_ReturnFailToDragFlag() == false)
                         Invoke("v_DragUp", 1.5f);
                     break;
                 case 2:
                     //Debug.Log("드래그 방향 : Right");
                     v_DragRight();
-                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true)
+                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true && mg_GameDirector.GetComponent<ManageArray>().b_ReturnFailToDragFlag() == false)
                         Invoke("v_DragLeft", 2f);
                     break;
                 case 3:
                     //Debug.Log("드래그 방향 : Up");
                     v_DragUp();
-                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true)
+                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true && mg_GameDirector.GetComponent<ManageArray>().b_ReturnFailToDragFlag() == false)
                         Invoke("v_DragDown", 1.5f);
                     break;
             }
+            mg_GameDirector.GetComponent<ManageArray>().v_ChangeFailToDragFlagFalse();
+            Invoke("v_TurnOnMouseDrag", 2);
         }
     }
 
@@ -177,5 +180,10 @@ public class SwapItem : MonoBehaviour
     public void v_DragLeft()
     {
         mg_GameDirector.GetComponent<ManageArray>().DragToLeft(this.gameObject);
+    }
+
+    public void v_TurnOnMouseDrag()
+    {
+        mg_GameDirector.GetComponent<ManageArray>().v_ChangeDragFlagTrue();
     }
 }

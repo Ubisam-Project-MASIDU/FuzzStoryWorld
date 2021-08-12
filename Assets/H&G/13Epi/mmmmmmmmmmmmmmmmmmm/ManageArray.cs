@@ -47,6 +47,8 @@ public class ManageArray : MonoBehaviour
     bool mb_InitGenItemFlag = false;
     bool mb_SwapFlag = false;
     bool mb_PopFlag = false;
+    bool mb_FailToDragFlag = false;
+    bool mb_DragFlag = false;
 
     int mn_j, mn_k;
 
@@ -92,7 +94,10 @@ public class ManageArray : MonoBehaviour
             this.mf_delta = 0;
             mn_i--;
             if (mn_i == -1)
+            {
                 mb_InitGenItemFlag = true;
+                mb_DragFlag = true;
+            }
         }
 
 
@@ -627,6 +632,8 @@ public class ManageArray : MonoBehaviour
         if (mn_j == 0)
         {
             Debug.Log("맨 위 아이템은 위로 드래그 불가능");
+            mb_FailToDragFlag = true;
+            return;
         }
         else
         {
@@ -699,6 +706,8 @@ public class ManageArray : MonoBehaviour
         if (mn_j == 5)
         {
             Debug.Log("맨 아래 아이템은 아래로 드래그 불가능");
+            mb_FailToDragFlag = true;
+            return;
         }
         else
         {
@@ -773,6 +782,8 @@ public class ManageArray : MonoBehaviour
         if (mn_k == 6)
         {
             Debug.Log("맨 오른쪽 아이템은 오른쪽으로 드래그 불가능");
+            mb_FailToDragFlag = true;
+            return;
         }
         else
         {
@@ -897,6 +908,8 @@ public class ManageArray : MonoBehaviour
         if (mn_k == 0)
         {
             Debug.Log("맨 왼쪽 아이템은 왼쪽으로 드래그 불가능");
+            mb_FailToDragFlag = true;
+            return;
         }
         else
         {
@@ -964,5 +977,29 @@ public class ManageArray : MonoBehaviour
 
     }
 
+    public void v_ChangeFailToDragFlagFalse()
+    {
+        mb_FailToDragFlag = false;
+    }
+
+    public bool b_ReturnFailToDragFlag()
+    {
+        return mb_FailToDragFlag;
+    }
+
+    public bool b_ReturnDragFlag()
+    {
+        return mb_DragFlag;
+    }
+
+    public void v_ChangeDragFlagFalse()
+    {
+        mb_DragFlag = false;
+    }
+
+    public void v_ChangeDragFlagTrue()
+    {
+        mb_DragFlag = true;
+    }
     #endregion
 }
