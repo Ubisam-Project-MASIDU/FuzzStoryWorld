@@ -23,8 +23,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class KillTheMonster : MonoBehaviour
-{
+public class KillTheMonster : MonoBehaviour {
     private int T_Monster_HP = 2;               // 세균의 채력 범위 설정
     GameObject ControlMonster;
     
@@ -32,14 +31,12 @@ public class KillTheMonster : MonoBehaviour
         ControlMonster = GameObject.Find("ControlMonster");
     }
 
-    private void OnMouseDown()
-    {   
-        if (T_Monster_HP <= 0){                  // 세균의 HP가 0보다 작으면 죽는경우 설정
+    private void OnMouseDown() {   
+        if (T_Monster_HP <= 0) {                  // 세균의 HP가 0보다 작으면 죽는경우 설정
             ControlMonster.GetComponent<ControlMonster>().Delete();
             Destroy(gameObject);
         }
-        else
-        {
+        else {
             T_Monster_HP -= 1;                   // 세균을 터치하여 HP감소
             Debug.Log("클릭");
         }
