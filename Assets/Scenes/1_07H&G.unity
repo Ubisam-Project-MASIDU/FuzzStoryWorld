@@ -739,7 +739,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 232979701}
   m_LocalRotation: {x: -0, y: -0, z: 2.4264697e-24, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalPosition: {x: -0.86, y: 0, z: -0.11}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 819186041}
@@ -889,8 +889,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 239453383}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.42, y: 2, z: -11.39}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0}
+  m_LocalPosition: {x: 8.42, y: 2, z: -10.51}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_Children:
   - {fileID: 232979702}
   m_Father: {fileID: 0}
@@ -907,7 +907,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 11, z: 9}
+  m_Size: {x: 12, y: 11, z: 20}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &239453387
 MonoBehaviour:
@@ -1317,7 +1317,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 353579634}
-  m_LocalRotation: {x: -0.000000021855694, y: 1.1102232e-16, z: -1.1102232e-16, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.008726558, w: 0.999962}
   m_LocalPosition: {x: -19.700005, y: 0.6333329, z: -4.2999997}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1325,7 +1325,7 @@ Transform:
   - {fileID: 609983105}
   m_Father: {fileID: 259438901}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1}
 --- !u!1001 &602526441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1738,7 +1738,7 @@ GameObject:
   - component: {fileID: 803971802}
   m_Layer: 0
   m_Name: bird
-  m_TagString: Untagged
+  m_TagString: moving bird
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1935,7 +1935,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 0e74bdcf25ddd4fffb580e04781264cd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

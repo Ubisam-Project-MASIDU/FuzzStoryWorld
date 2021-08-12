@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 446536649}
   - component: {fileID: 446536650}
   m_Layer: 0
-  m_Name: loading
+  m_Name: VMLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -494,10 +494,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 446536648}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06e06893526284aeca08aec61c930931, type: 3}
+  m_Script: {fileID: 11500000, guid: d1e717046c2674baaa20590b9081048d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mgo_VMController: {fileID: 0}
 --- !u!1 &897499456
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,6 +603,329 @@ PrefabInstance:
         type: 3}
       propertyPath: mvifl_SetVoiceInfoList.Array.data[0].sf_SpeakingRate
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[0].sstr_words
+      value: "\u8D2B\u7A77\u7684\u6A35\u592B\u592B\u5987\u7684\u5B69\u5B50\u54E5\u54E5\u6C49\u585E\u5C14\u548C\u59B9\u59B9\u683C\u96F7\u7279\u4F4F\u5728\u5C0F\u6728\u5C4B\u91CC\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[1].sstr_words
+      value: "\u6709\u4E00\u5929\u665A\u4E0A\uFF0C\u4E24\u4E2A\u5144\u59B9\u5076\u7136\u542C\u5230\u4E86\u7236\u6BCD\u7684\u6545\u4E8B\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[2].sstr_words
+      value: "\u6C49\u585E\u5C14\u51FA\u53BB\u6361\u8D77\u4E86\u5375\u77F3\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[3].sstr_words
+      value: "\u7B2C\u4E8C\u5929\u7236\u6BCD\u5E26\u7740\u5B69\u5B50\u4EEC\u53BB\u4E86\u6811\u6797\uFF0C\u6C49\u585E\u5C14\u5077\u5077\u5730\u6389\u4E0B\u4E86\u5375\u77F3\uFF0C\u8DDF\u7740\u53BB\u4E86\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[4].sstr_words
+      value: "\u7ED3\u679C\u5B69\u5B50\u4EEC\u9519\u8FC7\u4E86\u7236\u6BCD\uFF0C\u8FF7\u5931\u4E86\u65B9\u5411\u3002
+        \u5B69\u5B50\u4EEC\u770B\u7740\u843D\u4E0B\u7684\u9E45\u5375\u77F3\uFF0C\u51B3\u5B9A\u627E\u623F\u5B50\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[5].sstr_words
+      value: "\u5E73\u5B89\u56DE\u5230\u5BB6\u540E\uFF0C\u7EE7\u6BCD\u628A\u5B69\u5B50\u4EEC\u7559\u5728\u66F4\u6DF1\u7684\u6811\u6797\u91CC\u4E86\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[6].sstr_words
+      value: "\u6C49\u585E\u5C14\u7528\u9762\u5305\u5C51\u6807\u8BB0\u4E86\u9053\u8DEF\u3002
+        \u4F46\u8FD9\u6B21\u627E\u4E0D\u5230\u8DEF\u4E86\u3002 \u56E0\u4E3A\u9E1F\u513F\u628A\u9762\u5305\u5C51\u90FD\u5403\u6389\u4E86\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[7].sstr_words
+      value: "\u8BF7\u89E6\u78B0\u9E1F\u513F\u8D76\u8D70\u4EBA!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[8].sstr_words
+      value: "\u9965\u997F\u7684\u6C49\u585E\u5C14\u548C\u683C\u96F7\u7279\u51B3\u5B9A\u5403\u997C\u5E72\u5C4B\u91CC\u7684\u997C\u5E72\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[9].sstr_words
+      value: "\u6C49\u585E\u5C14\u548C\u683C\u96F7\u7279\u4EE3\u66FF\u624B\u4F38\u51FA\u4E86\u9AA8\u5934\u3002
+        \u8FC7\u4E86\u534A\u5929\u6CA1\u6709\u53CD\u5F39,\u5C60\u5BB0\u7684\u9B54\u5973\u5C31\u662F\u4E24\u4E2A\u4EBA\u90FD\u8981\u5403\u6389\u4E86\u3002
+        \u5BB3\u6015\u7684\u5B69\u5B50\u4EEC\u8BD5\u56FE\u6446\u8131\u9B54\u5973\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[10].sstr_words
+      value: "\u5973\u5DEB\u628A\u6C49\u585E\u5C14\u548C\u683C\u96F7\u7279\u5F53\u4F5C\u4EC6\u4EBA\uFF0C\u6BCF\u5929\u6BCF\u5929\u786E\u8BA4\u5B69\u5B50\u4EEC\u7684\u624B\uFF0C\u786E\u8BA4\u662F\u5426\u80D6\u4E86\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[0].svt_voiceType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[1].svt_voiceType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[2].svt_voiceType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[3].svt_voiceType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[4].svt_voiceType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[6].svt_voiceType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[7].svt_voiceType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[8].svt_voiceType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[9].svt_voiceType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[10].svt_voiceType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[0].sstr_words
+      value: "\u8CA7\u3057\u3044\u6728\u3053\u308A\u592B\u5A66\u306E\u5B50\u4F9B\u3067\u3042\u308B\u5144\u306E\u30D8\u30F3\u30BC\u30EB\u3068\u59B9\u306E\u30B0\u30EC\u30FC\u30C6\u30EB\u304C\u5C0F\u5C4B\u306B\u4F4F\u3093\u3067\u3044\u307E\u3057\u305F\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[1].sstr_words
+      value: "\u305D\u3093\u306A\u3042\u308B\u65E5\u306E\u591C\u3001\u4E8C\u4EBA\u306E\u5144\u59B9\u306F\u5076\u7136\u3001\u4E21\u89AA\u306E\u8A71\u3092\u805E\u304D\u307E\u3057\u305F"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[2].sstr_words
+      value: "\u30D8\u30F3\u30BC\u30EB\u306F\u5916\u306B\u51FA\u3066\u5C0F\u77F3\u3092\u62FE\u3044\u59CB\u3081\u307E\u3057\u305F\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[3].sstr_words
+      value: "\u7FCC\u65E5\u3001\u4E21\u89AA\u306F\u5B50\u4F9B\u305F\u3061\u3092\u9023\u308C\u3066\u68EE\u306E\u4E2D\u3078\u884C\u304D\u3001\u30D8\u30F3\u30BC\u30EB\u306F\u5BC6\u304B\u306B\u5C0F\u77F3\u3092\u843D\u3068\u3057\u3066\u3064\u3044\u3066\u884C\u304D\u307E\u3057\u305F\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[4].sstr_words
+      value: "\u7D50\u5C40\u5B50\u4F9B\u9054\u306F\u3054\u4E21\u89AA\u3092\u9003\u3057\u3066\u9053\u306B\u8FF7\u3044\u307E\u3057\u305F\u3002
+        \u5B50\u4F9B\u305F\u3061\u306F\u843D\u3068\u3057\u3066\u304A\u3044\u305F\u5C0F\u77F3\u3092\u898B\u306A\u304C\u3089\u5BB6\u3092\u63A2\u3059\u3053\u3068\u306B\u3057\u307E\u3057\u305F\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[5].sstr_words
+      value: "\u7121\u4E8B\u306B\u5BB6\u306B\u5E30\u3063\u3066\u304F\u308B\u3068\u3001\u7D99\u6BCD\u306F\u5B50\u4F9B\u305F\u3061\u3092\u3082\u3063\u3068\u6DF1\u3044\u68EE\u306B\u7F6E\u3044\u3066\u304D\u307E\u3057\u305F\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[6].sstr_words
+      value: "\u30D8\u30F3\u30BC\u30EB\u306F\u30D1\u30F3\u304F\u305A\u3067\u9053\u3092\u8868\u793A\u3057\u307E\u3057\u305F\u3002
+        \u3057\u304B\u3057\u4ECA\u56DE\u9053\u3092\u635C\u3059\u3053\u3068\u304C\u3067\u304D\u306A\u304B\u3063\u305F\u3067\u3059\u3002
+        \u9CE5\u305F\u3061\u304C\u30D1\u30F3\u304F\u305A\u3092\u5168\u90E8\u98DF\u3079\u3066\u3057\u307E\u3063\u305F\u304B\u3089\u3067\u3059"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[7].sstr_words
+      value: "\u30BF\u30C3\u30C1\u3057\u3066\u9CE5\u3092\u8FFD\u3044\u304B\u3051\u3066\u304F\u3060\u3055\u3044\uFF01"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[8].sstr_words
+      value: "\u3068\u3066\u3082\u304A\u8179\u304C\u7A7A\u3044\u3066\u3044\u305F\u30D8\u30F3\u30BC\u30EB\u3068\u30B0\u30EC\u30FC\u30C6\u30EB\u306F\u3001\u304A\u83D3\u5B50\u5C4B\u306B\u3042\u308B\u304A\u83D3\u5B50\u3092\u98DF\u3079\u308B\u3053\u3068\u306B\u3057\u307E\u3057\u305F\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[9].sstr_words
+      value: "\u30D8\u30F3\u30BC\u30EB\u3068\u30B0\u30EC\u30FC\u30C6\u30EB\u306F\u624B\u306E\u4EE3\u308F\u308A\u306B\u9AA8\u3092\u5DEE\u3057\u51FA\u3057\u307E\u3057\u305F\u3002
+        \u3057\u3070\u3089\u304F\u7D4C\u3063\u3066\u3082\u592A\u3089\u306A\u3044\u306E\u3067\u3001\u6211\u6162\u3067\u304D\u306A\u304B\u3063\u305F\u9B54\u5973\u306F\u3001\u4E8C\u4EBA\u3068\u3082\u3064\u304B\u307E\u3048\u3088\u3046\u3068\u3057\u307E\u3057\u305F\u3002
+        \u6016\u304C\u3063\u3066\u3044\u308B\u5B50\u4F9B\u305F\u3061\u306F\u9B54\u5973\u306B\u9003\u308C\u3088\u3046\u3068\u8A66\u307F\u307E\u3057\u305F\u3002 "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[10].sstr_words
+      value: "\u9B54\u5973\u306F\u30D8\u30F3\u30BC\u30EB\u3068\u30B0\u30EC\u30FC\u30C6\u30EB\u3092\u53EC\u4F7F\u3044\u306B\u4F7F\u3044\u3001\u6BCE\u65E5\u5B50\u4F9B\u305F\u3061\u306E\u624B\u3092\u78BA\u304B\u3081\u3066\u592A\u3063\u305F\u3053\u3068\u3092\u78BA\u8A8D\u3057\u307E\u3057\u305F\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[0].svt_voiceType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[1].svt_voiceType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[2].svt_voiceType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[3].svt_voiceType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[4].svt_voiceType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[5].svt_voiceType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[6].svt_voiceType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[7].svt_voiceType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[8].svt_voiceType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[9].svt_voiceType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[10].svt_voiceType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[0].sstr_words
+      value: The children of the poor woodcutter couple, Hansel and Gretel, lived
+        in a cottage.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[1].sstr_words
+      value: Then one night, the two siblings happened to hear their parents' stories.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[2].sstr_words
+      value: Hansel went out and started picking up pebbles.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[3].sstr_words
+      value: The next day, the parents took their children to the forest, and Hansel
+        secretly dropped a pebble and followed.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[4].sstr_words
+      value: In the end, the children lost their parents and got lost. The children
+        decided to look for a house after seeing the pebbles they had dropped.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[5].sstr_words
+      value: When she got home safely, the stepmother left her children in a deeper
+        forest.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[6].sstr_words
+      value: 'Hansel marked the way with crumbs. But I couldn''t find my way this
+        time. This is because the birds ate all the crumbs. '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[7].sstr_words
+      value: Touch to follow the bird!
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[8].sstr_words
+      value: Hansel and Gretel, who were so hungry, decided to eat snacks in the
+        snack house.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[9].sstr_words
+      value: Hansel and Gretel put out the bones instead of their hands. After a
+        long time, the witch, who couldn't stand it, tried to eat both. The frightened
+        children tried to escape from the witch.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[10].sstr_words
+      value: The witch called Hansel and Gretel servants and checked the children's
+        hands every day to see if they had gained weight.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[2].svt_voiceType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[3].svt_voiceType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[4].svt_voiceType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[6].svt_voiceType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[8].svt_voiceType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[9].svt_voiceType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[10].svt_voiceType
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7469000484905359781, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}

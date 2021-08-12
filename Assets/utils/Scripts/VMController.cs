@@ -31,7 +31,7 @@ public class VMController : MonoBehaviour {
             mgo_loadingScene.SetActive(false);
             return;
         }
-        if (!mb_CheckLanguageReady) {
+        if (mn_CurrentVMIdx >= mn_LanguageLength && !mb_CheckLanguageReady) {
             for (int i = 0; i < mn_LanguageLength; i++) {
                 if (i != (int)mct_CheckCountry) {
                     transform.GetChild(i).gameObject.SetActive(false);
@@ -52,6 +52,6 @@ public class VMController : MonoBehaviour {
 
     public void SetCountry(Country ctStrCountry) {
         mct_CheckCountry = ctStrCountry;
-        mb_CheckLanguageReady = true;
+        mb_CheckLanguageReady = false;
     }
 }
