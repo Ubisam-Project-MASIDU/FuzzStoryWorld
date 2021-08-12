@@ -34,11 +34,17 @@ public class KillTheMonster : MonoBehaviour {
     private void OnMouseDown() {   
         if (T_Monster_HP <= 0) {                  // 세균의 HP가 0보다 작으면 죽는경우 설정
             ControlMonster.GetComponent<ControlMonster>().Delete();
-            Destroy(gameObject);
+            GetComponent<SoundEffectes>().PlaySound("DIE");
+            GetComponent<TrashMonsterMove>().enabled = false;
+            Invoke("destroyTrash", 0.4f);
         }
         else {
             T_Monster_HP -= 1;                   // 세균을 터치하여 HP감소
+            GetComponent<SoundEffectes>().PlaySound("ATTACK");
             Debug.Log("클릭");
         }
+    }
+    private void destroyTrash() {
+        Destroy(gameObject);
     }
 }
