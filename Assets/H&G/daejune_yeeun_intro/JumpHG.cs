@@ -13,8 +13,8 @@
  * mb_CheckOnceJump     헨젤과 그레텔이 점프하는 것을 AddForce로 구현하였기에 계속해서 힘을 가해주는 것이 아니라 한번만 힘을 가해주어야 점프처럼 보이기 때문에 그것을 판명하기 위한 flag 변수이다.
  * 
  * - Function
- * Update()     책과 헨젤과그레텔이 부딪히면, 헨젤과 그레텔 오브젝트를 없애고, 이펙트를 생성하도록 구현하였다.
- * jump()    다음 씬으로 넘어가도록 구현한 함수이다. 
+ * Update()             책과 헨젤과그레텔이 부딪히면, 헨젤과 그레텔 오브젝트를 없애고, 이펙트를 생성하도록 구현하였다.
+ * jump()               다음 씬으로 넘어가도록 구현한 함수이다. 
  * 
  */
 
@@ -22,8 +22,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class JumpHG : MonoBehaviour
-{
+public class JumpHG : MonoBehaviour {
     public GameObject mv3_TargetPos;
     private bool mb_CheckOnceJump = true;
 

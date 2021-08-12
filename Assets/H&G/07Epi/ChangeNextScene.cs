@@ -30,6 +30,7 @@ public class ChangeNextScene : MonoBehaviour {
     private void OnTriggerEnter(Collider cCollider) {
         if (cCollider.tag == "HAG") {
             Invoke("v_changeNextScene", 0.2f);
+            
         }
     }
 
