@@ -82,7 +82,7 @@ public class ManageArray : MonoBehaviour
     {
         // 초기 아이템 7x6 생성
         this.mf_delta += Time.deltaTime;
-        if (this.mf_delta > 1 && mb_InitGenItemFlag == false)
+        if (this.mf_delta > 0.5f && mb_InitGenItemFlag == false)
         {
             for (int j = 0; j < 7; j++)
             {
@@ -1222,7 +1222,7 @@ public class ManageArray : MonoBehaviour
             ShowItemArray();
             for (int i = 5; i > -1; i--)
             {
-                if (this.mf_delta > 1)
+                if (this.mf_delta > 0.5f)
                 {
                     for (int j = 0; j < 7; j++)
                     {
