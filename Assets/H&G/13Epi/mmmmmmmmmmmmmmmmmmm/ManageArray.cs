@@ -131,7 +131,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_distance; n++)
                                             {
                                                 ma2_ItemArray[i, j + n] = 11;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -148,7 +147,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 11;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -172,7 +170,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_distance; n++)
                                             {
                                                 ma2_ItemArray[i, j + n] = 11;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -189,7 +186,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 11;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -205,7 +201,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_distance; n++)
                                             {
                                                 ma2_ItemArray[i, j + n] = 12;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -222,7 +217,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 12;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -246,7 +240,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_distance; n++)
                                             {
                                                 ma2_ItemArray[i, j + n] = 12;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -263,7 +256,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 12;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -279,7 +271,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_distance; n++)
                                             {
                                                 ma2_ItemArray[i, j + n] = 13;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -296,7 +287,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 13;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -320,7 +310,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_distance; n++)
                                             {
                                                 ma2_ItemArray[i, j + n] = 13;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -337,7 +326,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 13;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -353,7 +341,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_distance; n++)
                                             {
                                                 ma2_ItemArray[i, j + n] = 14;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -370,7 +357,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 14;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -394,7 +380,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_distance; n++)
                                             {
                                                 ma2_ItemArray[i, j + n] = 14;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -411,7 +396,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 14;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -427,7 +411,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_distance; n++)
                                             {
                                                 ma2_ItemArray[i, j + n] = 15;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -444,7 +427,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 15;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -468,7 +450,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_distance; n++)
                                             {
                                                 ma2_ItemArray[i, j + n] = 15;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -485,7 +466,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 15;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -501,7 +481,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_distance; n++)
                                             {
                                                 ma2_ItemArray[i, j + n] = 16;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -518,7 +497,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 16;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -542,7 +520,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_distance; n++)
                                             {
                                                 ma2_ItemArray[i, j + n] = 16;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -559,7 +536,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 16;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -575,7 +551,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_distance; n++)
                                             {
                                                 ma2_ItemArray[i, j + n] = 17;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -592,7 +567,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 17;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -616,7 +590,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_distance; n++)
                                             {
                                                 ma2_ItemArray[i, j + n] = 17;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -633,7 +606,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 17;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -659,7 +631,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_ColDistance; n++)
                                             {
                                                 ma2_ItemArray[i + n, j] = 11;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -676,7 +647,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 11;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -700,7 +670,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_ColDistance; n++)
                                             {
                                                 ma2_ItemArray[i + n, j] = 11;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -717,7 +686,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 11;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -733,7 +701,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_ColDistance; n++)
                                             {
                                                 ma2_ItemArray[i + n, j] = 12;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -750,7 +717,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 12;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -774,7 +740,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_ColDistance; n++)
                                             {
                                                 ma2_ItemArray[i + n, j] = 12;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -791,7 +756,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 12;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -807,7 +771,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_ColDistance; n++)
                                             {
                                                 ma2_ItemArray[i + n, j] = 13;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -824,7 +787,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 13;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -848,7 +810,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_ColDistance; n++)
                                             {
                                                 ma2_ItemArray[i + n, j] = 13;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -865,7 +826,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 13;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -881,7 +841,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_ColDistance; n++)
                                             {
                                                 ma2_ItemArray[i + n, j] = 14;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -898,7 +857,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 14;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -922,7 +880,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_ColDistance; n++)
                                             {
                                                 ma2_ItemArray[i + n, j] = 14;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -939,7 +896,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 14;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -955,7 +911,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_ColDistance; n++)
                                             {
                                                 ma2_ItemArray[i + n, j] = 15;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -972,7 +927,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 15;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -996,7 +950,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_ColDistance; n++)
                                             {
                                                 ma2_ItemArray[i + n, j] = 15;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -1013,7 +966,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 15;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -1029,7 +981,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_ColDistance; n++)
                                             {
                                                 ma2_ItemArray[i + n, j] = 16;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -1046,7 +997,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 16;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -1070,7 +1020,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_ColDistance; n++)
                                             {
                                                 ma2_ItemArray[i + n, j] = 16;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -1087,7 +1036,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 16;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -1103,7 +1051,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_ColDistance; n++)
                                             {
                                                 ma2_ItemArray[i + n, j] = 17;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -1120,7 +1067,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 17;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -1144,7 +1090,6 @@ public class ManageArray : MonoBehaviour
                                             for (int n = 0; n < mn_ColDistance; n++)
                                             {
                                                 ma2_ItemArray[i + n, j] = 17;
-                                                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                             }
                                         }
                                         break;
@@ -1161,7 +1106,6 @@ public class ManageArray : MonoBehaviour
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 17;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
                                         }
                                         mb_ColBreakFlag = true;
                                     }
