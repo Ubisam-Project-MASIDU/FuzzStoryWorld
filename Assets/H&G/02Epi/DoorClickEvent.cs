@@ -49,6 +49,7 @@ public class DoorClickEvent : MonoBehaviour{
         //오브젝트 연결
         mg_Hansel = GameObject.Find("Hansel");
         mg_Gretel = GameObject.Find("Gretel");
+
         
         mt_Text = GameObject.Find("Text").GetComponent<Text>();
         mvm_VoiceManager = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();
@@ -65,9 +66,10 @@ public class DoorClickEvent : MonoBehaviour{
         if (mvm_VoiceManager.mb_checkSceneReady && !mb_playOne){                                                                    //나레이션1 실행조건 검사
             mvm_VoiceManager.playVoice(0);                                                                                          //나레이션1과 playVoice(0) 연결됨
             mb_playOne = true;                                                                                                      //나레이션1 출력 완료 
+            Invoke("v_TutorialText", 7f);
         }
         if (mvm_VoiceManager.isPlaying() == false && mvm_VoiceManager.mb_checkSceneReady && mb_playTwo){                            //나레이션2까지 출력 끝나면 다음씬으로 이동
-            v_changeNextScene();                                                                                                    //다음씬으로 이동하기 위한 함수
+            popup.SetActive(true);                                                                                                  //다음씬으로 이동하기 위한 함수
         }
     }
 
@@ -96,7 +98,7 @@ public class DoorClickEvent : MonoBehaviour{
 
     //다음 씬으로 넘어가기 위한 함수
     public void v_changeNextScene(){
-        SceneManager.LoadScene("1_03H&G");
+        SceneManager.LoadScene("1_02H&G_Game");
     }
 }
 
