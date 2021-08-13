@@ -28,6 +28,5 @@ public class ControlMonster : MonoBehaviour {
     }
     public void Delete(){
         num--;
-
     }
 }

@@ -1,9 +1,10 @@
 fileFormatVersion: 2
-guid: f9263f4c1ebdd8946b5917cb9ac0db6d
+guid: af07895b3785f884cad7580fc12202ae
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - Givebone2Witch: {fileID: 8300000, guid: 4e1ff8faed12a475eba9be0e46072269, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
