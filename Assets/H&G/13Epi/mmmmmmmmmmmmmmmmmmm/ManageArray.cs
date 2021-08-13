@@ -466,6 +466,7 @@ public class ManageArray : MonoBehaviour
                 {
                     if(ma2_ItemArray[i,j] > 10)
                     {
+                        mb_DragFlag = false;
                         mg_GameDirector.GetComponent<ManageItem>().v_DestroyObject(j + 1, i);
                     }
                 }
@@ -520,6 +521,7 @@ public class ManageArray : MonoBehaviour
                     }
                 }
             }
+            mb_DragFlag = true;
             ShowItemArray();
         }
 
