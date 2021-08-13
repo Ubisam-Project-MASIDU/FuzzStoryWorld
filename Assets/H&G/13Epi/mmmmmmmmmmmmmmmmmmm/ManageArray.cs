@@ -82,7 +82,7 @@ public class ManageArray : MonoBehaviour
     {
         // 초기 아이템 7x6 생성
         this.mf_delta += Time.deltaTime;
-        if (this.mf_delta > 1 && mb_InitGenItemFlag == false)
+        if (this.mf_delta > 0.5f && mb_InitGenItemFlag == false)
         {
             for (int j = 0; j < 7; j++)
             {
@@ -124,6 +124,15 @@ public class ManageArray : MonoBehaviour
                                     if (ma2_ItemArray[i, k] != 1 && ma2_ItemArray[i, k] != 11)
                                     {
                                         mb_RowBreakFlag = true;
+                                        if(mn_distance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 1 mn_distance : " + mn_distance);
+
+                                            for (int n = 0; n < mn_distance; n++)
+                                            {
+                                                ma2_ItemArray[i, j + n] = 11;
+                                            }
+                                        }
                                         break;
                                     }
                                     else if (ma2_ItemArray[i, k] == 1 || ma2_ItemArray[i, k] == 11)
@@ -131,14 +140,52 @@ public class ManageArray : MonoBehaviour
                                         mn_distance++;
                                     }
 
-                                    if ((ma2_ItemArray[i, k] == 1 && k == 6 && mn_distance >= 3) || ((ma2_ItemArray[i, k] != 1 || ma2_ItemArray[i, k] != 11) && mn_distance >= 3))
+                                    if (((ma2_ItemArray[i, k] == 1 || ma2_ItemArray[i, k] == 11) && k == 6 && mn_distance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 1 mn_distance : " + mn_distance);
 
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 11;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+                                        }
+                                        mb_RowBreakFlag = true;
+                                    }
+                                    break;
+                                case 11:
+                                    if (j != 0)
+                                    {
+                                        if(ma2_ItemArray[i, j - 1] == 1 || ma2_ItemArray[i, j - 1] == 11)
+                                        {
+                                            mb_RowBreakFlag = true;
+                                            break;
+                                        }
+                                    }
+                                    if (ma2_ItemArray[i, k] != 1 && ma2_ItemArray[i, k] != 11)
+                                    {
+                                        mb_RowBreakFlag = true;
+                                        if (mn_distance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 1 mn_distance : " + mn_distance);
+
+                                            for (int n = 0; n < mn_distance; n++)
+                                            {
+                                                ma2_ItemArray[i, j + n] = 11;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    else if (ma2_ItemArray[i, k] == 1 || ma2_ItemArray[i, k] == 11)
+                                    {
+                                        mn_distance++;
+                                    }
+
+                                    if (((ma2_ItemArray[i, k] == 1 || ma2_ItemArray[i, k] == 11) && k == 6 && mn_distance >= 3))
+                                    {
+                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 1 mn_distance : " + mn_distance);
+
+                                        for (int n = 0; n < mn_distance; n++)
+                                        {
+                                            ma2_ItemArray[i, j + n] = 11;
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -147,6 +194,15 @@ public class ManageArray : MonoBehaviour
                                     if (ma2_ItemArray[i, k] != 2 && ma2_ItemArray[i, k] != 12)
                                     {
                                         mb_RowBreakFlag = true;
+                                        if (mn_distance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 2 mn_distance : " + mn_distance);
+
+                                            for (int n = 0; n < mn_distance; n++)
+                                            {
+                                                ma2_ItemArray[i, j + n] = 12;
+                                            }
+                                        }
                                         break;
                                     }
                                     else if (ma2_ItemArray[i, k] == 2 || ma2_ItemArray[i, k] == 12)
@@ -154,14 +210,52 @@ public class ManageArray : MonoBehaviour
                                         mn_distance++;
                                     }
 
-                                    if ((ma2_ItemArray[i, k] == 2 && k == 6 && mn_distance >= 3) || ((ma2_ItemArray[i, k] != 2 || ma2_ItemArray[i, k] != 12) && mn_distance >= 3))
+                                    if (((ma2_ItemArray[i, k] == 2 || ma2_ItemArray[i, k] == 12) && k == 6 && mn_distance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 2 mn_distance : " + mn_distance);
 
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 12;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+                                        }
+                                        mb_RowBreakFlag = true;
+                                    }
+                                    break;
+                                case 12:
+                                    if (j != 0)
+                                    {
+                                        if (ma2_ItemArray[i, j - 1] == 1 || ma2_ItemArray[i, j - 1] == 11)
+                                        {
+                                            mb_RowBreakFlag = true;
+                                            break;
+                                        }
+                                    }
+                                    if (ma2_ItemArray[i, k] != 2 && ma2_ItemArray[i, k] != 12)
+                                    {
+                                        mb_RowBreakFlag = true;
+                                        if (mn_distance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 2 mn_distance : " + mn_distance);
+
+                                            for (int n = 0; n < mn_distance; n++)
+                                            {
+                                                ma2_ItemArray[i, j + n] = 12;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    else if (ma2_ItemArray[i, k] == 2 || ma2_ItemArray[i, k] == 12)
+                                    {
+                                        mn_distance++;
+                                    }
+
+                                    if (((ma2_ItemArray[i, k] == 2 || ma2_ItemArray[i, k] == 12) && k == 6 && mn_distance >= 3))
+                                    {
+                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 2 mn_distance : " + mn_distance);
+
+                                        for (int n = 0; n < mn_distance; n++)
+                                        {
+                                            ma2_ItemArray[i, j + n] = 12;
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -170,6 +264,15 @@ public class ManageArray : MonoBehaviour
                                     if (ma2_ItemArray[i, k] != 3 && ma2_ItemArray[i, k] != 13)
                                     {
                                         mb_RowBreakFlag = true;
+                                        if (mn_distance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 3 mn_distance : " + mn_distance);
+
+                                            for (int n = 0; n < mn_distance; n++)
+                                            {
+                                                ma2_ItemArray[i, j + n] = 13;
+                                            }
+                                        }
                                         break;
                                     }
                                     else if (ma2_ItemArray[i, k] == 3 || ma2_ItemArray[i, k] == 13)
@@ -177,14 +280,52 @@ public class ManageArray : MonoBehaviour
                                         mn_distance++;
                                     }
 
-                                    if ((ma2_ItemArray[i, k] == 3 && k == 6 && mn_distance >= 3) || ((ma2_ItemArray[i, k] != 3 || ma2_ItemArray[i, k] != 13) && mn_distance >= 3))
+                                    if (((ma2_ItemArray[i, k] == 3 || ma2_ItemArray[i, k] == 13) && k == 6 && mn_distance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 3 mn_distance : " + mn_distance);
 
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 13;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+                                        }
+                                        mb_RowBreakFlag = true;
+                                    }
+                                    break;
+                                case 13:
+                                    if (j != 0)
+                                    {
+                                        if (ma2_ItemArray[i, j - 1] == 3 || ma2_ItemArray[i, j - 1] == 13)
+                                        {
+                                            mb_RowBreakFlag = true;
+                                            break;
+                                        }
+                                    }
+                                    if (ma2_ItemArray[i, k] != 3 && ma2_ItemArray[i, k] != 13)
+                                    {
+                                        mb_RowBreakFlag = true;
+                                        if (mn_distance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 3 mn_distance : " + mn_distance);
+
+                                            for (int n = 0; n < mn_distance; n++)
+                                            {
+                                                ma2_ItemArray[i, j + n] = 13;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    else if (ma2_ItemArray[i, k] == 3 || ma2_ItemArray[i, k] == 13)
+                                    {
+                                        mn_distance++;
+                                    }
+
+                                    if (((ma2_ItemArray[i, k] == 3 || ma2_ItemArray[i, k] == 13) && k == 6 && mn_distance >= 3))
+                                    {
+                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 3 mn_distance : " + mn_distance);
+
+                                        for (int n = 0; n < mn_distance; n++)
+                                        {
+                                            ma2_ItemArray[i, j + n] = 13;
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -193,6 +334,15 @@ public class ManageArray : MonoBehaviour
                                     if (ma2_ItemArray[i, k] != 4 && ma2_ItemArray[i, k] != 14)
                                     {
                                         mb_RowBreakFlag = true;
+                                        if (mn_distance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 4 mn_distance : " + mn_distance);
+
+                                            for (int n = 0; n < mn_distance; n++)
+                                            {
+                                                ma2_ItemArray[i, j + n] = 14;
+                                            }
+                                        }
                                         break;
                                     }
                                     else if (ma2_ItemArray[i, k] == 4 || ma2_ItemArray[i, k] == 14)
@@ -200,14 +350,52 @@ public class ManageArray : MonoBehaviour
                                         mn_distance++;
                                     }
 
-                                    if ((ma2_ItemArray[i, k] == 4 && k == 6 && mn_distance >= 3) || ((ma2_ItemArray[i, k] != 4 || ma2_ItemArray[i, k] != 14) && mn_distance >= 3))
+                                    if (((ma2_ItemArray[i, k] == 4 || ma2_ItemArray[i, k] == 14) && k == 6 && mn_distance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 4 mn_distance : " + mn_distance);
 
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 14;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+                                        }
+                                        mb_RowBreakFlag = true;
+                                    }
+                                    break;
+                                case 14:
+                                    if (j != 0)
+                                    {
+                                        if (ma2_ItemArray[i, j - 1] == 4 || ma2_ItemArray[i, j - 1] == 14)
+                                        {
+                                            mb_RowBreakFlag = true;
+                                            break;
+                                        }
+                                    }
+                                    if (ma2_ItemArray[i, k] != 4 && ma2_ItemArray[i, k] != 14)
+                                    {
+                                        mb_RowBreakFlag = true;
+                                        if (mn_distance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 4 mn_distance : " + mn_distance);
+
+                                            for (int n = 0; n < mn_distance; n++)
+                                            {
+                                                ma2_ItemArray[i, j + n] = 14;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    else if (ma2_ItemArray[i, k] == 4 || ma2_ItemArray[i, k] == 14)
+                                    {
+                                        mn_distance++;
+                                    }
+
+                                    if (((ma2_ItemArray[i, k] == 4 || ma2_ItemArray[i, k] == 14) && k == 6 && mn_distance >= 3))
+                                    {
+                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 4 mn_distance : " + mn_distance);
+
+                                        for (int n = 0; n < mn_distance; n++)
+                                        {
+                                            ma2_ItemArray[i, j + n] = 14;
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -216,6 +404,15 @@ public class ManageArray : MonoBehaviour
                                     if (ma2_ItemArray[i, k] != 5 && ma2_ItemArray[i, k] != 15)
                                     {
                                         mb_RowBreakFlag = true;
+                                        if (mn_distance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 5 mn_distance : " + mn_distance);
+
+                                            for (int n = 0; n < mn_distance; n++)
+                                            {
+                                                ma2_ItemArray[i, j + n] = 15;
+                                            }
+                                        }
                                         break;
                                     }
                                     else if (ma2_ItemArray[i, k] == 5 || ma2_ItemArray[i, k] == 15)
@@ -223,14 +420,52 @@ public class ManageArray : MonoBehaviour
                                         mn_distance++;
                                     }
 
-                                    if ((ma2_ItemArray[i, k] == 5 && k == 6 && mn_distance >= 3) || ((ma2_ItemArray[i, k] != 5 || ma2_ItemArray[i, k] != 15) && mn_distance >= 3))
+                                    if (((ma2_ItemArray[i, k] == 5 || ma2_ItemArray[i, k] == 15) && k == 6 && mn_distance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 5 mn_distance : " + mn_distance);
 
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 15;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+                                        }
+                                        mb_RowBreakFlag = true;
+                                    }
+                                    break;
+                                case 15:
+                                    if (j != 0)
+                                    {
+                                        if (ma2_ItemArray[i, j - 1] == 5 || ma2_ItemArray[i, j - 1] == 15)
+                                        {
+                                            mb_RowBreakFlag = true;
+                                            break;
+                                        }
+                                    }
+                                    if (ma2_ItemArray[i, k] != 5 && ma2_ItemArray[i, k] != 15)
+                                    {
+                                        mb_RowBreakFlag = true;
+                                        if (mn_distance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 5 mn_distance : " + mn_distance);
+
+                                            for (int n = 0; n < mn_distance; n++)
+                                            {
+                                                ma2_ItemArray[i, j + n] = 15;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    else if (ma2_ItemArray[i, k] == 5 || ma2_ItemArray[i, k] == 15)
+                                    {
+                                        mn_distance++;
+                                    }
+
+                                    if (((ma2_ItemArray[i, k] == 5 || ma2_ItemArray[i, k] == 15) && k == 6 && mn_distance >= 3))
+                                    {
+                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 5 mn_distance : " + mn_distance);
+
+                                        for (int n = 0; n < mn_distance; n++)
+                                        {
+                                            ma2_ItemArray[i, j + n] = 15;
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -239,6 +474,15 @@ public class ManageArray : MonoBehaviour
                                     if (ma2_ItemArray[i, k] != 6 && ma2_ItemArray[i, k] != 16)
                                     {
                                         mb_RowBreakFlag = true;
+                                        if (mn_distance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 6 mn_distance : " + mn_distance);
+
+                                            for (int n = 0; n < mn_distance; n++)
+                                            {
+                                                ma2_ItemArray[i, j + n] = 16;
+                                            }
+                                        }
                                         break;
                                     }
                                     else if (ma2_ItemArray[i, k] == 6 || ma2_ItemArray[i, k] == 16)
@@ -246,14 +490,52 @@ public class ManageArray : MonoBehaviour
                                         mn_distance++;
                                     }
 
-                                    if ((ma2_ItemArray[i, k] == 6 && k == 6 && mn_distance >= 3) || ((ma2_ItemArray[i, k] != 6 || ma2_ItemArray[i, k] != 16) && mn_distance >= 3))
+                                    if (((ma2_ItemArray[i, k] == 6 || ma2_ItemArray[i, k] == 16) && k == 6 && mn_distance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 6 mn_distance : " + mn_distance);
 
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 16;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+                                        }
+                                        mb_RowBreakFlag = true;
+                                    }
+                                    break;
+                                case 16:
+                                    if (j != 0)
+                                    {
+                                        if (ma2_ItemArray[i, j - 1] == 6 || ma2_ItemArray[i, j - 1] == 16)
+                                        {
+                                            mb_RowBreakFlag = true;
+                                            break;
+                                        }
+                                    }
+                                    if (ma2_ItemArray[i, k] != 6 && ma2_ItemArray[i, k] != 16)
+                                    {
+                                        mb_RowBreakFlag = true;
+                                        if (mn_distance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 6 mn_distance : " + mn_distance);
+
+                                            for (int n = 0; n < mn_distance; n++)
+                                            {
+                                                ma2_ItemArray[i, j + n] = 16;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    else if (ma2_ItemArray[i, k] == 6 || ma2_ItemArray[i, k] == 16)
+                                    {
+                                        mn_distance++;
+                                    }
+
+                                    if (((ma2_ItemArray[i, k] == 6 || ma2_ItemArray[i, k] == 16) && k == 6 && mn_distance >= 3))
+                                    {
+                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 6 mn_distance : " + mn_distance);
+
+                                        for (int n = 0; n < mn_distance; n++)
+                                        {
+                                            ma2_ItemArray[i, j + n] = 16;
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -262,6 +544,15 @@ public class ManageArray : MonoBehaviour
                                     if (ma2_ItemArray[i, k] != 7 && ma2_ItemArray[i, k] != 17)
                                     {
                                         mb_RowBreakFlag = true;
+                                        if (mn_distance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 7 mn_distance : " + mn_distance);
+
+                                            for (int n = 0; n < mn_distance; n++)
+                                            {
+                                                ma2_ItemArray[i, j + n] = 17;
+                                            }
+                                        }
                                         break;
                                     }
                                     else if (ma2_ItemArray[i, k] == 7 || ma2_ItemArray[i, k] == 17)
@@ -269,14 +560,52 @@ public class ManageArray : MonoBehaviour
                                         mn_distance++;
                                     }
 
-                                    if ((ma2_ItemArray[i, k] == 7 && k == 6 && mn_distance >= 3) || ((ma2_ItemArray[i, k] != 7 || ma2_ItemArray[i, k] != 17) && mn_distance >= 3))
+                                    if (((ma2_ItemArray[i, k] == 7 || ma2_ItemArray[i, k] == 17) && k == 6 && mn_distance >= 3))
                                     {
-                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 7 mn_distance : " + mn_distance);
+                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 1 mn_distance : " + mn_distance);
 
                                         for (int n = 0; n < mn_distance; n++)
                                         {
                                             ma2_ItemArray[i, j + n] = 17;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+                                        }
+                                        mb_RowBreakFlag = true;
+                                    }
+                                    break;
+                                case 17:
+                                    if (j != 0)
+                                    {
+                                        if (ma2_ItemArray[i, j - 1] == 7 || ma2_ItemArray[i, j - 1] == 17)
+                                        {
+                                            mb_RowBreakFlag = true;
+                                            break;
+                                        }
+                                    }
+                                    if (ma2_ItemArray[i, k] != 7 && ma2_ItemArray[i, k] != 17)
+                                    {
+                                        mb_RowBreakFlag = true;
+                                        if (mn_distance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 7 mn_distance : " + mn_distance);
+
+                                            for (int n = 0; n < mn_distance; n++)
+                                            {
+                                                ma2_ItemArray[i, j + n] = 17;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    else if (ma2_ItemArray[i, k] == 7 || ma2_ItemArray[i, k] == 17)
+                                    {
+                                        mn_distance++;
+                                    }
+
+                                    if (((ma2_ItemArray[i, k] == 7 || ma2_ItemArray[i, k] == 17) && k == 6 && mn_distance >= 3))
+                                    {
+                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 1 mn_distance : " + mn_distance);
+
+                                        for (int n = 0; n < mn_distance; n++)
+                                        {
+                                            ma2_ItemArray[i, j + n] = 17;
                                         }
                                         mb_RowBreakFlag = true;
                                     }
@@ -295,6 +624,15 @@ public class ManageArray : MonoBehaviour
                                     if (ma2_ItemArray[k, j] != 1 && ma2_ItemArray[k, j] != 11)
                                     {
                                         mb_ColBreakFlag = true;
+                                        if (mn_ColDistance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 1 mn_ColDistance : " + mn_ColDistance);
+
+                                            for (int n = 0; n < mn_ColDistance; n++)
+                                            {
+                                                ma2_ItemArray[i + n, j] = 11;
+                                            }
+                                        }
                                         break;
                                     }
                                     else if (ma2_ItemArray[k, j] == 1 || ma2_ItemArray[k, j] == 11)
@@ -302,14 +640,52 @@ public class ManageArray : MonoBehaviour
                                         mn_ColDistance++;
                                     }
 
-                                    if ((ma2_ItemArray[k, j] == 1 && k == 5 && mn_ColDistance >= 3) || ((ma2_ItemArray[k, j] != 1 || ma2_ItemArray[k, j] != 11) && mn_ColDistance >= 3))
+                                    if (((ma2_ItemArray[k, j] == 1 || ma2_ItemArray[k, j] == 11) && k == 5 && mn_ColDistance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 1 mn_ColDistance : " + mn_ColDistance);
 
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 11;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+                                        }
+                                        mb_ColBreakFlag = true;
+                                    }
+                                    break;
+                                case 11:
+                                    if (i != 0)
+                                    {
+                                        if (ma2_ItemArray[i - 1, k] == 1 || ma2_ItemArray[i, k] == 11)
+                                        {
+                                            mb_RowBreakFlag = true;
+                                            break;
+                                        }
+                                    }
+                                    if (ma2_ItemArray[k, j] != 1 && ma2_ItemArray[k, j] != 11)
+                                    {
+                                        mb_ColBreakFlag = true;
+                                        if (mn_ColDistance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 1 mn_ColDistance : " + mn_ColDistance);
+
+                                            for (int n = 0; n < mn_ColDistance; n++)
+                                            {
+                                                ma2_ItemArray[i + n, j] = 11;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    else if (ma2_ItemArray[k, j] == 1 || ma2_ItemArray[k, j] == 11)
+                                    {
+                                        mn_ColDistance++;
+                                    }
+
+                                    if (((ma2_ItemArray[k, j] == 1 || ma2_ItemArray[k, j] == 11) && k == 5 && mn_ColDistance >= 3))
+                                    {
+                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 1 mn_ColDistance : " + mn_ColDistance);
+
+                                        for (int n = 0; n < mn_ColDistance; n++)
+                                        {
+                                            ma2_ItemArray[i + n, j] = 11;
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -318,6 +694,15 @@ public class ManageArray : MonoBehaviour
                                     if (ma2_ItemArray[k, j] != 2 && ma2_ItemArray[k, j] != 12)
                                     {
                                         mb_ColBreakFlag = true;
+                                        if (mn_ColDistance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 2 mn_ColDistance : " + mn_ColDistance);
+
+                                            for (int n = 0; n < mn_ColDistance; n++)
+                                            {
+                                                ma2_ItemArray[i + n, j] = 12;
+                                            }
+                                        }
                                         break;
                                     }
                                     else if (ma2_ItemArray[k, j] == 2 || ma2_ItemArray[k, j] == 12)
@@ -325,14 +710,52 @@ public class ManageArray : MonoBehaviour
                                         mn_ColDistance++;
                                     }
 
-                                    if ((ma2_ItemArray[k, j] == 2 && k == 5 && mn_ColDistance >= 3) || ((ma2_ItemArray[k, j] != 2 || ma2_ItemArray[k, j] != 12) && mn_ColDistance >= 3))
+                                    if (((ma2_ItemArray[k, j] == 2 || ma2_ItemArray[k, j] == 12) && k == 5 && mn_ColDistance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 2 mn_ColDistance : " + mn_ColDistance);
 
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 12;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+                                        }
+                                        mb_ColBreakFlag = true;
+                                    }
+                                    break;
+                                case 12:
+                                    if (i != 0)
+                                    {
+                                        if (ma2_ItemArray[i - 1, k] == 2 || ma2_ItemArray[i, k] == 12)
+                                        {
+                                            mb_RowBreakFlag = true;
+                                            break;
+                                        }
+                                    }
+                                    if (ma2_ItemArray[k, j] != 2 && ma2_ItemArray[k, j] != 12)
+                                    {
+                                        mb_ColBreakFlag = true;
+                                        if (mn_ColDistance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 2 mn_ColDistance : " + mn_ColDistance);
+
+                                            for (int n = 0; n < mn_ColDistance; n++)
+                                            {
+                                                ma2_ItemArray[i + n, j] = 12;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    else if (ma2_ItemArray[k, j] == 2 || ma2_ItemArray[k, j] == 12)
+                                    {
+                                        mn_ColDistance++;
+                                    }
+
+                                    if (((ma2_ItemArray[k, j] == 2 || ma2_ItemArray[k, j] == 12) && k == 5 && mn_ColDistance >= 3))
+                                    {
+                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 2 mn_ColDistance : " + mn_ColDistance);
+
+                                        for (int n = 0; n < mn_ColDistance; n++)
+                                        {
+                                            ma2_ItemArray[i + n, j] = 12;
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -341,6 +764,15 @@ public class ManageArray : MonoBehaviour
                                     if (ma2_ItemArray[k, j] != 3 && ma2_ItemArray[k, j] != 13)
                                     {
                                         mb_ColBreakFlag = true;
+                                        if (mn_ColDistance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 3 mn_ColDistance : " + mn_ColDistance);
+
+                                            for (int n = 0; n < mn_ColDistance; n++)
+                                            {
+                                                ma2_ItemArray[i + n, j] = 13;
+                                            }
+                                        }
                                         break;
                                     }
                                     else if (ma2_ItemArray[k, j] == 3 || ma2_ItemArray[k, j] == 13)
@@ -348,14 +780,52 @@ public class ManageArray : MonoBehaviour
                                         mn_ColDistance++;
                                     }
 
-                                    if ((ma2_ItemArray[k, j] == 3 && k == 5 && mn_ColDistance >= 3) || ((ma2_ItemArray[k, j] != 3 || ma2_ItemArray[k, j] != 13) && mn_ColDistance >= 3))
+                                    if (((ma2_ItemArray[k, j] == 3 || ma2_ItemArray[k, j] == 13) && k == 5 && mn_ColDistance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 3 mn_ColDistance : " + mn_ColDistance);
 
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 13;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+                                        }
+                                        mb_ColBreakFlag = true;
+                                    }
+                                    break;
+                                case 13:
+                                    if (i != 0)
+                                    {
+                                        if (ma2_ItemArray[i - 1, k] == 3 || ma2_ItemArray[i, k] == 13)
+                                        {
+                                            mb_RowBreakFlag = true;
+                                            break;
+                                        }
+                                    }
+                                    if (ma2_ItemArray[k, j] != 3 && ma2_ItemArray[k, j] != 13)
+                                    {
+                                        mb_ColBreakFlag = true;
+                                        if (mn_ColDistance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 3 mn_ColDistance : " + mn_ColDistance);
+
+                                            for (int n = 0; n < mn_ColDistance; n++)
+                                            {
+                                                ma2_ItemArray[i + n, j] = 13;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    else if (ma2_ItemArray[k, j] == 3 || ma2_ItemArray[k, j] == 13)
+                                    {
+                                        mn_ColDistance++;
+                                    }
+
+                                    if (((ma2_ItemArray[k, j] == 3 || ma2_ItemArray[k, j] == 13) && k == 5 && mn_ColDistance >= 3))
+                                    {
+                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 3 mn_ColDistance : " + mn_ColDistance);
+
+                                        for (int n = 0; n < mn_ColDistance; n++)
+                                        {
+                                            ma2_ItemArray[i + n, j] = 13;
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -364,6 +834,15 @@ public class ManageArray : MonoBehaviour
                                     if (ma2_ItemArray[k, j] != 4 && ma2_ItemArray[k, j] != 14)
                                     {
                                         mb_ColBreakFlag = true;
+                                        if (mn_ColDistance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 4 mn_ColDistance : " + mn_ColDistance);
+
+                                            for (int n = 0; n < mn_ColDistance; n++)
+                                            {
+                                                ma2_ItemArray[i + n, j] = 14;
+                                            }
+                                        }
                                         break;
                                     }
                                     else if (ma2_ItemArray[k, j] == 4 || ma2_ItemArray[k, j] == 14)
@@ -371,14 +850,52 @@ public class ManageArray : MonoBehaviour
                                         mn_ColDistance++;
                                     }
 
-                                    if ((ma2_ItemArray[k, j] == 4 && k == 5 && mn_ColDistance >= 3) || ((ma2_ItemArray[k, j] != 4 || ma2_ItemArray[k, j] != 14) && mn_ColDistance >= 3))
+                                    if (((ma2_ItemArray[k, j] == 4 || ma2_ItemArray[k, j] == 14) && k == 5 && mn_ColDistance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 4 mn_ColDistance : " + mn_ColDistance);
 
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 14;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+                                        }
+                                        mb_ColBreakFlag = true;
+                                    }
+                                    break;
+                                case 14:
+                                    if (i != 0)
+                                    {
+                                        if (ma2_ItemArray[i - 1, k] == 4 || ma2_ItemArray[i, k] == 14)
+                                        {
+                                            mb_RowBreakFlag = true;
+                                            break;
+                                        }
+                                    }
+                                    if (ma2_ItemArray[k, j] != 4 && ma2_ItemArray[k, j] != 14)
+                                    {
+                                        mb_ColBreakFlag = true;
+                                        if (mn_ColDistance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 4 mn_ColDistance : " + mn_ColDistance);
+
+                                            for (int n = 0; n < mn_ColDistance; n++)
+                                            {
+                                                ma2_ItemArray[i + n, j] = 14;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    else if (ma2_ItemArray[k, j] == 4 || ma2_ItemArray[k, j] == 14)
+                                    {
+                                        mn_ColDistance++;
+                                    }
+
+                                    if (((ma2_ItemArray[k, j] == 4 || ma2_ItemArray[k, j] == 14) && k == 5 && mn_ColDistance >= 3))
+                                    {
+                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 4 mn_ColDistance : " + mn_ColDistance);
+
+                                        for (int n = 0; n < mn_ColDistance; n++)
+                                        {
+                                            ma2_ItemArray[i + n, j] = 14;
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -387,6 +904,15 @@ public class ManageArray : MonoBehaviour
                                     if (ma2_ItemArray[k, j] != 5 && ma2_ItemArray[k, j] != 15)
                                     {
                                         mb_ColBreakFlag = true;
+                                        if (mn_ColDistance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 5 mn_ColDistance : " + mn_ColDistance);
+
+                                            for (int n = 0; n < mn_ColDistance; n++)
+                                            {
+                                                ma2_ItemArray[i + n, j] = 15;
+                                            }
+                                        }
                                         break;
                                     }
                                     else if (ma2_ItemArray[k, j] == 5 || ma2_ItemArray[k, j] == 15)
@@ -394,14 +920,52 @@ public class ManageArray : MonoBehaviour
                                         mn_ColDistance++;
                                     }
 
-                                    if ((ma2_ItemArray[k, j] == 5 && k == 5 && mn_ColDistance >= 3) || ((ma2_ItemArray[k, j] != 5 || ma2_ItemArray[k, j] != 15) && mn_ColDistance >= 3))
+                                    if (((ma2_ItemArray[k, j] == 5 || ma2_ItemArray[k, j] == 15) && k == 5 && mn_ColDistance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 5 mn_ColDistance : " + mn_ColDistance);
 
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 15;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+                                        }
+                                        mb_ColBreakFlag = true;
+                                    }
+                                    break;
+                                case 15:
+                                    if (i != 0)
+                                    {
+                                        if (ma2_ItemArray[i - 1, k] == 5 || ma2_ItemArray[i, k] == 15)
+                                        {
+                                            mb_RowBreakFlag = true;
+                                            break;
+                                        }
+                                    }
+                                    if (ma2_ItemArray[k, j] != 5 && ma2_ItemArray[k, j] != 15)
+                                    {
+                                        mb_ColBreakFlag = true;
+                                        if (mn_ColDistance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 5 mn_ColDistance : " + mn_ColDistance);
+
+                                            for (int n = 0; n < mn_ColDistance; n++)
+                                            {
+                                                ma2_ItemArray[i + n, j] = 15;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    else if (ma2_ItemArray[k, j] == 5 || ma2_ItemArray[k, j] == 15)
+                                    {
+                                        mn_ColDistance++;
+                                    }
+
+                                    if (((ma2_ItemArray[k, j] == 5 || ma2_ItemArray[k, j] == 15) && k == 5 && mn_ColDistance >= 3))
+                                    {
+                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 5 mn_ColDistance : " + mn_ColDistance);
+
+                                        for (int n = 0; n < mn_ColDistance; n++)
+                                        {
+                                            ma2_ItemArray[i + n, j] = 15;
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -410,6 +974,15 @@ public class ManageArray : MonoBehaviour
                                     if (ma2_ItemArray[k, j] != 6 && ma2_ItemArray[k, j] != 16)
                                     {
                                         mb_ColBreakFlag = true;
+                                        if (mn_ColDistance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 6 mn_ColDistance : " + mn_ColDistance);
+
+                                            for (int n = 0; n < mn_ColDistance; n++)
+                                            {
+                                                ma2_ItemArray[i + n, j] = 16;
+                                            }
+                                        }
                                         break;
                                     }
                                     else if (ma2_ItemArray[k, j] == 6 || ma2_ItemArray[k, j] == 16)
@@ -417,14 +990,52 @@ public class ManageArray : MonoBehaviour
                                         mn_ColDistance++;
                                     }
 
-                                    if ((ma2_ItemArray[k, j] == 6 && k == 5 && mn_ColDistance >= 3) || ((ma2_ItemArray[k, j] != 6 || ma2_ItemArray[k, j] != 16) && mn_ColDistance >= 3))
+                                    if (((ma2_ItemArray[k, j] == 6 || ma2_ItemArray[k, j] == 16) && k == 5 && mn_ColDistance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 6 mn_ColDistance : " + mn_ColDistance);
 
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 16;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+                                        }
+                                        mb_ColBreakFlag = true;
+                                    }
+                                    break;
+                                case 16:
+                                    if (i != 0)
+                                    {
+                                        if (ma2_ItemArray[i - 1, k] == 6 || ma2_ItemArray[i, k] == 16)
+                                        {
+                                            mb_RowBreakFlag = true;
+                                            break;
+                                        }
+                                    }
+                                    if (ma2_ItemArray[k, j] != 6 && ma2_ItemArray[k, j] != 16)
+                                    {
+                                        mb_ColBreakFlag = true;
+                                        if (mn_ColDistance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 6 mn_ColDistance : " + mn_ColDistance);
+
+                                            for (int n = 0; n < mn_ColDistance; n++)
+                                            {
+                                                ma2_ItemArray[i + n, j] = 16;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    else if (ma2_ItemArray[k, j] == 6 || ma2_ItemArray[k, j] == 16)
+                                    {
+                                        mn_ColDistance++;
+                                    }
+
+                                    if (((ma2_ItemArray[k, j] == 6 || ma2_ItemArray[k, j] == 16) && k == 5 && mn_ColDistance >= 3))
+                                    {
+                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 6 mn_ColDistance : " + mn_ColDistance);
+
+                                        for (int n = 0; n < mn_ColDistance; n++)
+                                        {
+                                            ma2_ItemArray[i + n, j] = 16;
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -433,6 +1044,15 @@ public class ManageArray : MonoBehaviour
                                     if (ma2_ItemArray[k, j] != 7 && ma2_ItemArray[k, j] != 17)
                                     {
                                         mb_ColBreakFlag = true;
+                                        if (mn_ColDistance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 7 mn_ColDistance : " + mn_ColDistance);
+
+                                            for (int n = 0; n < mn_ColDistance; n++)
+                                            {
+                                                ma2_ItemArray[i + n, j] = 17;
+                                            }
+                                        }
                                         break;
                                     }
                                     else if (ma2_ItemArray[k, j] == 7 || ma2_ItemArray[k, j] == 17)
@@ -440,14 +1060,52 @@ public class ManageArray : MonoBehaviour
                                         mn_ColDistance++;
                                     }
 
-                                    if ((ma2_ItemArray[k, j] == 7 && k == 5 && mn_ColDistance >= 3) || ((ma2_ItemArray[k, j] != 7 || ma2_ItemArray[k, j] != 17) && mn_ColDistance >= 3))
+                                    if (((ma2_ItemArray[k, j] == 7 || ma2_ItemArray[k, j] == 17) && k == 5 && mn_ColDistance >= 3))
                                     {
                                         Debug.Log("i : " + i + " j : " + j + " mn_cursor : 7 mn_ColDistance : " + mn_ColDistance);
 
                                         for (int n = 0; n < mn_ColDistance; n++)
                                         {
                                             ma2_ItemArray[i + n, j] = 17;
-                                            mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+                                        }
+                                        mb_ColBreakFlag = true;
+                                    }
+                                    break;
+                                case 17:
+                                    if (i != 0)
+                                    {
+                                        if (ma2_ItemArray[i - 1, k] == 7 || ma2_ItemArray[i, k] == 17)
+                                        {
+                                            mb_RowBreakFlag = true;
+                                            break;
+                                        }
+                                    }
+                                    if (ma2_ItemArray[k, j] != 7 && ma2_ItemArray[k, j] != 17)
+                                    {
+                                        mb_ColBreakFlag = true;
+                                        if (mn_ColDistance >= 3)
+                                        {
+                                            Debug.Log("i : " + i + " j : " + j + " mn_cursor : 7 mn_ColDistance : " + mn_ColDistance);
+
+                                            for (int n = 0; n < mn_ColDistance; n++)
+                                            {
+                                                ma2_ItemArray[i + n, j] = 17;
+                                            }
+                                        }
+                                        break;
+                                    }
+                                    else if (ma2_ItemArray[k, j] == 7 || ma2_ItemArray[k, j] == 17)
+                                    {
+                                        mn_ColDistance++;
+                                    }
+
+                                    if (((ma2_ItemArray[k, j] == 7 || ma2_ItemArray[k, j] == 17) && k == 5 && mn_ColDistance >= 3))
+                                    {
+                                        Debug.Log("i : " + i + " j : " + j + " mn_cursor : 7 mn_ColDistance : " + mn_ColDistance);
+
+                                        for (int n = 0; n < mn_ColDistance; n++)
+                                        {
+                                            ma2_ItemArray[i + n, j] = 17;
                                         }
                                         mb_ColBreakFlag = true;
                                     }
@@ -508,7 +1166,7 @@ public class ManageArray : MonoBehaviour
             ShowItemArray();
             for (int i = 5; i > -1; i--)
             {
-                if (this.mf_delta > 1)
+                if (this.mf_delta > 0.5f)
                 {
                     for (int j = 0; j < 7; j++)
                     {
@@ -1002,6 +1660,364 @@ public class ManageArray : MonoBehaviour
     public void v_ChangeDragFlagTrue()
     {
         mb_DragFlag = true;
+    }
+
+    public bool b_InspectArrayIsPop()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                mn_distance = 1;
+                mn_ColDistance = 1;
+                mn_cursor = ma2_ItemArray[i, j];
+                mb_RowBreakFlag = false;
+                mb_ColBreakFlag = false;
+                for (int k = j + 1; k < 7; k++)
+                {
+                    if(mb_RowBreakFlag == false)
+                    {
+                        // 가로로 확인
+                        switch (mn_cursor)
+                        {
+                            case 1:
+                                if (ma2_ItemArray[i, k] != 1 && ma2_ItemArray[i, k] != 11)
+                                {
+                                    if (mn_distance >= 3)
+                                    {
+                                        Debug.Log("트루 반환 i : " + i + ", j : " + j);
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        mb_RowBreakFlag = true;
+                                        break;
+                                    }
+                                }
+                                else if (ma2_ItemArray[i, k] == 1 || ma2_ItemArray[i, k] == 11)
+                                {
+                                    mn_distance++;
+                                }
+
+                                if (((ma2_ItemArray[i, k] == 1 || ma2_ItemArray[i, k] == 11) && k == 6 && mn_distance >= 3))
+                                {
+                                    Debug.Log("트루 반환 i : " + i + ", j : " + j);
+                                    return true;
+                                }
+                                break;
+                            case 2:
+                                if (ma2_ItemArray[i, k] != 2 && ma2_ItemArray[i, k] != 12)
+                                {
+                                    if (mn_distance >= 3)
+                                    {
+                                        Debug.Log("트루 반환 i : " + i + ", j : " + j);
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        mb_RowBreakFlag = true;
+                                        break;
+                                    }
+                                }
+                                else if (ma2_ItemArray[i, k] == 2 || ma2_ItemArray[i, k] == 12)
+                                {
+                                    mn_distance++;
+                                }
+
+                                if (((ma2_ItemArray[i, k] == 2 || ma2_ItemArray[i, k] == 12) && k == 6 && mn_distance >= 3))
+                                {
+                                    Debug.Log("트루 반환 i : " + i + ", j : " + j);
+                                    return true;
+                                }
+                                break;
+                            case 3:
+                                if (ma2_ItemArray[i, k] != 3 && ma2_ItemArray[i, k] != 13)
+                                {
+                                    if (mn_distance >= 3)
+                                    {
+                                        Debug.Log("트루 반환 i : " + i + ", j : " + j);
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        mb_RowBreakFlag = true;
+                                        break;
+                                    }
+                                }
+                                else if (ma2_ItemArray[i, k] == 3 || ma2_ItemArray[i, k] == 13)
+                                {
+                                    mn_distance++;
+                                }
+
+                                if (((ma2_ItemArray[i, k] == 3 || ma2_ItemArray[i, k] == 13) && k == 6 && mn_distance >= 3))
+                                {
+                                    Debug.Log("트루 반환 i : " + i + ", j : " + j);
+                                    return true;
+                                }
+                                break;
+                            case 4:
+                                if (ma2_ItemArray[i, k] != 4 && ma2_ItemArray[i, k] != 14)
+                                {
+                                    if (mn_distance >= 3)
+                                    {
+                                        Debug.Log("트루 반환 i : " + i + ", j : " + j);
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        mb_RowBreakFlag = true;
+                                        break;
+                                    }
+                                }
+                                else if (ma2_ItemArray[i, k] == 4 || ma2_ItemArray[i, k] == 14)
+                                {
+                                    mn_distance++;
+                                }
+
+                                if (((ma2_ItemArray[i, k] == 4 || ma2_ItemArray[i, k] == 14) && k == 6 && mn_distance >= 3))
+                                {
+                                    Debug.Log("트루 반환 i : " + i + ", j : " + j);
+                                    return true;
+                                }
+                                break;
+                            case 5:
+                                if (ma2_ItemArray[i, k] != 5 && ma2_ItemArray[i, k] != 15)
+                                {
+                                    if (mn_distance >= 3)
+                                    {
+                                        Debug.Log("트루 반환 i : " + i + ", j : " + j);
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        mb_RowBreakFlag = true;
+                                        break;
+                                    }
+                                }
+                                else if (ma2_ItemArray[i, k] == 5 || ma2_ItemArray[i, k] == 15)
+                                {
+                                    mn_distance++;
+                                }
+
+                                if (((ma2_ItemArray[i, k] == 5 || ma2_ItemArray[i, k] == 15) && k == 6 && mn_distance >= 3))
+                                {
+                                    Debug.Log("트루 반환 i : " + i + ", j : " + j);
+                                    return true;
+                                }
+                                break;
+                            case 6:
+                                if (ma2_ItemArray[i, k] != 6 && ma2_ItemArray[i, k] != 16)
+                                {
+                                    if (mn_distance >= 3)
+                                    {
+                                        Debug.Log("트루 반환 i : " + i + ", j : " + j);
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        mb_RowBreakFlag = true;
+                                        break;
+                                    }
+                                }
+                                else if (ma2_ItemArray[i, k] == 6 || ma2_ItemArray[i, k] == 16)
+                                {
+                                    mn_distance++;
+                                }
+
+                                if (((ma2_ItemArray[i, k] == 6 || ma2_ItemArray[i, k] == 16) && k == 6 && mn_distance >= 3))
+                                {
+                                    Debug.Log("트루 반환 i : " + i + ", j : " + j);
+                                    return true;
+                                }
+                                break;
+                            case 7:
+                                if (ma2_ItemArray[i, k] != 7 && ma2_ItemArray[i, k] != 17)
+                                {
+                                    if (mn_distance >= 3)
+                                    {
+                                        Debug.Log("트루 반환 i : " + i + ", j : " + j);
+                                        return true;
+                                    }
+                                    else
+                                    {
+                                        mb_RowBreakFlag = true;
+                                        break;
+                                    }
+                                }
+                                else if (ma2_ItemArray[i, k] == 7 || ma2_ItemArray[i, k] == 17)
+                                {
+                                    mn_distance++;
+                                }
+
+                                if (((ma2_ItemArray[i, k] == 7 || ma2_ItemArray[i, k] == 17) && k == 6 && mn_distance >= 3))
+                                {
+                                    Debug.Log("트루 반환 i : " + i + ", j : " + j);
+                                    return true;
+                                }
+                                break;
+                        }
+                    }
+                }
+                //세로로 확인
+                for (int k = i + 1; k < 6; k++)
+                {
+                    if (mb_ColBreakFlag == false)
+                    {
+                        switch (mn_cursor)
+                        {
+                            case 1:
+                                if (ma2_ItemArray[k, j] != 1 && ma2_ItemArray[k, j] != 11)
+                                {
+                                    if (mn_ColDistance >= 3)
+                                        return true;
+                                    else
+                                    {
+                                        mb_ColBreakFlag = true;
+                                        break;
+                                    }
+                                }
+                                else if (ma2_ItemArray[k, j] == 1 || ma2_ItemArray[k, j] == 11)
+                                {
+                                    mn_ColDistance++;
+                                }
+
+                                if (((ma2_ItemArray[k, j] == 1 || ma2_ItemArray[k, j] == 11) && k == 5 && mn_ColDistance >= 3))
+                                {
+                                    return true;
+                                }
+                                break;
+                            case 2:
+                                if (ma2_ItemArray[k, j] != 2 && ma2_ItemArray[k, j] != 12)
+                                {
+                                    if (mn_ColDistance >= 3)
+                                        return true;
+                                    else
+                                    {
+                                        mb_ColBreakFlag = true;
+                                        break;
+                                    }
+                                }
+                                else if (ma2_ItemArray[k, j] == 2 || ma2_ItemArray[k, j] == 12)
+                                {
+                                    mn_ColDistance++;
+                                }
+
+                                if (((ma2_ItemArray[k, j] == 2 || ma2_ItemArray[k, j] == 12) && k == 5 && mn_ColDistance >= 3))
+                                {
+                                    return true;
+                                }
+                                break;
+                            case 3:
+                                if (ma2_ItemArray[k, j] != 3 && ma2_ItemArray[k, j] != 13)
+                                {
+                                    if (mn_ColDistance >= 3)
+                                        return true;
+                                    else
+                                    {
+                                        mb_ColBreakFlag = true;
+                                        break;
+                                    }
+                                }
+                                else if (ma2_ItemArray[k, j] == 3 || ma2_ItemArray[k, j] == 13)
+                                {
+                                    mn_ColDistance++;
+                                }
+
+                                if (((ma2_ItemArray[k, j] == 3 || ma2_ItemArray[k, j] == 13) && k == 5 && mn_ColDistance >= 3))
+                                {
+                                    return true;
+                                }
+                                break;
+                            case 4:
+                                if (ma2_ItemArray[k, j] != 4 && ma2_ItemArray[k, j] != 14)
+                                {
+                                    if (mn_ColDistance >= 3)
+                                        return true;
+                                    else
+                                    {
+                                        mb_ColBreakFlag = true;
+                                        break;
+                                    }
+                                }
+                                else if (ma2_ItemArray[k, j] == 4 || ma2_ItemArray[k, j] == 14)
+                                {
+                                    mn_ColDistance++;
+                                }
+
+                                if (((ma2_ItemArray[k, j] == 4 || ma2_ItemArray[k, j] == 14) && k == 5 && mn_ColDistance >= 3))
+                                {
+                                    return true;
+                                }
+                                break;
+                            case 5:
+                                if (ma2_ItemArray[k, j] != 5 && ma2_ItemArray[k, j] != 15)
+                                {
+                                    if (mn_ColDistance >= 3)
+                                        return true;
+                                    else
+                                    {
+                                        mb_ColBreakFlag = true;
+                                        break;
+                                    }
+                                }
+                                else if (ma2_ItemArray[k, j] == 5 || ma2_ItemArray[k, j] == 15)
+                                {
+                                    mn_ColDistance++;
+                                }
+
+                                if (((ma2_ItemArray[k, j] == 5 || ma2_ItemArray[k, j] == 15) && k == 5 && mn_ColDistance >= 3))
+                                {
+                                    return true;
+                                }
+                                break;
+                            case 6:
+                                if (ma2_ItemArray[k, j] != 6 && ma2_ItemArray[k, j] != 16)
+                                {
+                                    if (mn_ColDistance >= 3)
+                                        return true;
+                                    else
+                                    {
+                                        mb_ColBreakFlag = true;
+                                        break;
+                                    }
+                                }
+                                else if (ma2_ItemArray[k, j] == 6 || ma2_ItemArray[k, j] == 16)
+                                {
+                                    mn_ColDistance++;
+                                }
+
+                                if (((ma2_ItemArray[k, j] == 6 || ma2_ItemArray[k, j] == 16) && k == 5 && mn_ColDistance >= 3))
+                                {
+                                    return true;
+                                }
+                                break;
+                            case 7:
+                                if (ma2_ItemArray[k, j] != 7 && ma2_ItemArray[k, j] != 17)
+                                {
+                                    if (mn_ColDistance >= 3)
+                                        return true;
+                                    else
+                                    {
+                                        mb_ColBreakFlag = true;
+                                        break;
+                                    }
+                                }
+                                else if (ma2_ItemArray[k, j] == 7 || ma2_ItemArray[k, j] == 17)
+                                {
+                                    mn_ColDistance++;
+                                }
+
+                                if (((ma2_ItemArray[k, j] == 7 || ma2_ItemArray[k, j] == 17) && k == 5 && mn_ColDistance >= 3))
+                                {
+                                    return true;
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
     }
     #endregion
 }

@@ -23,6 +23,6 @@ public class Score : MonoBehaviour
 
     public void v_IncreaseScore()
     {
-        score = score + 10;
+        score = score + 1;
     }
 }

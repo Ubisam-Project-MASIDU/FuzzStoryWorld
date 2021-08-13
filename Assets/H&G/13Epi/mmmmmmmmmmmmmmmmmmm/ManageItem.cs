@@ -61,6 +61,7 @@ public class ManageItem : MonoBehaviour
     GameObject mg_Col5;                                                             // 연결을 위한 변수 -> 5번째 세로줄 관리를 위한 변수 
     GameObject mg_Col6;                                                             // 연결을 위한 변수 -> 6번째 세로줄 관리를 위한 변수 
     GameObject mg_Col7;                                                             // 연결을 위한 변수 -> 7번째 세로줄 관리를 위한 변수 
+    GameObject mg_GameDirector;
 
     // 오브젝트 관리를 위한 변수
     GameObject mg_GenItem;                                                          // 오브젝트 관리를 위한 변수 -> 생성한 오브젝트 속성을 변경하기 위한 변수
@@ -81,6 +82,7 @@ public class ManageItem : MonoBehaviour
         mg_Col5 = GameObject.Find("Col5");
         mg_Col6 = GameObject.Find("Col6");
         mg_Col7 = GameObject.Find("Col7");
+        mg_GameDirector = GameObject.Find("GameDirector");
     }
 
     // Update is called once per frame
@@ -178,7 +180,10 @@ public class ManageItem : MonoBehaviour
 
             //Debug.Log("nColNumber : " + nColNumber + " nChildNumber : " + nChildNumber);
             if (mg_DeletedObject.gameObject != null)
-                Destroy(mg_DeletedObject.gameObject, 1.5f);
+            {
+                Destroy(mg_DeletedObject.gameObject, 1f);
+                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+            }
             mg_DeletedObject = null;
         }
     }
