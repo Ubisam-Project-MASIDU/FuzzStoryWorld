@@ -7,7 +7,8 @@
  * 
  * - History
  * 1) 2021-08-11 : 어느방향으로 드래그하였는지 알려주는 함수 작성
- *  
+ * 2) 2021-08-12 : 상하좌우 방향으로 드래그 기능 구현
+ * 
  * - Variable 
  * mb_DragFlag                                      Flag 값 -> Flag값이 True일 경우에만 어느방향으로 드래그하였는지 알려줌
  * mv3_screenSpace                                  월드좌표를 화면좌표로 변경하여 저장해두는 변수
@@ -30,7 +31,7 @@ using UnityEngine;
 
 public class SwapItem : MonoBehaviour
 {
-    bool mb_DragFlag = true;
+    bool mb_DragFlag = false;
     private Vector3 mv3_screenSpace;
     private Vector3 mv3_offset;
 
@@ -51,7 +52,7 @@ public class SwapItem : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        mb_DragFlag = mg_GameDirector.GetComponent<ManageArray>().b_ReturnDragFlag();
     }
 
     private void OnMouseDown()
@@ -69,6 +70,7 @@ public class SwapItem : MonoBehaviour
     {
         if (mb_DragFlag == true)
         {
+            mg_GameDirector.GetComponent<ManageArray>().v_ChangeDragFlagFalse();
             var curmv3_screenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, mv3_screenSpace.z);
             mv3_EndPoint = Camera.main.ScreenToWorldPoint(curmv3_screenSpace) + mv3_offset;
             //Debug.Log("마우스 업 : " + mv3_EndPoint);
@@ -83,20 +85,35 @@ public class SwapItem : MonoBehaviour
                     break;
                 case 0:
                     //Debug.Log("드래그 방향 : Left");
+                    v_DragLeft();
+                    Debug.Log(mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop());
+                    if (mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop() == false)
+                        Invoke("v_DragRight", 1.5f);
                     break;
                 case 1:
                     //Debug.Log("드래그 방향 : Down");
+                    v_DragDown();
+                    Debug.Log(mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop());
+                    if (mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop() == false)
+                        Invoke("v_DragUp", 1.5f);
                     break;
                 case 2:
                     //Debug.Log("드래그 방향 : Right");
+                    v_DragRight();
+                    Debug.Log(mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop());
+                    if (mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop() == false)
+                        Invoke("v_DragLeft", 1.5f);
                     break;
                 case 3:
                     //Debug.Log("드래그 방향 : Up");
-                    //transform.position = new Vector2(transform.position.x, transform.position.y + 2);
-                    //Debug.Log("x : " + transform.position.x + " y : " + transform.position.y);
-                    mg_GameDirector.GetComponent<ManageArray>().DragToUp(this.gameObject);
+                    v_DragUp();
+                    Debug.Log(mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop());
+                    if (mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop() == false)
+                        Invoke("v_DragDown", 1.5f);
                     break;
             }
+            mg_GameDirector.GetComponent<ManageArray>().v_ChangeFailToDragFlagFalse();
+            Invoke("v_TurnOnMouseDrag", 1.5f);
         }
     }
 
@@ -148,5 +165,29 @@ public class SwapItem : MonoBehaviour
                 Debug.Log("드래그 방향 : Up");
                 break;
         }
+    }
+
+    public void v_DragDown()
+    {
+        mg_GameDirector.GetComponent<ManageArray>().DragToDown(this.gameObject);
+    }
+
+    public void v_DragUp()
+    {
+        mg_GameDirector.GetComponent<ManageArray>().DragToUp(this.gameObject);
+    }
+    public void v_DragRight()
+    {
+        mg_GameDirector.GetComponent<ManageArray>().DragToRight(this.gameObject);
+    }
+
+    public void v_DragLeft()
+    {
+        mg_GameDirector.GetComponent<ManageArray>().DragToLeft(this.gameObject);
+    }
+
+    public void v_TurnOnMouseDrag()
+    {
+        mg_GameDirector.GetComponent<ManageArray>().v_ChangeDragFlagTrue();
     }
 }

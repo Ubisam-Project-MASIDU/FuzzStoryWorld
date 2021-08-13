@@ -7,7 +7,7 @@
  * 
  * - History
  * 1) 2021-08-05 : 코드 구현. 
- * 2) 2021-08-06 : 주석 작성.
+ * 2) 2021-08-09 : 주석 작성.
  *  
  * - Variable 
  * mr_CheckMousePosByRay                                마우스가 클릭된 곳을 카메라에서부터 레이져를 쏘아 감지하기 위한 Ray 클래스이다.                        
@@ -52,11 +52,11 @@ public class FlyBird : MonoBehaviour {
         if(!mb_CheckEndBird && (mf_CheckTime >= 0.2f) && (transform.position.y <= 2f)){
             mf_CheckTime = 0f;
             if (transform.position.z <= -10.8f) {
-                GetComponent<Rigidbody>().AddForce(1.5f, 120f, 10f);
+                GetComponent<Rigidbody>().AddForce(5f, 120f, 10f);
             } else if (transform.position.z >= -11.6f) {
-                GetComponent<Rigidbody>().AddForce(1.5f, 120f, -10f);
+                GetComponent<Rigidbody>().AddForce(5f, 120f, -10f);
             } else {
-                GetComponent<Rigidbody>().AddForce(1.5f, 120f, Random.Range(-10f, 10f));
+                GetComponent<Rigidbody>().AddForce(5f, 120f, Random.Range(-10f, 10f));
             }
         }
 
