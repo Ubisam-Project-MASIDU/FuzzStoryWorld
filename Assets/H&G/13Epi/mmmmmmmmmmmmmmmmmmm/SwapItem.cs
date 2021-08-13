@@ -86,25 +86,29 @@ public class SwapItem : MonoBehaviour
                 case 0:
                     //Debug.Log("드래그 방향 : Left");
                     v_DragLeft();
-                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true && mg_GameDirector.GetComponent<ManageArray>().b_ReturnFailToDragFlag() == false)
-                        Invoke("v_DragRight", 2f);
+                    Debug.Log(mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop());
+                    if (mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop() == false)
+                        Invoke("v_DragRight", 1.5f);
                     break;
                 case 1:
                     //Debug.Log("드래그 방향 : Down");
                     v_DragDown();
-                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true && mg_GameDirector.GetComponent<ManageArray>().b_ReturnFailToDragFlag() == false)
+                    Debug.Log(mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop());
+                    if (mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop() == false)
                         Invoke("v_DragUp", 1.5f);
                     break;
                 case 2:
                     //Debug.Log("드래그 방향 : Right");
                     v_DragRight();
-                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true && mg_GameDirector.GetComponent<ManageArray>().b_ReturnFailToDragFlag() == false)
-                        Invoke("v_DragLeft", 2f);
+                    Debug.Log(mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop());
+                    if (mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop() == false)
+                        Invoke("v_DragLeft", 1.5f);
                     break;
                 case 3:
                     //Debug.Log("드래그 방향 : Up");
                     v_DragUp();
-                    if (mg_GameDirector.GetComponent<ManageItem>().b_ReturnIsStopFlag() == true && mg_GameDirector.GetComponent<ManageArray>().b_ReturnFailToDragFlag() == false)
+                    Debug.Log(mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop());
+                    if (mg_GameDirector.GetComponent<ManageArray>().b_InspectArrayIsPop() == false)
                         Invoke("v_DragDown", 1.5f);
                     break;
             }
