@@ -25,18 +25,21 @@ using UnityEngine.SceneManagement;
 public class AnswerCheck : MonoBehaviour
 {
     public int mn_count;
-    
+    public GameObject v_YouWinText;
     void Start(){
         mn_count = 0;           //퍼즐 개수 변수 0으로 초기화
-    }
+        v_YouWinText.SetActive(false);
+        
+}
 
     //퍼즐을 맞출때마다 개수 변수를 더해주는 함수
     //퍼즐이 모두 맞춰지는지 개수로 확인하고, 다 맞춰지면 다음 씬으로 이동
     public void v_CountAnswer(){
         mn_count++;            //개수 하나씩 더해준다
         Debug.Log(mn_count);
-        if (mn_count == 9){    
-            Invoke("v_changeNextScene", 2f);
+        if (mn_count == 9){
+            Invoke("v_WinText", 1f);
+            Invoke("v_changeNextScene", 3f);
         }
     }
 
@@ -44,5 +47,10 @@ public class AnswerCheck : MonoBehaviour
     public void v_changeNextScene()
     {
         SceneManager.LoadScene("1_03H&G");
+    }
+
+    public void v_WinText()
+    {
+        v_YouWinText.SetActive(true);
     }
 }
