@@ -18,18 +18,15 @@ public class MoveWitch : MonoBehaviour
     {     
         if(Mathf.Abs(mgo_HanselGretel.transform.position.x - transform.position.x) < 1.0) {
             anim.SetBool("Walking", false);
-
         } else {
             anim.SetBool("Walking", true);
-            transform.position = Vector3.MoveTowards(transform.position, mgo_HanselGretel.transform.position, 1.2f * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, mgo_HanselGretel.transform.position, 2f * Time.deltaTime);
         }
         if(mgo_HanselGretel.transform.position.x - transform.position.x < 0) {
             spriteRenderer.flipX = true;
+        } else {
+            spriteRenderer.flipX = false;
         }
-    }
-    void OnTriggerEnter(Collider collision)
-    {
-        this.transform.GetChild(0).gameObject.SetActive(true);
     }
 }
     
