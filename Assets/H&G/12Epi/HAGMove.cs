@@ -42,16 +42,24 @@ public class HAGMove : MonoBehaviour {
         if (mb_SetPos) {
             float f_OperationResult = f_ComputeDistance(transform.position, mv3_TargetPos);
             float f_LimitDistance = 3f;
+            float f_FlipCharacter = transform.position.x - mv3_TargetPos.x;
 
             if (f_OperationResult > f_LimitDistance) {
+                if (f_FlipCharacter > 0) {
+                    transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+                    transform.GetChild(1).GetComponent<SpriteRenderer>().flipX = true;
+                } else {
+                    transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
+                    transform.GetChild(1).GetComponent<SpriteRenderer>().flipX = false;
+                }
                 transform.position = Vector3.MoveTowards(transform.position, mv3_TargetPos, 10f * Time.deltaTime);
                 mb_DestroyOnce = false;
-                mani_HAGAnimator.SetBool("isWalking", true);
+                // mani_HAGAnimator.SetBool("isWalking", true);
             } else if (!mb_DestroyOnce && f_OperationResult <= f_LimitDistance) {
                 Destroy(mgo_PointingTarget.transform.GetChild(0).gameObject);
                 mb_DestroyOnce = true;
                 mb_SetPos = false;
-                mani_HAGAnimator.SetBool("isWalking", false);
+                // mani_HAGAnimator.SetBool("isWalking", false);
             }
         }
         if (Input.GetMouseButtonDown(0)) {
