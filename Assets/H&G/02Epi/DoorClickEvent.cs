@@ -43,15 +43,14 @@ public class DoorClickEvent : MonoBehaviour{
     private bool mb_playOne = false;                                                                                                //첫번째 나레이션의 실행 유무를 위한 flag
     private bool mb_playTwo = false;                                                                                                //두번째 나레이션의 실행 유무를 위한 flag
 
-    public GameObject popup;
+    public GameObject mg_Popup;                                                                                                     //팝업창 오브젝트 연결을 위한 변수
 
     void Start(){
         //오브젝트 연결
-        mg_Hansel = GameObject.Find("Hansel");
-        mg_Gretel = GameObject.Find("Gretel");
+        mg_Hansel = GameObject.Find("Hansel");                                                                               
+        mg_Gretel = GameObject.Find("Gretel");                                                                                  
 
-        
-        mt_Text = GameObject.Find("Text").GetComponent<Text>();
+        mt_Text = GameObject.Find("Text").GetComponent<Text>();                                                                     
         mvm_VoiceManager = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();
         mg_DoorClickBlink = GameObject.Find("arrow");
 
@@ -60,7 +59,7 @@ public class DoorClickEvent : MonoBehaviour{
 
         mg_DoorClickBlink.SetActive(false);                                                                                         //처음에는 문 클릭 지시 애니메이션을 비활성화
 
-        popup.SetActive(false);
+        mg_Popup.SetActive(false);
     }
     void Update(){
         if (mvm_VoiceManager.mb_checkSceneReady && !mb_playOne){                                                                    //나레이션1 실행조건 검사
@@ -69,7 +68,7 @@ public class DoorClickEvent : MonoBehaviour{
             Invoke("v_TutorialText", 7f);
         }
         if (mvm_VoiceManager.isPlaying() == false && mvm_VoiceManager.mb_checkSceneReady && mb_playTwo){                            //나레이션2까지 출력 끝나면 다음씬으로 이동
-            popup.SetActive(true);                                                                                                  //다음씬으로 이동하기 위한 함수
+            mg_Popup.SetActive(true);                                                                                               //다음씬으로 이동하기 위한 함수
         }
     }
 
