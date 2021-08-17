@@ -85,13 +85,13 @@ public class EatBread : MonoBehaviour
         Time.timeScale = 0;
     }
 
-    // 빵1 사라지게하는 함수
+    // 큰 빵 사라지게하는 함수
     void destroyBigBread() {
         mgo_BigBread.GetComponent<SpriteRenderer>().sprite = null;      
  
     }
     
-    // 빵2 사라지게하는 함수
+    // 작은 빵 사라지게하는 함수
     void destroySmallBread() {
         mgo_SmallBread.GetComponent<SpriteRenderer>().sprite = null;      
     }
