@@ -19,6 +19,7 @@
  *
  * <Function>
  * n_n_ReturnAnswer() : 랜덤 아이템 정답 값을 반환해주는 함수
+ * v_NextSceneLoad() : 다음 씬으로 넘어가게 
  */
 
 using System.Collections;
