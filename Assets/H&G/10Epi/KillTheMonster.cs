@@ -12,6 +12,8 @@
  * -수정 기록-
  * 2021-08-10 : 초기 개발
  * 2021-08-11 : 주석 작성
+ * 2021-08-13 : 소리 나오게는 스크립 적용
+ * 2021-08-17 : 오류 수정 및 마우스로 입력 되었을 때 움직이게 수정
  * 
  * - Variable 
  * T_Monster_HP : 쓰레기 몬스터 HP 설정 변수
@@ -28,7 +30,7 @@ using UnityEngine.SceneManagement;
 public class KillTheMonster : MonoBehaviour {
     private int T_Monster_HP = 2;                                          // 몬스터의 채력 범위 설정
     
-    private bool state; 
+    private bool state;                                                    // 참과 거짓 판별하게 작성
     GameObject ControlMonster;
     
     void Start(){
@@ -41,7 +43,7 @@ public class KillTheMonster : MonoBehaviour {
             ControlMonster.GetComponent<ControlMonster>().Delete();
             GetComponent<SoundEffectes>().PlaySound("DIE");                 // soundEffects에서 설정한 소리 가져오게 한다 
             
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetMouseButtonDown(0)) {                              // 마우스로 클릭 하였을 때 캐릭터가 죽으면서 소리나게 하기
                 print("마우스 입력 받았음");
                 if(state == true) {
                     gameObject.SetActive(false);
