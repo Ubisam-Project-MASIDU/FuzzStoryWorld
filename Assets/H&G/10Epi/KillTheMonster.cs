@@ -4,8 +4,10 @@
  * 
  * - Content : 
  * 쓰레기 몬스터 설정 스크립트
- * 몇번을 터치하여 죽게할 것인지 설정
- *            
+ * -1) 몇번을 터치하여 죽게할 것인지 설정
+ * -2) 몬스터가 체력이 달아서 죽게 만든다
+ * -3) 몬스터가 사라질 때 소리가 나게 하는 스크립트 적용 --> 눈에 보이지 않게하고, 보이게 하는 것을 한다
+ * -4) 몬스터가 체력이 달때 소리가 나게 하는 스크립트 적용
  *            
  * -수정 기록-
  * 2021-08-10 : 제작 완료
@@ -26,7 +28,7 @@ using UnityEngine.SceneManagement;
 public class KillTheMonster : MonoBehaviour {
     private int T_Monster_HP = 2;              // 몬스터의 채력 범위 설정
     
-    private bool state; // 
+    private bool state; 
     GameObject ControlMonster;
     
     void Start(){
@@ -37,11 +39,11 @@ public class KillTheMonster : MonoBehaviour {
     private void OnMouseDown() {   
         if (T_Monster_HP <= 0) {                  // 몬스터의 HP가 0보다 작으면 죽는경우 설정
             ControlMonster.GetComponent<ControlMonster>().Delete();
-            GetComponent<SoundEffectes>().PlaySound("DIE");
+            GetComponent<SoundEffectes>().PlaySound("DIE");          // soundEffects에서 설정한 소리 가져오게 한다 
             
-            if (Input.GetMouseButtonDown(0)){
+            if (Input.GetMouseButtonDown(0)) {
                 print("마우스 입력 받았음");
-                if(state == true){
+                if(state == true) {
                     gameObject.SetActive(false);
                     GetComponent<TrashMonsterMove>().enabled = false;
                     Invoke("destroyTrash", 0.4f);
@@ -49,19 +51,16 @@ public class KillTheMonster : MonoBehaviour {
                     state =  false;
                 }
                 
-                else{
-                    gameObject.SetActive(true);
+                else {
+                    gameObject.SetActive(true);                 
                     print("생겨나");
                     state = true;
                 }
-                
             }
-            
-            
         }
         else {
             T_Monster_HP -= 1;                   // 몬스처를 터치하여 HP감소
-            GetComponent<SoundEffectes>().PlaySound("ATTACK");
+            GetComponent<SoundEffectes>().PlaySound("ATTACK");               // soundEffects에서 설정한 소리 가져오게 한다
             Debug.Log("클릭");
         }
     }
