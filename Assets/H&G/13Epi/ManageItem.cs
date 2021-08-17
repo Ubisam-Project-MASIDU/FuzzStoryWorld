@@ -27,6 +27,7 @@
  * mg_Col7                                          오브젝트 연결을 위한 변수 -> 7번째 세로줄 관리를 위한 변수 
  * mg_GenItem                                       오브젝트 관리를 위한 변수 -> 생성한 오브젝트 속성을 변경하기 위한 변수
  * mg_DeletedObject                                 오브젝트 관리를 위한 변수 -> 삭제할 오브젝트 속성을 변경하기 위한 변수
+ * mg_GameDirector                                  오브젝트 관리를 위한 변수 -> 게임오브젝트 객체에 접근하기 위한 변수
  * mb_IsStopFlag                                    Flag 값 -> 모든 아이템들이 정지된 상태인지 확인하기위한 Flag
  * 
  * - Function
@@ -61,11 +62,11 @@ public class ManageItem : MonoBehaviour
     GameObject mg_Col5;                                                             // 연결을 위한 변수 -> 5번째 세로줄 관리를 위한 변수 
     GameObject mg_Col6;                                                             // 연결을 위한 변수 -> 6번째 세로줄 관리를 위한 변수 
     GameObject mg_Col7;                                                             // 연결을 위한 변수 -> 7번째 세로줄 관리를 위한 변수 
-    GameObject mg_GameDirector;
 
     // 오브젝트 관리를 위한 변수
     GameObject mg_GenItem;                                                          // 오브젝트 관리를 위한 변수 -> 생성한 오브젝트 속성을 변경하기 위한 변수
     GameObject mg_DeletedObject;                                                    // 오브젝트 관리를 위한 변수 -> 삭제할 오브젝트 속성을 변경하기 위한 변수
+    GameObject mg_GameDirector;                                                     // 오브젝트 관리를 위한 변수 -> 게임오브젝트 객체에 접근하기 위한 변수
 
     // Flag 값 
     bool mb_IsStopFlag = false;                                                     // Flag 값 -> 모든 아이템들이 정지된 상태인지 확인하기위한 Flag
