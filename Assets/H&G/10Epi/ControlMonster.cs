@@ -18,12 +18,12 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class ControlMonster : MonoBehaviour {
-    int num = 6;                // 6개의 케릭터의 수를 정해주기
+    int num = 6;                                                    // 케릭터의 수 6으로 저하기
 
     void Update(){
 
         if(num<=0){
-            SceneManager.LoadScene("1_11H&G");                     // 11 페이지로 넘어감
+            SceneManager.LoadScene("1_11H&G");                     // 0이 되면 다음 페이지로 넘어감
         }
     }
     public void Delete(){
