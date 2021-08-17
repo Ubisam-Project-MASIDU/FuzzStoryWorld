@@ -18,8 +18,13 @@ public class RespawnManager : MonoBehaviour
     private void Start(){
         GameManager.instance.onPlay += PlayGame; 
     }
-    void PlayGame(){
-        StartCoroutine(CreateCoin()); 
+    void PlayGame(bool isplay){
+        if(isplay){
+            StartCoroutine(CreateCoin()); 
+        }else{
+            StopAllCoroutines();
+        }
+        
     }
     IEnumerator CreateCoin(){
         while(GameManager.instance.isPlay){

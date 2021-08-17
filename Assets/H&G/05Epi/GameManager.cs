@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     }
     #endregion
     
-    public delegate void OnPlay();
+    public delegate void OnPlay(bool isplay);
     public OnPlay onPlay;
     public float gameSpeed = 1;
     public bool isPlay = false;
@@ -25,7 +25,13 @@ public class GameManager : MonoBehaviour
     public void PlayBtnClick(){
         playBtn.SetActive(false);
         isPlay = true;
-        onPlay.Invoke();
+        onPlay.Invoke(isPlay);
+    }
+
+    public void GameOver(){
+        playBtn.SetActive(true);
+        isPlay = false;
+        onPlay.Invoke(isPlay);
     }
     
 }
