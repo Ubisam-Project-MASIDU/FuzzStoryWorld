@@ -19,7 +19,6 @@
  *
  * <Function>
  * n_n_ReturnAnswer() : 랜덤 아이템 정답 값을 반환해주는 함수
- * 
  */
 
 using System.Collections;
@@ -38,6 +37,7 @@ public class RandomCandy : MonoBehaviour{
     private bool mb_CheckOncePlaying = true;                                                                    // 음성이 한번만 나오도록 제어하는 변수
     public string ms_nameNextScene;                                                                             // 다음씬 이름을 저장하는 변수
     VoiceManager vm;
+    
     void Start(){
         this.mg_GameDirector = GameObject.Find("GameDirector");                                                 // 오브젝트 연결
         this.mg_RandomItem = GameObject.Find("RandomImage");
@@ -46,6 +46,7 @@ public class RandomCandy : MonoBehaviour{
         mb_ItemFlag = false;                                                                                    // Flag 값 False 로 초기화
         vm = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();                                  
     }
+    
     void Update(){
         if (vm.mb_checkSceneReady && mb_CheckOncePlaying) {                                                     // 스크립트 대사를 읽을 준비가 됬다면
             vm.playVoice(0);                                                                                    // 스크립트 대사를 읽어줌
