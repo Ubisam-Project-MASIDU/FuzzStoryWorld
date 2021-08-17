@@ -8,11 +8,16 @@ public class PlayerController : MonoBehaviour
     bool isTop = false;
     public float jumpHeight = 0;
     public float jumpSpeed = 0; 
+    int cntCoin = 0;
+    // public int distance;
+    private int distance;
     Vector2 startPosition;
     Animator animator;
     // Start is called before the first frame update
     void Start()
     {
+        distance = UnityEngine.Random.Range(5,8);
+        Debug.Log(distance + "번 도전!");
         startPosition = transform.position;
         animator = GetComponent<Animator>();
     }
@@ -47,6 +52,20 @@ public class PlayerController : MonoBehaviour
             
         }
     }
+    
+    private void OnTriggerEnter2D(Collider2D cCollidObj){
+        if(cCollidObj.CompareTag("Item")){
+            //Point
 
+            //Deative Item
+            cntCoin += 1;
+            Debug.Log(cntCoin + "번째 돌 먹기 성공!");
+            cCollidObj.gameObject.SetActive(false);
+
+        }
+        if(cntCoin >= distance ){
+            GameManager.instance.GameOver();
+        }
+    }
 
 }
