@@ -29,7 +29,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class RandomCandy : MonoBehaviour{
-    private GameObject mg_RandomItem;                                                                           // Mart_RandomItem 오브젝트 연결을 위한 변수          
+    private GameObject mg_RandomItem;                                                                           // RandomItem 오브젝트 연결을 위한 변수          
     GameObject mg_GameDirector;                                                                                 // GameDirector 오브젝트 연결을 위한 변수                            
     public Sprite[] mspa_SpriteImage = new Sprite[3];                                                           // 아이템 오브젝트 이미지 저장                        
     int mn_RandomValue;                                                                                         // 랜덤 아이템 값 저장해두는 변수                                                    
