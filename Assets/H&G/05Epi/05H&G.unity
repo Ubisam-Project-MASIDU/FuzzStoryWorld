@@ -878,6 +878,8 @@ MonoBehaviour:
   CoinPool: []
   Coins:
   - {fileID: 3383033248856415965, guid: 896cff413d01c41b3aa4c9e760dc6089, type: 3}
+  - {fileID: 6172050921057147453, guid: 45f1b644148204bfd9a8634aa9bd04a5, type: 3}
+  - {fileID: 1460217740642492829, guid: d9daa734479d141eabc96d89214d4931, type: 3}
   objCnt: 3
 --- !u!4 &536990419
 Transform:
