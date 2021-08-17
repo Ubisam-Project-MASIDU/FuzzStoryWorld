@@ -20,8 +20,14 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        animator.SetBool("Run",true);
-        if(Input.GetMouseButtonDown(0)){
+        if(GameManager.instance.isPlay){
+            animator.SetBool("Run",true);
+        }else{
+            animator.SetBool("Run",false);
+        }
+
+        
+        if(Input.GetMouseButtonDown(0) && GameManager.instance.isPlay){
             isJump = true;
         }else if(transform.position.y <= startPosition.y){
             isJump = false;
