@@ -69,7 +69,7 @@ public class HAGMove : MonoBehaviour {
                 if (mgo_PointingTarget.transform.childCount != 0) {
                     Destroy(mgo_PointingTarget.transform.GetChild(0).gameObject);
                 }
-                Instantiate(mgo_MovementMark, mrch_CheckMousePosHitObj.point, mgo_MovementMark.transform.rotation, mgo_PointingTarget.transform);
+                Instantiate(mgo_MovementMark, mrch_CheckMousePosHitObj.point + new Vector3(0, 0.5f, 0), mgo_MovementMark.transform.rotation, mgo_PointingTarget.transform);
                 mv3_TargetPos = mrch_CheckMousePosHitObj.point;
                 mb_SetPos = true;
             }

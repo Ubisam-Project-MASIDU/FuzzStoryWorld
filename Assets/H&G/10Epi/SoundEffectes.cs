@@ -14,7 +14,7 @@
  * AudioSource : 소리를 불러오는 하나의 장치
  * PlaySound : 소리를 저장하면 그 소시를 불러오는 장치
  * audioAttack : 공격을 할때 소리를 불러오는 장치
- * audioDie : 케릭터가 죽었을 때 소리를 불러ㅗ는 장치
+ * audioDie : 케릭터가 죽었을 때 소리를 불러오는 장치
  */
 using System.Collections;
 using System.Collections.Generic;
