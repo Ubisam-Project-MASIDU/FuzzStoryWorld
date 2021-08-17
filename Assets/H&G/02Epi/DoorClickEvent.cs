@@ -5,8 +5,8 @@
  * - Content : 문을 클릭하는 튜토리얼을 통한 스크립트 진행
  *  * 
  * - History
- * 2021-08-03 : 초기 개발
- * 2021-08-12 : 코드 획일화 및 주석 처리
+ * 1) 2021-08-03 : 초기 개발
+ * 2) 2021-08-12 : 코드 획일화 및 주석 처리
  *  
  * - Variable 
  * mg_Hansel
@@ -21,7 +21,7 @@
  * - Function
  * v_GotoDoor()                                     문을 클릭해서 문에 헨젤과 그레텔이 다다를수있게 하는 함수
  * v_TutorialText()                                 문 클릭 이벤트 지시를 도와주기 위한 튜토리얼 텍스트와 애니메이션을 활성화해주는 함수
- * v_changeNextScene()                              다음 씬으로 넘어가기 위한 함수
+ * v_ChangeNextScene()                              다음 씬으로 넘어가기 위한 함수
  *  
  */
 
@@ -96,7 +96,7 @@ public class DoorClickEvent : MonoBehaviour{
     }
 
     //다음 씬으로 넘어가기 위한 함수
-    public void v_changeNextScene(){
+    public void v_ChangeNextScene(){
         SceneManager.LoadScene("1_02H&G_Game");
     }
 }
