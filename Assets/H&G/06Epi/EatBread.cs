@@ -47,39 +47,36 @@ public class EatBread : MonoBehaviour
     private bool mb_playonce = false;
     private bool mb_tellonce = false;
 
-
     // 나레이션 출력
     void Start() {
         mvm_VoiceManager = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();
     }
 
     void Update() {
-        if(mvm_VoiceManager.mb_checkSceneReady && !mb_playonce) {
         // 나레이션 한번 출력 
+        if(mvm_VoiceManager.mb_checkSceneReady && !mb_playonce) {
             mvm_VoiceManager.playVoice(0);
             mb_playonce = true;
         }
-
-        if(mvm_VoiceManager.isPlaying() == false && mvm_VoiceManager.mb_checkSceneReady && !mb_tellonce) {
         // 음성 출력이 끝나면 다음 씬으로 이동
+        if(mvm_VoiceManager.isPlaying() == false && mvm_VoiceManager.mb_checkSceneReady && !mb_tellonce) {
             changeNextScene();  
             mb_tellonce = true;
         }
-
+        // 큰 빵이 게임오브젝트와 근사하면
+        // 큰 빵 없애기
         if(Mathf.Abs(mgo_BigBread.transform.position.x - transform.position.x) < 1.0 && mb_CheckBread) {
-        // 빵1이 게임오브젝트와 근사하면
-        // 빵1 없애기
             Invoke("destroyBigBread", 1f);
             mb_CheckBread = false;
+        // 작은 빵이 게임오브젝트와 근사하면
+        // 작은 빵 없애기
+        // 작은 빵이 없어지면 게임 오브젝트도 정지
         } else if(Mathf.Abs(mgo_SmallBread.transform.position.x - transform.position.x) < 0.7 && !mb_CheckBread) {
-        // 빵2가 게임오브젝트와 근사하면
-        // 빵2 없애기
-        // 빵2가 없어지면 게임 오브젝트도 정지
             Invoke("destroySmallBread", 1f);
             Invoke("Stop", 1.3f);
+        // 최종 위치인 mv_FinalPos까지 걷기
         } else {
             transform.position = Vector3.MoveTowards(transform.position, mv3_FinalPos.transform.position, 0.5f * Time.deltaTime);
-        // 최종 위치인 mv_FinalPos까지 걷기
         }
     }
     
