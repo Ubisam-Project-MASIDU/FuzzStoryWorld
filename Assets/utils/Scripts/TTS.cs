@@ -177,6 +177,7 @@ public class TTS {
     /// <returns> 사용자가 원했던 오디오 Json 데이터 </returns>
     private string TextToSpeechPost(object oSendData) {
         //use JsonUtility. convert byte[] to send this string..
+        // 제이슨 직관성있게 oSendDate 수정. (PostMan)
         string s_useJsonUTempStr = JsonUtility.ToJson(oSendData);
         var b_checkbytesOftempStr = System.Text.Encoding.UTF8.GetBytes(s_useJsonUTempStr);
 
@@ -243,6 +244,7 @@ public class TTS {
     private void setVoice(Voice srcVoice) {
         SetVoice sv_setVoiceConf = new SetVoice();
         switch(srcVoice) {
+            // 주석 추가
             case Voice.KR_FEMALE_A:
                 sv_setVoiceConf.languageCode = "ko-KR";
                 sv_setVoiceConf.name = "ko-KR-Wavenet-A";
