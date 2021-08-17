@@ -26,7 +26,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class KillTheMonster : MonoBehaviour {
-    private int T_Monster_HP = 2;              // 몬스터의 채력 범위 설정
+    private int T_Monster_HP = 2;                                          // 몬스터의 채력 범위 설정
     
     private bool state; 
     GameObject ControlMonster;
@@ -37,16 +37,16 @@ public class KillTheMonster : MonoBehaviour {
     }
 
     private void OnMouseDown() {   
-        if (T_Monster_HP <= 0) {                                     // 몬스터의 HP가 0보다 작으면 죽는경우 설정
+        if (T_Monster_HP <= 0) {                                            // 몬스터의 HP가 0보다 작으면 죽는경우 설정
             ControlMonster.GetComponent<ControlMonster>().Delete();
-            GetComponent<SoundEffectes>().PlaySound("DIE");          // soundEffects에서 설정한 소리 가져오게 한다 
+            GetComponent<SoundEffectes>().PlaySound("DIE");                 // soundEffects에서 설정한 소리 가져오게 한다 
             
             if (Input.GetMouseButtonDown(0)) {
                 print("마우스 입력 받았음");
                 if(state == true) {
                     gameObject.SetActive(false);
                     GetComponent<TrashMonsterMove>().enabled = false;
-                    Invoke("destroyTrash", 0.4f);                      // 바로 죽지 않고 0.4초 딜레이 후 삭제
+                    Invoke("destroyTrash", 0.4f);                           // 바로 죽지 않고 0.4초 딜레이 후 삭제
                     print("사라져");
                     state =  false;
                 }
@@ -59,12 +59,12 @@ public class KillTheMonster : MonoBehaviour {
             }
         }
         else {
-            T_Monster_HP -= 1;                   // 몬스처를 터치하여 HP감소
+            T_Monster_HP -= 1;                                               // 몬스처를 터치하여 HP감소
             GetComponent<SoundEffectes>().PlaySound("ATTACK");               // soundEffects에서 설정한 소리 가져오게 한다
             Debug.Log("클릭");
         }
     }
-    private void destroyTrash() {
+    private void destroyTrash() {                                            // 몬스터를 삭제시킨다
         Destroy(gameObject);
     }
 }
