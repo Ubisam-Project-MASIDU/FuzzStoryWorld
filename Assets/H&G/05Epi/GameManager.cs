@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class GameManager : MonoBehaviour
     public float gameSpeed = 1;
     public bool isPlay = false;
     public GameObject playBtn;
+    public GameObject nextBtn;
+
 
     public void PlayBtnClick(){
         playBtn.SetActive(false);
@@ -29,9 +32,13 @@ public class GameManager : MonoBehaviour
     }
 
     public void GameOver(){
-        playBtn.SetActive(true);
+        nextBtn.SetActive(true);
         isPlay = false;
         onPlay.Invoke(isPlay);
+    }
+
+    public void nextScene(){
+        SceneManager.LoadScene("1_06H&G");
     }
     
 }
