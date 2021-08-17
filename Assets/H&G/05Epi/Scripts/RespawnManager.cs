@@ -20,6 +20,11 @@ public class RespawnManager : MonoBehaviour
     }
     void PlayGame(bool isplay){
         if(isplay){
+            for (int i = 0; i < CoinPool.Count; i++){
+                if(CoinPool[i].activeSelf){
+                    CoinPool[i].SetActive(false);
+                }
+            }
             StartCoroutine(CreateCoin()); 
         }else{
             StopAllCoroutines();
@@ -27,6 +32,7 @@ public class RespawnManager : MonoBehaviour
         
     }
     IEnumerator CreateCoin(){
+        yield return new WaitForSeconds(0.5f);
         while(GameManager.instance.isPlay){
             CoinPool[DeativeCoin()].SetActive(true);
             yield return new WaitForSeconds(Random.Range(1f,3f));
