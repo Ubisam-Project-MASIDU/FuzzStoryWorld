@@ -1,14 +1,14 @@
 /*
  * - Name : RandomCandy.class
  * - Writer : 이윤교
- * - Content : 헨젤과그레텔 Epi8 미니게임 - 중복되지않게 랜덤으로 아이템을 보여주는 스크립트
+ * - Content : 헨젤과그레텔 Epi8 미니게임 - 중복되지않게 랜덤으로 사탕(아이템)을 보여주는 스크립트
  * 
  * - HISTORY
  * 2021-08-10 : 초기 개발
  * 2021-08-11 : 코드 획일화 및 주석처리
  *
  * <Variable>
- * mg_RandomItem : Mart_RandomItem 오브젝트 연결을 위한 변수
+ * mg_RandomItem : RandomItem 오브젝트 연결을 위한 변수
  * mg_GameDirector : GameDirector 오브젝트 연결을 위한 변수
  * mspa_SpriteImage : 아이템 오브젝트 이미지 저장
  * mn_RandomValue : 랜덤 아이템 값 저장해두는 변수
