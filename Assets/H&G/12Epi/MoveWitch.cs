@@ -4,7 +4,7 @@
  * 
  * - Content :
  *  게임오브젝트를 이동시키는 함수 작성
- *  게임오브젝트가 다른 게임오브젝트를 따라가게 하는 함수 작성
+ *  게임오브젝트가 다른 게임오브젝트를 추적 하는 함수 작성
  *
  * - HISTORY
  * 2021-08-12 : 초기 개발
@@ -14,37 +14,47 @@
  * - Variable 
  * mgo_HanselGretel                             헨젤과 그레텔 게임오브젝트
  * mani_Witch                                   마녀 애니메이션
- * spriteRenderer                               이미지 상태 변경 컴포넌트
+ * spr_InvertWitch                               이미지 상태 변경 컴포넌트
  * 
  */
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+    
+// Epi12에서 나오는 목표 게임오브젝트 추적 스크립트
 public class MoveWitch : MonoBehaviour
 {
+    // 목표 오브젝트를 따라가기 위해 필요한 변수들
     public GameObject mgo_HanselGretel;
-    SpriteRenderer spriteRenderer;
     Animator mani_Witch;
+    SpriteRenderer spr_InvertWitch;
+    // 초기화
     void Awake()
     {
         mani_Witch = GetComponent<Animator>();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spr_InvertWitch = GetComponent<SpriteRenderer>();
     }
-
     void Update()
-    {     
-        if(Mathf.Abs(mgo_HanselGretel.transform.position.x - transform.position.x) < 1.0) {
+    { 
+        // 게임 오브젝트가 헨젤과 그레텔에 가까워지면
+        // 마녀가 걷는걸 멈춘다.
+        // 그렇지 않다면 헨젤과 그레텔을 쫓는다.    
+        if(Mathf.Abs(mgo_HanselGretel.transform.position.x - transform.position.x) < 1.0) {           
             mani_Witch.SetBool("Walking", false);
+
         } else {
             mani_Witch.SetBool("Walking", true);
             transform.position = Vector3.MoveTowards(transform.position, mgo_HanselGretel.transform.position, 2f * Time.deltaTime);
         }
+        
+        // 게임 오브젝트가 헨젤과 그레텔보다 앞에 있다면
+        // 좌우반전한다.
+        // 그렇지 않다면 바뀌지 않는다.
         if(mgo_HanselGretel.transform.position.x - transform.position.x < 0) {
-            spriteRenderer.flipX = true;
+            spr_InvertWitch.flipX = true;
         } else {
-            spriteRenderer.flipX = false;
+            spr_InvertWitch.flipX = false;
         }
     }
 }
