@@ -183,7 +183,7 @@ public class ManageItem : MonoBehaviour
             if (mg_DeletedObject.gameObject != null)
             {
                 Destroy(mg_DeletedObject.gameObject, 1f);
-                mg_GameDirector.GetComponent<Score>().v_IncreaseScore();
+                mg_GameDirector.GetComponent<ControlUI>().v_IncreaseScore();
             }
             mg_DeletedObject = null;
         }
