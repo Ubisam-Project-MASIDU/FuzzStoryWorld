@@ -13,7 +13,7 @@
  * 
  * - Variable 
  * T_Monster_HP : 쓰레기 몬스터 HP 설정 변수
-*
+ *
  * -Function()
  * OnMouseDown() : 바이러스 클릭시 작동되는 함수
  * 
@@ -24,19 +24,40 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class KillTheMonster : MonoBehaviour {
-    private int T_Monster_HP = 2;               // 몬스터의 채력 범위 설정
+    private int T_Monster_HP = 2;              // 몬스터의 채력 범위 설정
+    
+    private bool state; // 
     GameObject ControlMonster;
     
     void Start(){
         ControlMonster = GameObject.Find("ControlMonster");
+        state = true;
     }
 
     private void OnMouseDown() {   
         if (T_Monster_HP <= 0) {                  // 몬스터의 HP가 0보다 작으면 죽는경우 설정
             ControlMonster.GetComponent<ControlMonster>().Delete();
             GetComponent<SoundEffectes>().PlaySound("DIE");
-            GetComponent<TrashMonsterMove>().enabled = false;
-            Invoke("destroyTrash", 0.4f);
+            
+            if (Input.GetMouseButtonDown(0)){
+                print("마우스 입력 받았음");
+                if(state == true){
+                    gameObject.SetActive(false);
+                    GetComponent<TrashMonsterMove>().enabled = false;
+                    Invoke("destroyTrash", 0.4f);
+                    print("사라져");
+                    state =  false;
+                }
+                
+                else{
+                    gameObject.SetActive(true);
+                    print("생겨나");
+                    state = true;
+                }
+                
+            }
+            
+            
         }
         else {
             T_Monster_HP -= 1;                   // 몬스처를 터치하여 HP감소
