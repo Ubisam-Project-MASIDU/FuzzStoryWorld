@@ -53,8 +53,9 @@ public class HAGMove : MonoBehaviour {
                     transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
                     transform.GetChild(1).GetComponent<SpriteRenderer>().flipX = false;
                 }
-                
-                // mr_StandGround.AddForce(mv3_TargetPos);
+
+                // Vector3 target = mv3_TargetPos - transform.position;
+                // Rigidbody.AddForce(target * 15 * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
                 transform.position = Vector3.MoveTowards(transform.position, mv3_TargetPos, 10f * Time.deltaTime);
                 mb_DestroyOnce = false;
                 // mani_HAGAnimator.SetBool("isWalking", true);
