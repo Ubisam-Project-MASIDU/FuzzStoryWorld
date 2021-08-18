@@ -18,8 +18,8 @@
  * mv3_FinalPos                                새가 이동할 최종 3차원 위치 변수
  * mvm_VoiceManager                            음성 출력 변수
  * mb_CheckBread                               빵이 사라졌는지 확인하기 위한 논리형 변수
- * mb_playonce                                 음성을 한번 출력하기 위한 논리형 변수
- * mb_tellonce                                 changeNextScene() 함수를 한번 출력하기 위한 논리형 변수
+ * mb_PlayOnce                                 음성을 한번 출력하기 위한 논리형 변수
+ * mb_TellOnce                                 changeNextScene() 함수를 한번 출력하기 위한 논리형 변수
  * 
  * <Function>
  * void Stop()                                 게임 오브젝트 정지 함수
@@ -44,8 +44,8 @@ public class EatBread : MonoBehaviour
 
     // 음성출력에 필요한 변수들
     private VoiceManager mvm_VoiceManager; 
-    private bool mb_playonce = false;
-    private bool mb_tellonce = false;
+    private bool mb_PlayOnce = false;
+    private bool mb_TellOnce = false;
 
     // 나레이션 출력
     void Start() {
@@ -60,22 +60,22 @@ public class EatBread : MonoBehaviour
         }
         
         // 음성 출력이 끝나면 다음 씬으로 이동
-        if(mvm_VoiceManager.isPlaying() == false && mvm_VoiceManager.mb_checkSceneReady && !mb_tellonce) {
-            changeNextScene();  
-            mb_tellonce = true;
+        if(mvm_VoiceManager.isPlaying() == false && mvm_VoiceManager.mb_checkSceneReady && !mb_TellOnce) {
+            ChangeNextScene();  
+            mb_TellOnce = true;
         }
 
         if(Mathf.Abs(mgo_BigBread.transform.position.x - transform.position.x) < 1.0 && mb_CheckBread) {
             // 큰 빵이 게임오브젝트와 근사하면
             // 큰 빵 없애기
-            Invoke("destroyBigBread", 1f);
+            Invoke("DestroyBigBread", 1f);
             mb_CheckBread = false;
             
         } else if(Mathf.Abs(mgo_SmallBread.transform.position.x - transform.position.x) < 0.7 && !mb_CheckBread) {
             // 작은 빵이 게임오브젝트와 근사하면
             // 작은 빵 없애기
             // 작은 빵이 없어지면 게임 오브젝트도 정지
-            Invoke("destroySmallBread", 1f);
+            Invoke("DestroySmallBread", 1f);
             Invoke("Stop", 1.3f);
             
         } else {
