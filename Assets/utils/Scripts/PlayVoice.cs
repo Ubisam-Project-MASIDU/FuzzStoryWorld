@@ -23,6 +23,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // 음성 출력하는 것을 도와주는 간단한 스크립트 클래스이다.
 public class PlayVoice : MonoBehaviour {
@@ -41,6 +42,8 @@ public class PlayVoice : MonoBehaviour {
         if (!mb_PlayOnce) {
             mvm_VoiceManager.playVoice(mn_PlayVoiceIndex);
             mb_PlayOnce = true;
+        } else if (!mvm_VoiceManager.isPlaying()) {
+            SceneManager.LoadScene("1_02H&G");
         }
     }
 }
