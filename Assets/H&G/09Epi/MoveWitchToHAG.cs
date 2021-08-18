@@ -30,7 +30,7 @@ public class MoveWitchToHAG : MonoBehaviour
 
     void Start()
     {
-        mv3_TargetPoint = new Vector3(-2f, 6f, -12f);                                                       //헨젤을 이동시킬 목표지점 설정
+        mv3_TargetPoint = new Vector3(7.2f, 5.8f, -9f);                                                       //헨젤을 이동시킬 목표지점 설정
         mg_Witch = GameObject.Find("witch");                                                                    //변수에 오브젝트 연결
         //mg_PopUp.SetActive(false);                                                                                //팝업창 비활성화
     }

@@ -10,9 +10,13 @@ public class ObjectClick : MonoBehaviour
     private string ms_ObjectName;
     private RaycastHit hit;
     private bool mb_InitPos;
-    // Start is called before the first frame update
+
+    private SpriteRenderer render;
+
     void Awake()
     {
+        render = GameObject.Find("Background").GetComponent<SpriteRenderer>();
+
         mg_Hansel = GameObject.Find("Hansel");
         mg_Gretel = GameObject.Find("Gratel");
         //mr_Rigidbody = mg_Hansel.GetComponent<Rigidbody>();
@@ -22,6 +26,7 @@ public class ObjectClick : MonoBehaviour
 
     void Update()
     {
+        
        
             if (Input.GetMouseButtonDown(0))
             {
@@ -60,6 +65,7 @@ public class ObjectClick : MonoBehaviour
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
                 mg_Gretel.transform.position = new Vector3(-9.5f, 9.8f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
+                Debug.Log(render.color);
                 break;
             case "Cauldron":
                 mg_Hansel.transform.position = new Vector3(5.7f, 14f, -11f);
@@ -96,5 +102,10 @@ public class ObjectClick : MonoBehaviour
                 break;
         }
         mb_InitPos = false; //위치 옮겼으니까
+    }
+
+    void ColorChange()
+    {
+        render.color = new Color(85 / 255f, 85 / 255f, 85 / 255f, 255 / 255f);
     }
 }
