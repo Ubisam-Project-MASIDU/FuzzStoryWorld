@@ -7,8 +7,8 @@ public class SceneControl : MonoBehaviour
 {
 
     public VoiceManager mvm_VoiceManager;
-    private bool mb_PlayFirstVoice = false;                                                                                         // Ã¹¹øÂ° ³ª·¹ÀÌ¼ÇÀÇ ½ÇÇà À¯¹«¸¦ À§ÇÑ flag
-    private Animator fearAnimation;
+    private bool mb_PlayFirstVoice = false;                                                                                         // Ã¹ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ flag
+
     public GameObject mg_WitchText;
     public GameObject vibrate;
     public Text mt_Text;
@@ -29,7 +29,7 @@ public class SceneControl : MonoBehaviour
     void Update()
     {
         if (!mb_PlayFirstVoice)
-        {                                                             // ³ª·¹ÀÌ¼Ç1 ½ÇÇàÁ¶°Ç °Ë»ç
+        {                                                             // ë‚˜ë ˆì´ì…˜1 ì‹¤í–‰ì¡°ê±´ ê²€ì‚¬
             mvm_VoiceManager.playVoice(0);
             Debug.Log("1");
             mb_PlayFirstVoice = true;
@@ -37,7 +37,7 @@ public class SceneControl : MonoBehaviour
             Invoke("ThirdEvent", 8f);
             Invoke("FourthEvent", 12f);
             Invoke("ColorChange", 15f);
-            // ³ª·¹ÀÌ¼Ç1 Ãâ·Â ¿Ï·á 
+            // ë‚˜ë ˆì´ì…˜1 ì¶œë ¥ ì™„ë£Œ 
         }
     }
 
@@ -54,20 +54,8 @@ public class SceneControl : MonoBehaviour
     void ThirdEvent()
     {
         mg_WitchText.SetActive(false);
-        mt_Text.text = "\n       »ç½Ç ±× ÇÒ¸Ó´Ï´Â ¾ÆÀÌµéÀ» Àâ¾Æ¸Ô´Â ¹«¼­¿î ¸¶³à¿´¾î¿ä.        \n";
-        mvm_VoiceManager.playVoice(1);
-        Debug.Log("3");// ³ª·¹ÀÌ¼Ç1°ú playVoice(0) ¿¬°áµÊ
-    }
-    
-    void FourthEvent()
-    {
-        mt_Text.text = "\n       ¹°Ã¼¸¦ Å¬¸¯ÇØ¼­ ¸¶³à¿¡°Ô·ÎºÎÅÍ ÇîÁ©°ú ±×·¹ÅÚÀ» ¼û°ÜÁÖ¼¼¿ä.        \n";
-        hidestartflag = true;
-    }
-
-    void ColorChange()
-    {
-        render.color = new Color(85 / 255f, 85 / 255f, 85 / 255f, 255 / 255f);
+        mt_Text.text = "\n       ì‚¬ì‹¤ ê·¸ í• ë¨¸ë‹ˆëŠ” ì•„ì´ë“¤ì„ ì¡ì•„ë¨¹ëŠ” ë¬´ì„œìš´ ë§ˆë…€ì˜€ì–´ìš”.        \n";
+        mvm_VoiceManager.playVoice(1);                                                                                          // ë‚˜ë ˆì´ì…˜1ê³¼ playVoice(0) ì—°ê²°ë¨
     }
 
 }
