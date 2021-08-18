@@ -1,14 +1,14 @@
 /*
  * - Name : RandomCandy.class
  * - Writer : 이윤교
- * - Content : 헨젤과그레텔 Epi8 미니게임 - 중복되지않게 랜덤으로 아이템을 보여주는 스크립트
+ * - Content : 헨젤과그레텔 Epi8 미니게임 - 중복되지않게 랜덤으로 사탕(아이템)을 보여주는 스크립트
  * 
  * - HISTORY
  * 2021-08-10 : 초기 개발
  * 2021-08-11 : 코드 획일화 및 주석처리
  *
  * <Variable>
- * mg_RandomItem : Mart_RandomItem 오브젝트 연결을 위한 변수
+ * mg_RandomItem : RandomItem 오브젝트 연결을 위한 변수
  * mg_GameDirector : GameDirector 오브젝트 연결을 위한 변수
  * mspa_SpriteImage : 아이템 오브젝트 이미지 저장
  * mn_RandomValue : 랜덤 아이템 값 저장해두는 변수
@@ -19,7 +19,7 @@
  *
  * <Function>
  * n_n_ReturnAnswer() : 랜덤 아이템 정답 값을 반환해주는 함수
- * 
+ * v_NextSceneLoad() : 다음 씬으로 넘어가게 
  */
 
 using System.Collections;
@@ -29,7 +29,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class RandomCandy : MonoBehaviour{
-    private GameObject mg_RandomItem;                                                                           // Mart_RandomItem 오브젝트 연결을 위한 변수          
+    private GameObject mg_RandomItem;                                                                           // RandomItem 오브젝트 연결을 위한 변수          
     GameObject mg_GameDirector;                                                                                 // GameDirector 오브젝트 연결을 위한 변수                            
     public Sprite[] mspa_SpriteImage = new Sprite[3];                                                           // 아이템 오브젝트 이미지 저장                        
     int mn_RandomValue;                                                                                         // 랜덤 아이템 값 저장해두는 변수                                                    
@@ -38,6 +38,7 @@ public class RandomCandy : MonoBehaviour{
     private bool mb_CheckOncePlaying = true;                                                                    // 음성이 한번만 나오도록 제어하는 변수
     public string ms_nameNextScene;                                                                             // 다음씬 이름을 저장하는 변수
     VoiceManager vm;
+    
     void Start(){
         this.mg_GameDirector = GameObject.Find("GameDirector");                                                 // 오브젝트 연결
         this.mg_RandomItem = GameObject.Find("RandomImage");
@@ -46,6 +47,7 @@ public class RandomCandy : MonoBehaviour{
         mb_ItemFlag = false;                                                                                    // Flag 값 False 로 초기화
         vm = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();                                  
     }
+    
     void Update(){
         if (vm.mb_checkSceneReady && mb_CheckOncePlaying) {                                                     // 스크립트 대사를 읽을 준비가 됬다면
             vm.playVoice(0);                                                                                    // 스크립트 대사를 읽어줌
@@ -61,7 +63,7 @@ public class RandomCandy : MonoBehaviour{
                 mg_GameDirector.GetComponent<CandyControl>().v_ChangeFlagFalse();                               // Flag값 False로 변경
             }
             else if(mn_leftTime == 0 && !vm.isPlaying() && vm.mb_checkSceneReady){                              // 만약 남은 아이템개수가 0개라면 Clear                            
-                Invoke("nextSceneLoad", 2f);                                                                    // 2초뒤 다음씬 넘어가는 함수 실행
+                Invoke("v_NextSceneLoad", 2f);                                                                  // 2초뒤 다음씬 넘어가는 함수 실행
             } 
         }
     }
@@ -72,7 +74,7 @@ public class RandomCandy : MonoBehaviour{
     }
 
     //다음 씬으로 넘어가는 함수
-    void nextSceneLoad() {
+    void v_NextSceneLoad() {
         SceneManager.LoadScene("1_09H&G");
     }
 }

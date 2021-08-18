@@ -30,30 +30,45 @@ public class HAGMove : MonoBehaviour {
     private bool mb_SetPos = false;
     private bool mb_DestroyOnce = false;
     private Animator mani_HAGAnimator;
+    private Rigidbody mr_StandGround;
     
     void Start() {
         mgo_PointingTarget = GameObject.Find("PointingTarget").gameObject;
         mani_HAGAnimator = GetComponent<Animator>();
+        mr_StandGround = GetComponent<Rigidbody>();
     }
 
-    
-    void Update() {
-        // walking mouse clicked position...
+    void FixedUpdate() {
         if (mb_SetPos) {
-            float f_OperationResult = f_ComputeDistance(transform.position, mv3_TargetPos);
-            float f_LimitDistance = 3f;
+            // 이동하고자하는 좌표 값과 현재 내 위치의 차이를 구한다.
+            float f_CheckDistance = Vector3.Distance(transform.position, mv3_TargetPos);
+            float f_LimitDistance = 0.01f;
+            float f_FlipCharacter = transform.position.x - mv3_TargetPos.x;
 
-            if (f_OperationResult > f_LimitDistance) {
-                transform.position = Vector3.MoveTowards(transform.position, mv3_TargetPos, 10f * Time.deltaTime);
+            if (f_CheckDistance > f_LimitDistance) {
+                if (f_FlipCharacter > 0) {
+                    transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
+                    transform.GetChild(1).GetComponent<SpriteRenderer>().flipX = true;
+                } else {
+                    transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = false;
+                    transform.GetChild(1).GetComponent<SpriteRenderer>().flipX = false;
+                }
+                
+                mr_StandGround.AddForce(mv3_TargetPos);
+                // transform.position = Vector3.MoveTowards(transform.position, mv3_TargetPos, 10f * Time.deltaTime);
                 mb_DestroyOnce = false;
-                mani_HAGAnimator.SetBool("isWalking", true);
-            } else if (!mb_DestroyOnce && f_OperationResult <= f_LimitDistance) {
+                // mani_HAGAnimator.SetBool("isWalking", true);
+            } else if (!mb_DestroyOnce && f_CheckDistance <= f_LimitDistance) {
                 Destroy(mgo_PointingTarget.transform.GetChild(0).gameObject);
                 mb_DestroyOnce = true;
                 mb_SetPos = false;
-                mani_HAGAnimator.SetBool("isWalking", false);
+                // mani_HAGAnimator.SetBool("isWalking", false);
             }
         }
+    }
+    void Update() {
+        // walking mouse clicked position...
+        
         if (Input.GetMouseButtonDown(0)) {
             mr_CheckMousePosByRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -61,7 +76,7 @@ public class HAGMove : MonoBehaviour {
                 if (mgo_PointingTarget.transform.childCount != 0) {
                     Destroy(mgo_PointingTarget.transform.GetChild(0).gameObject);
                 }
-                Instantiate(mgo_MovementMark, mrch_CheckMousePosHitObj.point, mgo_MovementMark.transform.rotation, mgo_PointingTarget.transform);
+                Instantiate(mgo_MovementMark, mrch_CheckMousePosHitObj.point + new Vector3(0, 0.5f, 0), mgo_MovementMark.transform.rotation, mgo_PointingTarget.transform);
                 mv3_TargetPos = mrch_CheckMousePosHitObj.point;
                 mb_SetPos = true;
             }

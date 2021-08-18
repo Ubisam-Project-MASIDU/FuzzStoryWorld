@@ -526,7 +526,7 @@ PrefabInstance:
     - target: {fileID: 5016832935264139679, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 5016832935264139679, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
         type: 3}
@@ -936,120 +936,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 613432705}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &719962611
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2824697826455121862, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_Name
-      value: VoiceManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mc_loadingScene
-      value: 
-      objectReference: {fileID: 1248292531506328455, guid: 38d1874bc80f843439a1cd81bef23ac9,
-        type: 3}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[0].sf_pitch
-      value: 3.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[0].sstr_words
-      value: "\uB2E4\uC74C\uB0A0 \uBD80\uBAA8\uB2D8\uC740 \uC544\uC774\uB4E4\uC744
-        \uB370\uB9AC\uACE0 \uC232\uC18D\uC73C\uB85C \uB5A0\uB0AC\uACE0, \uD5E8\uC824\uC740
-        \uBAB0\uB798 \uC870\uC57D\uB3CC\uC744 \uB5A8\uC5B4\uB728\uB9AC\uBA70 \uB530\uB77C\uAC14\uC5B4\uC694.
-        \uACB0\uAD6D \uC544\uC774\uB4E4\uC740 \uBD80\uBAA8\uB2D8\uC744 \uB193\uCE58\uACE0
-        \uAE38\uC744 \uC783\uC5C8\uC5B4\uC694. \uC544\uC774\uB4E4\uC740 \uB5A8\uC5B4\uB728\uB824\uB193\uC558\uB358
-        \uC870\uC57D\uB3CC\uC744 \uBCF4\uBA70 \uC9D1\uC744 \uCC3E\uAE30\uB85C \uD588\uC5B4\uC694.      "
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[0].sf_speakingRate
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 11
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.73104
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.5844088
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.7637935
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 50ca070287779419e9e7b136edb025e0, type: 3}
---- !u!1 &719962612 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2824697826455121862, guid: 50ca070287779419e9e7b136edb025e0,
-    type: 3}
-  m_PrefabInstance: {fileID: 719962611}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &719962613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 719962612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 859524751b6cf498e90340241d2af352, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ms_nameNextScene: 1_05H&G
 --- !u!1 &818719824
 GameObject:
   m_ObjectHideFlags: 0
@@ -1730,7 +1616,7 @@ Transform:
   - {fileID: 840903401}
   - {fileID: 394247729}
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1591255725
 GameObject:
@@ -1831,6 +1717,7 @@ GameObject:
   - component: {fileID: 1853389787}
   - component: {fileID: 1853389786}
   - component: {fileID: 1853389785}
+  - component: {fileID: 1853389788}
   m_Layer: 0
   m_Name: Hansel
   m_TagString: Untagged
@@ -1915,6 +1802,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1853389788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853389784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cabc65ce86e6e44d39dd57563760c76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mn_PlayVoiceIndex: 3
 --- !u!1001 &1890607061
 PrefabInstance:
   m_ObjectHideFlags: 0

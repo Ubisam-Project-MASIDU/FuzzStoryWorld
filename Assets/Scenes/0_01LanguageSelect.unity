@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028305, g: 0.22571313, b: 0.3069213, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -601,6 +601,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[3].sstr_words
+      value: "\uB2E4\uC74C\uB0A0 \uBD80\uBAA8\uB2D8\uC740 \uC544\uC774\uB4E4\uC744
+        \uB370\uB9AC\uACE0 \uC232\uC18D\uC73C\uB85C \uB5A0\uB0AC\uACE0, \uD5E8\uC824\uC740
+        \uBAB0\uB798 \uC870\uC57D\uB3CC\uC744 \uB5A8\uC5B4\uB728\uB9AC\uBA70 \uB530\uB77C\uAC14\uC5B4\uC694. 
+        \uACB0\uAD6D \uC544\uC774\uB4E4\uC740 \uBD80\uBAA8\uB2D8\uC744 \uB193\uCE58\uACE0
+        \uAE38\uC744 \uC783\uC5C8\uC5B4\uC694. \uC544\uC774\uB4E4\uC740 \uB5A8\uC5B4\uB728\uB824\uB193\uC558\uB358
+        \uC870\uC57D\uB3CC\uC744 \uBCF4\uBA70 \uC9D1\uC744 \uCC3E\uAE30\uB85C \uD588\uC5B4\uC694. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[4].sstr_words
+      value: "\uB5A8\uC5B4\uB728\uB838\uB358 \uB3CC\uB9F9\uC774\uB97C \uB2E4\uC2DC
+        \uC8FC\uC6B0\uC138\uC694!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
       propertyPath: mvifl_SetVoiceInfoList.Array.data[0].sf_SpeakingRate
       value: 1
       objectReference: {fileID: 0}
@@ -622,13 +638,13 @@ PrefabInstance:
     - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[3].sstr_words
-      value: "\u7B2C\u4E8C\u5929\u7236\u6BCD\u5E26\u7740\u5B69\u5B50\u4EEC\u53BB\u4E86\u6811\u6797\uFF0C\u6C49\u585E\u5C14\u5077\u5077\u5730\u6389\u4E0B\u4E86\u5375\u77F3\uFF0C\u8DDF\u7740\u53BB\u4E86\u3002"
+      value: "\u7B2C\u4E8C\u5929\u7236\u6BCD\u5E26\u7740\u5B69\u5B50\u4EEC\u53BB\u4E86\u6811\u6797\uFF0C\u6C49\u585E\u5C14\u5077\u5077\u5730\u6389\u4E0B\u4E86\u5375\u77F3\uFF0C\u8DDF\u7740\u53BB\u4E86\u3002\u7ED3\u679C\u5B69\u5B50\u4EEC\u9519\u8FC7\u4E86\u7236\u6BCD\uFF0C\u8FF7\u5931\u4E86\u65B9\u5411\u3002
+        \u5B69\u5B50\u4EEC\u770B\u7740\u843D\u4E0B\u7684\u9E45\u5375\u77F3\uFF0C\u51B3\u5B9A\u627E\u623F\u5B50\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[4].sstr_words
-      value: "\u7ED3\u679C\u5B69\u5B50\u4EEC\u9519\u8FC7\u4E86\u7236\u6BCD\uFF0C\u8FF7\u5931\u4E86\u65B9\u5411\u3002
-        \u5B69\u5B50\u4EEC\u770B\u7740\u843D\u4E0B\u7684\u9E45\u5375\u77F3\uFF0C\u51B3\u5B9A\u627E\u623F\u5B50\u3002"
+      value: "\u628A\u6389\u4E0B\u6765\u7684\u77F3\u5934\u6361\u56DE\u6765\u5427\uFF01"
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
@@ -736,13 +752,13 @@ PrefabInstance:
     - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[3].sstr_words
-      value: "\u7FCC\u65E5\u3001\u4E21\u89AA\u306F\u5B50\u4F9B\u305F\u3061\u3092\u9023\u308C\u3066\u68EE\u306E\u4E2D\u3078\u884C\u304D\u3001\u30D8\u30F3\u30BC\u30EB\u306F\u5BC6\u304B\u306B\u5C0F\u77F3\u3092\u843D\u3068\u3057\u3066\u3064\u3044\u3066\u884C\u304D\u307E\u3057\u305F\u3002"
+      value: "\u7FCC\u65E5\u3001\u4E21\u89AA\u306F\u5B50\u4F9B\u305F\u3061\u3092\u9023\u308C\u3066\u68EE\u306E\u4E2D\u3078\u884C\u304D\u3001\u30D8\u30F3\u30BC\u30EB\u306F\u5BC6\u304B\u306B\u5C0F\u77F3\u3092\u843D\u3068\u3057\u3066\u3064\u3044\u3066\u884C\u304D\u307E\u3057\u305F\u3002\u7D50\u5C40\u5B50\u4F9B\u9054\u306F\u3054\u4E21\u89AA\u3092\u9003\u3057\u3066\u9053\u306B\u8FF7\u3044\u307E\u3057\u305F\u3002
+        \u5B50\u4F9B\u305F\u3061\u306F\u843D\u3068\u3057\u3066\u304A\u3044\u305F\u5C0F\u77F3\u3092\u898B\u306A\u304C\u3089\u5BB6\u3092\u63A2\u3059\u3053\u3068\u306B\u3057\u307E\u3057\u305F\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[4].sstr_words
-      value: "\u7D50\u5C40\u5B50\u4F9B\u9054\u306F\u3054\u4E21\u89AA\u3092\u9003\u3057\u3066\u9053\u306B\u8FF7\u3044\u307E\u3057\u305F\u3002
-        \u5B50\u4F9B\u305F\u3061\u306F\u843D\u3068\u3057\u3066\u304A\u3044\u305F\u5C0F\u77F3\u3092\u898B\u306A\u304C\u3089\u5BB6\u3092\u63A2\u3059\u3053\u3068\u306B\u3057\u307E\u3057\u305F\u3002"
+      value: "\u843D\u3068\u3057\u3066\u3044\u305F\u77F3\u3053\u308D\u3092\u307E\u305F\u62FE\u3063\u3066\u304F\u3060\u3055\u3044!"
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
@@ -853,13 +869,14 @@ PrefabInstance:
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[3].sstr_words
       value: The next day, the parents took their children to the forest, and Hansel
-        secretly dropped a pebble and followed.
+        secretly dropped a pebble and followed. In the end, the children lost their
+        parents and got lost. The children decided to look for a house after seeing
+        the pebbles they had dropped.
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[4].sstr_words
-      value: In the end, the children lost their parents and got lost. The children
-        decided to look for a house after seeing the pebbles they had dropped.
+      value: Pick up the stone you dropped again!
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}

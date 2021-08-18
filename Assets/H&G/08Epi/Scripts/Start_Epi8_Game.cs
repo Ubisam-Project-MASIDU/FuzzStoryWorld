@@ -43,7 +43,7 @@ public class Start_Epi8_Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if (vm.mb_checkSceneReady){                                                 //tts 사용전 작업이 다 준비되면
+        if (vm.mb_checkSceneReady){                                                         //tts 사용전 작업이 다 준비되면
             ChangePosition(mgo_Gratel,mv3_Position,0.05f);                                  //그레텔 이동
             ChangePosition(mgo_Hansel,mv3_Position,0.05f);                                  //헨젤 이동
         

@@ -110,12 +110,21 @@ public class TTS {
     private SetTextToSpeech mstts_setTtsApi;
     private static TTS instance = null;
 
-    // TTS의 생성자이다.
+    
+    // TTS 생성자.
+    /// <summary>
+    /// TTS API와 통신을 정의하고 통신을 실행할 수 있는 클래스를 생성한다.
+    /// </summary>
+    /// <returns> TTS 클래스. </returns>
     public TTS() {
         mstts_setTtsApi = new SetTextToSpeech();
     } 
 
     // TTS는 싱글톤 디자인 패턴을 이용할 거므로, 앞으로 이 정적 함수를 통해 TTS 클래스의 인스턴스를 가져온다.
+    /// <summary>
+    /// TTS API와 통신을 정의하고 통신을 실행할 수 있는 클래스를 하나의 인스턴스만 사용하기 위한 함수이다. (싱글톤 패턴 이용)
+    /// </summary>
+    /// <returns> TTS 클래스. </returns>
     public static TTS GetInstance() {
         // 만약 instance가 존재하지 않을 경우 새로 생성한다.
         if (instance is null) {
@@ -124,14 +133,19 @@ public class TTS {
         // instance를 반환한다.
         return instance;
     }
+
     //convert the received byte array to float array. And then, return float array..
+    /// <summary>
+    /// Google TTS API서버 통신을 수행하여 가져온 string 형태의 데이터를 byte 형태로, byte 형태를 float 형태로 바꾸어 반환하는 함수이다. 후에 이를 받아서 VoiceManager 클래스에서는 오디오 클립 형태로 유니티 씬에 넣어 사용할 수 있도록 한번 랩하게 된다.
+    /// </summary>
+    /// <returns> 사용자가 원했던 오디오 float array </returns>
     public float[] CreateAudio(string sTargetSpeech, Voice vTargetVoice, float fSetPitch = 0f, float fSpeakRate = 0.6f) {
 
         setAudioConfig(fSetPitch, fSpeakRate);
         setVoice(vTargetVoice);
         setInput(sTargetSpeech);
 
-        //After request HttpWebRequest, save the returned data in string format.
+        //After request HttpWebRequest, save the returned data in string format. And pasing the Json only to need content.
         var s_str = TextToSpeechPost(mstts_setTtsApi);
         
         GetContent gc_Info = JsonUtility.FromJson<GetContent>(s_str);
@@ -143,6 +157,10 @@ public class TTS {
     }
     
     // 스트링형태로 받은 응답 데이터를 우리가 원하는 float형태로 만들어 준다.
+    /// <summary>
+    /// byte형태의 데이터를 16비트 형태의 int형 데이터로 변환하고 32768를 나누어 float로 변환하여 저장한다.
+    /// </summary>
+    /// <returns> 사용자가 원했던 오디오 float array </returns>
     private static float[] ConvertByteToFloat(byte[] baArray) {
         float[] fa_tempFloatArr = new float[baArray.Length / 2];
 
@@ -153,8 +171,13 @@ public class TTS {
     }
     
     // REST API를 통해 Google TTS API서버와 통신하는 코드이다.
+    /// <summary>
+    /// Google TTS API서버 통신을 수행하는 과정을 정의한 함수로, Google TTS API 서버에 우리가 원하는 음성 데이터 정보를 정의한 클래스를 Json 형태로 보내면, string 형태의 Json 음성 데이터를 API 서버에서 보내주게 된다.
+    /// </summary>
+    /// <returns> 사용자가 원했던 오디오 Json 데이터 </returns>
     private string TextToSpeechPost(object oSendData) {
         //use JsonUtility. convert byte[] to send this string..
+        // 제이슨 직관성있게 oSendDate 수정. (PostMan)
         string s_useJsonUTempStr = JsonUtility.ToJson(oSendData);
         var b_checkbytesOftempStr = System.Text.Encoding.UTF8.GetBytes(s_useJsonUTempStr);
 
@@ -194,12 +217,18 @@ public class TTS {
     }
 
     // 이 아래 코드는 클래스 앞부분에서 보았던 음성 세팅 설정들을 설정해주는 함수이다.
+    /// <summary>
+    /// TTS APi 서버에 보낼 데이터를 정의한다. 이 함수에서는 음성으로 바꿀 텍스트를 넣게 된다.
+    /// </summary>
     private void setInput(string sTargetSpeech) {
         SetInput si_setInputData = new SetInput();
         si_setInputData.text = sTargetSpeech;
         mstts_setTtsApi.input = si_setInputData;
     }
 
+    /// <summary>
+    /// TTS APi 서버에 보낼 데이터를 정의한다. 이 함수에서는 음성의 높낮이, 말빠르기 등 음성 자체를 커스터마이징할 수 있도록 정의한다.
+    /// </summary>
     private void setAudioConfig(float fSetPitch, float fSpeakRate) {
         SetAudioConfig sa_setAudioConf = new SetAudioConfig();
         sa_setAudioConf.audioEncoding = "LINEAR16";
@@ -209,9 +238,13 @@ public class TTS {
         mstts_setTtsApi.audioConfig = sa_setAudioConf;
     }
 
+    /// <summary>
+    /// TTS APi 서버에 보낼 데이터를 정의한다. 이 함수에서는 음성의 베이스 국적을 입력하게 된다. 여기서는 현재 작성자가 정의한 한국, 일본, 중국, 영어의 형태만을 정의하였다.
+    /// </summary>
     private void setVoice(Voice srcVoice) {
         SetVoice sv_setVoiceConf = new SetVoice();
         switch(srcVoice) {
+            // 주석 추가
             case Voice.KR_FEMALE_A:
                 sv_setVoiceConf.languageCode = "ko-KR";
                 sv_setVoiceConf.name = "ko-KR-Wavenet-A";
