@@ -7,7 +7,7 @@ public class SceneControl : MonoBehaviour
 {
 
     public VoiceManager mvm_VoiceManager;
-    private bool mb_PlayFirstVoice = false;                                                                                         // Ã¹¹øÂ° ³ª·¹ÀÌ¼ÇÀÇ ½ÇÇà À¯¹«¸¦ À§ÇÑ flag
+    private bool mb_PlayFirstVoice = false;                                                                                         // Ã¹ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ flag
 
     public GameObject mg_WitchText;
     public GameObject vibrate;
@@ -23,12 +23,12 @@ public class SceneControl : MonoBehaviour
     void Update()
     {
         if (!mb_PlayFirstVoice)
-        {                                                             // ³ª·¹ÀÌ¼Ç1 ½ÇÇàÁ¶°Ç °Ë»ç
-            mvm_VoiceManager.playVoice(0);                                                                                          // ³ª·¹ÀÌ¼Ç1°ú playVoice(0) ¿¬°áµÊ
+        {                                                             // ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ë»ï¿½
+            mvm_VoiceManager.playVoice(0);                                                                                          // ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½1ï¿½ï¿½ playVoice(0) ï¿½ï¿½ï¿½ï¿½ï¿½
             mb_PlayFirstVoice = true;
             Invoke("SecondEvent", 4f);
             Invoke("ThirdEvent", 8f);
-            // ³ª·¹ÀÌ¼Ç1 Ãâ·Â ¿Ï·á 
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½1 ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ 
         }
     }
 
@@ -44,7 +44,7 @@ public class SceneControl : MonoBehaviour
     void ThirdEvent()
     {
         mg_WitchText.SetActive(false);
-        mt_Text.text = "\n       »ç½Ç ±× ÇÒ¸Ó´Ï´Â ¾ÆÀÌµéÀ» Àâ¾Æ¸Ô´Â ¹«¼­¿î ¸¶³à¿´¾î¿ä.        \n";
-        mvm_VoiceManager.playVoice(1);                                                                                          // ³ª·¹ÀÌ¼Ç1°ú playVoice(0) ¿¬°áµÊ
+        mt_Text.text = "\n       ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ò¸Ó´Ï´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½Æ¸Ô´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½à¿´ï¿½ï¿½ï¿½.        \n";
+        mvm_VoiceManager.playVoice(1);                                                                                          // ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½1ï¿½ï¿½ playVoice(0) ï¿½ï¿½ï¿½ï¿½ï¿½
     }
 }

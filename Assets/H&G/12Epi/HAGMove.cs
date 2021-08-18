@@ -54,8 +54,8 @@ public class HAGMove : MonoBehaviour {
                     transform.GetChild(1).GetComponent<SpriteRenderer>().flipX = false;
                 }
                 
-                mr_StandGround.AddForce(mv3_TargetPos);
-                // transform.position = Vector3.MoveTowards(transform.position, mv3_TargetPos, 10f * Time.deltaTime);
+                // mr_StandGround.AddForce(mv3_TargetPos);
+                transform.position = Vector3.MoveTowards(transform.position, mv3_TargetPos, 10f * Time.deltaTime);
                 mb_DestroyOnce = false;
                 // mani_HAGAnimator.SetBool("isWalking", true);
             } else if (!mb_DestroyOnce && f_CheckDistance <= f_LimitDistance) {
