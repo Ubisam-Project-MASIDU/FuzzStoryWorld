@@ -19,7 +19,7 @@ public class SceneControl : MonoBehaviour
     void Start()
     {
         mvm_VoiceManager = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();
-        fearAnimation = GetComponent<Animator>();
+
         mg_WitchText.SetActive(false);
         render = GameObject.Find("Background").GetComponent<SpriteRenderer>();
 
@@ -57,5 +57,19 @@ public class SceneControl : MonoBehaviour
         mt_Text.text = "\n       사실 그 할머니는 아이들을 잡아먹는 무서운 마녀였어요.        \n";
         mvm_VoiceManager.playVoice(1);                                                                                          // 나레이션1과 playVoice(0) 연결됨
     }
+
+    void FourthEvent()
+    {
+        mt_Text.text = "\n       물체를 클릭해서 마녀에게로부터 헨젤과 그레텔을 숨겨주세요.        \n";
+        hidestartflag = true;
+    }
+
+    void ColorChange()
+    {
+        render.color = new Color(85 / 255f, 85 / 255f, 85 / 255f, 255 / 255f);
+    }
+
+
+
 
 }
