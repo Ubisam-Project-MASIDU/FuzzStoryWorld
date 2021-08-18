@@ -35,7 +35,7 @@ public class GroundScroller : MonoBehaviour{
                 if(-6f >= tiles[i].transform.position.x){
                     // 가장 뒤(오른쪽)에 있는 타일을 검색하는 방법
                     for(int j = 0; j < tiles.Length; j++){                                                          // 현재 타일과 변수에 저장된 타일의 X 좌표를 비교하면서
-                        if(temp.transform.position.x < tiles[j].transform.position.x){                              //현재 타일이 변수가 저장된 타일보다 X좌표가 크면 변수의 타일을 현재 타일로 바꾸어 줌.  
+                        if(temp.transform.position.x < tiles[j].transform.position.x){                              // 현재 타일이 변수가 저장된 타일보다 X좌표가 크면 변수의 타일을 현재 타일로 바꾸어 줌.  
                             temp = tiles[j];
                         }
                     }
@@ -44,7 +44,7 @@ public class GroundScroller : MonoBehaviour{
                 }
             }
             for(int i = 0; i < tiles.Length; i++){
-                tiles[i].transform.Translate(new Vector2(-1,0) * Time.deltaTime * GameManager.instance.gameSpeed);  //타일을 좌측으로 이동
+                tiles[i].transform.Translate(new Vector2(-1,0) * Time.deltaTime * GameManager.instance.gameSpeed);  // 타일을 좌측으로 이동
             }
         }
     }
