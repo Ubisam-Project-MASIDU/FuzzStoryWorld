@@ -11,14 +11,26 @@ public class ObjectClick : MonoBehaviour
     private RaycastHit hit;
     private bool mb_InitPos;
     public SceneControl sc;
-
-    private SpriteRenderer render;
+    private SpriteRenderer[] renders;
+    private SpriteRenderer render1;
+    private SpriteRenderer render2;
+    private SpriteRenderer render3;
+    private SpriteRenderer render4;
+    private SpriteRenderer render5;
+    private SpriteRenderer render6;
+    private SpriteRenderer render7;
 
     void Awake()
     {
-        sc = GameObject.Find("GameControl").GetComponent<SceneControl>();
-        render = GameObject.Find("Background").GetComponent<SpriteRenderer>();
         
+        renders[0] = GameObject.Find("Plant").GetComponent<SpriteRenderer>();
+        renders[1] = GameObject.Find("Cauldron").GetComponent<SpriteRenderer>();
+        renders[2] = GameObject.Find("Tree").GetComponent<SpriteRenderer>();
+        renders[3] = GameObject.Find("Log").GetComponent<SpriteRenderer>();
+        renders[4] = GameObject.Find("Stone").GetComponent<SpriteRenderer>();
+        renders[5] = GameObject.Find("House").GetComponent<SpriteRenderer>();
+        renders[6] = GameObject.Find("Background").GetComponent<SpriteRenderer>();
+
         mg_Hansel = GameObject.Find("Hansel");
         mg_Gretel = GameObject.Find("Gratel");
         //mr_Rigidbody = mg_Hansel.GetComponent<Rigidbody>();
@@ -28,8 +40,8 @@ public class ObjectClick : MonoBehaviour
 
     void Update()
     {
-        
-       
+
+        if (sc.hidestartflag) {
             if (Input.GetMouseButtonDown(0))
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -40,22 +52,9 @@ public class ObjectClick : MonoBehaviour
                     Debug.Log(ms_ObjectName);
                 }
             }
-
-        if (sc.hidestartflag)
-        {
             HideBehindObject(ms_ObjectName);
+            //Invoke("ColorChange", 3f);
         }
-            
-            
-            
-        
-        
-        
-        //mg_Hansel.transform.position = mv3_ObjectPos;
-        //mg_Gretel.transform.position = mv3_ObjectPos;
-        //Debug.Log(mv3_ObjectPos);
-        //mg_Hansel.transform.position = Vector3.MoveTowards(mg_Hansel.transform.position, mv3_ObjectPos, 2f * Time.deltaTime);
-        //mr_Rigidbody.MovePosition(mv3_ObjectPos);
     }
     void setPos()
     {
@@ -74,7 +73,6 @@ public class ObjectClick : MonoBehaviour
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
                 mg_Gretel.transform.position = new Vector3(-9.5f, 9.8f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
-                Debug.Log(render.color);
                 break;
             case "Cauldron":
                 mg_Hansel.transform.position = new Vector3(5.7f, 14f, -11f);
@@ -111,11 +109,20 @@ public class ObjectClick : MonoBehaviour
                 break;
         }
         mb_InitPos = false; //위치 옮겼으니까
+
+        //숨은 위치와 hag만 밝게
     }
 
     void ColorChange()
     {
-        render.color = new Color(190 / 255f, 190 / 255f, 190 / 255f, 190 / 255f);
+        for (int i = 0; i < 7; i++)
+        {
+            if(ms_ObjectName != renders[i].tag)
+            {
+                renders[i].color = new Color(190 / 255f, 190 / 255f, 190 / 255f, 190 / 255f);
+            }
+        }
+        //render.color = new Color(190 / 255f, 190 / 255f, 190 / 255f, 190 / 255f);
     }
 
 
