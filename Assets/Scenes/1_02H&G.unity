@@ -501,7 +501,7 @@ MonoBehaviour:
   mbtn_Door: {fileID: 0}
   mt_Text: {fileID: 0}
   mvm_VoiceManager: {fileID: 0}
-  popup: {fileID: 8529505425222084839}
+  mg_Popup: {fileID: 8529505425222084839}
 --- !u!1 &939746975
 GameObject:
   m_ObjectHideFlags: 0
@@ -1333,7 +1333,7 @@ MonoBehaviour:
   mbtn_Door: {fileID: 0}
   mt_Text: {fileID: 0}
   mvm_VoiceManager: {fileID: 0}
-  popup: {fileID: 0}
+  mg_Popup: {fileID: 0}
 --- !u!114 &1714531727
 MonoBehaviour:
   m_ObjectHideFlags: 0
