@@ -816,98 +816,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be0d12f555c74756a51d90d5702ba74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &928134701
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2824697826455121862, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_Name
-      value: VoiceManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mc_loadingScene
-      value: 
-      objectReference: {fileID: 1248292531506328455, guid: 38d1874bc80f843439a1cd81bef23ac9,
-        type: 3}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[0].sf_pitch
-      value: 3.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[0].sstr_words
-      value: "\uBC30\uAC00 \uB108\uBB34 \uACE0\uD320\uB358 \uD5E8\uC824\uACFC \uADF8\uB808\uD154\uC740
-        \uACFC\uC790\uC9D1\uC5D0 \uC788\uB294 \uACFC\uC790\uB97C \uBA39\uAE30\uB85C
-        \uD588\uC5B4\uC694."
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[0].sf_speakingRate
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.73104
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.5844088
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.7637935
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 50ca070287779419e9e7b136edb025e0, type: 3}
 --- !u!1001 &984214294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1020,7 +928,7 @@ Transform:
   - {fileID: 1279713099}
   - {fileID: 1236649786}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1027491568
 GameObject:
@@ -1129,6 +1037,7 @@ GameObject:
   - component: {fileID: 1043450234}
   - component: {fileID: 1043450233}
   - component: {fileID: 1043450235}
+  - component: {fileID: 1043450236}
   m_Layer: 0
   m_Name: Hansel
   m_TagString: Untagged
@@ -1213,6 +1122,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6be0d12f555c74756a51d90d5702ba74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1043450236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1043450232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cabc65ce86e6e44d39dd57563760c76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mn_PlayVoiceIndex: 8
 --- !u!1001 &1073838884
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1513,25 +1435,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1423555751}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1508801347 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2824697826455121862, guid: 50ca070287779419e9e7b136edb025e0,
-    type: 3}
-  m_PrefabInstance: {fileID: 928134701}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1508801348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1508801347}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 859524751b6cf498e90340241d2af352, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ms_nameNextScene: 1_08H&G_Game
 --- !u!1 &1518759867
 GameObject:
   m_ObjectHideFlags: 0

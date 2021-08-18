@@ -51,6 +51,7 @@ public class GameManager : MonoBehaviour
     public bool isPlay = false;
     public GameObject playBtn;
     public GameObject nextBtn;
+    public GameObject Mission;
 
     public delegate void OnPlay(bool isplay); // 게임 시작 버튼이 눌리면 RespawnManager의 Coroutine이 작동되게 해주기
     public OnPlay onPlay; // delegate 생성
@@ -58,6 +59,7 @@ public class GameManager : MonoBehaviour
     // 게임 시작 버튼을 클릭하면 호출할 매소드
     public void PlayBtnClick(){ 
         playBtn.SetActive(false);   // 게임 시작 버튼 비활성화
+        Mission.SetActive(false);   // 미션 창 비활성화
         isPlay = true;              // 게임 시작
         onPlay.Invoke(isPlay);      // delegate 호출
     }
