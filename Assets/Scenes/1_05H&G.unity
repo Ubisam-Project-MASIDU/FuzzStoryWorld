@@ -1120,11 +1120,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0295716150e4a466495f2fa80134298c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoinPool: []
-  Coins:
+  Rocks:
   - {fileID: 3383033248856415965, guid: 896cff413d01c41b3aa4c9e760dc6089, type: 3}
-  - {fileID: 6172050921057147453, guid: 45f1b644148204bfd9a8634aa9bd04a5, type: 3}
   - {fileID: 1460217740642492829, guid: d9daa734479d141eabc96d89214d4931, type: 3}
+  - {fileID: 6172050921057147453, guid: 45f1b644148204bfd9a8634aa9bd04a5, type: 3}
+  RockPool: []
   objCnt: 3
 --- !u!4 &536990419
 Transform:
@@ -2464,7 +2464,6 @@ MonoBehaviour:
   - {fileID: 174746402}
   groundImg:
   - {fileID: -2784247815669728694, guid: e85c6e02fda4a004b84664f435ad4d73, type: 3}
-  speed: 2
 --- !u!1 &1933598962
 GameObject:
   m_ObjectHideFlags: 0
