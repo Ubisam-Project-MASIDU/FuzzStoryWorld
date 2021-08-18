@@ -1,52 +1,75 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SceneControl : MonoBehaviour
 {
 
     public VoiceManager mvm_VoiceManager;
-    private bool mb_PlayFirstVoice = false;                                                                                         // Ã¹¹øÂ° ³ª·¹ÀÌ¼ÇÀÇ ½ÇÇà À¯¹«¸¦ À§ÇÑ flag
-    private bool mb_PlaySecondVoice = false;
-    private bool mb_WitchTextFlag = false;
+    private bool mb_PlayFirstVoice = false;                                                                                         // Ã¹ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ flag
+
     public GameObject mg_WitchText;
     public GameObject vibrate;
+    public Text mt_Text;
+    public bool hidestartflag = false;
+    private SpriteRenderer render;
+
     // Start is called before the first frame update
     void Start()
     {
         mvm_VoiceManager = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();
+
         mg_WitchText.SetActive(false);
+        render = GameObject.Find("Background").GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (mvm_VoiceManager.mb_checkSceneReady && !mb_PlayFirstVoice)
-        {                                                             // ³ª·¹ÀÌ¼Ç1 ½ÇÇàÁ¶°Ç °Ë»ç
-            mvm_VoiceManager.playVoice(0);                                                                                          // ³ª·¹ÀÌ¼Ç1°ú playVoice(0) ¿¬°áµÊ
-            mb_PlayFirstVoice = true;                                                                                               // ³ª·¹ÀÌ¼Ç1 Ãâ·Â ¿Ï·á 
+        if (!mb_PlayFirstVoice)
+        {                                                             // ë‚˜ë ˆì´ì…˜1 ì‹¤í–‰ì¡°ê±´ ê²€ì‚¬
+            mvm_VoiceManager.playVoice(0);
+            Debug.Log("1");
+            mb_PlayFirstVoice = true;
+            Invoke("SecondEvent", 4f);
+            Invoke("ThirdEvent", 8f);
+            Invoke("FourthEvent", 12f);
+            Invoke("ColorChange", 15f);
+            // ë‚˜ë ˆì´ì…˜1 ì¶œë ¥ ì™„ë£Œ 
         }
-
-        if (mvm_VoiceManager.isPlaying() == false && mb_PlayFirstVoice)
-        {
-            mg_WitchText.SetActive(true);
-            mb_WitchTextFlag = true;
-            Invoke("mg_PopUp", 2f);
-        }
-
-        if (mb_WitchTextFlag && !mb_PlaySecondVoice)
-        {
-           
-        }
-
-        //if (mvm_VoiceManager.isPlaying() == false && mvm_VoiceManager.mb_checkSceneReady && mb_PlaySecondVoice)
-        //{                    // ³ª·¹ÀÌ¼Ç2±îÁö Ãâ·Â ³¡³ª¸é ´ÙÀ½¾ÀÀ¸·Î ÀÌµ¿
-          //  mg_Popup.SetActive(true);                                                                                               // ´ÙÀ½¾ÀÀ¸·Î ÀÌµ¿ÇÏ±â À§ÇÑ ÇÔ¼ö
-        //}
     }
 
     void StopVibrate()
     {
         vibrate.SetActive(false);
     }
+    void SecondEvent()
+    {
+        mg_WitchText.SetActive(true);
+        Debug.Log("2");
+    }
+
+    void ThirdEvent()
+    {
+        mg_WitchText.SetActive(false);
+        mt_Text.text = "\n       ì‚¬ì‹¤ ê·¸ í• ë¨¸ë‹ˆëŠ” ì•„ì´ë“¤ì„ ì¡ì•„ë¨¹ëŠ” ë¬´ì„œìš´ ë§ˆë…€ì˜€ì–´ìš”.        \n";
+        mvm_VoiceManager.playVoice(1);                                                                                          // ë‚˜ë ˆì´ì…˜1ê³¼ playVoice(0) ì—°ê²°ë¨
+    }
+
+    void FourthEvent()
+    {
+        mt_Text.text = "\n       ë¬¼ì²´ë¥¼ í´ë¦­í•´ì„œ ë§ˆë…€ì—ê²Œë¡œë¶€í„° í—¨ì ¤ê³¼ ê·¸ë ˆí…”ì„ ìˆ¨ê²¨ì£¼ì„¸ìš”.        \n";
+        hidestartflag = true;
+    }
+
+    void ColorChange()
+    {
+        render.color = new Color(85 / 255f, 85 / 255f, 85 / 255f, 255 / 255f);
+    }
+
+
+
+
 }

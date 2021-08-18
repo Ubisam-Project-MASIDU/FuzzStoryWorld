@@ -51,7 +51,7 @@ public class EatBread : MonoBehaviour
     void Start() {
         mvm_VoiceManager = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();
     }
-
+    
     void Update() {
         // 나레이션 한번 출력 
         if(mvm_VoiceManager.mb_checkSceneReady && !mb_PlayOnce) {

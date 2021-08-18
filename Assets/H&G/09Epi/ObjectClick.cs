@@ -10,13 +10,15 @@ public class ObjectClick : MonoBehaviour
     private string ms_ObjectName;
     private RaycastHit hit;
     private bool mb_InitPos;
+    public SceneControl sc;
 
     private SpriteRenderer render;
 
     void Awake()
     {
+        sc = GameObject.Find("GameControl").GetComponent<SceneControl>();
         render = GameObject.Find("Background").GetComponent<SpriteRenderer>();
-
+        
         mg_Hansel = GameObject.Find("Hansel");
         mg_Gretel = GameObject.Find("Gratel");
         //mr_Rigidbody = mg_Hansel.GetComponent<Rigidbody>();
@@ -38,7 +40,14 @@ public class ObjectClick : MonoBehaviour
                     Debug.Log(ms_ObjectName);
                 }
             }
+
+        if (sc.hidestartflag)
+        {
             HideBehindObject(ms_ObjectName);
+        }
+            
+            
+            
         
         
         
@@ -106,6 +115,8 @@ public class ObjectClick : MonoBehaviour
 
     void ColorChange()
     {
-        render.color = new Color(85 / 255f, 85 / 255f, 85 / 255f, 255 / 255f);
+        render.color = new Color(190 / 255f, 190 / 255f, 190 / 255f, 190 / 255f);
     }
+
+
 }
