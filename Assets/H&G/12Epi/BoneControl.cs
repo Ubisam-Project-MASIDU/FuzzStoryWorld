@@ -2,37 +2,52 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoneControl : MonoBehaviour
-{
-    public float speed = 2.0f; // 이동 속도를 정해줌
-    private Rigidbody rigid; // 중력 적용
+public class BoneControl : MonoBehaviour {
 
-    void Awake() {
-        rigid = GetComponent<Rigidbody>();
+    private Ray mr_CheckRay;                      // 마우스가 클릭된 곳을 카메라에서부터 레이져를 쏘아 감지하기 위한 Ray 
+    private RaycastHit mrch_CheckHit;            // 레이져를 쏜 곳에 오브젝트가 
+    private GameObject mgo_Target;
+    private Vector3 mv3_TargetPos;
+    private bool mb_SetPos = false;
+    private bool mb_DestroyOnce = false;
+    public GameObject mgo_witch;
+    
+    void Start() {
+        mgo_Target = GameObject.Find("PointingTarget").gameObject;
     }
 
-    public bool Run(Vector3 target) {
-        float distance = Vector3.Distance(transform.position, target);
-        if (distance >= 0.02f) {
-            transform.position = Vector3.Slerp(transform.position, target, speed * Time.deltaTime);
-            return true; // control 스크립트에서 이동처리 해주기 때문에 bool값 반환       
+    void FixedUpdate() {
+        if (mb_SetPos) {
+            // 던지려는 좌표 값과 현재 내 위치의 차이를 구한다.
+            float f_CheckDistance = Vector3.Distance(transform.position, mv3_TargetPos);
+            if (f_CheckDistance > 0.01f) {
+                transform.position = Vector3.Slerp(transform.position, mv3_TargetPos, 10f * Time.deltaTime);
+                mb_DestroyOnce = false;
+            } else if (!mb_DestroyOnce && f_CheckDistance <= 0.01f) {
+                Destroy(mgo_Target.transform.GetChild(0).gameObject);
+                mb_DestroyOnce = true;
+                mb_SetPos = false;
+            }
         }
-    return false;
     }
-     public void Turn(Vector3 targetPos)
-    {
-        // 캐릭터를 이동하고자 하는 좌표값 방향으로 회전시킨다
-        Vector3 dir = targetPos - transform.position;   //방향값을 계산하여 dir에 넣어둠
-        Vector3 dirXZ = new Vector3(dir.x, 0f, dir.z);  //위에서 계산한 방향값에서 회전을 담당하는 x와 z값만 가져옴
- 
-        //Quaternion.LookRotation(벡터값) : 쉽게 얘기해서 target을 기준으로 회전한다.
-        Quaternion targetRot = Quaternion.LookRotation(dirXZ);
- 
-        //Rigibody의 강체를 . rotation 으로 변환하면 다음 물리 시뮬레이션 단계 후에 변환이 업데이트됩니다. 
-        //Transform을 사용 하여 회전 을 업데이트하는 것보다 빠릅니다 .
-        rigid.rotation = Quaternion.RotateTowards(transform.rotation, targetRot, 1000.0f * Time.deltaTime);
-        
- 
+    void Update() {
+        if (Input.GetMouseButtonDown(0) && !mb_SetPos) {
+            mr_CheckRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
+            if (Physics.Raycast(mr_CheckRay, out mrch_CheckHit)) {
+                if (mrch_CheckHit.transform.gameObject.name == "witch") {
+                    Debug.Log(mrch_CheckHit.transform.gameObject);
+                    
+                mv3_TargetPos = mrch_CheckHit.point;
+                mb_SetPos = true;
+                }
+            }
+        }   
+    }          
+      void OnTriggerEnter(Collider other) {
+            if (other.gameObject.name.Equals("witch")) {
+            Destroy(this.gameObject);
+        }
     }
 }
 

@@ -88,4 +88,16 @@ public class HAGMove : MonoBehaviour {
     private float f_ComputeDistance(Vector3 v3Current, Vector3 v3Target) {
         return Mathf.Sqrt(Mathf.Pow(v3Current.x - v3Target.x, 2) + Mathf.Pow(v3Current.y - v3Target.y, 2) + Mathf.Pow(v3Current.z - v3Target.z, 2));
     }
+    public void pickup(GameObject item) {
+        setEquip(item, true);
+    }
+    void setEquip(GameObject item, bool isEquip) {
+        Collider[] itemColliders = item.GetComponents<Collider>();
+        Rigidbody itemRigidbody = item.GetComponent<Rigidbody>();
+
+        foreach(Collider itemCollider in itemColliders) {
+            itemCollider.enabled = !isEquip;
+        }
+        itemRigidbody.isKinematic = isEquip;
+    }
 }

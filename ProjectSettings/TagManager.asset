@@ -31,12 +31,7 @@ TagManager:
   - puzzle8
   - puzzle9
   - Item
-  - Plant
-  - Cauldron
-  - Tree
-  - Stone
-  - House
-  - Log
+  - bone
   layers:
   - Default
   - TransparentFX
