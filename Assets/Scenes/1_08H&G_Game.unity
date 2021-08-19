@@ -2160,6 +2160,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1983530800160481096, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1983530800160481097, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
       propertyPath: m_Name
@@ -2223,7 +2228,7 @@ PrefabInstance:
     - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
       propertyPath: mssl_saveSounds.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
@@ -2237,6 +2242,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
+      propertyPath: mssl_saveSounds.Array.data[2].name
+      value: Eat
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
       propertyPath: mssl_saveSounds.Array.data[0].sound
       value: 
       objectReference: {fileID: 8300000, guid: e3219880d915245d9b29ff6435defa4f, type: 3}
@@ -2245,6 +2255,11 @@ PrefabInstance:
       propertyPath: mssl_saveSounds.Array.data[1].sound
       value: 
       objectReference: {fileID: 8300000, guid: a995254db56dd4509bffec91deee827e, type: 3}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[2].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 101a223d662b64a4aa23ef8a32bbb994, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d56623e6ba012449d9e09e4fe31f9598, type: 3}
 --- !u!1 &2071587773

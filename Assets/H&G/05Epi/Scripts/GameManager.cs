@@ -61,7 +61,7 @@ public class GameManager : MonoBehaviour
     GameObject SoundManager;
 
     void Start(){
-        SoundManager = GameObject.Find("SoundManager");
+        SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
     }
     // 게임 시작 버튼을 클릭하면 호출할 매소드
     public void PlayBtnClick(){ 
