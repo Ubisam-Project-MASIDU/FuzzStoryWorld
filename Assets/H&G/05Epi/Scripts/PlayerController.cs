@@ -17,14 +17,6 @@
  * startPosition    처음 위치 저장 변수
  * animator         플레이어애개 저장되어있는 애니메이터를 저장하는 변수
  * 
- * <Function>
- *
- * 
- * 
- * 
- * 
- * 
- * 
  */
 
 using System.Collections;
