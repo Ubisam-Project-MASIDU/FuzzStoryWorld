@@ -15,49 +15,55 @@
  * - Function
  * 
  * 
- * 
  */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class HAGAttack : MonoBehaviour
 {
-    //public GameObject mv3_Witch; //가야할 곳
-    public GameObject mgo_bone;
-    //public bool moveGo = false;
-    private BoneControl Bone; // 캐릭터의 행동 스크립트 
-    private Vector3 target; // 캐릭터의 이동 타켓 위치
-
+    private Ray mr_CheckRay;                      // 마우스가 클릭된 곳을 카메라에서부터 레이져를 쏘아 감지하기 위한 Ray 
+    private RaycastHit mrch_CheckHit;            // 레이져를 쏜 곳에 오브젝트가 
+    private GameObject mgo_Target;
+    private Vector3 mv3_TargetPos;
+    private bool mb_SetPos = false;
+    private bool mb_DestroyOnce = false;
+    public GameObject mgo_witch;
+    
     void Start() {
-        Bone = GetComponent<BoneControl>();
+        mgo_Target = GameObject.Find("PointingTarget").gameObject;
     }
 
+    void FixedUpdate() {
+        if (mb_SetPos) {
+            // 던지려는 좌표 값과 현재 내 위치의 차이를 구한다.
+            float f_CheckDistance = Vector3.Distance(transform.position, mv3_TargetPos);
+            if (f_CheckDistance > 0.01f) {
+                transform.position = Vector3.Slerp(transform.position, mv3_TargetPos, 10f * Time.deltaTime);
+                mb_DestroyOnce = false;
+            } else if (!mb_DestroyOnce && f_CheckDistance <= 0.01f) {
+                Destroy(mgo_Target.transform.GetChild(0).gameObject);
+                mb_DestroyOnce = true;
+                mb_SetPos = false;
+            }
+        }
+    }
     void Update() {
-        if(Input.GetMouseButtonDown(0)) {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if(Physics.Raycast(ray, out hit, 10000f)) {
-               // if(hit.transform.gameObject.name == "witch") {
-                target = hit.point;
-                //Debug.Log(hit.transform.gameObject);          
-                }      
-                //if(hit.transform.gameObject.name == "witch") {
-                //    Debug.Log("마녀"); 
-                //}
-           // }        
-        } 
-    if(Bone.Run(target)) {
-        Bone.Turn(target);
-    } else {
-        Destroy(mgo_bone);
-         }
-    }            
-    //void OnCollisionEnter(Collision collision) {
-    //    if(collision.gameObject.tag == "player") {
-   //         Destroy(mgo_bone, 2f);
-    //    }
-    //}
-    //void attack() {
-    //    transform.position = Vector3.Slerp(transform.position, mv3_Witch.transform.position, 1f * Time.deltaTime);
-    //}
+        if (Input.GetMouseButtonDown(0) && !mb_SetPos) {
+            mr_CheckRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
+            if (Physics.Raycast(mr_CheckRay, out mrch_CheckHit)) {
+                if (mrch_CheckHit.transform.gameObject.name == "witch") {
+                    Debug.Log(mrch_CheckHit.transform.gameObject);
+                    
+                mv3_TargetPos = mrch_CheckHit.point;
+                mb_SetPos = true;
+                }
+            }
+        }   
+    }          
+      void OnTriggerEnter(Collider other) {
+            if (other.gameObject.name.Equals("witch")) {
+            Destroy(this.gameObject);
+        }
+    }
 }

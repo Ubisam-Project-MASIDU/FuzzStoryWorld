@@ -17,14 +17,6 @@
  * startPosition    처음 위치 저장 변수
  * animator         플레이어애개 저장되어있는 애니메이터를 저장하는 변수
  * 
- * <Function>
- *
- * 
- * 
- * 
- * 
- * 
- * 
  */
 
 using System.Collections;
@@ -40,12 +32,13 @@ public class PlayerController : MonoBehaviour{
     private int totalRockNum;
     Vector2 startPosition;
     Animator animator;
-
+    GameObject SoundManager;
     void Start(){
         totalRockNum = UnityEngine.Random.Range(3,8);   // 게임시작할 때 플레이어가 주어야하는 조약돌의 갯수를 랜덤으로 배정해줌
         Debug.Log(totalRockNum + "번 도전!");
         startPosition = transform.position;             // 스크립트가 실행될 때 오브젝트의 현재위치로 초기화
         animator = GetComponent<Animator>();            // 플레이어애개 추가 되어있는 애니메이터 컴포넌트를 가져옴
+        SoundManager = GameObject.Find("SoundManager");
     }
 
     void Update(){
@@ -88,6 +81,7 @@ public class PlayerController : MonoBehaviour{
     
     private void OnTriggerEnter2D(Collider2D cCollidObj){   
         if(cCollidObj.CompareTag("Item")){              // 플레이어가 조약돌과 충돌하면 (갖게 되면)
+            SoundManager.GetComponent<SoundManager>().playSound("Collision");
             // Deative Item
             cntRock += 1;                               // 플레이어가 갖게 된 조약돌 갯수 +1
             Debug.Log(cntRock + "번째 돌 먹기 성공!");
