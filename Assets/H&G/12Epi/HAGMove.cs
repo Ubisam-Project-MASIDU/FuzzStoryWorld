@@ -42,7 +42,7 @@ public class HAGMove : MonoBehaviour {
         if (mb_SetPos) {
             // 이동하고자하는 좌표 값과 현재 내 위치의 차이를 구한다.
             float f_CheckDistance = Vector3.Distance(transform.position, mv3_TargetPos);
-            float f_LimitDistance = 0.1f;
+            float f_LimitDistance = 0.01f;
             float f_FlipCharacter = transform.position.x - mv3_TargetPos.x;
 
             if (f_CheckDistance > f_LimitDistance) {
