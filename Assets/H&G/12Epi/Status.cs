@@ -28,7 +28,7 @@ public class Status {
     }
     #endregion
     private float mf_WalkSpeed = 1f;
-    #region define mf_WalkSpeed setter and getter...
+    #region define mf_WalkSpeed setter and getter.
     public float WalkSpeed {
         get {
             return mf_WalkSpeed;
@@ -39,8 +39,7 @@ public class Status {
     }
     #endregion
     
-    // this is constructor..
-    #region 
+    #region define this class constructor.
     public Status() {}
     public Status(Character chCharacter) {
         mch_Character = chCharacter;
