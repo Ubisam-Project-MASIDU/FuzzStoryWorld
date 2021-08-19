@@ -11,29 +11,23 @@ public class ObjectClick : MonoBehaviour
     private RaycastHit hit;
     private bool mb_InitPos;
     public SceneControl sc;
-    private SpriteRenderer[] renders;
-    private SpriteRenderer render1;
-    private SpriteRenderer render2;
-    private SpriteRenderer render3;
-    private SpriteRenderer render4;
-    private SpriteRenderer render5;
-    private SpriteRenderer render6;
-    private SpriteRenderer render7;
 
+    private SpriteRenderer[] renders;
+    
     void Awake()
     {
-        
-        renders[0] = GameObject.Find("Plant").GetComponent<SpriteRenderer>();
-        renders[1] = GameObject.Find("Cauldron").GetComponent<SpriteRenderer>();
-        renders[2] = GameObject.Find("Tree").GetComponent<SpriteRenderer>();
-        renders[3] = GameObject.Find("Log").GetComponent<SpriteRenderer>();
-        renders[4] = GameObject.Find("Stone").GetComponent<SpriteRenderer>();
-        renders[5] = GameObject.Find("House").GetComponent<SpriteRenderer>();
-        renders[6] = GameObject.Find("Background").GetComponent<SpriteRenderer>();
+        sc = GameObject.Find("GameControl").GetComponent<SceneControl>();
+        renders = new SpriteRenderer[7];
+        renders[0] = GameObject.FindGameObjectWithTag("Plant").GetComponent<SpriteRenderer>();
+        renders[1] = GameObject.FindGameObjectWithTag("Cauldron").GetComponent<SpriteRenderer>();
+        renders[2] = GameObject.FindGameObjectWithTag("Tree").GetComponent<SpriteRenderer>();
+        renders[3] = GameObject.FindGameObjectWithTag("Log").GetComponent<SpriteRenderer>();
+        renders[4] = GameObject.FindGameObjectWithTag("Stone").GetComponent<SpriteRenderer>();
+        renders[5] = GameObject.FindGameObjectWithTag("House").GetComponent<SpriteRenderer>();
+        renders[6] = GameObject.FindGameObjectWithTag("Plant").GetComponent<SpriteRenderer>();
 
         mg_Hansel = GameObject.Find("Hansel");
         mg_Gretel = GameObject.Find("Gratel");
-        //mr_Rigidbody = mg_Hansel.GetComponent<Rigidbody>();
         setPos();
 
     }
@@ -51,8 +45,9 @@ public class ObjectClick : MonoBehaviour
                     ms_ObjectName = hit.collider.gameObject.name;
                     Debug.Log(ms_ObjectName);
                 }
+                HideBehindObject(ms_ObjectName);
             }
-            HideBehindObject(ms_ObjectName);
+            
             //Invoke("ColorChange", 3f);
         }
     }
@@ -108,18 +103,19 @@ public class ObjectClick : MonoBehaviour
                 setPos();
                 break;
         }
+        ColorChange(sObjectName);
         mb_InitPos = false; //위치 옮겼으니까
 
         //숨은 위치와 hag만 밝게
     }
 
-    void ColorChange()
+    void ColorChange(string sObjectName)
     {
         for (int i = 0; i < 7; i++)
         {
-            if(ms_ObjectName != renders[i].tag)
+            if(sObjectName != renders[i].tag)
             {
-                renders[i].color = new Color(190 / 255f, 190 / 255f, 190 / 255f, 190 / 255f);
+                renders[i].color = new Color(80 / 255f, 80 / 255f, 80 / 255f, 80 / 255f);
             }
         }
         //render.color = new Color(190 / 255f, 190 / 255f, 190 / 255f, 190 / 255f);
