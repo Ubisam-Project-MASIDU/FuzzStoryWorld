@@ -12,7 +12,7 @@
  * 6. VoiceManager클래스는 float array형태로 받은 오디오 데이터를 AudioClip형태로 변환하여 가지고 있고, 클래스 안의 함수인 playVoice(id or name)함수를 통해서 음성을 씬에 출력하게 된다.
  *
  * - History -
- * 2021-07-19 : 제작 완료
+ * 2021-07-19 : 구현
  * 2021-07-20 : 주석 처리
  * 2021-07-22 : createAudio() 함수의 반환 값을 AudioClip이 아닌 float Array 방식으로 바꾸었다.
  * 2021-07-27 : 피드백에 의한 주석 변경.
@@ -20,8 +20,8 @@
  *
  * - TTS Member Variable 
  *
- * ms_useApiURL             Google TTS API 서버와 통신을 위한 URL 주소이다.
- * mstts_setTtsApi          Google TTS API 서버와 통신하여 데이터를 주고 받기 위한 데이터 형식을 맞춰주는 클래스이다. 이 안에는 보이스의 종류, 음조, 음성으로 바꿀 텍스트 등 음서으로 바꾸기 위해서 필요로 하는 세팅 데이터가 설정된다. 이때 이 세팅을 저장하는 이너클래스가 존재하는데, 각각 SetTextToSpeech, 
+ * ms_UseApiURL             Google TTS API 서버와 통신을 위한 URL 주소이다.
+ * mstts_SetTtsApi          Google TTS API 서버와 통신하여 데이터를 주고 받기 위한 데이터 형식을 맞춰주는 클래스이다. 이 안에는 보이스의 종류, 음조, 음성으로 바꿀 텍스트 등 음서으로 바꾸기 위해서 필요로 하는 세팅 데이터가 설정된다. 이때 이 세팅을 저장하는 이너클래스가 존재하는데, 각각 SetTextToSpeech, 
  * instance                 이 함수는 아무래도 통신을 하는 클래스로써, 무겁다고 작성자가 판단이 되어 클래스의 인스턴스를 계속 생산하는 것이 아니라, 싱글톤 디자인 패턴을 이용하여 하나의 인스턴스만 생성하게 만들었다. 이렇게 하면, 클래스의 인스턴스를 하나만 생성하여 여러 오브젝트 클래스들이 재사용할 수 있게 된다.
  * 
  * - TTS Member Function
@@ -106,13 +106,13 @@ public class TTS {
         public string audioContent;
     }
 
-    private string ms_useApiURL = "https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=AIzaSyANPEwOXAhoxpeYwpJQBUkZRew42sI9ECU";
-    private SetTextToSpeech mstts_setTtsApi;
+    private string ms_UseApiURL = "https://texttospeech.googleapis.com/v1beta1/text:synthesize?key=AIzaSyANPEwOXAhoxpeYwpJQBUkZRew42sI9ECU";
+    private SetTextToSpeech mstts_SetTtsApi;
     private static TTS instance = null;
 
     // TTS의 생성자이다.
     public TTS() {
-        mstts_setTtsApi = new SetTextToSpeech();
+        mstts_SetTtsApi = new SetTextToSpeech();
     } 
 
     // TTS는 싱글톤 디자인 패턴을 이용할 거므로, 앞으로 이 정적 함수를 통해 TTS 클래스의 인스턴스를 가져온다.
@@ -131,55 +131,66 @@ public class TTS {
         setVoice(vTargetVoice);
         setInput(sTargetSpeech);
 
+<<<<<<< HEAD
         //After request HttpWebRequest, save the returned data in string format.
         var s_str = TextToSpeechPost(mstts_setTtsApi);
+=======
+        //After request HttpWebRequest, save the returned data in string format. And pasing the Json only to need content.
+        var s_ResultString = TextToSpeechPost(mstts_SetTtsApi);
+>>>>>>> 984b17d (update Status scripts)
         
-        GetContent gc_Info = JsonUtility.FromJson<GetContent>(s_str);
+        GetContent gc_Info = JsonUtility.FromJson<GetContent>(s_ResultString);
     
-        var ba_convertByteArray = Convert.FromBase64String(gc_Info.audioContent);
-        var fa_convertFloatArray = ConvertByteToFloat(ba_convertByteArray);
+        var ba_ConvertByteArray = Convert.FromBase64String(gc_Info.audioContent);
+        var fa_ConvertFloatArray = ConvertByteToFloat(ba_ConvertByteArray);
 
-        return fa_convertFloatArray;
+        return fa_ConvertFloatArray;
     }
     
     // 스트링형태로 받은 응답 데이터를 우리가 원하는 float형태로 만들어 준다.
     private static float[] ConvertByteToFloat(byte[] baArray) {
-        float[] fa_tempFloatArr = new float[baArray.Length / 2];
+        float[] fa_ResultFloatArr = new float[baArray.Length / 2];
 
-        for(int i = 0; i < fa_tempFloatArr.Length; i++) {
-            fa_tempFloatArr[i] = BitConverter.ToInt16(baArray, i*2) / 32768.0f;
+        for(int i = 0; i < fa_ResultFloatArr.Length; i++) {
+            fa_ResultFloatArr[i] = BitConverter.ToInt16(baArray, i*2) / 32768.0f;
         }
-        return fa_tempFloatArr;
+        return fa_ResultFloatArr;
     }
     
     // REST API를 통해 Google TTS API서버와 통신하는 코드이다.
     private string TextToSpeechPost(object oSendData) {
         //use JsonUtility. convert byte[] to send this string..
+<<<<<<< HEAD
         string s_useJsonUTempStr = JsonUtility.ToJson(oSendData);
         var b_checkbytesOftempStr = System.Text.Encoding.UTF8.GetBytes(s_useJsonUTempStr);
+=======
+        // 제이슨 직관성있게 oSendDate 수정. (PostMan)
+        string s_ConvertSettingClasstoJson = JsonUtility.ToJson(oSendData);
+        var b_ConvertStringJsonTOBytes = System.Text.Encoding.UTF8.GetBytes(s_ConvertSettingClasstoJson);
+>>>>>>> 984b17d (update Status scripts)
 
         //set address to request..
-        HttpWebRequest hwr_requestApi = (HttpWebRequest)WebRequest.Create(ms_useApiURL);
-        hwr_requestApi.Method = "POST";
-        hwr_requestApi.ContentType = "application/json";
-        hwr_requestApi.ContentLength = b_checkbytesOftempStr.Length;
+        HttpWebRequest hwr_RequestApi = (HttpWebRequest)WebRequest.Create(ms_UseApiURL);
+        hwr_RequestApi.Method = "POST";
+        hwr_RequestApi.ContentType = "application/json";
+        hwr_RequestApi.ContentLength = b_ConvertStringJsonTOBytes.Length;
 
         //send this data in Stream form.
         try {
-            using (var stream = hwr_requestApi.GetRequestStream()) {
-                stream.Write(b_checkbytesOftempStr, 0, b_checkbytesOftempStr.Length);
+            using (var stream = hwr_RequestApi.GetRequestStream()) {
+                stream.Write(b_ConvertStringJsonTOBytes, 0, b_ConvertStringJsonTOBytes.Length);
                 stream.Flush();
                 stream.Close();
             }
 
             //receiving the response data to request data in StreamReader format. 
-            HttpWebResponse hwr_receiveResponse = (HttpWebResponse)hwr_requestApi.GetResponse();
+            HttpWebResponse hwr_ReceiveResponse = (HttpWebResponse)hwr_RequestApi.GetResponse();
             //read stream to StreamReader
-            StreamReader sr_ReadStream = new StreamReader(hwr_receiveResponse.GetResponseStream());
+            StreamReader sr_ReadStream = new StreamReader(hwr_ReceiveResponse.GetResponseStream());
             //convert stream data to string format.
-            string s_outputJson = sr_ReadStream.ReadToEnd();
-            Debug.Log(s_outputJson);
-            return s_outputJson;
+            string s_OutputJson = sr_ReadStream.ReadToEnd();
+            Debug.Log(s_OutputJson);
+            return s_OutputJson;
         } catch (WebException e) {
             using (WebResponse response = e.Response) {
                 HttpWebResponse httpResponse = (HttpWebResponse) response;
@@ -197,7 +208,7 @@ public class TTS {
     private void setInput(string sTargetSpeech) {
         SetInput si_setInputData = new SetInput();
         si_setInputData.text = sTargetSpeech;
-        mstts_setTtsApi.input = si_setInputData;
+        mstts_SetTtsApi.input = si_setInputData;
     }
 
     private void setAudioConfig(float fSetPitch, float fSpeakRate) {
@@ -206,108 +217,114 @@ public class TTS {
         sa_setAudioConf.speakingRate = fSpeakRate;
         sa_setAudioConf.pitch = fSetPitch;
         sa_setAudioConf.volumeGainDb = 0;
-        mstts_setTtsApi.audioConfig = sa_setAudioConf;
+        mstts_SetTtsApi.audioConfig = sa_setAudioConf;
     }
 
     private void setVoice(Voice srcVoice) {
         SetVoice sv_setVoiceConf = new SetVoice();
+
+        // 음성의 국적과 성별을 정의하는 것을 Json형태로 세팅한다.
         switch(srcVoice) {
+<<<<<<< HEAD
+=======
+            // 한국아 여성 목소리 A 를 정의한다.
+>>>>>>> 984b17d (update Status scripts)
             case Voice.KR_FEMALE_A:
                 sv_setVoiceConf.languageCode = "ko-KR";
                 sv_setVoiceConf.name = "ko-KR-Wavenet-A";
                 sv_setVoiceConf.ssmlGender = "FEMALE";
                 break;
-
+            // 한국어 여성 목소리 B 를 정의한다.
             case Voice.KR_FEMALE_B:
                 sv_setVoiceConf.languageCode = "ko-KR";
                 sv_setVoiceConf.name = "ko-KR-Wavenet-B";
                 sv_setVoiceConf.ssmlGender = "FEMALE";
                 break;
-
+            // 영어 여성 목소리 A 를 정의한다.
             case Voice.EN_FEMALE_A:
                 sv_setVoiceConf.languageCode = "en-US";
                 sv_setVoiceConf.name = "en-US-Wavenet-C";
                 sv_setVoiceConf.ssmlGender = "FEMALE";
                 break;
-
+            // 영어 여성 목소리 B 를 정의한다.
             case Voice.EN_FEMALE_B:
                 sv_setVoiceConf.languageCode = "en-US";
                 sv_setVoiceConf.name = "en-US-Wavenet-E";
                 sv_setVoiceConf.ssmlGender = "FEMALE";
                 break;
-
+            // 일본어 여성 목소리 A 를 정의한다.
             case Voice.JP_FEMALE_A:
                 sv_setVoiceConf.languageCode = "ja-JP";
                 sv_setVoiceConf.name = "ja-JP-Wavenet-A";
                 sv_setVoiceConf.ssmlGender = "FEMALE";
                 break;
-
+            // 일본어 여성 목소리 B 를 정의한다.
             case Voice.JP_FEMALE_B:
                 sv_setVoiceConf.languageCode = "ja-JP";
                 sv_setVoiceConf.name = "ja-JP-Wavenet-B";
                 sv_setVoiceConf.ssmlGender = "FEMALE";
                 break;
-
+            // 중국어 여성 목소리 A 를 정의한다. 
             case Voice.CN_FEMALE_A:
                 sv_setVoiceConf.languageCode = "cmn-CN";
                 sv_setVoiceConf.name = "cmn-CN-Wavenet-A";
                 sv_setVoiceConf.ssmlGender = "FEMALE";
                 break;
-
+            // 중국어 여성 목소리 B 를 정의한다. 
             case Voice.CN_FEMALE_B:
                 sv_setVoiceConf.languageCode = "cmn-CN";
                 sv_setVoiceConf.name = "cmn-CN-Wavenet-D";
                 sv_setVoiceConf.ssmlGender = "FEMALE";
                 break;
-
+            // 한국어 남성 목소리 A 를 정의한다. 
             case Voice.KR_MALE_A:
                 sv_setVoiceConf.languageCode = "ko-KR";
                 sv_setVoiceConf.name = "ko-KR-Wavenet-C";
                 sv_setVoiceConf.ssmlGender = "MALE";
                 break;
-
+            // 한국어 남성 목소리 B 를 정의한다. 
             case Voice.KR_MALE_B:
                 sv_setVoiceConf.languageCode = "ko-KR";
                 sv_setVoiceConf.name = "ko-KR-Wavenet-D";
                 sv_setVoiceConf.ssmlGender = "MALE";
                 break;
-
+            // 영어 남성 목소리 A 를 정의한다. 
             case Voice.EN_MALE_A:
                 sv_setVoiceConf.languageCode = "en-US";
                 sv_setVoiceConf.name = "en-US-Wavenet-A";
                 sv_setVoiceConf.ssmlGender = "MALE";
                 break;
-
+            // 영어 남성 목소리 B 를 정의한다. 
             case Voice.EN_MALE_B:
                 sv_setVoiceConf.languageCode = "en-US";
                 sv_setVoiceConf.name = "en-US-Wavenet-B";
                 sv_setVoiceConf.ssmlGender = "MALE";
                 break;   
-
+            // 일본어 남성 목소리 A 를 정의한다. 
             case Voice.JP_MALE_A:
                 sv_setVoiceConf.languageCode = "ja-JP";
                 sv_setVoiceConf.name = "ja-JP-Wavenet-C";
                 sv_setVoiceConf.ssmlGender = "MALE";
                 break;
-
+            // 일본어 남성 목소리 B 를 정의한다. 
             case Voice.JP_MALE_B:
                 sv_setVoiceConf.languageCode = "ja-JP";
                 sv_setVoiceConf.name = "ja-JP-Wavenet-D";
                 sv_setVoiceConf.ssmlGender = "MALE";
                 break;
-
+            // 중국어 남성 목소리 A 를 정의한다. 
             case Voice.CN_MALE_A:
                 sv_setVoiceConf.languageCode = "cmn-CN";
                 sv_setVoiceConf.name = "cmn-CN-Wavenet-B";
                 sv_setVoiceConf.ssmlGender = "MALE";
                 break;
-
+            // 중국어 남성 목소리 B 를 정의한다. 
             case Voice.CN_MALE_B:
                 sv_setVoiceConf.languageCode = "cmn-CN";
                 sv_setVoiceConf.name = "cmn-CN-Wavenet-C";
                 sv_setVoiceConf.ssmlGender = "MALE";
                 break;
         }
-        mstts_setTtsApi.voice = sv_setVoiceConf;
+        mstts_SetTtsApi.voice = sv_setVoiceConf;
     }
 }
