@@ -15,7 +15,6 @@
  * mn_leftTime : 남은 아이템 개수 저장해두는 변수
  * mb_ItemFlag : 정답이 바뀌어야되는 타이밍을 알려주는 flag          
  * mb_CheckOncePlaying : 음성이 한번만 나오도록 제어하는 변수
- * ms_nameNextScene : 다음씬 이름을 저장하는 변수
  *
  * <Function>
  * n_n_ReturnAnswer() : 랜덤 아이템 정답 값을 반환해주는 함수
@@ -35,25 +34,16 @@ public class RandomCandy : MonoBehaviour{
     int mn_RandomValue;                                                                                         // 랜덤 아이템 값 저장해두는 변수                                                    
     int mn_leftTime;                                                                                            // 남은 아이템 개수 저장해두는 변수                       
     bool mb_ItemFlag;                                                                                           // 정답이 바뀌어야되는 타이밍을 알려주는 flag                
-    private bool mb_CheckOncePlaying = true;                                                                    // 음성이 한번만 나오도록 제어하는 변수
-    public string ms_nameNextScene;                                                                             // 다음씬 이름을 저장하는 변수
-    VoiceManager vm;
     
     void Start(){
         this.mg_GameDirector = GameObject.Find("GameDirector");                                                 // 오브젝트 연결
         this.mg_RandomItem = GameObject.Find("RandomImage");
         mn_RandomValue = mg_GameDirector.GetComponent<CandyControl>().n_RandomItemValue();                      // 랜덤 값 저장
         this.mg_RandomItem.GetComponent<SpriteRenderer>().sprite = mspa_SpriteImage[mn_RandomValue];            // 해당 랜덤 값에 맞는 아이템 이미지 변경
-        mb_ItemFlag = false;                                                                                    // Flag 값 False 로 초기화
-        vm = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();                                  
+        mb_ItemFlag = false;                                                                                    // Flag 값 False 로 초기화                                  
     }
     
     void Update(){
-        if (vm.mb_checkSceneReady && mb_CheckOncePlaying) {                                                     // 스크립트 대사를 읽을 준비가 됬다면
-            vm.playVoice(0);                                                                                    // 스크립트 대사를 읽어줌
-            mb_CheckOncePlaying = false;                                                                        // 한번만 재생
-        }
-
         mb_ItemFlag = mg_GameDirector.GetComponent<CandyControl>().b_checkFlag();                               // 정답이 바뀌는 Flag값 실시간 업데이트
         if (mb_ItemFlag == true){                                                                               // Flag값이 바뀐경우
             mn_leftTime = mg_GameDirector.GetComponent<CandyControl>().n_HowManyleftArr();                      // 남은 아이템 개수 확인
@@ -62,7 +52,7 @@ public class RandomCandy : MonoBehaviour{
                 this.mg_RandomItem.GetComponent<SpriteRenderer>().sprite = mspa_SpriteImage[mn_RandomValue];    // 랜덤값에 맞게 아이템 이미지 변경
                 mg_GameDirector.GetComponent<CandyControl>().v_ChangeFlagFalse();                               // Flag값 False로 변경
             }
-            else if(mn_leftTime == 0 && !vm.isPlaying() && vm.mb_checkSceneReady){                              // 만약 남은 아이템개수가 0개라면 Clear                            
+            else if(mn_leftTime == 0){                                                                          // 만약 남은 아이템개수가 0개라면 Clear                            
                 Invoke("v_NextSceneLoad", 2f);                                                                  // 2초뒤 다음씬 넘어가는 함수 실행
             } 
         }

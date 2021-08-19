@@ -6,12 +6,14 @@
  * - HISTORY
  * 2021-08-13 : 초기 개발
  * 2021-08-18 : 코드 획일화 및 주석처리
+ * 2021-08-19 : 효과음 재생 추가
  *
  * <Variable>
  * gameSpeed                ground와 조약돌의 속도 조절 변수
  * isPlay                   게임이 시작됬는지 구분하는 변수
  * playBtn                  게임 시작 버튼 연결
  * nextBtn                  게임 끝 버튼 연결
+ * SoundManager             효과음 재생 연결 오브젝트
  *
  * <Function>
  * PlayBtnClick()           게임 시작 버튼을 클릭하면 호출할 매소드
@@ -19,7 +21,7 @@
  * nextScene()              다음씬으로 넘어가기 위한 매소드
  *
  * delegate                 함수에 대한 참조, 하나의 delegate로 여러 함수들에 접근해 실행 가능, delegate를 이용해 함수를 파라미터로 전달할 수 있고, 여러 함수를 한꺼번에 실행하는 체인 기능과 
-                            어떤 상황에 도달했을 때 이벤트를 발생시키는 delegate 이벤트도 제공됨.
+ *                          어떤 상황에 도달했을 때 이벤트를 발생시키는 delegate 이벤트도 제공됨.
  */
 
 using System.Collections;
@@ -63,7 +65,7 @@ public class GameManager : MonoBehaviour
     }
     // 게임 시작 버튼을 클릭하면 호출할 매소드
     public void PlayBtnClick(){ 
-        SoundManager.GetComponent<SoundManager>().playSound("Start");
+        SoundManager.GetComponent<SoundManager>().playSound("Start");   // 시작 버튼 효과음 재생
         playBtn.SetActive(false);   // 게임 시작 버튼 비활성화
         Mission.SetActive(false);   // 미션 창 비활성화
         isPlay = true;              // 게임 시작
@@ -72,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     // 게임 끝 버튼을 클릭하면 호출할 매소드
     public void GameOver(){
-        SoundManager.GetComponent<SoundManager>().playSound("End");
+        SoundManager.GetComponent<SoundManager>().playSound("End");     // 게임 끝 버튼 효과음 재생
         nextBtn.SetActive(true);    // 게임 끝 버튼 활성화
         isPlay = false;             // 게임 끝
         onPlay.Invoke(isPlay);      

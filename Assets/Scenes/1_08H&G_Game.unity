@@ -558,7 +558,6 @@ MonoBehaviour:
   - {fileID: 1444003413273745160, guid: 0f4cab0131c4b4e7d82e5606d5368351, type: 3}
   - {fileID: 7076796846908671455, guid: 0f4cab0131c4b4e7d82e5606d5368351, type: 3}
   - {fileID: -2124064222441753371, guid: 0f4cab0131c4b4e7d82e5606d5368351, type: 3}
-  ms_nameNextScene: 
 --- !u!114 &282595904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1748,7 +1747,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1257072891}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cabc65ce86e6e44d39dd57563760c76e, type: 3}
   m_Name: 
@@ -2154,6 +2153,100 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1806517360}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1991002593
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1983530800160481097, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_Name
+      value: SoundManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1170
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 836.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[0].name
+      value: mouseDown
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[1].name
+      value: mouseUp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[0].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: e3219880d915245d9b29ff6435defa4f, type: 3}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[1].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: a995254db56dd4509bffec91deee827e, type: 3}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d56623e6ba012449d9e09e4fe31f9598, type: 3}
 --- !u!1 &2071587773
 GameObject:
   m_ObjectHideFlags: 0
