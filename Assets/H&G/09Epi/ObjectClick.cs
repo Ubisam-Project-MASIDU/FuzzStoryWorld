@@ -19,13 +19,15 @@ public class ObjectClick : MonoBehaviour
     private Vector3 logPos = new Vector3(9.1f, 2.8f, -6.6f);
     private Vector3 stonePos = new Vector3(-23.9f, 1.8f, -7.9f);
     private Vector3 housePos = new Vector3(13.6f, 3.7f, -6.9f);
-    private float speed = 0.02f;
+    private float speed = 0.01f;
 
     public SceneControl sc;
     [SerializeField] ParticleSystem lightParticle = null;
 
     private SpriteRenderer[] renders;
-    
+    private SpriteRenderer witch;
+    public Sprite witchwithHAG;
+
     void Start()
     { 
         sc = GameObject.Find("GameControl").GetComponent<SceneControl>();
@@ -37,7 +39,9 @@ public class ObjectClick : MonoBehaviour
         renders[4] = GameObject.FindGameObjectWithTag("Stone").GetComponent<SpriteRenderer>();
         renders[5] = GameObject.FindGameObjectWithTag("House").GetComponent<SpriteRenderer>();
 
-        
+        witch = GameObject.Find("witch").GetComponent<SpriteRenderer>();
+
+
         mg_Hansel = GameObject.Find("Hansel");
         mg_Gretel = GameObject.Find("Gratel");
         mg_Witch = GameObject.Find("witch");
@@ -49,9 +53,8 @@ public class ObjectClick : MonoBehaviour
 
     void Update()
     {
-
         if (sc.hidestartflag) {
-            if (count < 6)
+            if (count <= 6)
             {
                 if (Input.GetMouseButtonDown(0))
                 {
@@ -64,15 +67,14 @@ public class ObjectClick : MonoBehaviour
                         Debug.Log(ms_ObjectName);
                     }
                     HideBehindObject(ms_ObjectName);
-                   
                 }
+                findHAG(ms_ObjectName);
             }
-            findHAG(ms_ObjectName);
-            //else
-            //{
-              //  speed = 0.09f;
-                //findHAG(ms_ObjectName);
-            //}
+            
+                mg_Witch.transform.localScale = new Vector3(1, 1, 1);
+                mg_Witch.GetComponent<SpriteRenderer>().sprite = witchwithHAG;
+            
+            //findHAG(ms_ObjectName);
         }
     }
     void setPos()
@@ -133,7 +135,6 @@ public class ObjectClick : MonoBehaviour
                 break;
         }
         count++;
-        findHAG(ms_ObjectName);
 
         //Debug.Log(count);
         //ColorChange(sObjectName);
@@ -158,6 +159,7 @@ public class ObjectClick : MonoBehaviour
 
     void findHAG(string objectname) 
     {
+        witch.color = new Color(230 / 255f, 230 / 255f, 230 / 255f, 255 / 255f);
         for (int i = 0; i < 6; i++)
         {
             if(objectname == "Plant")
@@ -184,6 +186,7 @@ public class ObjectClick : MonoBehaviour
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, housePos, speed);
             }
         }
+
     }
 
     void fffindHAG(string objectname, Vector3 objectpos)
