@@ -6,30 +6,41 @@ public class ObjectClick : MonoBehaviour
 {
     public GameObject mg_Hansel;
     public GameObject mg_Gretel;
+    private GameObject mg_Witch;
     private Vector3 mv3_ObjectPos;
     private string ms_ObjectName;
     private RaycastHit hit;
     private bool mb_InitPos;
     private int count;
+
+    private Vector3 plantPos = new Vector3(-4.8f, 6.1f, -4.4f);
+    private Vector3 cauldronPos = new Vector3(13.3f, 11.3f, 1.7f);
+    private Vector3 treePos = new Vector3(-20f, 11.9f, -1.8f);
+    private Vector3 logPos = new Vector3(9.1f, 2.8f, -6.6f);
+    private Vector3 stonePos = new Vector3(-23.9f, 1.8f, -7.9f);
+    private Vector3 housePos = new Vector3(13.6f, 3.7f, -6.9f);
+    private float speed = 0.02f;
+
     public SceneControl sc;
-    [SerializeField] ParticleSystem lightParticle;
+    [SerializeField] ParticleSystem lightParticle = null;
 
     private SpriteRenderer[] renders;
     
-    void Awake()
+    void Start()
     { 
         sc = GameObject.Find("GameControl").GetComponent<SceneControl>();
-        renders = new SpriteRenderer[7];
+        renders = new SpriteRenderer[6];
         renders[0] = GameObject.FindGameObjectWithTag("Plant").GetComponent<SpriteRenderer>();
         renders[1] = GameObject.FindGameObjectWithTag("Cauldron").GetComponent<SpriteRenderer>();
         renders[2] = GameObject.FindGameObjectWithTag("Tree").GetComponent<SpriteRenderer>();
         renders[3] = GameObject.FindGameObjectWithTag("Log").GetComponent<SpriteRenderer>();
         renders[4] = GameObject.FindGameObjectWithTag("Stone").GetComponent<SpriteRenderer>();
         renders[5] = GameObject.FindGameObjectWithTag("House").GetComponent<SpriteRenderer>();
-        renders[6] = GameObject.FindGameObjectWithTag("Plant").GetComponent<SpriteRenderer>();
+
         
         mg_Hansel = GameObject.Find("Hansel");
         mg_Gretel = GameObject.Find("Gratel");
+        mg_Witch = GameObject.Find("witch");
 
         count = 0;
         setPos();
@@ -40,18 +51,28 @@ public class ObjectClick : MonoBehaviour
     {
 
         if (sc.hidestartflag) {
-            if (Input.GetMouseButtonDown(0))
+            if (count < 6)
             {
-                
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out hit))
+                if (Input.GetMouseButtonDown(0))
                 {
-                    mv3_ObjectPos = hit.collider.gameObject.transform.position;
-                    ms_ObjectName = hit.collider.gameObject.name;
-                    Debug.Log(ms_ObjectName);
+
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                    if (Physics.Raycast(ray, out hit))
+                    {
+                        mv3_ObjectPos = hit.collider.gameObject.transform.position;
+                        ms_ObjectName = hit.collider.gameObject.name;
+                        Debug.Log(ms_ObjectName);
+                    }
+                    HideBehindObject(ms_ObjectName);
+                   
                 }
-                HideBehindObject(ms_ObjectName);
             }
+            findHAG(ms_ObjectName);
+            //else
+            //{
+              //  speed = 0.09f;
+                //findHAG(ms_ObjectName);
+            //}
         }
     }
     void setPos()
@@ -59,10 +80,9 @@ public class ObjectClick : MonoBehaviour
         mg_Hansel.transform.position = new Vector3(-11.16f, 5.79f, -12.83f);
         mg_Gretel.transform.position = new Vector3(-14.3f, 4.7f, -12.3f);
         mb_InitPos = true;
-        Debug.Log(mb_InitPos);
     }
 
-    public void HideBehindObject(string sObjectName)
+    void HideBehindObject(string sObjectName)
     {
         switch (sObjectName)
         {
@@ -113,18 +133,67 @@ public class ObjectClick : MonoBehaviour
                 break;
         }
         count++;
-        ColorChange(sObjectName);
+        findHAG(ms_ObjectName);
+
+        //Debug.Log(count);
+        //ColorChange(sObjectName);
         mb_InitPos = false; //위치 옮겼으니까
         //숨은 위치와 hag만 밝게
     }
 
-    void ColorChange(string sObjectName)
+    /*void ColorChange(string sObjectName)
     {
         for (int i = 0; i < 7; i++)
         {
             if(sObjectName != renders[i].tag)
             {
                 renders[i].color = new Color(80 / 255f, 80 / 255f, 80 / 255f, 80 / 255f);
+            }
+    if (objectname == renders[i].tag)
+            {
+                mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, objectPos + new Vector3(10, 0, 0), 0.07f);
+            }
+        }
+    }*/
+
+    void findHAG(string objectname) 
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if(objectname == "Plant")
+            {
+                mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, plantPos, speed);
+            }else if(objectname == "Cauldron")
+            {
+                mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, cauldronPos, speed);
+            }
+            else if (objectname == "Tree")
+            {
+                mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, treePos, speed);
+            }
+            else if (objectname == "Log")
+            {
+                mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, logPos, speed);
+            }
+            else if (objectname == "Stone")
+            {
+                mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, stonePos, speed);
+            }
+            else if (objectname == "House")
+            {
+                mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, housePos, speed);
+            }
+        }
+    }
+
+    void fffindHAG(string objectname, Vector3 objectpos)
+    {
+        for (int i = 0; i < 6; i++)
+        {
+           
+            if (objectname == renders[i].tag)
+            {
+                mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, objectpos + new Vector3(10, 0, 10), 0.07f);
             }
         }
     }

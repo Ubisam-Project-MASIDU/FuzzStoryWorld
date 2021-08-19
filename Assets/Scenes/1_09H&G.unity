@@ -740,7 +740,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 350206414}
   m_LocalRotation: {x: -0, y: -0.9989591, z: -0, w: 0.045614336}
-  m_LocalPosition: {x: 15.32, y: 8.27, z: -9}
+  m_LocalPosition: {x: 21.1, y: 6.9, z: -9}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children: []
   m_Father: {fileID: 0}
@@ -872,7 +872,7 @@ GameObject:
   - component: {fileID: 450139376}
   - component: {fileID: 450139375}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: StoneParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -966,7 +966,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 450139373}
   serializedVersion: 7
-  lengthInSec: 2
+  lengthInSec: 7
   simulationSpeed: 0.7
   stopAction: 0
   cullingMode: 0
@@ -5790,7 +5790,7 @@ GameObject:
   - component: {fileID: 702725057}
   - component: {fileID: 702725056}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: plantParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5803,13 +5803,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702725054}
-  m_LocalRotation: {x: 0, y: 0.008726558, z: 0, w: 0.999962}
-  m_LocalPosition: {x: 6.63, y: 4.0699997, z: -13.851535}
+  m_LocalRotation: {x: -0, y: -0.42027807, z: -0, w: 0.90739536}
+  m_LocalPosition: {x: 7.98, y: 3.1, z: -13.851535}
   m_LocalScale: {x: 0.6148966, y: 0.8221058, z: 0.99980915}
   m_Children: []
   m_Father: {fileID: 189505851}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 1, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -49.704, z: 0}
 --- !u!199 &702725056
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5854,7 +5854,7 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
@@ -5884,8 +5884,8 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702725054}
   serializedVersion: 7
-  lengthInSec: 2
-  simulationSpeed: 0.7
+  lengthInSec: 7
+  simulationSpeed: 0.5
   stopAction: 0
   cullingMode: 0
   ringBufferMode: 0
@@ -6709,7 +6709,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 4
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -10642,7 +10642,7 @@ GameObject:
   - component: {fileID: 1120289122}
   - component: {fileID: 1120289121}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: TreeParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10656,7 +10656,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120289119}
   m_LocalRotation: {x: -0.006751322, y: -0.88315845, z: 0.012711793, w: -0.46885386}
-  m_LocalPosition: {x: 2.73, y: -8.19, z: -19}
+  m_LocalPosition: {x: 15.3, y: -10.5, z: -22.1}
   m_LocalScale: {x: 0.4654034, y: 0.462277, z: 0.9996501}
   m_Children: []
   m_Father: {fileID: 1503391836}
@@ -10736,7 +10736,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120289119}
   serializedVersion: 7
-  lengthInSec: 2
+  lengthInSec: 7
   simulationSpeed: 0.7
   stopAction: 0
   cullingMode: 0
@@ -11561,7 +11561,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -16305,7 +16305,7 @@ GameObject:
   - component: {fileID: 1720687470}
   - component: {fileID: 1720687469}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: LogParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16399,7 +16399,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720687467}
   serializedVersion: 7
-  lengthInSec: 2
+  lengthInSec: 7
   simulationSpeed: 0.7
   stopAction: 0
   cullingMode: 0
@@ -21480,7 +21480,7 @@ GameObject:
   - component: {fileID: 2077558138}
   - component: {fileID: 2077558137}
   m_Layer: 0
-  m_Name: Particle System (1)
+  m_Name: HouseParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21574,7 +21574,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2077558135}
   serializedVersion: 7
-  lengthInSec: 2
+  lengthInSec: 7
   simulationSpeed: 0.7
   stopAction: 0
   cullingMode: 0
@@ -26284,7 +26284,7 @@ GameObject:
   - component: {fileID: 2079946477}
   - component: {fileID: 2079946476}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: CauldronParticl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26378,7 +26378,7 @@ ParticleSystem:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079946474}
   serializedVersion: 7
-  lengthInSec: 2
+  lengthInSec: 7
   simulationSpeed: 0.7
   stopAction: 0
   cullingMode: 0

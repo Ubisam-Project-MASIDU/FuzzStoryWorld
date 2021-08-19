@@ -37,7 +37,7 @@ public class MoveWitchToHAG : MonoBehaviour
 
     void Update()
     {
-        mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_TargetPoint, 0.07f); //현재 오브젝트가 mv3_TargetPoint위치로 0.07f의 속력으로 가는 함수
+        mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_TargetPoint, 0.08f); //현재 오브젝트가 mv3_TargetPoint위치로 0.07f의 속력으로 가는 함수
         //Invoke("v_NextScene", 5f);
     }
 
