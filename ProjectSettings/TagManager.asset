@@ -33,6 +33,10 @@ TagManager:
   - Item
   - Plant
   - Cauldron
+  - Tree
+  - Stone
+  - House
+  - Log
   layers:
   - Default
   - TransparentFX
