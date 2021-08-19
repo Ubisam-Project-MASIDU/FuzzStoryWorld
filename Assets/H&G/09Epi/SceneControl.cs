@@ -67,7 +67,7 @@ public class SceneControl : MonoBehaviour
 
     void ColorChange()
     {
-        background.color = new Color(85 / 255f, 85 / 255f, 85 / 255f, 255 / 255f);
+        background.color = new Color(75 / 255f, 75 / 255f, 75 / 255f, 255 / 255f);
         witch.color = new Color(85 / 255f, 85 / 255f, 85 / 255f, 255 / 255f);
         hidestartflag = true;
         Debug.Log("colorChange");
