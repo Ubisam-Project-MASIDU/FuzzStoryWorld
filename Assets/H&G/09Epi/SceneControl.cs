@@ -13,15 +13,16 @@ public class SceneControl : MonoBehaviour
     public GameObject vibrate;
     public Text mt_Text;
     public bool hidestartflag = false;
-    private SpriteRenderer render;
-
+    private SpriteRenderer background;
+    private SpriteRenderer witch;
     // Start is called before the first frame update
     void Start()
     {
         mvm_VoiceManager = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();
 
         mg_WitchText.SetActive(false);
-        render = GameObject.Find("Background").GetComponent<SpriteRenderer>();
+        background = GameObject.Find("Background").GetComponent<SpriteRenderer>();
+        witch = GameObject.Find("witch").GetComponent<SpriteRenderer>();
 
     }
 
@@ -31,12 +32,11 @@ public class SceneControl : MonoBehaviour
         if (!mb_PlayFirstVoice)
         {                                                             // 나레이션1 실행조건 검사
             mvm_VoiceManager.playVoice(0);
-            Debug.Log("1");
             mb_PlayFirstVoice = true;
             Invoke("SecondEvent", 4f);
             Invoke("ThirdEvent", 8f);
             Invoke("FourthEvent", 12f);
-            Invoke("ColorChange", 15f);
+            Invoke("ColorChange", 16f);
             // 나레이션1 출력 완료 
         }
     }
@@ -55,18 +55,22 @@ public class SceneControl : MonoBehaviour
     {
         mg_WitchText.SetActive(false);
         mt_Text.text = "\n       사실 그 할머니는 아이들을 잡아먹는 무서운 마녀였어요.        \n";
-        mvm_VoiceManager.playVoice(1);                                                                                          // 나레이션1과 playVoice(0) 연결됨
+        mvm_VoiceManager.playVoice(1);
+        Debug.Log("3");// 나레이션1과 playVoice(0) 연결됨
     }
 
     void FourthEvent()
     {
         mt_Text.text = "\n       물체를 클릭해서 마녀에게로부터 헨젤과 그레텔을 숨겨주세요.        \n";
-        hidestartflag = true;
+        Debug.Log("4");
     }
 
     void ColorChange()
     {
-        render.color = new Color(85 / 255f, 85 / 255f, 85 / 255f, 255 / 255f);
+        background.color = new Color(85 / 255f, 85 / 255f, 85 / 255f, 255 / 255f);
+        witch.color = new Color(85 / 255f, 85 / 255f, 85 / 255f, 255 / 255f);
+        hidestartflag = true;
+        Debug.Log("colorChange");
     }
 
 
