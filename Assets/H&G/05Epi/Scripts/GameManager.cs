@@ -56,8 +56,14 @@ public class GameManager : MonoBehaviour
     public delegate void OnPlay(bool isplay); // 게임 시작 버튼이 눌리면 RespawnManager의 Coroutine이 작동되게 해주기
     public OnPlay onPlay; // delegate 생성
 
+    GameObject SoundManager;
+
+    void Start(){
+        SoundManager = GameObject.Find("SoundManager");
+    }
     // 게임 시작 버튼을 클릭하면 호출할 매소드
     public void PlayBtnClick(){ 
+        SoundManager.GetComponent<SoundManager>().playSound("Start");
         playBtn.SetActive(false);   // 게임 시작 버튼 비활성화
         Mission.SetActive(false);   // 미션 창 비활성화
         isPlay = true;              // 게임 시작
@@ -66,6 +72,7 @@ public class GameManager : MonoBehaviour
 
     // 게임 끝 버튼을 클릭하면 호출할 매소드
     public void GameOver(){
+        SoundManager.GetComponent<SoundManager>().playSound("End");
         nextBtn.SetActive(true);    // 게임 끝 버튼 활성화
         isPlay = false;             // 게임 끝
         onPlay.Invoke(isPlay);      
@@ -74,5 +81,4 @@ public class GameManager : MonoBehaviour
     public void nextScene(){        // 다음씬으로
         SceneManager.LoadScene("1_06H&G");
     }
-    
 }
