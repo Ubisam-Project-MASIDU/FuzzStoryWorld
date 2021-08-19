@@ -31,11 +31,13 @@ public class HAGMove : MonoBehaviour {
     private bool mb_DestroyOnce = false;
     private Animator mani_HAGAnimator;
     private Rigidbody mr_StandGround;
+    private int mn_LayerMask;
     
     void Start() {
         mgo_PointingTarget = GameObject.Find("PointingTarget").gameObject;
         mani_HAGAnimator = GetComponent<Animator>();
         mr_StandGround = GetComponent<Rigidbody>();
+        mn_LayerMask = (-1) - (1 << LayerMask.NameToLayer("Character"));
     }
 
     void FixedUpdate() {
@@ -73,7 +75,7 @@ public class HAGMove : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             mr_CheckMousePosByRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(mr_CheckMousePosByRay, out mrch_CheckMousePosHitObj, Mathf.Infinity)) {
+        if (Physics.Raycast(mr_CheckMousePosByRay, out mrch_CheckMousePosHitObj, Mathf.Infinity, mn_LayerMask)) {
                 if (mgo_PointingTarget.transform.childCount != 0) {
                     Destroy(mgo_PointingTarget.transform.GetChild(0).gameObject);
                 }
