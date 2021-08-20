@@ -41,7 +41,7 @@ public class MatchPuzzles : MonoBehaviour{
             if (col.tag == this.tag){                                                                               //충돌체의 태그와 현재 오브젝트(퍼즐조각)의 태그가 같다면
                 col.gameObject.SetActive(false);                                                                    //충돌체 비활성화
                 Destroy(this.gameObject);                                                                           //현재 오브젝트 없애기  
-                mgo_GameControl.GetComponent<CheckAnswerEpi3>().v_CountAnswer();                                    //정답 개수를 올려주기 위한 함수 실행
+                mgo_GameControl.GetComponent<CheckAnswerEpi2>().v_CountAnswer();                                    //정답 개수를 올려주기 위한 함수 실행
             }
         }
     }
