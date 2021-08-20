@@ -10,18 +10,32 @@
  * 2) 2021-08-12 : 상하좌우 방향으로 드래그 기능 구현
  * 
  * - Variable 
- * mb_DragFlag                                      Flag 값 -> Flag값이 True일 경우에만 어느방향으로 드래그하였는지 알려줌
  * mv3_screenSpace                                  월드좌표를 화면좌표로 변경하여 저장해두는 변수
  * mv3_offset                                       마우스 클릭좌표를 계산하기 위해 필요
  * mv3_StartPoint                                   마우스 클릭좌표를 저장해두는 변수
  * mv3_EndPoint                                     마우스에서 손을뗄떼 좌표를 저장해주는 변수
- * DragDirection                                    드래그 방향을 숫자로 변환해 저장해두는 변수
+ * mn_DragDirection                                 드래그 방향을 숫자로 변환해 저장해두는 변수
+ * mb_DragFailFlag                                  아이템을 드래그할때 스왑에 실패했는지 확인하기 위한 Flag값
  * mg_GameDirector                                  게임디렉터 오브젝트 연결을 위한 변수
- * 
+ * mg_Col1                                          연결을 위한 변수 -> 1번째 세로줄 관리를 위한 변수
+ * mg_Col2                                          연결을 위한 변수 -> 2번째 세로줄 관리를 위한 변수
+ * mg_Col3                                          연결을 위한 변수 -> 3번째 세로줄 관리를 위한 변수
+ * mg_Col4                                          연결을 위한 변수 -> 4번째 세로줄 관리를 위한 변수
+ * mg_Col5                                          연결을 위한 변수 -> 5번째 세로줄 관리를 위한 변수
+ * mg_Col6                                          연결을 위한 변수 -> 6번째 세로줄 관리를 위한 변수
+ * mg_Col7                                          연결을 위한 변수 -> 7번째 세로줄 관리를 위한 변수
+ * mg_TempGameObject                                아이템 스왑시 해당 오브젝트에 접근하기위한 변수
  * 
  * - Function
- * ChangeSwapFlagTrue()                             DragFlag값을 True로 변환
- * ChangeSwapFlagFalse()                            DragFlag값을 False로 변환
+ * OnMouseDown()                                                            마우스 왼쪽버튼을 누른 경우
+ * OnMouseUp()                                                              마우스 왼쪽버튼을 손에서 뗀 경우
+ * n_CalculateTheAngle(Vector3 v3StartPoint, Vector3 v3EndPoint)            드래그한 방향을 계산해주는 함수
+ * v_DragDown()                                                             아이템을 아래쪽으로 드래그, 아랫쪽 아이템과 순서를 바꾸고 아이템 배열값을 수정한다.
+ * v_DragUp()                                                               아이템을 윗쪽으로 드래그, 윗쪽 아이템과 순서를 바꾸고 아이템 배열값을 수정한다.
+ * v_DragRight()                                                            아이템을 오른쪽으로 드래그, 오른쪽 아이템과 순서를 바꾸고 아이템 배열값을 수정한다.
+ * v_DragLeft()                                                             아이템을 왼쪽으로 드래그, 왼쪽 아이템과 순서를 바꾸고 아이템 배열값을 수정한다.
+ * v_ChangeExchageFlagFalse()                                               아이템이 교환중인지 나타내는 Flag값을 False로 변경, Invoke사용을 위해 함수형태로 선언
+ * v_ChangeExchageFlagTrue()                                                아이템이 교환중인지 나타내는 Flag값을 True로 변경, Invoke사용을 위해 함수형태로 선언
  */
 
 using System.Collections;
@@ -31,29 +45,28 @@ using UnityEngine;
 // 아이템들을 서로 바꿀때의 처리를 작성해둔 스크립트
 public class SwapItem : MonoBehaviour
 {
+    // 변수 선언부
     private Vector3 mv3_screenSpace;                                                    // 월드좌표를 화면좌표로 변경하여 저장해두는 변수
     private Vector3 mv3_offset;                                                         // 마우스 클릭좌표를 계산하기 위해 필요
     Vector3 mv3_StartPoint;                                                             // 마우스 클릭좌표를 저장해두는 변수
     Vector3 mv3_EndPoint;                                                               // 마우스에서 손을뗄떼 좌표를 저장해주는 변수
-    int DragDirection;                                                                  // 드래그 방향을 숫자로 변환해 저장해두는 변수
-    bool mb_DragFailFlag = false;
-    
+    int mn_DragDirection;                                                               // 드래그 방향을 숫자로 변환해 저장해두는 변수
+    bool mb_DragFailFlag = false;                                                       // 아이템을 드래그할때 스왑에 실패했는지 확인하기 위한 Flag값
     GameObject mg_GameDirector;                                                         // 게임디렉터 오브젝트 연결을 위한 변수
-
-    GameObject mg_Col1;                                                     // 연결을 위한 변수 -> 1번째 세로줄 관리를 위한 변수
-    GameObject mg_Col2;                                                     // 연결을 위한 변수 -> 2번째 세로줄 관리를 위한 변수 
-    GameObject mg_Col3;                                                     // 연결을 위한 변수 -> 3번째 세로줄 관리를 위한 변수 
-    GameObject mg_Col4;                                                     // 연결을 위한 변수 -> 4번째 세로줄 관리를 위한 변수 
-    GameObject mg_Col5;                                                     // 연결을 위한 변수 -> 5번째 세로줄 관리를 위한 변수 
-    GameObject mg_Col6;                                                     // 연결을 위한 변수 -> 6번째 세로줄 관리를 위한 변수 
-    GameObject mg_Col7;                                                     // 연결을 위한 변수 -> 7번째 세로줄 관리를 위한 변수 
-    GameObject mg_TempGameObject;                                           // 아이템 스왑시 해당 오브젝트에 접근하기위한 변수
-
+    GameObject mg_Col1;                                                                 // 연결을 위한 변수 -> 1번째 세로줄 관리를 위한 변수
+    GameObject mg_Col2;                                                                 // 연결을 위한 변수 -> 2번째 세로줄 관리를 위한 변수 
+    GameObject mg_Col3;                                                                 // 연결을 위한 변수 -> 3번째 세로줄 관리를 위한 변수 
+    GameObject mg_Col4;                                                                 // 연결을 위한 변수 -> 4번째 세로줄 관리를 위한 변수 
+    GameObject mg_Col5;                                                                 // 연결을 위한 변수 -> 5번째 세로줄 관리를 위한 변수 
+    GameObject mg_Col6;                                                                 // 연결을 위한 변수 -> 6번째 세로줄 관리를 위한 변수 
+    GameObject mg_Col7;                                                                 // 연결을 위한 변수 -> 7번째 세로줄 관리를 위한 변수 
+    GameObject mg_TempGameObject;                                                       // 아이템 스왑시 해당 오브젝트에 접근하기위한 변수
 
     // Start is called before the first frame update
     void Start()
     {
-        mg_GameDirector = GameObject.Find("GameDirector");                              // 오브젝트 연결
+        // 오브젝트 연결
+        mg_GameDirector = GameObject.Find("GameDirector");
         mg_Col1 = GameObject.Find("Col1");
         mg_Col2 = GameObject.Find("Col2");
         mg_Col3 = GameObject.Find("Col3");
@@ -89,9 +102,10 @@ public class SwapItem : MonoBehaviour
             var curmv3_screenSpace = new Vector3(Input.mousePosition.x, Input.mousePosition.y, mv3_screenSpace.z);
             mv3_EndPoint = Camera.main.ScreenToWorldPoint(curmv3_screenSpace) + mv3_offset;
             //Debug.Log("마우스 업 포지션 : " + mv3_EndPoint);
-            DragDirection = n_CalculateTheAngle(mv3_StartPoint, mv3_EndPoint);          // 처음 눌렀을때의 위치와 뗄떄의 각도를 계산하여 어느방향으로 드래그하였는지 계산한다.
+            mn_DragDirection = n_CalculateTheAngle(mv3_StartPoint, mv3_EndPoint);          // 처음 눌렀을때의 위치와 뗄떄의 각도를 계산하여 어느방향으로 드래그하였는지 계산한다.
 
-            switch (DragDirection)
+            // 드래그 방향으로 아이템 스왑
+            switch (mn_DragDirection)
             {
                 case -1:
                     Debug.Log("드래그 안함");
@@ -174,10 +188,10 @@ public class SwapItem : MonoBehaviour
     /// <returns></returns>
     public int n_CalculateTheAngle(Vector3 v3StartPoint, Vector3 v3EndPoint)
     {
-        Vector3 DragDirection = v3StartPoint - v3EndPoint;
-        if (DragDirection.magnitude <= 0.2f) 
+        Vector3 mn_DragDirection = v3StartPoint - v3EndPoint;
+        if (mn_DragDirection.magnitude <= 0.2f) 
             return -1;
-        float aimAngle = Mathf.Atan2(DragDirection.y, DragDirection.x);
+        float aimAngle = Mathf.Atan2(mn_DragDirection.y, mn_DragDirection.x);
 
         if (aimAngle < 0f)
         {
@@ -189,7 +203,7 @@ public class SwapItem : MonoBehaviour
     }
 
     /// <summary>
-    /// Invoke를 사용하기위해 함수형태로 선언, 아래쪽으로 드래그
+    /// 아이템을 아래쪽으로 드래그, 아랫쪽 아이템과 순서를 바꾸고 아이템 배열값을 수정한다.
     /// </summary>
     public void v_DragDown()
     {
@@ -264,7 +278,7 @@ public class SwapItem : MonoBehaviour
     }
 
     /// <summary>
-    /// Invoke를 사용하기위해 함수형태로 선언, 위쪽으로 드래그
+    /// 아이템을 윗쪽으로 드래그, 윗쪽 아이템과 순서를 바꾸고 아이템 배열값을 수정한다.
     /// </summary>
     public void v_DragUp()
     {
@@ -339,9 +353,7 @@ public class SwapItem : MonoBehaviour
     }
 
     /// <summary>
-    /// /// <summary>
-    /// Invoke를 사용하기위해 함수형태로 선언, 오른쪽으로 드래그
-    /// </summary>
+    /// 아이템을 오른쪽으로 드래그, 오른쪽 아이템과 순서를 바꾸고 아이템 배열값을 수정한다.
     /// </summary>
     public void v_DragRight()
     {
@@ -468,7 +480,7 @@ public class SwapItem : MonoBehaviour
     }
 
     /// <summary>
-    /// Invoke를 사용하기위해 함수형태로 선언, 왼쪽으로 드래그
+    /// 아이템을 왼쪽으로 드래그, 왼쪽 아이템과 순서를 바꾸고 아이템 배열값을 수정한다.
     /// </summary>
     public void v_DragLeft()
     {
@@ -595,16 +607,20 @@ public class SwapItem : MonoBehaviour
         }
     }
     
+    /// <summary>
+    /// 아이템이 교환중인지 나타내는 Flag값을 False로 변경, Invoke사용을 위해 함수형태로 선언
+    /// </summary>
     public void v_ChangeExchageFlagFalse()
     {
         mg_GameDirector.GetComponent<MainScript>().v_ChangeExchangeFlagFalse();
     }
 
+    /// <summary>
+    /// 아이템이 교환중인지 나타내는 Flag값을 True로 변경, Invoke사용을 위해 함수형태로 선언
+    /// </summary>
     public void v_ChangeExchageFlagTrue()
     {
         mg_GameDirector.GetComponent<MainScript>().v_ChangeExchangeFlagTrue();
     }
-
-
     #endregion
 }
