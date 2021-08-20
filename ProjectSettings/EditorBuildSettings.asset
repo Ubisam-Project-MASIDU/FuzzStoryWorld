@@ -32,9 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1_04H&G.unity
     guid: f15c704443605407db2dc134b54750f9
-  - enabled: 1
-    path: Assets/Scenes/1_05H&G.unity
-    guid: 4528dd5d1859a409ca8d26488b6296f5
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/1_06H&G.unity
     guid: 7c431a4fa0dd6451eaba6451b7eb78e4

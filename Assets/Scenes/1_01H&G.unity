@@ -1143,6 +1143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mn_PlayVoiceIndex: 0
+  ms_ChangeNextSceneName: 1_02H&G
 --- !u!1 &2024992599
 GameObject:
   m_ObjectHideFlags: 0
