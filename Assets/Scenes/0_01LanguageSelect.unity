@@ -592,7 +592,7 @@ PrefabInstance:
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.size
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
@@ -716,8 +716,7 @@ PrefabInstance:
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[19].sstr_words
-      value: "   \uBF08\uB2E4\uADC0\uB97C \uB4DC\uB798\uADF8\uD558\uC5EC \uB9C8\uB140\uC5D0\uAC8C
-        \uB0B4\uBC00\uC138\uC694. "
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
@@ -1428,15 +1427,15 @@ PrefabInstance:
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[9].sstr_words
-      value: Hansel and Gretel put out the bones instead of their hands. After a
+      value: Hansel and Gretel pull out the bones instead of their hands. After a
         long time, the witch, who couldn't stand it, tried to eat both. The frightened
         children tried to escape from the witch.
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[10].sstr_words
-      value: The witch called Hansel and Gretel servants and checked the children's
-        hands every day to see if they had gained weight.
+      value: The witch handeled Hansel and Gretel likes servants and checked the
+        children's hands every day to see if they had gained weight.
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
