@@ -592,7 +592,7 @@ PrefabInstance:
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.size
-      value: 19
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
@@ -637,6 +637,11 @@ PrefabInstance:
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[18].sf_pitch
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].sf_pitch
       value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
@@ -710,6 +715,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].sstr_words
+      value: "   \uBF08\uB2E4\uADC0\uB97C \uB4DC\uB798\uADF8\uD558\uC5EC \uB9C8\uB140\uC5D0\uAC8C
+        \uB0B4\uBC00\uC138\uC694. "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
       propertyPath: mvifl_SetVoiceInfoList.Array.data[0].sf_SpeakingRate
       value: 1
       objectReference: {fileID: 0}
@@ -751,6 +762,11 @@ PrefabInstance:
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[18].sf_speakingRate
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].sf_speakingRate
       value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
