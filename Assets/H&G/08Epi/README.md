@@ -24,7 +24,7 @@
   - Image
     - 구현에 필요한 이미지 파일들은 모두 FuzzStoryWorld/Assets/Image/ 에서 참고하였다.
   - Scene
-    - Scene파일의 경우에도 FuzzStoryWorld/Assets/Scenes/1_05H&G.unity 에서 진행하였다.
+    - Scene파일의 경우에도 FuzzStoryWorld/Assets/Scenes/1_08H&G.unity 에서 진행하였다.
   - Script
     - Start_Epi8_Game.cs : Epi8 미니게임 시작
     - CandyControl.cs : 배열로 남은 아이템 관리, 이 배열을 통해 랜덤으로 정답을 정하는 함수 및 아이템이 바뀌었는지 flag로 관리

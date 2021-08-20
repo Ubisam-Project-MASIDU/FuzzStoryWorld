@@ -1,5 +1,5 @@
 /*
- * - Name : Movement.class
+ * - Name : Movement.cs
  * - Writer : 이윤교
  * - Content : 헨젤과그레텔 Epi4 _ 게임오브젝트 이동 스크립트
  * 
@@ -61,8 +61,6 @@ public class Movement : MonoBehaviour
     private Vector3 mv3_RockMidPosAfter;
     private Vector3 mv3_RockLeftPosAfter;
 
-    VoiceManager vm;
-
     void Start(){
         mgo_Gratel = GameObject.Find("Gratel");
         mgo_Hansel = GameObject.Find("Hansel");
@@ -84,32 +82,28 @@ public class Movement : MonoBehaviour
         mv3_RockRightPosAfter = new Vector3(9.0f,6.0f,-6.0f);
         mv3_RockMidPosAfter = new Vector3(6.0f,6.0f,-6.0f);
         mv3_RockLeftPosAfter = new Vector3(3.0f,6.0f,-6.0f);
-
-        this.vm = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();
     }
 
     void Update(){
-        if (vm.mb_checkSceneReady){                                                 // tts 사용전 작업이 다 준비되면
-            ChangePosition(mgo_Gratel,mv3_GratelPos,0.05f);                         // 그레텔 이동
-            ChangePosition(mgo_Hansel,mv3_HanselPos,0.05f);                         // 헨젤 이동
+        ChangePosition(mgo_Gratel,mv3_GratelPos,0.05f);                         // 그레텔 이동
+        ChangePosition(mgo_Hansel,mv3_HanselPos,0.05f);                         // 헨젤 이동
 
-            ChangePosition(mgo_Dad,mv3_DadPos,0.1f);                                // 아버지 이동
-            ChangePosition(mgo_Mom,mv3_MomPos,0.1f);                                // 어머니 이동
+        ChangePosition(mgo_Dad,mv3_DadPos,0.1f);                                // 아버지 이동
+        ChangePosition(mgo_Mom,mv3_MomPos,0.1f);                                // 어머니 이동
 
-            ChangePosition(mgo_RockRight,mv3_RockRightPosBefore,0.05f);             // 첫번째 돌 이동
-            ChangePosition(mgo_RockMid,mv3_RockMidPosBefore,0.05f);                 // 두번째 돌 이동
-            ChangePosition(mgo_RockLeft,mv3_RockLeftPosBefore,0.05f);               // 세번째 돌 이동
+        ChangePosition(mgo_RockRight,mv3_RockRightPosBefore,0.05f);             // 첫번째 돌 이동
+        ChangePosition(mgo_RockMid,mv3_RockMidPosBefore,0.05f);                 // 두번째 돌 이동
+        ChangePosition(mgo_RockLeft,mv3_RockLeftPosBefore,0.05f);               // 세번째 돌 이동
 
-            if(mgo_Hansel.transform.position.x <= 8) {
-                ChangePosition(mgo_RockRight,mv3_RockRightPosAfter,0.05f);          // 첫번째 돌 떨어뜨리기
-                if(mgo_Hansel.transform.position.x <= 5) {
-                   ChangePosition(mgo_RockMid,mv3_RockMidPosAfter,0.05f);          // 두번째 돌 떨어뜨리기
-                   if(mgo_Hansel.transform.position.x <= 2) {
-                        ChangePosition(mgo_RockLeft,mv3_RockLeftPosAfter,0.05f);    // 세번째 돌 떨어뜨리기    
-                   }
+        if(mgo_Hansel.transform.position.x <= 8) {
+            ChangePosition(mgo_RockRight,mv3_RockRightPosAfter,0.05f);          // 첫번째 돌 떨어뜨리기
+            if(mgo_Hansel.transform.position.x <= 5) {
+                ChangePosition(mgo_RockMid,mv3_RockMidPosAfter,0.05f);          // 두번째 돌 떨어뜨리기
+                if(mgo_Hansel.transform.position.x <= 2) {
+                    ChangePosition(mgo_RockLeft,mv3_RockLeftPosAfter,0.05f);    // 세번째 돌 떨어뜨리기    
                 }
-            }   
-        }
+            }
+        }   
     }
 
     // goObject가  v3Pos위치로 fVelocity 속력으로 이동하는 함수 
