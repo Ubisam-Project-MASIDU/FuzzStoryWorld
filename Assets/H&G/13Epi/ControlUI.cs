@@ -1,5 +1,5 @@
 ﻿/*
- * - Name : Score.cs
+ * - Name : ControlUI.cs
  * - Writer : 김명현
  * 
  * - Content :

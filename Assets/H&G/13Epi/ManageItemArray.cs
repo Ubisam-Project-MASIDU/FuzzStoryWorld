@@ -6,14 +6,23 @@
  * 아이템 배치값을 관리하는 스크립트
  * 
  * - History
- * 1) 2021-08-18 : 알고리즘 전면 수정
+ * 1) 2021-08-20 : 알고리즘 전면 수정
  * 
  * - Variable 
- * 
+ * ma2_ItemArray                                // 아이템 배치값을 저장해두는 2차원 배열 
+ * ms_TextArray                                 // 아이템 배치값을 저장해두는 String
  * 
  * - Function   
- * 
- * 
+ * v_InitItemArray()                            // 처음 아이템 관리 배열을 생성해주는 함수
+ * v_ShowItemArray()                            // 아이템 관리 배열 값을 출력해주는 함수
+ * b_InspectArrayIsPop()                        // 아이템 배열에 아이템이 3개이상 모여 터질것이 있는지 검사하는 함수
+ * v_PopItemInArray()                           // 배열에 3개이상 모인 아이템 10이상의 숫자로 모두 변경해준다.
+ * v_RearrangeArray()                           // 터진 아이템들을 모두 위로 올리고 빈자리 새로운 아이템으로 채운다.
+ * n_ReturnArrayValue(int ni, int nj)           // 원하는 위치의 원소값 반환
+ * v_ReplaceWithLeftValue(int ni, int nj)       // 왼쪽 값과 값 변경
+ * v_ReplaceWithRightValue(int ni, int nj)      // 오른쪽 값과 값 변경
+ * v_ReplaceWithTopValue(int ni, int nj)        // 윗쪽 값과 값 변경
+ * v_ReplaceWithBottomValue(int ni, int nj)     // 아랫쪽 값과 값 변경
  */
 
 using System.Collections;
@@ -23,10 +32,8 @@ using UnityEngine;
 // 아이템 배치값을 관리하는 스크립트
 public class ManageItemArray : MonoBehaviour
 {
-    int[,] ma2_ItemArray = new int[6, 7];                                    // 아이템 배치값을 저장해두는 2차원 배열 
+    int[,] ma2_ItemArray = new int[6, 7];                                   // 아이템 배치값을 저장해두는 2차원 배열 
     string ms_TextArray;                                                    // 아이템 배치값을 저장해두는 String
-
-
 
     // Start is called before the first frame update
     void Start()
@@ -35,13 +42,7 @@ public class ManageItemArray : MonoBehaviour
         v_ShowItemArray();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
+    #region 함수 선언부
     /// <summary>
     /// 처음 아이템 관리 배열을 생성해주는 함수
     /// </summary>
@@ -57,7 +58,7 @@ public class ManageItemArray : MonoBehaviour
     }
 
     /// <summary>
-    /// 아이템 관리 배열을 출력해주는 함수
+    /// 아이템 관리 배열 값을 출력해주는 함수
     /// </summary>
     public void v_ShowItemArray()
     {
@@ -1538,6 +1539,11 @@ public class ManageItemArray : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 오른쪽값과 값 변경
+    /// </summary>
+    /// <param name="ni">원소의 x값</param>
+    /// <param name="nj">원소의 y값</param>
     public void v_ReplaceWithRightValue(int ni, int nj)
     {
         int ntemp = ma2_ItemArray[ni, nj];
@@ -1550,6 +1556,11 @@ public class ManageItemArray : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 윗쪽값과 값 변경
+    /// </summary>
+    /// <param name="ni">원소의 x값</param>
+    /// <param name="nj">원소의 y값</param>
     public void v_ReplaceWithTopValue(int ni, int nj)
     {
         int ntemp = ma2_ItemArray[ni, nj];
@@ -1562,6 +1573,11 @@ public class ManageItemArray : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 아랫쪽값과 값 변경
+    /// </summary>
+    /// <param name="ni">원소의 x값</param>
+    /// <param name="nj">원소의 y값</param>
     public void v_ReplaceWithBottomValue(int ni, int nj)
     {
         int ntemp = ma2_ItemArray[ni, nj];
@@ -1573,5 +1589,5 @@ public class ManageItemArray : MonoBehaviour
             ma2_ItemArray[ni + 1, nj] = ntemp;
         }
     }
-
+    #endregion
 }

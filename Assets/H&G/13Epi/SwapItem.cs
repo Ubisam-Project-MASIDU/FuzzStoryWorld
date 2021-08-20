@@ -63,12 +63,6 @@ public class SwapItem : MonoBehaviour
         mg_Col7 = GameObject.Find("Col7");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     /// <summary>
     /// 마우스 왼쪽 버튼을 누른경우
     /// </summary>
