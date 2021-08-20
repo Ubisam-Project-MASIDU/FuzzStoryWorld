@@ -23,7 +23,7 @@
     - 주어진 조약돌을 다 먹게 되면 게임이 끝난다.
     - 게임이 끝나면 Finish 버튼이 나오고 이 버튼을 누르면 다음 씬으로 넘어가게 된다.
 ***
-- H&G (Episode8) 구성 정보
+- H&G (Episode5) 구성 정보
   - Image
     - 구현에 필요한 이미지 파일들은 모두 FuzzStoryWorld/Assets/Image/ 에서 참고하였다.
   - Scene
