@@ -60,7 +60,7 @@ public class ControlUI : MonoBehaviour
         if(mf_delta >= 1)
         {
             mf_delta = 0;
-            mi_LeftTimeCircle.fillAmount -= 0.01f;                                          // 90초간 게임 진행(0.01f)
+            mi_LeftTimeCircle.fillAmount -= 0.025f;                                          // 90초간 게임 진행(0.01f)
         }
 
         // 만약 남은 시간이 없다면 엔딩 이미지를 띄워주고 다음씬으로 연결
@@ -102,6 +102,6 @@ public class ControlUI : MonoBehaviour
     /// </summary>
     public void v_IncreaseTime()
     {
-        mi_LeftTimeCircle.fillAmount += 0.005f;
+        mi_LeftTimeCircle.fillAmount += 0.025f;
     }
 }
