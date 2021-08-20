@@ -29,6 +29,7 @@ using UnityEngine.SceneManagement;
 public class PlayVoice : MonoBehaviour {
 
     public int mn_PlayVoiceIndex = 0;
+    public string ms_ChangeNextSceneName;
     private VoiceManager mvm_VoiceManager;
     private bool mb_PlayOnce = false;
     
@@ -43,7 +44,7 @@ public class PlayVoice : MonoBehaviour {
             mvm_VoiceManager.playVoice(mn_PlayVoiceIndex);
             mb_PlayOnce = true;
         } else if (!mvm_VoiceManager.isPlaying()) {
-            SceneManager.LoadScene("1_02H&G");
+            SceneManager.LoadScene(ms_ChangeNextSceneName);
         }
     }
 }
