@@ -81,9 +81,9 @@ public class ObjectClick : MonoBehaviour
                 }
             }else if(count == 6)
             {
-                Invoke("witchChange", 2.5f);
-                
-                Invoke("witchToHome",2f);
+                Invoke("witchChange", 1.5f);
+               
+                Invoke("witchToHome", 2.5f);
             }
 
             if (!witchToHomeFlag)
@@ -191,17 +191,22 @@ public class ObjectClick : MonoBehaviour
 
     void witchChange()
     {
+        Destroy(mg_Gretel);
+        Destroy(mg_Hansel);
         mg_Witch.transform.localScale = new Vector3(1.5f,1.5f, 1.5f);
         mg_Witch.transform.rotation = Quaternion.Euler(0, 0, 0);
         mg_Witch.GetComponent<SpriteRenderer>().sprite = witchwithHAG;
+        mg_Witch.gameObject.tag = "witchwithHAG";
     }
 
     void witchToHome()
     {
         witchToHomeFlag = true;
-        Destroy(mg_Gretel);
-        Destroy(mg_Hansel);
-        mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(19.8f, 6.7f, -6.9f), 0.05f);
+        if(mg_Witch.tag == "witchwithHAG")
+        {
+            mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(19.8f, 6.7f, -6.9f), 0.05f);
+        }
+        
     }
 
     void fffindHAG(string objectname, Vector3 objectpos)
