@@ -41,22 +41,22 @@ public class KillTheMonster : MonoBehaviour {
     private void OnMouseDown() {   
         if (T_Monster_HP <= 0) {                                            // 몬스터의 HP가 0보다 작으면 죽는경우 설정
             ControlMonster.GetComponent<ControlMonster>().Delete();
-            GetComponent<SoundEffectes>().PlaySound("DIE");                 // soundEffects에서 설정한 소리 가져오게 한다 
+            GetComponent<TrashMonsterMove>().enabled = false;               // soundEffects에서 설정한 소리 가져오게 한다 
             
             if (Input.GetMouseButtonDown(0)) {                              // 마우스로 클릭 하였을 때 캐릭터가 죽으면서 소리나게 하기
                 print("마우스 입력 받았음");
                 if(state == true) {
                     gameObject.SetActive(false);
-                    GetComponent<TrashMonsterMove>().enabled = false;
-                    Invoke("destroyTrash", 0.4f);                           // 바로 죽지 않고 0.4초 딜레이 후 삭제
+                    GetComponent<SoundEffectes>().PlaySound("DIE");
+                    Invoke("destroyTrash", 1f);                           // 바로 죽지 않고 0.4초 딜레이 후 삭제
                     print("사라져");
-                    state =  false;
+                    state = true;
                 }
                 
                 else {
                     gameObject.SetActive(true);                 
                     print("생겨나");
-                    state = true;
+                    state = false;
                 }
             }
         }

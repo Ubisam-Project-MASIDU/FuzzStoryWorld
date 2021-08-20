@@ -16,20 +16,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CollideWitch : MonoBehaviour 
 {
 
+    GameObject ControlBone;
+    void Start(){
+        ControlBone = GameObject.Find("ControlBone");
+    }
+    
+
     void OnTriggerEnter(Collider cCollider) {
 
+
         if (cCollider.tag == "bb1" ){                 // bb1(그레텔이 가지고 있는 뼈다기 이름을 backbone인데 그것을 줄여서 bb로 지정하고 사라지게 하기 위해 이름을 붙여줌) 
+            ControlBone.GetComponent<TurnPage>().Delete();
             Destroy(cCollider.gameObject);            // 만약 위에 bb1일 Witch(마녀)에 3D에 다았을 때 사라지게 함
             GetComponent<BonsStickSound>().PlaySound("GIVE");
         }    
         
         else if (cCollider.tag == "bb2" ){           // bb2(헨젤이 가지고 있는 뼈다기 이름을 backbone인데 그것을 줄여서 bb로 지정하고 사라지게 하기 위해 이름을 붙여줌) 
+            ControlBone.GetComponent<TurnPage>().Delete();
             Destroy(cCollider.gameObject);           // 만약 위에 bb1일 Witch(마녀)에 3D에 다았을 때 사라지게 함  
             GetComponent<BonsStickSound>().PlaySound("GIVE");
-        }  
+        }
     }
+        
 }
