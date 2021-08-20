@@ -24,12 +24,12 @@
   - Image
     - 구현에 필요한 이미지 파일들은 모두 FuzzStoryWorld/Assets/Image/ 에서 참고하였다.
   - Scene
-    - Scene파일의 경우에도 FuzzStoryWorld/Assets/Scenes/1_05H&G.unity 에서 진행하였다.
+    - Scene파일의 경우에도 FuzzStoryWorld/Assets/Scenes/1_08H&G.unity 에서 진행하였다.
   - Script
-    - Start_Epi8_Game.cs : Epi8 미니게임 시작 스크립트
-    - CandyControl.cs : 배열로 남은 아이템 관리, 이 배열을 통해 랜덤으로 정답을 정하는 함수 및 아이템이 바뀌었는지 flag로 관리하는 스크립트
+    - Start_Epi8_Game.cs : Epi8 미니게임 시작
+    - CandyControl.cs : 배열로 남은 아이템 관리, 이 배열을 통해 랜덤으로 정답을 정하는 함수 및 아이템이 바뀌었는지 flag로 관리
     - DragCandy.cs : 마우스 이벤트 스크립트, 마우스 드래그시 오브젝트가 따라 움직이게 수정
-    - RandomCandy.cs : 사탕(아이템)을 중복되지않게 랜덤으로 보여주는 스크립트
+    - RandomCandy.cs : 사탕(아이템)을 중복되지않게 랜덤으로 보여줌
     - CheckAnswer.cs : 충돌 시 정답 확인 및 정답일 경우 오브젝트 삭제
 
 ***
