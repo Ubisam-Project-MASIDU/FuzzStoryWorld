@@ -71,10 +71,10 @@ public class BONE : MonoBehaviour
                 mb_CheckBone = true;
         }  
     }          
-          void OnTriggerStay(Collider other) {
-            if (other.gameObject.name.Equals("witch") && mb_SetPos) {
+    void OnTriggerStay(Collider other) {
+        if (other.gameObject.name.Equals("witch") && mb_SetPos) {
             Destroy(this.gameObject);
-            mb_CheckBone = true;
+            mb_CheckBone = false;
             mb_DestroyOnce = true;
             mb_SetPos = false;
         }

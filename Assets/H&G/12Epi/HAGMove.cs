@@ -39,7 +39,7 @@ public class HAGMove : MonoBehaviour {
         mgo_PointingTarget = GameObject.Find("PointingTarget").gameObject;
         mani_HAGAnimator = GetComponent<Animator>();
         mr_StandGround = GetComponent<Rigidbody>();
-        mn_MaskingCharacters = (-1) - (1 << LayerMask.NameToLayer("Character"));
+        mn_MaskingCharacters = (1 << LayerMask.NameToLayer("Platform"));
         mCharCon_HAGMoveController = GetComponent<CharacterController>();
         HAGStatus = GameObject.Find("GameController").GetComponent<Scene12Controller>().HAGStatus;
     }
@@ -48,9 +48,9 @@ public class HAGMove : MonoBehaviour {
         if (mb_SetPos) {
             // 이동하고자하는 좌표 값과 현재 내 위치의 차이를 구한다.
             float f_CheckDistance = Vector3.Distance(transform.position, mv3_TargetPos);
-            float f_LimitDistance = 0.01f;
+            float f_LimitDistance = 4f;
             float f_FlipCharacter = transform.position.x - mv3_TargetPos.x;
-
+            
             if (f_CheckDistance > f_LimitDistance) {
                 if (f_FlipCharacter > 0) {
                     transform.GetChild(0).GetComponent<SpriteRenderer>().flipX = true;
@@ -78,7 +78,7 @@ public class HAGMove : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             mr_CheckMousePosByRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-        if (Physics.Raycast(mr_CheckMousePosByRay, out mrch_CheckMousePosHitObj, Mathf.Infinity, mn_MaskingCharacters)) {
+            if (Physics.Raycast(mr_CheckMousePosByRay, out mrch_CheckMousePosHitObj, Mathf.Infinity, mn_MaskingCharacters)) {
                 if (mgo_PointingTarget.transform.childCount != 0) {
                     Destroy(mgo_PointingTarget.transform.GetChild(0).gameObject);
                 }
