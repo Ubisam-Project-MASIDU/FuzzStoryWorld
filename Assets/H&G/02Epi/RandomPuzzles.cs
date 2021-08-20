@@ -25,11 +25,15 @@ using UnityEngine.UI;
 
 public class RandomPuzzles : MonoBehaviour{
 
+    public VoiceManager mvm_VoiceManager;
+    private bool mb_PlayFirstVoice = false;
     public Sprite[] mspa_PuzzlePieces = new Sprite[9];                                                    //오브젝트 연결을 위한 배열 -> 퍼즐 조각 이미지 9개 연결
     private GameObject[] mga_Slot = new GameObject[9];                                                    //각각의 퍼즐 조각이 들어갈 슬롯 연결을 위한 배열
     int[] mna_RandNumArray = new int[9];                                                                  //퍼즐조각을 랜덤으로 섞기 위한 배열
 
     void Start(){
+        mvm_VoiceManager = FindObjectOfType<VoiceManager>();
+        //mvm_VoiceManager.playVoice(15);
         //오브젝트 연결
         mga_Slot[0] = GameObject.Find("Slot1");
         mga_Slot[1] = GameObject.Find("Slot2");

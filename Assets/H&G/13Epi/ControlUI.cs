@@ -60,14 +60,15 @@ public class ControlUI : MonoBehaviour
         if(mf_delta >= 1)
         {
             mf_delta = 0;
-            mi_LeftTimeCircle.fillAmount -= 0.01f;                                          // 90초간 게임 진행(0.01f)
+            mi_LeftTimeCircle.fillAmount -= 0.025f;                                          // 90초간 게임 진행(0.01f)
         }
 
         // 만약 남은 시간이 없다면 엔딩 이미지를 띄워주고 다음씬으로 연결
         if (mi_LeftTimeCircle.fillAmount == 0 && mb_EndGameFlag == false)
         {
             mb_EndGameFlag = true;
-            if (md_score > 0)
+            // 게임을 클리어하기 위한 점수값 설정
+            if (md_score >= 0)
             {
                 mg_WinImage = Instantiate(mg_WinImage) as GameObject;
                 this.GetComponent<MainScript>().v_ChangeDragFlagFalse();
@@ -102,6 +103,11 @@ public class ControlUI : MonoBehaviour
     /// </summary>
     public void v_IncreaseTime()
     {
-        mi_LeftTimeCircle.fillAmount += 0.005f;
+        mi_LeftTimeCircle.fillAmount += 0.025f;
+    }
+
+    public double d_ReturnScore()
+    {
+        return md_score;
     }
 }

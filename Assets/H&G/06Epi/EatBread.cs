@@ -61,6 +61,7 @@ public class EatBread : MonoBehaviour
         
         // 음성 출력이 끝나면 다음 씬으로 이동
         if(mvm_VoiceManager.isPlaying() == false && mvm_VoiceManager.mb_checkSceneReady && !mb_TellOnce) {
+            Time.timeScale = 1;
             ChangeNextScene();  
             mb_TellOnce = true;
         }

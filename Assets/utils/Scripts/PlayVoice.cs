@@ -29,21 +29,20 @@ using UnityEngine.SceneManagement;
 public class PlayVoice : MonoBehaviour {
 
     public int mn_PlayVoiceIndex = 0;
+    public string ms_ChangeNextSceneName;
     private VoiceManager mvm_VoiceManager;
-    private bool mb_PlayOnce = false;
     
     // 씬에서 VoiceManager 컴포넌트를 찾아 초기화시킨다.
     void Start() {
         mvm_VoiceManager = FindObjectOfType<VoiceManager>();
+        mvm_VoiceManager.playVoice(mn_PlayVoiceIndex);
+
     }
 
     // 이 해당 컴포넌트가 들어있는 오브젝트가 생성되면 바로 음성을 출력하게 되어 있다. 이때 출력은 한번만 되도록 한다.
     void Update() {
-        if (!mb_PlayOnce) {
-            mvm_VoiceManager.playVoice(mn_PlayVoiceIndex);
-            mb_PlayOnce = true;
-        } else if (!mvm_VoiceManager.isPlaying()) {
-            SceneManager.LoadScene("1_02H&G");
+        if (!mvm_VoiceManager.isPlaying()) {
+            SceneManager.LoadScene(ms_ChangeNextSceneName);
         }
     }
 }

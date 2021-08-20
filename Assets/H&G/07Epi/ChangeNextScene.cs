@@ -25,7 +25,22 @@ using UnityEngine.SceneManagement;
 
 // 다음 씬으로 넘어가는 동작을 정의한 스크립트 클래스이다.
 public class ChangeNextScene : MonoBehaviour {
+    private VoiceManager mvm_VoiceManager;
+    private bool mb_PlayOnce = false;
+    public string ms_ChangeNextSceneName;
+    public int mn_PlayVoiceIndex = 7;
     
+    // 씬에서 VoiceManager 컴포넌트를 찾아 초기화시킨다.
+    void Start() {
+        mvm_VoiceManager = FindObjectOfType<VoiceManager>();
+    }
+
+    void Update() {
+        if (!mb_PlayOnce) {
+            mvm_VoiceManager.playVoice(mn_PlayVoiceIndex);
+            mb_PlayOnce = true;
+        }
+    }
     // 해당 오브젝트의 컴포넌트에서 콜라이더 박스에 무언가 닿았다면 호출된다.
     private void OnTriggerEnter(Collider cCollider) {
         if (cCollider.tag == "HAG") {
@@ -36,7 +51,7 @@ public class ChangeNextScene : MonoBehaviour {
 
     // 다음 씬을 호출하는 함수이다.
     private void v_changeNextScene() {
-        SceneManager.LoadScene("1_08H&G");
+        SceneManager.LoadScene(ms_ChangeNextSceneName);
     }
     
 }

@@ -9,6 +9,7 @@
  * 1) 2021-08-20 : 리셋버튼 누를경우 아이템들이 모두삭제되고 새로 생성되게 작성
  * 
  * - Variable 
+ * mg_GameDirector                      게임 디렉터 오브젝트에 접근하기 위한 변수
  * 
  * - Function   
  * 
@@ -27,12 +28,6 @@ public class ResetButton : MonoBehaviour
     void Start()
     {
         mg_GameDirector = GameObject.Find("GameDirector");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnMouseDown()
