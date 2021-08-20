@@ -33,13 +33,13 @@ public class ObjectClick : MonoBehaviour
     { 
         sc = GameObject.Find("GameControl").GetComponent<SceneControl>();
         renders = new SpriteRenderer[6];
-        renders[0] = GameObject.FindGameObjectWithTag("Plant").GetComponent<SpriteRenderer>();
+        /*renders[0] = GameObject.FindGameObjectWithTag("Plant").GetComponent<SpriteRenderer>();
         renders[1] = GameObject.FindGameObjectWithTag("Cauldron").GetComponent<SpriteRenderer>();
         renders[2] = GameObject.FindGameObjectWithTag("Tree").GetComponent<SpriteRenderer>();
         renders[3] = GameObject.FindGameObjectWithTag("Log").GetComponent<SpriteRenderer>();
         renders[4] = GameObject.FindGameObjectWithTag("Stone").GetComponent<SpriteRenderer>();
         renders[5] = GameObject.FindGameObjectWithTag("House").GetComponent<SpriteRenderer>();
-
+        */
         witch = GameObject.Find("witch").GetComponent<SpriteRenderer>();
 
         mg_Hansel = GameObject.Find("Hansel");
@@ -49,16 +49,17 @@ public class ObjectClick : MonoBehaviour
         count = 0;
         setPos();
 
-        mg_Witch.GetComponent<MoveWitchToHAG>().enabled = false;
+        //mg_Witch.GetComponent<MoveWitchToHAG>().enabled = false;
     }
 
     void Update()
     {
         if (sc.hidestartflag)
         {
+            mg_Witch.GetComponent<MoveWitchToHAG>().enabled = false;
             if (count < 6)
             {
-                
+
                 if (Input.GetMouseButtonDown(0))
                 {
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -67,17 +68,30 @@ public class ObjectClick : MonoBehaviour
                         mv3_ObjectPos = hit.collider.gameObject.transform.position;
                         ms_ObjectName = hit.collider.gameObject.name;
                         Debug.Log(ms_ObjectName);
+                        if(count > 0)
+                        {
+                            renders[count - 1].color = new Color(100 / 255f, 100 / 255f, 100 / 255f, 255 / 255f);
+                        }
                     }
                     HideBehindObject(ms_ObjectName);
+                    renders[count] = GameObject.FindGameObjectWithTag(ms_ObjectName).GetComponent<SpriteRenderer>();
+                    
                     count++;
+                    Debug.Log(count);
                 }
+            }else if(count == 6)
+            {
+                Invoke("witchChange", 2.5f);
                 
+                Invoke("witchToHome",2f);
             }
-            findHAG(ms_ObjectName);
-        }
 
-           
-        
+            if (!witchToHomeFlag)
+            {
+                findHAG(ms_ObjectName);
+            }
+            //findHAG(ms_ObjectName);
+        }
     }
     void setPos()
     {
@@ -169,12 +183,25 @@ public class ObjectClick : MonoBehaviour
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, housePos, speed);
             }
         }
+        /*if (witchToHomeFlag)
+        {
+            mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(19.8f, 6.7f, -6.9f), 0.05f);
+        }*/
+    }
+
+    void witchChange()
+    {
+        mg_Witch.transform.localScale = new Vector3(1.5f,1.5f, 1.5f);
+        mg_Witch.transform.rotation = Quaternion.Euler(0, 0, 0);
+        mg_Witch.GetComponent<SpriteRenderer>().sprite = witchwithHAG;
     }
 
     void witchToHome()
     {
-        mg_Witch.transform.localScale = new Vector3(1, 1, 1);
-        mg_Witch.GetComponent<SpriteRenderer>().sprite = witchwithHAG;
+        witchToHomeFlag = true;
+        Destroy(mg_Gretel);
+        Destroy(mg_Hansel);
+        mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(19.8f, 6.7f, -6.9f), 0.05f);
     }
 
     void fffindHAG(string objectname, Vector3 objectpos)
