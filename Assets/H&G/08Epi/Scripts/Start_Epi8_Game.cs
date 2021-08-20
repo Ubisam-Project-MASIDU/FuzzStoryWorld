@@ -6,52 +6,62 @@
  * - HISTORY
  * 2021-08-09 : 초기 개발 및 코드 획일화, 주석처리
  * 2021-08-06 : 코드 획일화 및 주석처리
+ * 2021-08-20 : 헨젤과 그레텔 이동 코드 수정
+ * 2021-08-20 : 다음씬으로 넘어가는 설정
  *
  * <Variable>
  * mgo_Gratel : 그레텔 게임오브젝트
  * mgo_Hansel : 헨젤 게임오브젝트
  * mgo_Target : 문 위치 게임오브젝트
- * mv3_Position : 문 위치 벡터화
+ * mv3_HanselPosition : 헨젤 목표 위치 벡터화
+ * mv3_GratelPosition : 그레텔 목표 위치 벡터화
  * <Function>
  * ChangePosition(GameObject go_Object,Vector3 v3_Pos,float f_Velocity) : go_Object가  v3_Pos위치로 f_Velocity 속력으로 이동하는 함수 
+ * NextScene() : 다음씬으로 이동.
  */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Start_Epi8_Game : MonoBehaviour
 {
     //헨젤과 그레텔 이동에 필요한 변수들
     private GameObject mgo_Gratel;
     private GameObject mgo_Hansel;
-    private GameObject mgo_Target;
-    private Vector3 mv3_Position;
-
-    VoiceManager vm;
-
+    private Vector3 mv3_HanselPosition;
+    private Vector3 mv3_GratelPosition;
+    private bool b_target = false;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         mgo_Gratel = GameObject.Find("Gratel");
         mgo_Hansel = GameObject.Find("Hansel");
-        mgo_Target = GameObject.Find("Target");
-        mv3_Position = mgo_Target.transform.position;                               //문 위치 벡터화
 
-        this.vm = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();
+        mv3_HanselPosition = GameObject.Find("HanselPos").transform.position;                // 헨젤 목표 위치 
+        mv3_GratelPosition = GameObject.Find("GratelPos").transform.position;                // 그레텔 목표 위치 
     }
 
     // Update is called once per frame
-    void Update()
-    {   
-        if (vm.mb_checkSceneReady){                                                         //tts 사용전 작업이 다 준비되면
-            ChangePosition(mgo_Gratel,mv3_Position,0.05f);                                  //그레텔 이동
-            ChangePosition(mgo_Hansel,mv3_Position,0.05f);                                  //헨젤 이동
+    void Update(){   
         
+        ChangePosition(mgo_Hansel,mv3_HanselPosition,1.0f);                                  // 헨젤 이동
+        ChangePosition(mgo_Gratel,mv3_GratelPosition,1.0f);                                  // 그레텔 이동
+
+        if(mgo_Gratel.transform.position == mv3_GratelPosition){
+            b_target = true;
+        }
+        if(b_target == true){                                                               // 그레텔이 목표위치에 도달했으면
+            Invoke("NextScene",1.0f);                                                       // 다음 씬으로 이동
+            b_target = false;
         }
     }
 
     //go_Object가  v3_Pos위치로 f_Velocity 속력으로 이동하는 함수 
     void ChangePosition(GameObject go_Object,Vector3 v3_Pos,float f_Velocity){
-        go_Object.transform.position = Vector3.MoveTowards(go_Object.transform.position,v3_Pos,f_Velocity);
+        go_Object.transform.position = Vector3.MoveTowards(go_Object.transform.position,v3_Pos,f_Velocity * Time.deltaTime);
+    }
+    void NextScene(){
+        SceneManager.LoadScene("1_08H&G_Game");
     }
 }
