@@ -23,6 +23,16 @@ public class ObjectClick : MonoBehaviour
     private float speed = 0.05f;
 
     public SceneControl sc;
+    public SceneControl vib;
+
+    public ParticleSystem PlantParticle;
+    public ParticleSystem CauldronParticle;
+    public ParticleSystem TreeParticle;
+    public ParticleSystem LogParticle;
+    public ParticleSystem StoneParticle;
+    public ParticleSystem HouseParticle;
+    public int destroyParticleIndex;
+    public ParticleSystem[] Particle = new ParticleSystem[6];
     [SerializeField] ParticleSystem lightParticle = null;
 
     private SpriteRenderer[] renders;
@@ -30,8 +40,10 @@ public class ObjectClick : MonoBehaviour
     public Sprite witchwithHAG;
 
     void Start()
-    { 
+    {
         sc = GameObject.Find("GameControl").GetComponent<SceneControl>();
+        vib = GameObject.Find("GameControl").GetComponent<SceneControl>();
+
         renders = new SpriteRenderer[6];
         /*renders[0] = GameObject.FindGameObjectWithTag("Plant").GetComponent<SpriteRenderer>();
         renders[1] = GameObject.FindGameObjectWithTag("Cauldron").GetComponent<SpriteRenderer>();
@@ -46,6 +58,7 @@ public class ObjectClick : MonoBehaviour
         mg_Gretel = GameObject.Find("Gratel");
         mg_Witch = GameObject.Find("witch");
 
+        
         count = 0;
         setPos();
 
@@ -54,9 +67,11 @@ public class ObjectClick : MonoBehaviour
 
     void Update()
     {
+
         if (sc.hidestartflag)
         {
             mg_Witch.GetComponent<MoveWitchToHAG>().enabled = false;
+            vib.vibrate.SetActive(false);
             if (count < 6)
             {
 
@@ -68,21 +83,24 @@ public class ObjectClick : MonoBehaviour
                         mv3_ObjectPos = hit.collider.gameObject.transform.position;
                         ms_ObjectName = hit.collider.gameObject.name;
                         Debug.Log(ms_ObjectName);
-                        if(count > 0)
+                        if (count > 0)
                         {
                             renders[count - 1].color = new Color(100 / 255f, 100 / 255f, 100 / 255f, 255 / 255f);
+
+                            //destroyParticleIndex = ddd(renders[count - 1].name);
+                            //Destroy(Particle[destroyParticleIndex]);
                         }
                     }
                     HideBehindObject(ms_ObjectName);
                     renders[count] = GameObject.FindGameObjectWithTag(ms_ObjectName).GetComponent<SpriteRenderer>();
-                    
+
                     count++;
                     Debug.Log(count);
                 }
-            }else if(count == 6)
+            }
+            else if (count == 6)
             {
                 Invoke("witchChange", 1.5f);
-               
                 Invoke("witchToHome", 2.5f);
             }
 
@@ -109,60 +127,61 @@ public class ObjectClick : MonoBehaviour
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
                 mg_Gretel.transform.position = new Vector3(-9.5f, 9.8f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
-                lightParticle.Play();
+                ParticleAllPlay();
                 break;
             case "Cauldron":
                 mg_Hansel.transform.position = new Vector3(5.7f, 14f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
                 mg_Gretel.transform.position = new Vector3(2.7f, 13.6f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
-                lightParticle.Play();
+                ParticleAllPlay();
                 break;
             case "Tree":
                 mg_Hansel.transform.position = new Vector3(-11.2f, 11.7f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -20);
                 mg_Gretel.transform.position = new Vector3(-14.6f, 11f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
-                lightParticle.Play();
+                ParticleAllPlay();
                 break;
             case "Log":
                 mg_Hansel.transform.position = new Vector3(3.4f, 4.7f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -20);
                 mg_Gretel.transform.position = new Vector3(-2f, 4.2f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 20);
-                lightParticle.Play();
+                ParticleAllPlay();
                 break;
             case "Stone":
                 mg_Hansel.transform.position = new Vector3(-25.9f, 8.3f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
                 mg_Gretel.transform.position = new Vector3(-28.4f, 7.2f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 10);
-                lightParticle.Play();
+                ParticleAllPlay();
                 break;
             case "House":
                 mg_Hansel.transform.position = new Vector3(19.8f, 16.4f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
                 mg_Gretel.transform.position = new Vector3(17f, 15.4f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 10);
-                lightParticle.Play();
+                ParticleAllPlay();
                 break;
             default:
                 setPos();
                 break;
         }
-      
-        mb_InitPos = false; 
+
+        mb_InitPos = false;
     }
 
-    void findHAG(string objectname) 
+    void findHAG(string objectname)
     {
         witch.color = new Color(230 / 255f, 230 / 255f, 230 / 255f, 255 / 255f);
         for (int i = 0; i < 6; i++)
         {
-            if(objectname == "Plant")
+            if (objectname == "Plant")
             {
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, plantPos, speed);
-            }else if(objectname == "Cauldron")
+            }
+            else if (objectname == "Cauldron")
             {
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, cauldronPos, speed);
             }
@@ -183,17 +202,13 @@ public class ObjectClick : MonoBehaviour
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, housePos, speed);
             }
         }
-        /*if (witchToHomeFlag)
-        {
-            mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(19.8f, 6.7f, -6.9f), 0.05f);
-        }*/
     }
 
     void witchChange()
     {
         Destroy(mg_Gretel);
         Destroy(mg_Hansel);
-        mg_Witch.transform.localScale = new Vector3(1.5f,1.5f, 1.5f);
+        mg_Witch.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         mg_Witch.transform.rotation = Quaternion.Euler(0, 0, 0);
         mg_Witch.GetComponent<SpriteRenderer>().sprite = witchwithHAG;
         mg_Witch.gameObject.tag = "witchwithHAG";
@@ -202,26 +217,54 @@ public class ObjectClick : MonoBehaviour
     void witchToHome()
     {
         witchToHomeFlag = true;
-        if(mg_Witch.tag == "witchwithHAG")
+        if (mg_Witch.tag == "witchwithHAG")
         {
-            mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(19.8f, 6.7f, -6.9f), 0.05f);
+            mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(22f, 6.7f, -6.9f), 0.05f);
         }
-        
+
     }
+
+    void ParticleAllPlay()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (Particle[i] != null)
+            {
+                Particle[i].Play();
+            }
+            
+        }
+    }
+
+    int ddd(string objectName)
+    {
+        int result = 999;
+        for (int i = 0; i < 6; i++)
+        {
+
+            if (objectName == Particle[i].tag)
+            {
+                result = i;
+            }
+        }
+        return result; //니가 없앨 파티클 인덱스가 이거야~
+
+    }
+
 
     void fffindHAG(string objectname, Vector3 objectpos)
     {
         for (int i = 0; i < 6; i++)
         {
-           
+
             if (objectname == renders[i].tag)
             {
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, objectpos + new Vector3(10, 0, 10), 0.07f);
             }
         }
     }
-
-    //어두워졌을때 6개중 1개 선택 -> 숨기 -> 6번반복
-    //count 6 됐을때 서서히 밝아지면서 마녀를 그 오브젝트쪽으로 이동
-
+    //파티클 0~5까지 아무거나 저장해놓고 plant가 2에 있음
+    //이름 같은 파티클 찾은다음에 
 }
+
+
