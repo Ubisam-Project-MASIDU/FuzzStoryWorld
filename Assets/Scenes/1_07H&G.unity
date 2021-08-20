@@ -1338,6 +1338,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: VoiceManager
       objectReference: {fileID: 0}
+    - target: {fileID: 2824697826455121862, guid: 50ca070287779419e9e7b136edb025e0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[0].sf_pitch

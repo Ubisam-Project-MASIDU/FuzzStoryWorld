@@ -126,7 +126,9 @@ public class VoiceManager : MonoBehaviour {
     /// </summary>
     /// <param name="nPlayVoiceClipId">인스펙터 창에서 설정한 음성의 인덱스 값.</param>
     public void playVoice(int nPlayVoiceClipId) {
-        mas_playVoice.PlayOneShot(mvifl_setVoiceInfoList[nPlayVoiceClipId].sac_voiceAudioClip);
+        if (!mas_playVoice.isPlaying) {
+            mas_playVoice.PlayOneShot(mvifl_setVoiceInfoList[nPlayVoiceClipId].sac_voiceAudioClip);
+        }
     }
 
     // 음성이 출력되는지 확인, 출력되고 있다면 true, 출력되지 않고 있다면 false.
