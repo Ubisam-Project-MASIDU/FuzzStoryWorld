@@ -19,7 +19,7 @@ public class Scene12Controller : MonoBehaviour {
     }
 
     void Start() {
-        mst_HAGStatus = new Status(20f, 2f, 2f, Status.Character.HAG);
+        mst_HAGStatus = new Status(20f, 2f, 10f, Status.Character.HAG);
         mst_WitchStatus = new Status(Status.Character.Witch);
     }
 

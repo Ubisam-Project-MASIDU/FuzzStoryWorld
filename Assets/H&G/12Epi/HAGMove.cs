@@ -31,11 +31,17 @@ public class HAGMove : MonoBehaviour {
     private bool mb_DestroyOnce = false;
     private Animator mani_HAGAnimator;
     private Rigidbody mr_StandGround;
+    private int mn_MaskingCharacters;
+    private CharacterController mCharCon_HAGMoveController;
+    private Status HAGStatus;
     
     void Start() {
         mgo_PointingTarget = GameObject.Find("PointingTarget").gameObject;
         mani_HAGAnimator = GetComponent<Animator>();
         mr_StandGround = GetComponent<Rigidbody>();
+        mn_MaskingCharacters = (-1) - (1 << LayerMask.NameToLayer("Character"));
+        mCharCon_HAGMoveController = GetComponent<CharacterController>();
+        HAGStatus = GameObject.Find("GameController").GetComponent<Scene12Controller>().HAGStatus;
     }
 
     void FixedUpdate() {
@@ -54,9 +60,8 @@ public class HAGMove : MonoBehaviour {
                     transform.GetChild(1).GetComponent<SpriteRenderer>().flipX = false;
                 }
 
-                // Vector3 target = mv3_TargetPos - transform.position;
-                // Rigidbody.AddForce(target * 15 * Time.deltaTime, 0, 0, ForceMode.VelocityChange);
-                transform.position = Vector3.MoveTowards(transform.position, mv3_TargetPos, 10f * Time.deltaTime);
+
+                transform.position = Vector3.MoveTowards(transform.position, mv3_TargetPos, HAGStatus.WalkSpeed * Time.deltaTime);
                 mb_DestroyOnce = false;
                 // mani_HAGAnimator.SetBool("isWalking", true);
             } else if (!mb_DestroyOnce && f_CheckDistance <= f_LimitDistance) {
@@ -73,7 +78,7 @@ public class HAGMove : MonoBehaviour {
         if (Input.GetMouseButtonDown(0)) {
             mr_CheckMousePosByRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(mr_CheckMousePosByRay, out mrch_CheckMousePosHitObj, Mathf.Infinity)) {
+        if (Physics.Raycast(mr_CheckMousePosByRay, out mrch_CheckMousePosHitObj, Mathf.Infinity, mn_MaskingCharacters)) {
                 if (mgo_PointingTarget.transform.childCount != 0) {
                     Destroy(mgo_PointingTarget.transform.GetChild(0).gameObject);
                 }
