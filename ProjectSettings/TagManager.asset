@@ -32,6 +32,13 @@ TagManager:
   - puzzle9
   - Item
   - bone
+  - Stone
+  - Plant
+  - Log
+  - Cauldron
+  - House
+  - Tree
+  - witchwithHAG
   layers:
   - Default
   - TransparentFX

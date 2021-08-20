@@ -4,44 +4,43 @@
  * 
  * - Content :
  * 아이템들을 생성하고 삭제하는 함수들 작성
- * 아이템들이 모두 정지상태인지 실시간으로 확인하고 이를 전달할수 있다.
  * 
  * - History
  * 1) 2021-08-05 : 아이템들을 생성하는 함수 작성
  * 2) 2021-08-06 : 아이템들을 삭제하는 함수 작성, 모두 정지상태인지 확인하는 함수 작성
+ * 3) 2021-08-20 : 아이템이 터질때 남은시간이 증가되게 설정
  *  
  * - Variable 
- * mg_Item1Orange                                   오브젝트 연결을 위한 변수 -> 프리팹(아이템1) 연결을 위한 변수
- * mg_Item2Red                                      오브젝트 연결을 위한 변수 -> 프리팹(아이템2) 연결을 위한 변수
- * mg_Item3Purple                                   오브젝트 연결을 위한 변수 -> 프리팹(아이템3) 연결을 위한 변수
- * mg_Item4Blue                                     오브젝트 연결을 위한 변수 -> 프리팹(아이템4) 연결을 위한 변수
- * mg_Item5Green                                    오브젝트 연결을 위한 변수 -> 프리팹(아이템5) 연결을 위한 변수
- * mg_Item6Yellow                                   오브젝트 연결을 위한 변수 -> 프리팹(아이템6) 연결을 위한 변수
- * mg_Item7Star                                     오브젝트 연결을 위한 변수 -> 프리팹(아이템7) 연결을 위한 변수
- * mg_Col1                                          오브젝트 연결을 위한 변수 -> 1번째 세로줄 관리를 위한 변수
- * mg_Col2                                          오브젝트 연결을 위한 변수 -> 2번째 세로줄 관리를 위한 변수 
- * mg_Col3                                          오브젝트 연결을 위한 변수 -> 3번째 세로줄 관리를 위한 변수 
- * mg_Col4                                          오브젝트 연결을 위한 변수 -> 4번째 세로줄 관리를 위한 변수 
- * mg_Col5                                          오브젝트 연결을 위한 변수 -> 5번째 세로줄 관리를 위한 변수 
- * mg_Col6                                          오브젝트 연결을 위한 변수 -> 6번째 세로줄 관리를 위한 변수 
- * mg_Col7                                          오브젝트 연결을 위한 변수 -> 7번째 세로줄 관리를 위한 변수 
- * mg_GenItem                                       오브젝트 관리를 위한 변수 -> 생성한 오브젝트 속성을 변경하기 위한 변수
- * mg_DeletedObject                                 오브젝트 관리를 위한 변수 -> 삭제할 오브젝트 속성을 변경하기 위한 변수
- * mg_GameDirector                                  오브젝트 관리를 위한 변수 -> 게임오브젝트 객체에 접근하기 위한 변수
- * mb_IsStopFlag                                    Flag 값 -> 모든 아이템들이 정지된 상태인지 확인하기위한 Flag
+ * mg_Item1Orange                                       오브젝트 연결을 위한 변수 -> 프리팹(아이템1) 연결을 위한 변수
+ * mg_Item2Red                                          오브젝트 연결을 위한 변수 -> 프리팹(아이템2) 연결을 위한 변수
+ * mg_Item3Purple                                       오브젝트 연결을 위한 변수 -> 프리팹(아이템3) 연결을 위한 변수
+ * mg_Item4Blue                                         오브젝트 연결을 위한 변수 -> 프리팹(아이템4) 연결을 위한 변수
+ * mg_Item5Green                                        오브젝트 연결을 위한 변수 -> 프리팹(아이템5) 연결을 위한 변수
+ * mg_Item6Yellow                                       오브젝트 연결을 위한 변수 -> 프리팹(아이템6) 연결을 위한 변수
+ * mg_Item7Star                                         오브젝트 연결을 위한 변수 -> 프리팹(아이템7) 연결을 위한 변수
+ * mg_Col1                                              오브젝트 연결을 위한 변수 -> 1번째 세로줄 관리를 위한 변수
+ * mg_Col2                                              오브젝트 연결을 위한 변수 -> 2번째 세로줄 관리를 위한 변수 
+ * mg_Col3                                              오브젝트 연결을 위한 변수 -> 3번째 세로줄 관리를 위한 변수 
+ * mg_Col4                                              오브젝트 연결을 위한 변수 -> 4번째 세로줄 관리를 위한 변수 
+ * mg_Col5                                              오브젝트 연결을 위한 변수 -> 5번째 세로줄 관리를 위한 변수 
+ * mg_Col6                                              오브젝트 연결을 위한 변수 -> 6번째 세로줄 관리를 위한 변수 
+ * mg_Col7                                              오브젝트 연결을 위한 변수 -> 7번째 세로줄 관리를 위한 변수 
+ * mg_GenItem                                           오브젝트 관리를 위한 변수 -> 생성한 오브젝트 속성을 변경하기 위한 변수
+ * mg_DeletedObject                                     오브젝트 관리를 위한 변수 -> 삭제할 오브젝트 속성을 변경하기 위한 변수
+ * mb_IsStopFlag                                        Flag 값 -> 모든 아이템들이 정지된 상태인지 확인하기위한 Flag
  * 
  * - Function
- * v_GenItem(int nItemNumber, int nColNumber)         아이템을 생성해주는 함수
- * v_DestroyObject(int nColNumber, int nChildNumber)  아이템을 삭제해주는 함수
- * v_IsStop()                                       모든 아이템들이 정지상태인지 확인해주는 함수, 각 세로줄에 아이템이 6개면 정지상태로 간주한다.
- * b_ReturnIsStopFlag()                             모든 아이템들이 정지상태인지를 저장해둔 Flag값을 반환해준다.
+ * v_GenItem(int nItemNumber, int nColNumber)           아이템을 생성해주는 함수
+ * v_DestroyObject(int nColNumber, int nChildNumber)    아이템을 삭제해주는 함수
+ * v_IsStop()                                           모든 아이템들이 정지상태인지 확인해주는 함수, 각 세로줄에 아이템이 6개면 정지상태로 간주한다.
+ * v_DestroyAllObjects()                                모든 아이템들을 삭제한다.
  */
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// 아이템들을 생성하고 삭제하고 모두 정지상태인지 관리하는 스크립트
+// 아이템들을 생성하고 삭제하는 함수들 작성
 public class ManageItem : MonoBehaviour
 {
     #region 변수 선언부
@@ -66,7 +65,6 @@ public class ManageItem : MonoBehaviour
     // 오브젝트 관리를 위한 변수
     GameObject mg_GenItem;                                                          // 오브젝트 관리를 위한 변수 -> 생성한 오브젝트 속성을 변경하기 위한 변수
     GameObject mg_DeletedObject;                                                    // 오브젝트 관리를 위한 변수 -> 삭제할 오브젝트 속성을 변경하기 위한 변수
-    GameObject mg_GameDirector;                                                     // 오브젝트 관리를 위한 변수 -> 게임오브젝트 객체에 접근하기 위한 변수
 
     // Flag 값 
     bool mb_IsStopFlag = false;                                                     // Flag 값 -> 모든 아이템들이 정지된 상태인지 확인하기위한 Flag
@@ -83,7 +81,6 @@ public class ManageItem : MonoBehaviour
         mg_Col5 = GameObject.Find("Col5");
         mg_Col6 = GameObject.Find("Col6");
         mg_Col7 = GameObject.Find("Col7");
-        mg_GameDirector = GameObject.Find("GameDirector");
     }
 
     // Update is called once per frame
@@ -183,7 +180,8 @@ public class ManageItem : MonoBehaviour
             if (mg_DeletedObject.gameObject != null)
             {
                 Destroy(mg_DeletedObject.gameObject, 1f);
-                mg_GameDirector.GetComponent<ControlUI>().v_IncreaseScore();
+                GetComponent<ControlUI>().v_IncreaseScore();
+                GetComponent<ControlUI>().v_IncreaseTime();
             }
             mg_DeletedObject = null;
         }
@@ -201,12 +199,24 @@ public class ManageItem : MonoBehaviour
     }
 
     /// <summary>
-    /// 모든 아이템들이 정지상태인지를 저장해둔 Flag값을 반환해준다.
+    /// 모든 아이템들을 삭제한다.
     /// </summary>
-    /// <returns>true면 정지상태, Flase면 움직이는 상태</returns>
-    public bool b_ReturnIsStopFlag()
+    public void v_DestroyAllObjects()
     {
-        return mb_IsStopFlag;
+        // 모든 아이템들이 정지상태일때 작동한다.
+        if (mb_IsStopFlag == true)
+        {
+            for(int ni=0; ni < 6; ni++)
+            {
+                Destroy(mg_Col1.transform.GetChild(ni).gameObject);
+                Destroy(mg_Col2.transform.GetChild(ni).gameObject);
+                Destroy(mg_Col3.transform.GetChild(ni).gameObject);
+                Destroy(mg_Col4.transform.GetChild(ni).gameObject);
+                Destroy(mg_Col5.transform.GetChild(ni).gameObject);
+                Destroy(mg_Col6.transform.GetChild(ni).gameObject);
+                Destroy(mg_Col7.transform.GetChild(ni).gameObject);
+            }
+        }
     }
     #endregion
 }

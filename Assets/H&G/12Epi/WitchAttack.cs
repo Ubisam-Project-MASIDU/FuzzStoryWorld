@@ -40,4 +40,12 @@ public class WitchAttack : MonoBehaviour
     void FinishEffect() {
         this.transform.GetChild(0).gameObject.SetActive(false);
     }
+
+    void MeleeAttack() {
+
+    }
+
+    void RangedAttack() {
+        
+    }
 }
