@@ -123,114 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &74257325
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2824697826455121862, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_Name
-      value: VoiceManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[0].sf_pitch
-      value: 3.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[1].sf_pitch
-      value: 3.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[0].sstr_words
-      value: "\uADF8\uB7EC\uB358 \uC5B4\uB290\uB0A0\uBC24  \uB450 \uB0A8\uB9E4\uB294
-        \uC6B0\uC5F0\uD788 \uBD80\uBAA8\uB2D8\uC758 \uC774\uC57C\uAE30\uB97C \uB4E3\uAC8C
-        \uB418\uC5C8\uC5B4\uC694. "
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[1].sstr_words
-      value: "\uAC00\uB09C\uC744 \uBABB \uBC84\uD2F0\uACE0 \uBD80\uBAA8\uB2D8\uC740
-        \uD5E8\uC824\uACFC \uADF8\uB808\uD154\uC744 \uC232\uC18D\uC5D0 \uBC84\uB9AC\uB824
-        \uACC4\uD68D\uD588\uC5B4\uC694.  "
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[0].sf_speakingRate
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[1].sf_speakingRate
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.73104
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.5844088
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.7637935
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 50ca070287779419e9e7b136edb025e0, type: 3}
 --- !u!1 &347735941
 GameObject:
   m_ObjectHideFlags: 0
@@ -244,7 +136,7 @@ GameObject:
   - component: {fileID: 347735944}
   - component: {fileID: 347735943}
   m_Layer: 5
-  m_Name: Button
+  m_Name: PLAY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -315,7 +207,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1714531726}
         m_TargetAssemblyTypeName: DoorClickEvent, Assembly-CSharp
-        m_MethodName: v_changeNextScene
+        m_MethodName: v_ChangeNextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -445,7 +337,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 487077725}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1714531726}
+        m_TargetAssemblyTypeName: DoorClickEvent, Assembly-CSharp
+        m_MethodName: v_GotoDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &487077725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -466,8 +370,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7306012f4f44b36498003967b9e8d76a, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -496,10 +400,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d717440a47012e439203b52b9727e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mg_Hansel: {fileID: 0}
-  mg_Gretel: {fileID: 0}
+  mg_Hansel: {fileID: 1566940838}
+  mg_Gretel: {fileID: 1714531723}
   mbtn_Door: {fileID: 0}
-  mt_Text: {fileID: 0}
+  mg_DoorClickBlink: {fileID: 1455673813}
+  mt_Text: {fileID: 1723366076}
   mvm_VoiceManager: {fileID: 0}
   mg_Popup: {fileID: 8529505425222084839}
 --- !u!1 &939746975
@@ -1040,7 +945,7 @@ Transform:
   m_LocalScale: {x: 0.23166318, y: 0.24302103, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1455673816
 MonoBehaviour:
@@ -1243,7 +1148,6 @@ GameObject:
   - component: {fileID: 1714531725}
   - component: {fileID: 1714531724}
   - component: {fileID: 1714531726}
-  - component: {fileID: 1714531727}
   m_Layer: 0
   m_Name: Gretel
   m_TagString: Untagged
@@ -1328,25 +1232,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d717440a47012e439203b52b9727e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mg_Hansel: {fileID: 0}
+  mg_Hansel: {fileID: 1566940838}
   mg_Gretel: {fileID: 1714531723}
   mbtn_Door: {fileID: 0}
-  mt_Text: {fileID: 0}
+  mg_DoorClickBlink: {fileID: 1455673813}
+  mt_Text: {fileID: 1723366076}
   mvm_VoiceManager: {fileID: 0}
-  mg_Popup: {fileID: 0}
---- !u!114 &1714531727
+  mg_Popup: {fileID: 8529505425222084839}
+--- !u!114 &1723366076 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5016832935403608147, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1407180816}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714531723}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cabc65ce86e6e44d39dd57563760c76e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mn_PlayVoiceIndex: 1
 --- !u!1 &1809082135
 GameObject:
   m_ObjectHideFlags: 0
@@ -1428,7 +1332,7 @@ PrefabInstance:
     - target: {fileID: 3426077795631616281, guid: 8b289186aac6ca64eb44d138fabd1de7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3426077795631616281, guid: 8b289186aac6ca64eb44d138fabd1de7,
         type: 3}

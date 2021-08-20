@@ -57,8 +57,7 @@ public class ObjectClick : MonoBehaviour
         mg_Hansel = GameObject.Find("Hansel");
         mg_Gretel = GameObject.Find("Gratel");
         mg_Witch = GameObject.Find("witch");
-
-        
+ 
         count = 0;
         setPos();
 

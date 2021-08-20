@@ -30,10 +30,16 @@ public class BONE : MonoBehaviour
     public GameObject mgo_witch;
     public Transform BonePos;
     public Transform HAG;
-    public GameObject BonePrefab;
+    private Status mst_WitchStatus;
+    private Status mst_HAGStatus;
+    public GameObject mgo_BonePrefab;
+    private GameObject mgo_IntantBone;
     private bool mb_CheckBone = true;
+    public bool mb_DelayThrowing = false;
 
     void Start() {
+        mst_WitchStatus = GameObject.Find("GameController").GetComponent<Scene12Controller>().WitchStatus;
+        mst_HAGStatus = GameObject.Find("GameController").GetComponent<Scene12Controller>().HAGStatus;
     }
     void FixedUpdate() {
         if (mb_SetPos) {
@@ -45,38 +51,47 @@ public class BONE : MonoBehaviour
                 transform.position = Vector3.Slerp(transform.position, mv3_TargetPos, 5f * Time.deltaTime);
                 mb_DestroyOnce = false;
             } 
-            // else if (!mb_DestroyOnce && f_CheckDistance <= 8f) {
-            //     Debug.Log("가까움");
-
-            // }
         }
     }
     void Update() {
-        if (Input.GetMouseButtonDown(0) && !mb_SetPos) {
-            mr_CheckRay = Camera.main.ScreenPointToRay(Input.mousePosition);           
-            if (Physics.Raycast(mr_CheckRay, out mrch_CheckHit)) {
-                if (mrch_CheckHit.transform.gameObject.name == "witch" && mb_CheckBone) {
-                    Debug.Log("뼈있음");                    
-                    mv3_TargetPos = mrch_CheckHit.transform.position;
-                    // HAG.transform.GetChild(3).SetParent(GameObject.Find("Characters").transform);
-                    mb_SetPos = true;
-                    mb_CheckBone = false;
+        if (mb_DelayThrowing) {
+            if (Input.GetMouseButtonDown(0) && !mb_SetPos) {
+                mr_CheckRay = Camera.main.ScreenPointToRay(Input.mousePosition);           
+                if (Physics.Raycast(mr_CheckRay, out mrch_CheckHit)) {
+                    if (mrch_CheckHit.transform.gameObject.name == "witch" && mb_CheckBone) {
+                        Debug.Log("뼈있음");                    
+                        mv3_TargetPos = mrch_CheckHit.transform.position;
+                        // HAG.transform.GetChild(3).SetParent(GameObject.Find("Characters").transform);
+                        mb_SetPos = true;
+                        mb_CheckBone = false;
                     }                 
                 }
             }
             if(!mb_CheckBone) {
                 Debug.Log("뼈없음");
-                GameObject intantBone = Instantiate(BonePrefab, BonePos.position, BonePos.rotation, HAG) as GameObject;
-                // intantBone.GetComponent<HAGAttack>().mb_SetPos = true;
+                mgo_IntantBone = Instantiate(mgo_BonePrefab, BonePos.position, BonePos.rotation, HAG) as GameObject;
+                mgo_IntantBone.GetComponent<BONE>().BonePos = BonePos;
+                mgo_IntantBone.GetComponent<BONE>().HAG = HAG;
+                mgo_IntantBone.GetComponent<BONE>().mgo_BonePrefab = mgo_BonePrefab;
+
+                // mgo_IntantBone.GetComponent<HAGAttack>().mb_SetPos = true;
                 mb_CheckBone = true;
-        }  
+
+            }  
+        }
     }          
-    void OnTriggerStay(Collider other) {
+    void OnTriggerEnter(Collider other) {
         if (other.gameObject.name.Equals("witch") && mb_SetPos) {
             Destroy(this.gameObject);
             mb_CheckBone = false;
             mb_DestroyOnce = true;
             mb_SetPos = false;
+            mgo_IntantBone.GetComponent<BONE>().mb_DelayThrowing = true;
+            HitWitch();
         }
+    }
+    
+    void HitWitch() {
+        mst_WitchStatus.HP -= mst_HAGStatus.AttackDamage;
     }
 }

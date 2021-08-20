@@ -67,7 +67,8 @@ public class ControlUI : MonoBehaviour
         if (mi_LeftTimeCircle.fillAmount == 0 && mb_EndGameFlag == false)
         {
             mb_EndGameFlag = true;
-            if (md_score > 0)
+            // 게임을 클리어하기 위한 점수값 설정
+            if (md_score >= 0)
             {
                 mg_WinImage = Instantiate(mg_WinImage) as GameObject;
                 this.GetComponent<MainScript>().v_ChangeDragFlagFalse();
@@ -103,5 +104,10 @@ public class ControlUI : MonoBehaviour
     public void v_IncreaseTime()
     {
         mi_LeftTimeCircle.fillAmount += 0.025f;
+    }
+
+    public double d_ReturnScore()
+    {
+        return md_score;
     }
 }

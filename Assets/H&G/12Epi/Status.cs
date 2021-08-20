@@ -5,7 +5,7 @@ public class Status {
         Length      //enum의 종류의 길이를 뜻한다. 캐릭터를 추가하려면, 꼭 이 위에 해주길 바란다.
     }
     private Character mch_Character = Character.HAG;
-    private float mf_HP = 100f;
+    private float mf_HP = 50f;
     #region define mf_HP setter and getter...
     public float HP {
         get {
