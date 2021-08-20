@@ -36,7 +36,10 @@ public class ChangeNextScene : MonoBehaviour {
     }
 
     void Update() {
-        mvm_VoiceManager.playVoice(mn_PlayVoiceIndex);
+        if (!mb_PlayOnce) {
+            mvm_VoiceManager.playVoice(mn_PlayVoiceIndex);
+            mb_PlayOnce = true;
+        }
     }
     // 해당 오브젝트의 컴포넌트에서 콜라이더 박스에 무언가 닿았다면 호출된다.
     private void OnTriggerEnter(Collider cCollider) {
@@ -48,7 +51,7 @@ public class ChangeNextScene : MonoBehaviour {
 
     // 다음 씬을 호출하는 함수이다.
     private void v_changeNextScene() {
-        SceneManager.LoadScene("1_08H&G");
+        SceneManager.LoadScene(ms_ChangeNextSceneName);
     }
     
 }
