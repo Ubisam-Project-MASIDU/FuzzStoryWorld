@@ -76,12 +76,12 @@ public class Movement : MonoBehaviour
         mgo_RockMid = GameObject.Find("rockmid");
         mgo_RockLeft = GameObject.Find("rockleft");
         
-        mv3_RockRightPosBefore = new Vector3(0.4f,7.0f,-6.0f);
+        mv3_RockRightPosBefore = new Vector3(0.4f,6.0f,-6.0f);
         mv3_RockMidPosBefore = new Vector3(0.4f,6.0f,-6.0f);
         mv3_RockLeftPosBefore = new Vector3(0.4f,6.0f,-6.0f);
-        mv3_RockRightPosAfter = new Vector3(9.0f,6.0f,-6.0f);
-        mv3_RockMidPosAfter = new Vector3(6.0f,6.0f,-6.0f);
-        mv3_RockLeftPosAfter = new Vector3(3.0f,6.0f,-6.0f);
+        mv3_RockRightPosAfter = new Vector3(9.0f,5.5f,-6.0f);
+        mv3_RockMidPosAfter = new Vector3(6.0f,5.5f,-6.0f);
+        mv3_RockLeftPosAfter = new Vector3(3.0f,5.5f,-6.0f);
     }
 
     void Update(){
