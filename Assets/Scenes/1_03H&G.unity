@@ -891,9 +891,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: DoorClickEvent, Assembly-CSharp
-        m_MethodName: v_changeNextScene
+      - m_Target: {fileID: 1436976661}
+        m_TargetAssemblyTypeName: MoveHansel, Assembly-CSharp
+        m_MethodName: v_NextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
