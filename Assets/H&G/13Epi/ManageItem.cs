@@ -33,6 +33,7 @@
  * v_GenItem(int nItemNumber, int nColNumber)           아이템을 생성해주는 함수
  * v_DestroyObject(int nColNumber, int nChildNumber)    아이템을 삭제해주는 함수
  * v_IsStop()                                           모든 아이템들이 정지상태인지 확인해주는 함수, 각 세로줄에 아이템이 6개면 정지상태로 간주한다.
+ * v_DestroyAllObjects()                                모든 아이템들을 삭제한다.
  */
 
 using System.Collections;
@@ -197,5 +198,25 @@ public class ManageItem : MonoBehaviour
             mb_IsStopFlag = false;
     }
 
+    /// <summary>
+    /// 모든 아이템들을 삭제한다.
+    /// </summary>
+    public void v_DestroyAllObjects()
+    {
+        // 모든 아이템들이 정지상태일때 작동한다.
+        if (mb_IsStopFlag == true)
+        {
+            for(int ni=0; ni < 6; ni++)
+            {
+                Destroy(mg_Col1.transform.GetChild(ni).gameObject);
+                Destroy(mg_Col2.transform.GetChild(ni).gameObject);
+                Destroy(mg_Col3.transform.GetChild(ni).gameObject);
+                Destroy(mg_Col4.transform.GetChild(ni).gameObject);
+                Destroy(mg_Col5.transform.GetChild(ni).gameObject);
+                Destroy(mg_Col6.transform.GetChild(ni).gameObject);
+                Destroy(mg_Col7.transform.GetChild(ni).gameObject);
+            }
+        }
+    }
     #endregion
 }
