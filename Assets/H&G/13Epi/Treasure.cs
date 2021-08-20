@@ -36,23 +36,23 @@ public class Treasure : MonoBehaviour
     {
         if (mg_GameDirector.GetComponent<ControlUI>().d_ReturnScore() >= 700)
         {
-            this.transform.localScale = new Vector3(5f, 5f, 1);
+            this.transform.localScale = new Vector3(5.5f, 5.5f, 1);
         }
         else if (mg_GameDirector.GetComponent<ControlUI>().d_ReturnScore() >= 600)
         {
-            this.transform.localScale = new Vector3(4f, 4f, 1);
+            this.transform.localScale = new Vector3(5f, 5f, 1);
         }
         else if (mg_GameDirector.GetComponent<ControlUI>().d_ReturnScore() >= 500)
         {
-            this.transform.localScale = new Vector3(3.5f, 3.5f, 1);
+            this.transform.localScale = new Vector3(4.5f, 4.5f, 1);
         }
         else if (mg_GameDirector.GetComponent<ControlUI>().d_ReturnScore() >= 400)
         {
-            this.transform.localScale = new Vector3(3f, 3f, 1);
+            this.transform.localScale = new Vector3(4f, 4f, 1);
         }
         else if (mg_GameDirector.GetComponent<ControlUI>().d_ReturnScore() >= 300)
         {
-            this.transform.localScale = new Vector3(2.5f, 2.5f, 1);
+            this.transform.localScale = new Vector3(3f, 3f, 1);
         }
         else if (mg_GameDirector.GetComponent<ControlUI>().d_ReturnScore() >= 200)
         {
