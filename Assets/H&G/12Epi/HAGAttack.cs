@@ -28,11 +28,13 @@ public class HAGAttack : MonoBehaviour
     private bool mb_SetPos = false;
     private bool mb_DestroyOnce = false;
     public GameObject mgo_witch;
-    
+    public Transform BonePos;
+    public GameObject BonePrefab;
+    private bool mb_CheckBone = true;
+
     void Start() {
         mgo_Target = GameObject.Find("PointingTarget").gameObject;
     }
-
     void FixedUpdate() {
         if (mb_SetPos) {
             // 던지려는 좌표 값과 현재 내 위치의 차이를 구한다.
@@ -46,24 +48,28 @@ public class HAGAttack : MonoBehaviour
                 mb_SetPos = false;
             }
         }
+        if(!mb_CheckBone) {
+            GameObject intantBone = Instantiate(BonePrefab, BonePos.position, BonePos.rotation); 
+            mb_CheckBone = true;
+        }
     }
     void Update() {
         if (Input.GetMouseButtonDown(0) && !mb_SetPos) {
-            mr_CheckRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            
+            mr_CheckRay = Camera.main.ScreenPointToRay(Input.mousePosition);           
             if (Physics.Raycast(mr_CheckRay, out mrch_CheckHit)) {
-                if (mrch_CheckHit.transform.gameObject.name == "witch") {
-                    Debug.Log(mrch_CheckHit.transform.gameObject);
-                    
-                mv3_TargetPos = mrch_CheckHit.point;
-                mb_SetPos = true;
-                }
+                if (mrch_CheckHit.transform.gameObject.name == "witch" && mb_CheckBone) {
+                    Debug.Log("뼈있음");                    
+                    mv3_TargetPos = mrch_CheckHit.point;
+                    mb_SetPos = true;
+                    mb_CheckBone = false;
+                } 
             }
-        }   
+        }  
     }          
       void OnTriggerEnter(Collider other) {
             if (other.gameObject.name.Equals("witch")) {
-            Destroy(this.gameObject);
+            gameObject.GetComponent<SpriteRenderer>().sprite = null;
+            mb_CheckBone = false;
         }
     }
 }
