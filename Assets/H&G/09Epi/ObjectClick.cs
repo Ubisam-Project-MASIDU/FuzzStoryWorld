@@ -70,11 +70,12 @@ public class ObjectClick : MonoBehaviour
 
         if (sc.hidestartflag)
         {
+            //ParticleAllPlay();
             mg_Witch.GetComponent<MoveWitchToHAG>().enabled = false;
             vib.vibrate.SetActive(false);
             if (count < 6)
             {
-
+                ParticleAllPlay();
                 if (Input.GetMouseButtonDown(0))
                 {
                     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -127,42 +128,42 @@ public class ObjectClick : MonoBehaviour
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
                 mg_Gretel.transform.position = new Vector3(-9.5f, 9.8f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
-                ParticleAllPlay();
+                //ParticleAllPlay();
                 break;
             case "Cauldron":
                 mg_Hansel.transform.position = new Vector3(5.7f, 14f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
                 mg_Gretel.transform.position = new Vector3(2.7f, 13.6f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
-                ParticleAllPlay();
+                //ParticleAllPlay();
                 break;
             case "Tree":
                 mg_Hansel.transform.position = new Vector3(-11.2f, 11.7f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -20);
                 mg_Gretel.transform.position = new Vector3(-14.6f, 11f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
-                ParticleAllPlay();
+                //ParticleAllPlay();
                 break;
             case "Log":
                 mg_Hansel.transform.position = new Vector3(3.4f, 4.7f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -20);
                 mg_Gretel.transform.position = new Vector3(-2f, 4.2f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 20);
-                ParticleAllPlay();
+                //ParticleAllPlay();
                 break;
             case "Stone":
                 mg_Hansel.transform.position = new Vector3(-25.9f, 8.3f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
                 mg_Gretel.transform.position = new Vector3(-28.4f, 7.2f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 10);
-                ParticleAllPlay();
+                //ParticleAllPlay();
                 break;
             case "House":
                 mg_Hansel.transform.position = new Vector3(19.8f, 16.4f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
                 mg_Gretel.transform.position = new Vector3(17f, 15.4f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 10);
-                ParticleAllPlay();
+                //ParticleAllPlay();
                 break;
             default:
                 setPos();
@@ -219,7 +220,7 @@ public class ObjectClick : MonoBehaviour
         witchToHomeFlag = true;
         if (mg_Witch.tag == "witchwithHAG")
         {
-            mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(22f, 6.7f, -6.9f), 0.05f);
+            mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(26f, 6.7f, -6.9f), 0.05f);
         }
 
     }
