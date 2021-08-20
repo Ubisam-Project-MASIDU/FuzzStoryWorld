@@ -34,6 +34,8 @@
  * v_DestroyObject(int nColNumber, int nChildNumber)    아이템을 삭제해주는 함수
  * v_IsStop()                                           모든 아이템들이 정지상태인지 확인해주는 함수, 각 세로줄에 아이템이 6개면 정지상태로 간주한다.
  * v_DestroyAllObjects()                                모든 아이템들을 삭제한다.
+ * v_IncreaseScore()                                    점수를 증가시키는 함수, Invoke사용을 위해 함수로 선언
+ * v_IncreaseTime()                                     남은 시간을 증가시키는 함수, Invoke사용을 위해 함수로 선언
  */
 
 using System.Collections;
@@ -180,8 +182,8 @@ public class ManageItem : MonoBehaviour
             if (mg_DeletedObject.gameObject != null)
             {
                 Destroy(mg_DeletedObject.gameObject, 1f);
-                GetComponent<ControlUI>().v_IncreaseScore();
-                GetComponent<ControlUI>().v_IncreaseTime();
+                Invoke("v_IncreaseScore", 1f);
+                Invoke("v_IncreaseTime", 1f);
             }
             mg_DeletedObject = null;
         }
@@ -218,5 +220,22 @@ public class ManageItem : MonoBehaviour
             }
         }
     }
+    
+    /// <summary>
+    /// 점수를 증가시키는 함수, Invoke사용을 위해 함수로 선언
+    /// </summary>
+    public void v_IncreaseScore()
+    {
+        GetComponent<ControlUI>().v_IncreaseScore();
+    }
+
+    /// <summary>
+    /// 남은 시간을 증가시키는 함수, Invoke사용을 위해 함수로 선언
+    /// </summary>
+    public void v_IncreaseTime()
+    {
+        GetComponent<ControlUI>().v_IncreaseTime();
+    }
+    
     #endregion
 }
