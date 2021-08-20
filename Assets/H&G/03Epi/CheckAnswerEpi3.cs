@@ -25,12 +25,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class CheckAnswerEpi3 : MonoBehaviour{
+    public VoiceManager mvm_VoiceManager;
     public int mn_count;
     public GameObject v_YouWinText;
 
     void Start(){
+        mvm_VoiceManager = FindObjectOfType<VoiceManager>();
         mn_count = 0;                                                           //퍼즐 개수 변수 0으로 초기화
         v_YouWinText.SetActive(false);                                          //텍스트 비활성화
+        mvm_VoiceManager.playVoice(16);
     }
 
     //모양을 맞출때마다 개수 변수를 더해주는 함수

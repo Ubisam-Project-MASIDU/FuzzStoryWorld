@@ -1071,9 +1071,9 @@ PrefabInstance:
     - target: {fileID: 5016832935403608147, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
         type: 3}
       propertyPath: m_Text
-      value: "          \n       \uD5E8\uC824\uC740 \uBC16\uC73C\uB85C \uB098\uAC00
-        \uC870\uC57D\uB3CC\uC744 \uC90D\uAE30 \uC2DC\uC791\uD588\uC5B4\uC694.    
-        \n"
+      value: "          \n       \uD5E8\uC824\uC740 \uBAB0\uB798 \uBC16\uC73C\uB85C
+        \uB098\uAC00 \uBC18\uC9DD\uC774\uB294 \uC870\uC57D\uB3CC\uC744 \uC90D\uAE30
+        \uC2DC\uC791\uD588\uC5B4\uC694.     \n"
       objectReference: {fileID: 0}
     - target: {fileID: 5016832935403608147, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
         type: 3}

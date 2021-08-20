@@ -26,8 +26,12 @@ public class MoveHansel : MonoBehaviour{
     private GameObject mg_Hansel;
     public Vector3 mv3_TargetPoint;
     public GameObject mg_PopUp;
- 
+    public VoiceManager mvm_VoiceManager;
+
     void Start(){
+        mvm_VoiceManager = FindObjectOfType<VoiceManager>();
+        mvm_VoiceManager.playVoice(15);
+
         mv3_TargetPoint = new Vector3(-2.7f, -0.8f, -2.5f);                                                       //헨젤을 이동시킬 목표지점 설정
         mg_Hansel = GameObject.Find("Hansel");                                                                    //변수에 오브젝트 연결
         mg_PopUp.SetActive(false);                                                                                //팝업창 비활성화

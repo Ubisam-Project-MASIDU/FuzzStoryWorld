@@ -42,7 +42,7 @@ public class PlayVoice : MonoBehaviour {
     // 이 해당 컴포넌트가 들어있는 오브젝트가 생성되면 바로 음성을 출력하게 되어 있다. 이때 출력은 한번만 되도록 한다.
     void Update() {
         if (!mvm_VoiceManager.isPlaying()) {
-            SceneManager.LoadScene(ms_ChangeNextSceneName);
+            SceneManager.LoadScene("1_02H&G");
         }
     }
 }

@@ -271,6 +271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb0c616359a65b40a9fee3ed63af90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mvm_VoiceManager: {fileID: 0}
   mspa_PuzzlePieces:
   - {fileID: 21300000, guid: 096f107becb95ec458179c846b5cb14d, type: 3}
   - {fileID: 21300000, guid: e19dc305c489f144a9f7575039019950, type: 3}
@@ -858,6 +859,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb0c616359a65b40a9fee3ed63af90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mvm_VoiceManager: {fileID: 0}
   mspa_PuzzlePieces:
   - {fileID: 21300000, guid: 096f107becb95ec458179c846b5cb14d, type: 3}
   - {fileID: 21300000, guid: e19dc305c489f144a9f7575039019950, type: 3}
@@ -1016,6 +1018,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb0c616359a65b40a9fee3ed63af90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mvm_VoiceManager: {fileID: 0}
   mspa_PuzzlePieces:
   - {fileID: 21300000, guid: 096f107becb95ec458179c846b5cb14d, type: 3}
   - {fileID: 21300000, guid: e19dc305c489f144a9f7575039019950, type: 3}
@@ -2051,6 +2054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb0c616359a65b40a9fee3ed63af90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mvm_VoiceManager: {fileID: 0}
   mspa_PuzzlePieces:
   - {fileID: 21300000, guid: 096f107becb95ec458179c846b5cb14d, type: 3}
   - {fileID: 21300000, guid: e19dc305c489f144a9f7575039019950, type: 3}
@@ -2176,6 +2180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb0c616359a65b40a9fee3ed63af90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mvm_VoiceManager: {fileID: 0}
   mspa_PuzzlePieces:
   - {fileID: 21300000, guid: 096f107becb95ec458179c846b5cb14d, type: 3}
   - {fileID: 21300000, guid: e19dc305c489f144a9f7575039019950, type: 3}
@@ -2449,6 +2454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb0c616359a65b40a9fee3ed63af90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mvm_VoiceManager: {fileID: 0}
   mspa_PuzzlePieces:
   - {fileID: 21300000, guid: 096f107becb95ec458179c846b5cb14d, type: 3}
   - {fileID: 21300000, guid: e19dc305c489f144a9f7575039019950, type: 3}
@@ -2652,6 +2658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb0c616359a65b40a9fee3ed63af90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mvm_VoiceManager: {fileID: 0}
   mspa_PuzzlePieces:
   - {fileID: 21300000, guid: 096f107becb95ec458179c846b5cb14d, type: 3}
   - {fileID: 21300000, guid: e19dc305c489f144a9f7575039019950, type: 3}
@@ -2810,6 +2817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb0c616359a65b40a9fee3ed63af90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mvm_VoiceManager: {fileID: 0}
   mspa_PuzzlePieces:
   - {fileID: 21300000, guid: 096f107becb95ec458179c846b5cb14d, type: 3}
   - {fileID: 21300000, guid: e19dc305c489f144a9f7575039019950, type: 3}
@@ -3391,7 +3399,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.4, y: 0.3}
+  m_Size: {x: 0.5, y: 0.5}
   m_EdgeRadius: 0
 --- !u!212 &2116735353
 SpriteRenderer:
@@ -3564,7 +3572,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.2, y: 0}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -3575,7 +3583,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.3, y: 0.4}
+  m_Size: {x: 0.5, y: 0.4}
   m_EdgeRadius: 0
 --- !u!1 &2142735997
 GameObject:
@@ -3725,6 +3733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb0c616359a65b40a9fee3ed63af90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mvm_VoiceManager: {fileID: 0}
   mspa_PuzzlePieces:
   - {fileID: 21300000, guid: 096f107becb95ec458179c846b5cb14d, type: 3}
   - {fileID: 21300000, guid: e19dc305c489f144a9f7575039019950, type: 3}
