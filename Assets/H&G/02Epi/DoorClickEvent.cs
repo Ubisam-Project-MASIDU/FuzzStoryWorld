@@ -50,8 +50,11 @@ public class DoorClickEvent : MonoBehaviour{
         mg_Hansel = GameObject.Find("Hansel");                                                                               
         mg_Gretel = GameObject.Find("Gretel");                                                                                  
 
-        mt_Text = GameObject.Find("Text").GetComponent<Text>();                                                                     
-        mvm_VoiceManager = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();
+        mt_Text = GameObject.Find("Text").GetComponent<Text>();     
+        
+      
+        mvm_VoiceManager = FindObjectOfType<VoiceManager>();
+
         mg_DoorClickBlink = GameObject.Find("arrow");
 
         mbtn_Door = transform.GetComponent<Button>();                                                                               // 문 클릭 버튼
@@ -63,13 +66,13 @@ public class DoorClickEvent : MonoBehaviour{
     }
     
     void Update(){
-        if (mvm_VoiceManager.mb_checkSceneReady && !mb_PlayFirstVoice){                                                             // 나레이션1 실행조건 검사
-            mvm_VoiceManager.playVoice(0);                                                                                          // 나레이션1과 playVoice(0) 연결됨
+        if (!mb_PlayFirstVoice){                                                             // 나레이션1 실행조건 검사
+            mvm_VoiceManager.playVoice(12);                                                                                          // 나레이션1과 playVoice(0) 연결됨
             mb_PlayFirstVoice = true;                                                                                               // 나레이션1 출력 완료 
             Invoke("v_TutorialText", 7f);
         }
         
-        if (mvm_VoiceManager.isPlaying() == false && mvm_VoiceManager.mb_checkSceneReady && mb_PlaySecondVoice){                    // 나레이션2까지 출력 끝나면 다음씬으로 이동
+        if (mvm_VoiceManager.isPlaying() == false && mb_PlaySecondVoice){                    // 나레이션2까지 출력 끝나면 다음씬으로 이동
             mg_Popup.SetActive(true);                                                                                               // 다음씬으로 이동하기 위한 함수
         }
     }
@@ -85,7 +88,7 @@ public class DoorClickEvent : MonoBehaviour{
             }else{                                                                                                                  // 문에 도착했다면
                 mg_DoorClickBlink.SetActive(false);                                                                                 // 문 클릭 지시 애니메이션을 비활성화
                 mt_Text.text = "\n           가난을 못 버티고 부모님은 헨젤과 그레텔을 숲속에 버리려 계획했어요.        \n";        // 문 클릭 이벤트 끝난 뒤 다음 자막 출력
-                mvm_VoiceManager.playVoice(1);                                                                                      // 자막과 함께 나레이션2 출력
+                mvm_VoiceManager.playVoice(13);                                                                                      // 자막과 함께 나레이션2 출력
                 mb_PlaySecondVoice = true;                                                                                          // 나레이션2 출력 완료
             }
         }
@@ -93,6 +96,7 @@ public class DoorClickEvent : MonoBehaviour{
     
     // 문 클릭 이벤트 지시를 도와주기 위한 튜토리얼 텍스트와 애니메이션을 활성화해주는 함수
     void v_TutorialText(){
+        
         mt_Text.text = "\n     문을 터치해주세요        \n";                                                                        // 문을 클릭하게 하기 위한 텍스트 변경
         mg_DoorClickBlink.SetActive(true);                                                                                          // 문 클릭 지시 애니메이션 활성화
         mg_DoorClickBlink.GetComponent<BlinkObject>().ChangBlinkFlagTrue();                                                         
