@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 347735944}
   - component: {fileID: 347735943}
   m_Layer: 5
-  m_Name: Button
+  m_Name: PLAY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -337,7 +337,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 487077725}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1714531726}
+        m_TargetAssemblyTypeName: DoorClickEvent, Assembly-CSharp
+        m_MethodName: v_GotoDoor
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &487077725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,10 +400,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d717440a47012e439203b52b9727e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mg_Hansel: {fileID: 0}
-  mg_Gretel: {fileID: 0}
+  mg_Hansel: {fileID: 1566940838}
+  mg_Gretel: {fileID: 1714531723}
   mbtn_Door: {fileID: 0}
-  mt_Text: {fileID: 0}
+  mg_DoorClickBlink: {fileID: 1455673813}
+  mt_Text: {fileID: 1723366076}
   mvm_VoiceManager: {fileID: 0}
   mg_Popup: {fileID: 8529505425222084839}
 --- !u!1 &939746975
@@ -1135,7 +1148,6 @@ GameObject:
   - component: {fileID: 1714531725}
   - component: {fileID: 1714531724}
   - component: {fileID: 1714531726}
-  - component: {fileID: 1714531727}
   m_Layer: 0
   m_Name: Gretel
   m_TagString: Untagged
@@ -1220,26 +1232,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d717440a47012e439203b52b9727e08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mg_Hansel: {fileID: 0}
+  mg_Hansel: {fileID: 1566940838}
   mg_Gretel: {fileID: 1714531723}
   mbtn_Door: {fileID: 0}
-  mt_Text: {fileID: 0}
+  mg_DoorClickBlink: {fileID: 1455673813}
+  mt_Text: {fileID: 1723366076}
   mvm_VoiceManager: {fileID: 0}
-  mg_Popup: {fileID: 0}
---- !u!114 &1714531727
+  mg_Popup: {fileID: 8529505425222084839}
+--- !u!114 &1723366076 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 5016832935403608147, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1407180816}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1714531723}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cabc65ce86e6e44d39dd57563760c76e, type: 3}
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mn_PlayVoiceIndex: 1
-  ms_ChangeNextSceneName: 
 --- !u!1 &1809082135
 GameObject:
   m_ObjectHideFlags: 0

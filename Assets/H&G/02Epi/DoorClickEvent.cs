@@ -36,7 +36,7 @@ public class DoorClickEvent : MonoBehaviour{
     public GameObject mg_Gretel;                                                                                                    // 연결을 위한 변수 -> 그레텔 연결
 
     public Button mbtn_Door;                                                                                                        // 문을 클릭하기 위한 버튼
-    GameObject mg_DoorClickBlink;                                                                                                   // 문 클릭을 지시하기 위한 애니메이션
+    public GameObject mg_DoorClickBlink;                                                                                                   // 문 클릭을 지시하기 위한 애니메이션
     public Text mt_Text;                                                                                                            // 자막을 출력하기 위한 텍스트
 
     public VoiceManager mvm_VoiceManager;                                                                                           // 나레이션을 위한 변수
@@ -52,13 +52,13 @@ public class DoorClickEvent : MonoBehaviour{
 
         mt_Text = GameObject.Find("Text").GetComponent<Text>();     
         
-      
+     
         mvm_VoiceManager = FindObjectOfType<VoiceManager>();
 
-        mg_DoorClickBlink = GameObject.Find("arrow");
+        //mg_DoorClickBlink = GameObject.Find("arrow");
 
         mbtn_Door = transform.GetComponent<Button>();                                                                               // 문 클릭 버튼
-        mbtn_Door.onClick.AddListener(v_GotoDoor);                                                                                  // 버튼을 클릭하면 괄호안에 있는 함수를 불러옴
+        //mbtn_Door.onClick.AddListener(v_GotoDoor);                                                                                  // 버튼을 클릭하면 괄호안에 있는 함수를 불러옴
 
         mg_DoorClickBlink.SetActive(false);                                                                                         // 처음에는 문 클릭 지시 애니메이션을 비활성화
 
@@ -78,7 +78,7 @@ public class DoorClickEvent : MonoBehaviour{
     }
 
     // 문을 클릭해서 문에 헨젤과 그레텔이 다다를수있게 하는 함수
-    void v_GotoDoor(){
+    public void v_GotoDoor(){
         if (mvm_VoiceManager.isPlaying() == false && mb_PlayFirstVoice){                                                            // 현재 음성출력이 끝났다면
             v_TutorialText();                                                                                                       // 문을 클릭하게하기 위한 튜토리얼 지시
             if (mg_Gretel.transform.position.x < 9){                                                                                // 현재 그레텔의 위치가 문보다 앞에 있다면
