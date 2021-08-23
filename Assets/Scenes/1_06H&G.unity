@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -262,117 +262,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &136659965
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2824697826455121862, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_Name
-      value: VoiceManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mc_loadingScene
-      value: 
-      objectReference: {fileID: 1248292531506328455, guid: 38d1874bc80f843439a1cd81bef23ac9,
-        type: 3}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[0].sf_pitch
-      value: 3.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[0].sstr_words
-      value: "                    \uBB34\uC0AC\uD788 \uC9D1\uC5D0 \uB3CC\uC544\uC624\uC790
-        \uC0C8\uC5C4\uB9C8\uB294 \uC544\uC774\uB4E4\uC744 \uB354 \uAE4A\uC740 \uC232\uC5D0
-        \uB450\uACE0\uC654\uC5B4\uC694.      \uD5E8\uC824\uC740 \uBE75 \uBD80\uC2A4\uB7EC\uAE30\uB85C
-        \uAE38\uC744 \uD45C\uC2DC\uD588\uC5B4\uC694.  \uD558\uC9C0\uB9CC \uC774\uBC88\uC5D0
-        \uAE38\uC744 \uCC3E\uC744 \uC218 \uC5C6\uC5C8\uC5B4\uC694.                       
-        \uC0C8\uB4E4\uC774 \uBE75 \uBD80\uC2A4\uB7EC\uAE30\uB97C \uBAA8\uB450 \uBA39\uC5B4\uBC84\uB838\uAE30
-        \uB54C\uBB38\uC774\uC5D0\uC694.  "
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[1].sstr_words
-      value: "\uD5E8\uC824\uACFC \uADF8\uB808\uD154 \uBF08\uB2E4\uADC0\uB97C \uC190
-        \uB300\uC2E0 \uC8FC\uC5C8\uC5B4\uC694(\uB4DC\uB798\uADF8). \uD55C\uCC38\uC744
-        \uC0B4\uC774 \uCC0C\uC9C0 \uC54A\uC790 \uCC38\uC9C0 \uBABB\uD55C \uB9C8\uB140\uB294
-        \uB458\uB2E4 \uC7A1\uC544\uBA39\uC73C\uB824 \uD558\uC600\uC5B4\uC694. \uAC81\uC5D0
-        \uC9C8\uB9B0 \uC544\uC774\uB4E4\uC740 \uB9C8\uB140\uC5D0\uAC8C \uBC97\uC5B4\uB098\uB824\uACE0
-        \uC2DC\uB3C4\uD558\uC600\uC5B4\uC694. "
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121864, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: mvifl_setVoiceInfoList.Array.data[0].sf_speakingRate
-      value: 0.9
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.73104
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 4.5844088
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.7637935
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2824697826455121865, guid: 50ca070287779419e9e7b136edb025e0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 50ca070287779419e9e7b136edb025e0, type: 3}
 --- !u!1001 &180970144
 PrefabInstance:
   m_ObjectHideFlags: 0

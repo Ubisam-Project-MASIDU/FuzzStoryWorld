@@ -24,7 +24,7 @@ public class BONE : MonoBehaviour {
     private RaycastHit mrch_CheckHit;            // 레이져를 쏜 곳에 오브젝트가 
     private GameObject mgo_Target;
     private Vector3 mv3_TargetPos;
-    private bool mb_SetPos = false;
+    private bool mb_SetPos = false;         //클릭(true)하면 날라감, 날라가는 도중에 클릭해도 뼈에 영향 없음
     private bool mb_DestroyOnce = false;
     public GameObject mgo_witch;
     public Transform BonePos;
@@ -35,6 +35,7 @@ public class BONE : MonoBehaviour {
     private GameObject mgo_IntantBone;
     private bool mb_CheckBone = true;
     public bool mb_DelayThrowing = false;
+    public GameObject BonePrefab;
 
     void Start() {
         mst_WitchStatus = GameObject.Find("GameController").GetComponent<Scene12Controller>().WitchStatus;
@@ -44,11 +45,11 @@ public class BONE : MonoBehaviour {
         if (mb_SetPos) {
             // 던지려는 좌표 값과 현재 내 위치의 차이를 구한다.
             float f_CheckDistance = Vector3.Distance(transform.position, mv3_TargetPos);
-                Debug.Log(f_CheckDistance);
-
-            if (f_CheckDistance > 8f) {
+              //  Debug.Log(f_CheckDistance);
+            if (f_CheckDistance > 2f) {
                 transform.position = Vector3.Slerp(transform.position, mv3_TargetPos, 5f * Time.deltaTime);
                 mb_DestroyOnce = false;
+                Debug.Log("던짐");
             } 
         }
     }
@@ -82,11 +83,10 @@ public class BONE : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.name.Equals("witch") && mb_SetPos) {
             Destroy(this.gameObject);
-            mb_CheckBone = false;
             mb_DestroyOnce = true;
-            mb_SetPos = false;
-            mgo_IntantBone.GetComponent<BONE>().mb_DelayThrowing = true;
-            HitWitch();
+            GameObject intantBone = Instantiate(BonePrefab, BonePos.position, BonePos.rotation, HAG) as GameObject;
+            mb_CheckBone = true;
+            mb_SetPos = true;
         }
     }
     
@@ -94,3 +94,4 @@ public class BONE : MonoBehaviour {
         mst_WitchStatus.HP -= mst_HAGStatus.AttackDamage;
     }
 }
+
