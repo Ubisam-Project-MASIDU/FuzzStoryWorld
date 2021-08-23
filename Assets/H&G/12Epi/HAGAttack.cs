@@ -19,7 +19,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class BONE : MonoBehaviour {
+public class HAGAttack : MonoBehaviour {
     private Ray mr_CheckRay;                      // 마우스가 클릭된 곳을 카메라에서부터 레이져를 쏘아 감지하기 위한 Ray 
     private RaycastHit mrch_CheckHit;            // 레이져를 쏜 곳에 오브젝트가 
     private GameObject mgo_Target;
@@ -69,9 +69,9 @@ public class BONE : MonoBehaviour {
             if(!mb_CheckBone) {
                 Debug.Log("뼈없음");
                 mgo_IntantBone = Instantiate(mgo_BonePrefab, BonePos.position, BonePos.rotation, HAG) as GameObject;
-                mgo_IntantBone.GetComponent<BONE>().BonePos = BonePos;
-                mgo_IntantBone.GetComponent<BONE>().HAG = HAG;
-                mgo_IntantBone.GetComponent<BONE>().mgo_BonePrefab = mgo_BonePrefab;
+                mgo_IntantBone.GetComponent<HAGAttack>().BonePos = BonePos;
+                mgo_IntantBone.GetComponent<HAGAttack>().HAG = HAG;
+                mgo_IntantBone.GetComponent<HAGAttack>().mgo_BonePrefab = mgo_BonePrefab;
 
                 // mgo_IntantBone.GetComponent<HAGAttack>().mb_SetPos = true;
                 mb_CheckBone = true;
@@ -84,7 +84,7 @@ public class BONE : MonoBehaviour {
             mb_CheckBone = false;
             mb_DestroyOnce = true;
             mb_SetPos = false;
-            mgo_IntantBone.GetComponent<BONE>().mb_DelayThrowing = true;
+            mgo_IntantBone.GetComponent<HAGAttack>().mb_DelayThrowing = true;
             HitWitch();
         }
     }

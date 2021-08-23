@@ -10,15 +10,11 @@ public class ReplayScene12 : MonoBehaviour {
     private RaycastHit mrch_CheckMousePosHitObj;            // 레이져를 쏜 곳에 오브젝트가 
 
     // Update is called once per frame
-    void Update() {
-        if (Input.GetMouseButtonDown(0)) {
-            mr_CheckMousePosByRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-            
-            if (Physics.Raycast(mr_CheckMousePosByRay, out mrch_CheckMousePosHitObj, Mathf.Infinity)) {
-                Debug.Log(EventSystem.current.gameObject.name);
-                if (mrch_CheckMousePosHitObj.collider.name == "Reset") {
-                }
-            }
-        }
+    public void OnClicked() {
+        SceneManager.LoadScene("1_12H&G");
+    }
+
+    void OnTriggerEnter(Collider cCollider) {
+        SceneManager.LoadScene("1_13H&G");
     }
 }
