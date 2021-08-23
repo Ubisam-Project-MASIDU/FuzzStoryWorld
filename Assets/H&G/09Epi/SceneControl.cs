@@ -7,7 +7,8 @@ public class SceneControl : MonoBehaviour
 {
 
     public VoiceManager mvm_VoiceManager;
-    private bool mb_PlayFirstVoice = false;                                                                                         // ù��° �����̼��� ���� ������ ���� flag
+    private bool mb_PlayFirstVoice = false;
+    private bool mb_PlaySecondVoice = false;   
 
     public GameObject mg_WitchText;
     public GameObject vibrate;
@@ -29,19 +30,41 @@ public class SceneControl : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        if (!mb_PlayFirstVoice)
+    { 
+            if (!mb_PlayFirstVoice)
+            {                                                             // 나레이션1 실행조건 검사
+                mvm_VoiceManager.playVoice(16);
+                mb_PlayFirstVoice = true;
+                Invoke("SecondEvent", 4f);
+                Invoke("ThirdEvent", 8f);
+                Invoke("FourthEvent", 12f);
+                Invoke("ColorChange", 14f);
+                // 나레이션1 출력 완료 
+            }
+    }
+        /*if (!mb_PlayFirstVoice)
         {                                                             // 나레이션1 실행조건 검사
-            mvm_VoiceManager.playVoice(16);
+            mvm_VoiceManager.playVoice(17);
             mb_PlayFirstVoice = true;
             Invoke("SecondEvent", 4f);
-            Invoke("ThirdEvent", 8f);
-            Invoke("FourthEvent", 12f);
-            Invoke("ColorChange", 14f);
+        }
+
+        if (mvm_VoiceManager.isPlaying() == false && mb_PlayFirstVoice && !mb_PlaySecondVoice)
+        {
+            mvm_VoiceManager.playVoice(18);
+            mb_PlaySecondVoice = true;
+            ThirdEvent();
+
             // 나레이션1 출력 완료 
         }
-    }
 
+        if (mvm_VoiceManager.isPlaying() == false && mb_PlaySecondVoice)
+        {
+            FourthEvent();
+            Invoke("ColorChange", 2f);
+        }*/
+
+    
     void StopVibrate()
     {
         vibrate.SetActive(false);
@@ -56,7 +79,6 @@ public class SceneControl : MonoBehaviour
     {
         mg_WitchText.SetActive(false);
         mt_Text.text = "\n       사실 그 할머니는 아이들을 잡아먹는 무서운 마녀였어요.        \n";
-        mvm_VoiceManager.playVoice(1);
         Debug.Log("3");// 나레이션1과 playVoice(0) 연결됨
     }
 
