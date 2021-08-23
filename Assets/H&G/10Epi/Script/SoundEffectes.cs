@@ -38,9 +38,6 @@ public class SoundEffectes : MonoBehaviour
            case "ATTACK":                                   // 공격을 당했을 때
                 audioSource.clip = audioAttack;
                 break;
-            case "DIE" :                                    // 죽었을 때
-                audioSource.clip =  audioDie;
-                break;
 
         }
         audioSource.Play();

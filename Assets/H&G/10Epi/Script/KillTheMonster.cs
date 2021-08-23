@@ -47,7 +47,6 @@ public class KillTheMonster : MonoBehaviour {
                 print("마우스 입력 받았음");
                 if(state == true) {
                     gameObject.SetActive(false);
-                    GetComponent<SoundEffectes>().PlaySound("DIE");
                     Invoke("destroyTrash", 1f);                           // 바로 죽지 않고 0.4초 딜레이 후 삭제
                     print("사라져");
                     state = true;
