@@ -13,6 +13,8 @@
 <img src = "https://user-images.githubusercontent.com/88296511/130384915-6b46abc8-3f90-4c24-aa1f-2e690d97bb08.JPG" width="450" height="220">
 <img src = "https://user-images.githubusercontent.com/88296511/130385021-b2e79d4b-70cd-4796-bb78-e6e178ef5477.JPG" width="450" height="220">
 <img src = "https://user-images.githubusercontent.com/88296511/130385061-b3ad33b6-56d0-4be0-93a8-6e213fee8df6.JPG" width="450" height="220">
+<img src = "https://user-images.githubusercontent.com/88296511/130385385-65faa57f-e1c4-4fad-8865-9d84cabcd976.jpg" width="450" height="220">
+
 
 
 
@@ -22,6 +24,7 @@
     - 헨젤과 그레텔이 앞 쪽으로 걸어 나온다.
     - 책으로 점프해서 들어간다.
     - 이 때 들어가는 효과(풍덩)가 나온다.
+    - 책으로 들어가면서 이야기가 시작된다.
 ***
 - H&G (intro) 구성 정보
   - Image
