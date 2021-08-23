@@ -492,11 +492,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c13d33be173844f8bac4ef7e7a67395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSpeed: 4
-  isPlay: 0
-  playBtn: {fileID: 1428413726}
-  nextBtn: {fileID: 64742260}
-  Mission: {fileID: 1596382714}
+  mf_gameSpeed: 3
+  mb_isPlay: 0
+  mg_playBtn: {fileID: 1428413726}
+  mg_nextBtn: {fileID: 64742260}
+  mg_Mission: {fileID: 1546073417}
 --- !u!4 &77606525
 Transform:
   m_ObjectHideFlags: 0
@@ -524,7 +524,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mn_PlayVoiceIndex: 4
-  ms_ChangeNextSceneName: 
+  ms_ChangeNextSceneName: 1_06H&G
 --- !u!1 &105819681
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,12 +1420,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0295716150e4a466495f2fa80134298c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rocks:
-  - {fileID: 3383033248856415965, guid: 896cff413d01c41b3aa4c9e760dc6089, type: 3}
-  - {fileID: 1460217740642492829, guid: d9daa734479d141eabc96d89214d4931, type: 3}
+  ma_Rocks:
   - {fileID: 6172050921057147453, guid: 45f1b644148204bfd9a8634aa9bd04a5, type: 3}
-  RockPool: []
-  objCnt: 3
+  - {fileID: 1460217740642492829, guid: d9daa734479d141eabc96d89214d4931, type: 3}
+  - {fileID: 3383033248856415965, guid: 896cff413d01c41b3aa4c9e760dc6089, type: 3}
+  ml_RockPool: []
+  mn_objCnt: 3
 --- !u!4 &536990419
 Transform:
   m_ObjectHideFlags: 0
@@ -2093,8 +2093,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0498d838b0ee440e2b1f1cec4a3605b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpHeight: 3
-  jumpSpeed: 8
+  mf_jumpHeight: 3
+  mf_jumpSpeed: 8
 --- !u!70 &1123369988
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -2571,9 +2571,9 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428413726}
   m_CullTransparentMesh: 1
---- !u!1 &1596382714 stripped
+--- !u!1 &1546073417 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5016832935264139667, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
+  m_CorrespondingSourceObject: {fileID: 5016832934214608466, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
     type: 3}
   m_PrefabInstance: {fileID: 302073712}
   m_PrefabAsset: {fileID: 0}
@@ -2948,7 +2948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da26b6b34d28647528bd8640b4d60a05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tiles:
+  ma_tiles:
   - {fileID: 1724690443}
   - {fileID: 355150469}
   - {fileID: 1194459542}
@@ -2962,8 +2962,9 @@ MonoBehaviour:
   - {fileID: 1933598964}
   - {fileID: 74340359}
   - {fileID: 174746402}
-  groundImg:
+  ma_groundImg:
   - {fileID: -2784247815669728694, guid: e85c6e02fda4a004b84664f435ad4d73, type: 3}
+  - {fileID: 4294643669078967044, guid: e85c6e02fda4a004b84664f435ad4d73, type: 3}
 --- !u!1 &1933598962
 GameObject:
   m_ObjectHideFlags: 0

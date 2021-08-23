@@ -10,21 +10,15 @@
     4) 2021-08-20 : 리드미 초기 작성
 ***
  - 구동화면 및 내용
-<img src = "https://user-images.githubusercontent.com/88296511/130384915-6b46abc8-3f90-4c24-aa1f-2e690d97bb08.JPG" width="450" height="220">
-<img src = "https://user-images.githubusercontent.com/88296511/130385021-b2e79d4b-70cd-4796-bb78-e6e178ef5477.JPG" width="450" height="220">
-<img src = "https://user-images.githubusercontent.com/88296511/130385061-b3ad33b6-56d0-4be0-93a8-6e213fee8df6.JPG" width="450" height="220">
-<img src = "https://user-images.githubusercontent.com/88296511/130385385-65faa57f-e1c4-4fad-8865-9d84cabcd976.jpg" width="450" height="220">
 
 
 
 
 
-
-    - intro에 해당하는 스토리 진행 화면이다.
+    - intro에 해당하는 구동화면이다.
     - 헨젤과 그레텔이 앞 쪽으로 걸어 나온다.
-    - 책으로 점프해서 들어간다.
-    - 이 때 들어가는 효과(풍덩)가 나온다.
-    - 책으로 들어가면서 이야기가 시작된다.
+    - 책으로 들어간다.
+    - 들어가는 효과가 나온다.
 ***
 - H&G (intro) 구성 정보
   - Image
@@ -32,7 +26,7 @@
   - Scene
     - Scene파일의 경우에도 FuzzStoryWorld/Assets/Scenes/daejus_yeeun_intro.unity 에서 진행하였다.
   - Script
-    - GenerateEffect.cs : 해당 에피소드에 나오는 책으로 들어갈 때 풍덩 효과가 나오도록 만든 스크립트이다.
-    - JumpHG.cs : 헨젤과 그레텔이 일정거리 앞으로 걸어나와 책으로 점프하는 스크립트이다.
+    - GenerateEffect.cs : 해당 에피소드에 나오는 책으로 들어갈 때 풍덩 효과를 넣은 스크립트이다.
+    - JumpHG.cs : 헨젤과 그레텔 책으로 점프하는 스크립트이다.
 
 ***

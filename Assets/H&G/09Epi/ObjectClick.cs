@@ -8,38 +8,37 @@
  * 2) 2021-08-23 : 코드 획일화 및 주석처리
  *
  * <Variable>
- *  mg_Hansel      헨젤 오브젝트를 연결하기 위한 변수
- *  mg_Gretel      그레텔 오브젝트를 연결하기 위한 변수 
- *  mg_Witch       마녀 오브젝트를 연결하기 위한 변수
- *  mr_CheckClickByRay  마우스가 클릭된곳을 카메라에서부터 레이저를 쏘아 감지하기 위한 Ray
- *  mrch_CheckClickObj  레이저를 쏜 곳에 있는 오브젝트를 반환
- *  mv3_ObjectPos       클릭된 오브젝트의 위치
- *  ms_ObjectName       클릭된 오브젝트의 이름
- *  mb_InitPos          플레이어들이 초기 위치에 있는지 확인하는 flag
- *  mn_count            오브젝트가 몇개 클릭됐는지 세어주는 변수
- *  mb_witchToHomeFlag  마녀가 집으로 돌아가도 되는지 확인해주는 flag
- *  ms_WitchWithcHAG    헨젤,그레텔과 같이 있는 마녀 spirte 연결
- *  mspra_ClickObject   클릭한 오브젝트를 저장하는 배열
+ *  mg_Hansel                                     헨젤 오브젝트를 연결하기 위한 변수
+ *  mg_Gretel                                     그레텔 오브젝트를 연결하기 위한 변수 
+ *  mg_Witch                                      마녀 오브젝트를 연결하기 위한 변수
+ *  mr_CheckClickByRay                            마우스가 클릭된곳을 카메라에서부터 레이저를 쏘아 감지하기 위한 Ray
+ *  mrch_CheckClickObj                            레이저를 쏜 곳에 있는 오브젝트를 반환
+ *  mv3_ObjectPos                                 클릭된 오브젝트의 위치
+ *  ms_ObjectName                                 클릭된 오브젝트의 이름
+ *  mb_InitPos                                    플레이어들이 초기 위치에 있는지 확인하는 flag
+ *  mn_count                                      오브젝트가 몇개 클릭됐는지 세어주는 변수
+ *  mb_witchToHomeFlag                            마녀가 집으로 돌아가도 되는지 확인해주는 flag
+ *  ms_WitchWithcHAG                              헨젤,그레텔과 같이 있는 마녀 spirte 연결
+ *  mspra_ClickObject                             클릭한 오브젝트를 저장하는 배열
  *  
- *  mv3_PlantPos        오브젝트 위치 설정 -> Plant 연결
- *  mv3_CauldronPos     오브젝트 위치 설정 -> Cauldron 연결
- *  mv3_TreePos         오브젝트 위치 설정 -> Tree 연결
- *  mv3_LogPos          오브젝트 위치 설정 -> Log 연결
- *  mv3_StonePos        오브젝트 위치 설정 -> Stone 연결
- *  mv3_HousePos        오브젝트 위치 설정 -> House 연결
- *  mf_Speed            오브젝트가 움직일 속도 설정
- *  msc_TextFinishFlag  SceneControl 스크립트가 끝났는지 확인하는 변수를 가져오기 위함
- *  msc_Vibrate         SceneControl 클래스의 vibrate 변수를 참조하기 위함 
-    
+ *  mv3_PlantPos                                  오브젝트 위치 설정 -> Plant 연결
+ *  mv3_CauldronPos                               오브젝트 위치 설정 -> Cauldron 연결
+ *  mv3_TreePos                                   오브젝트 위치 설정 -> Tree 연결
+ *  mv3_LogPos                                    오브젝트 위치 설정 -> Log 연결
+ *  mv3_StonePos                                  오브젝트 위치 설정 -> Stone 연결
+ *  mv3_HousePos                                  오브젝트 위치 설정 -> House 연결
+ *  mf_Speed                                      오브젝트가 움직일 속도 설정
+ *  msc_TextFinishFlag                            SceneControl 스크립트가 끝났는지 확인하는 변수를 가져오기 위함
+ *  msc_Vibrate                                   SceneControl 클래스의 vibrate 변수를 참조하기 위함  
  * 
  * <Function>
- * v_SetPos()                   헨젤과 그레텔을 초기위치로 이동하게 해주는 함수
- * v_FindHAG()                  숨어있는 헨젤과 그레텔을 마녀가 찾아 따라가게 하는 함수
- * v_HideBehindObject()         헨젤과 그레텔을 오브젝트의 뒤로 이동하게 해주는 함수
- * v_WitchChange()              헨젤과 그레텔을 데리고 집으로 돌아가는 마녀의 Sprite로 바꿔주는 함수
- * v_WitchToHome()              마녀가 헨젤과 그레텔을 집으로 데려가는 함수
- * v_ChangeNextScene()          다음씬으로 넘어가는 함수
- * v_WinText()                  텍스트를 활성화해주는 함수
+ * v_SetPos()                                      헨젤과 그레텔을 초기위치로 이동하게 해주는 함수
+ * v_FindHAG()                                     숨어있는 헨젤과 그레텔을 마녀가 찾아 따라가게 하는 함수
+ * v_HideBehindObject()                            헨젤과 그레텔을 오브젝트의 뒤로 이동하게 해주는 함수
+ * v_WitchChange()                                 헨젤과 그레텔을 데리고 집으로 돌아가는 마녀의 Sprite로 바꿔주는 함수
+ * v_WitchToHome()                                 마녀가 헨젤과 그레텔을 집으로 데려가는 함수
+ * v_ChangeNextScene()                             다음씬으로 넘어가는 함수
+ * v_WinText()                                     텍스트를 활성화해주는 함수
  * 
  */
 using System.Collections;
@@ -73,10 +72,13 @@ public class ObjectClick : MonoBehaviour {
     private float mf_Speed = 0.05f;
 
     // SceneControl 스크립트 변수
-    public SceneControl msc_TextFinishFlag;
+    private SceneControl msc_TextFinishFlag;
     public SceneControl msc_Vibrate;
+
+    // 파티클 접근 변수
+    public ParticleSystem[] mptsa_Particle = new ParticleSystem[6];
     
-    void Start(){
+    void Start(){     
         msc_TextFinishFlag = GameObject.Find("GameControl").GetComponent<SceneControl>();
         msc_Vibrate = GameObject.Find("GameControl").GetComponent<SceneControl>();
         mg_Hansel = GameObject.Find("Hansel");
