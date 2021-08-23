@@ -4,8 +4,8 @@
  * - Content : 헨젤과그레텔 Epi9 - 오브젝트를 클릭하게 해서 모두 클릭하면 다음씬으로 넘어가는 스크립트
  *  
  * - HISTORY
- * 2021-08-17 : 초기 개발
- * 2021-08-23 : 코드 획일화 및 주석처리
+ * 1) 2021-08-17 : 초기 개발
+ * 2) 2021-08-23 : 코드 획일화 및 주석처리
  *
  * <Variable>
  *  mg_Hansel      헨젤 오브젝트를 연결하기 위한 변수
@@ -19,6 +19,7 @@
  *  mn_count            오브젝트가 몇개 클릭됐는지 세어주는 변수
  *  mb_witchToHomeFlag  마녀가 집으로 돌아가도 되는지 확인해주는 flag
  *  ms_WitchWithcHAG    헨젤,그레텔과 같이 있는 마녀 spirte 연결
+ *  mspra_ClickObject   클릭한 오브젝트를 저장하는 배열
  *  
  *  mv3_PlantPos        오브젝트 위치 설정 -> Plant 연결
  *  mv3_CauldronPos     오브젝트 위치 설정 -> Cauldron 연결
@@ -33,7 +34,10 @@
  * 
  * <Function>
  * v_SetPos()                   헨젤과 그레텔을 초기위치로 이동하게 해주는 함수
- * v_CountAnswer()              퍼즐을 맞출때마다 개수 변수를 더해주는 함수
+ * v_FindHAG()                  숨어있는 헨젤과 그레텔을 마녀가 찾아 따라가게 하는 함수
+ * v_HideBehindObject()         헨젤과 그레텔을 오브젝트의 뒤로 이동하게 해주는 함수
+ * v_WitchChange()              헨젤과 그레텔을 데리고 집으로 돌아가는 마녀의 Sprite로 바꿔주는 함수
+ * v_WitchToHome()              마녀가 헨젤과 그레텔을 집으로 데려가는 함수
  * v_ChangeNextScene()          다음씬으로 넘어가는 함수
  * v_WinText()                  텍스트를 활성화해주는 함수
  * 
@@ -56,8 +60,10 @@ public class ObjectClick : MonoBehaviour {
     private int mn_count;
     private bool mb_WitchToHomeFlag = false;
     public Sprite ms_WitchWithcHAG;
+    private SpriteRenderer[] mspra_ClickObject = new SpriteRenderer[6];
 
 
+    // 오브젝트 위치 설정
     private Vector3 mv3_PlantPos = new Vector3(-4.8f, 6.1f, -4.4f);
     private Vector3 mv3_CauldronPos = new Vector3(13.3f, 11.3f, 1.7f);
     private Vector3 mv3_TreePos = new Vector3(-20f, 11.9f, -1.8f);
@@ -66,47 +72,13 @@ public class ObjectClick : MonoBehaviour {
     private Vector3 mv3_HousePos = new Vector3(13.6f, 3.7f, -6.9f);
     private float mf_Speed = 0.05f;
 
-
+    // SceneControl 스크립트 변수
     public SceneControl msc_TextFinishFlag;
     public SceneControl msc_Vibrate;
-
-    /*public ParticleSystem PlantParticle;
-    public ParticleSystem CauldronParticle;
-    public ParticleSystem TreeParticle;
-    public ParticleSystem LogParticle;
-    public ParticleSystem StoneParticle;
-    public ParticleSystem HouseParticle;
-    public int destroyParticleIndex;
-    public ParticleSystem[] Particle = new ParticleSystem[6];
-    [SerializeField] ParticleSystem lightParticle = null;
-    */
-
-    private SpriteRenderer[] renders = new SpriteRenderer[6];
-
-    #region
-    void Start()
-    {
+    
+    void Start(){
         msc_TextFinishFlag = GameObject.Find("GameControl").GetComponent<SceneControl>();
         msc_Vibrate = GameObject.Find("GameControl").GetComponent<SceneControl>();
-
-        /*renders = new SpriteRenderer[6];
-        Particle[0] = GameObject.FindGameObjectWithTag("Plant").GetComponent<ParticleSystem>();
-        Particle[1] = GameObject.FindGameObjectWithTag("Cauldron").GetComponent<ParticleSystem>();
-        Particle[2] = GameObject.FindGameObjectWithTag("Tree").GetComponent<ParticleSystem>();
-        Particle[3] = GameObject.FindGameObjectWithTag("Log").GetComponent<ParticleSystem>();
-        Particle[4] = GameObject.FindGameObjectWithTag("Stone").GetComponent<ParticleSystem>();
-        Particle[5] = GameObject.FindGameObjectWithTag("House").GetComponent<ParticleSystem>();
-        Particle[6] = GameObject.FindGameObjectWithTag("Plant").GetComponent<ParticleSystem>();
-        /*renders[0] = GameObject.FindGameObjectWithTag("Plant").GetComponent<SpriteRenderer>();
-        renders[1] = GameObject.FindGameObjectWithTag("Cauldron").GetComponent<SpriteRenderer>();
-        renders[2] = GameObject.FindGameObjectWithTag("Tree").GetComponent<SpriteRenderer>();
-        renders[3] = GameObject.FindGameObjectWithTag("Log").GetComponent<SpriteRenderer>();
-        renders[4] = GameObject.FindGameObjectWithTag("Stone").GetComponent<SpriteRenderer>();
-        renders[5] = GameObject.FindGameObjectWithTag("House").GetComponent<SpriteRenderer>();
-        */
-        //mspr_Witch = GameObject.Find("witch").GetComponent<SpriteRenderer>();
-        msc_Vibrate = GameObject.Find("GameControl").GetComponent<SceneControl>();
-       
         mg_Hansel = GameObject.Find("Hansel");
         mg_Gretel = GameObject.Find("Gratel");
         mg_Witch = GameObject.Find("witch");
@@ -114,11 +86,9 @@ public class ObjectClick : MonoBehaviour {
         mn_count = 0;
         // 헨젤과 그레텔이 처음에 초기 위치에 있게 하기 위함.
         v_SetPos();
-
     }
 
-    void Update()
-    {
+    void Update(){
         // SceneContorl 스크립트에서 스크립트 진행이 끝났음을 알려주는 flag가 true가 되면 ObjectClick 스크립트 진행
         if (msc_TextFinishFlag.hidestartflag) {
             mg_Witch.GetComponent<MoveWitchToHAG>().enabled = false;
@@ -139,15 +109,15 @@ public class ObjectClick : MonoBehaviour {
                         // 현재 오브젝트가 아닌 다음 오브젝트를 클릭했을때, 직전에 클릭한 오브젝트를 비활성화
                         if (mn_count > 0) {
                             // 색을 어둡게해서 이미 클릭했음을 보여줌
-                            renders[mn_count - 1].color = new Color(100 / 255f, 100 / 255f, 100 / 255f, 255 / 255f);
+                            mspra_ClickObject[mn_count - 1].color = new Color(100 / 255f, 100 / 255f, 100 / 255f, 255 / 255f);
                             // destroyParticleIndex = ddd(renders[count - 1].name);
                             // Destroy(Particle[destroyParticleIndex]);
                         }
                     }
                     // 클릭된 오브젝트의 이름을 매개변수로해서 헨젤과 그레텔이 오브젝트의 뒤로 숨게한다.
-                    HideBehindObject(ms_ObjectName);
+                    v_HideBehindObject(ms_ObjectName);
                     // 클릭된 오브젝트를 순서대로 배열에 저장, 각 오브젝트의 태그와 이름을 같게 설정해놓음
-                    renders[mn_count] = GameObject.FindGameObjectWithTag(ms_ObjectName).GetComponent<SpriteRenderer>();
+                    mspra_ClickObject[mn_count] = GameObject.FindGameObjectWithTag(ms_ObjectName).GetComponent<SpriteRenderer>();
                     // 클릭횟수 증가
                     mn_count++;
                     Debug.Log(mn_count);
@@ -155,15 +125,15 @@ public class ObjectClick : MonoBehaviour {
             }
             // 오브젝트 6개가 모두 클릭됐다면 다음 씬으로 이동 
             else if (mn_count == 6) {
-                Invoke("witchChange", 1.5f);
-                Invoke("witchToHome", 2.5f);
+                Invoke("v_WithcChange", 1.5f);
+                Invoke("v_WithcToHome", 2.5f);
                 Invoke("v_ChangeNextScene", 5f);
             }
 
             // 마녀가 집으로 돌아가도 되는지 확인해주는 flag가 false라면 FindHAG함수 실행
             if (!mb_WitchToHomeFlag) {
                 // 마녀를 헨젤과 그레텔이 있는 곳으로 가게 하기 위한 함수 실행
-                FindHAG(ms_ObjectName);
+                v_FindHAG(ms_ObjectName);
             }
         }
     }
@@ -175,9 +145,12 @@ public class ObjectClick : MonoBehaviour {
         mb_InitPos = true;
     }
     
-    //
-    void HideBehindObject(string sObjectName) {
+    
+    // 헨젤과 그레텔을 오브젝트의 뒤로 이동하게 해주는 함수
+    // 클릭한 오브젝트의 이름을 매개변수로 받아 switch문 이용
+    void v_HideBehindObject(string sObjectName) {
         switch (sObjectName) {
+            // 오브젝트의 이름이 "Plant" 라면 Plant 오브젝트뒤에 위치시킨다.
             case "Plant":
                 mg_Hansel.transform.position = new Vector3(-5.6f, 10.2f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
@@ -185,6 +158,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
                 //ParticleAllPlay();
                 break;
+            // 오브젝트의 이름이 "Cauldron" 라면 Cauldron 오브젝트뒤에 위치시킨다.
             case "Cauldron":
                 mg_Hansel.transform.position = new Vector3(5.7f, 14f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
@@ -192,6 +166,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
                 //ParticleAllPlay();
                 break;
+            // 오브젝트의 이름이 "Tree" 라면 Tree 오브젝트뒤에 위치시킨다.
             case "Tree":
                 mg_Hansel.transform.position = new Vector3(-11.2f, 11.7f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -20);
@@ -199,6 +174,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
                 //ParticleAllPlay();
                 break;
+            // 오브젝트의 이름이 "Log" 라면 Log 오브젝트뒤에 위치시킨다.
             case "Log":
                 mg_Hansel.transform.position = new Vector3(3.4f, 4.7f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -20);
@@ -206,6 +182,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 20);
                 //ParticleAllPlay();
                 break;
+            // 오브젝트의 이름이 "Stone" 라면 Stone 오브젝트뒤에 위치시킨다.
             case "Stone":
                 mg_Hansel.transform.position = new Vector3(-25.9f, 8.3f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
@@ -213,6 +190,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 10);
                 //ParticleAllPlay();
                 break;
+            // 오브젝트의 이름이 "House" 라면 House 오브젝트뒤에 위치시킨다.
             case "House":
                 mg_Hansel.transform.position = new Vector3(19.8f, 16.4f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
@@ -220,98 +198,61 @@ public class ObjectClick : MonoBehaviour {
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 10);
                 //ParticleAllPlay();
                 break;
+            // 초기위치로 이동
             default:
                 v_SetPos();
                 break;
         }
         mb_InitPos = false;
     }
-
-    void FindHAG(string objectname){
+    
+    // 숨어있는 헨젤과 그레텔을 마녀가 찾아 따라가게 하는 함수
+    // 클릭한 오브젝트를 매개변수로 받아 if문으로 마녀를 클릭한 오브젝트로 이동시킴
+    void v_FindHAG(string sObjectName){
         mg_Witch.GetComponent<SpriteRenderer>().color = new Color(230 / 255f, 230 / 255f, 230 / 255f, 255 / 255f);
         for (int i = 0; i < 6; i++){
-            if (objectname == "Plant"){
+            if (sObjectName == "Plant"){
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_PlantPos, mf_Speed);
-            }else if (objectname == "Cauldron"){
+            }else if (sObjectName == "Cauldron"){
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_ObjectPos, mf_Speed);
-            }else if (objectname == "Tree"){
+            }else if (sObjectName == "Tree"){
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_TreePos, mf_Speed);
-            }else if (objectname == "Log"){
+            }else if (sObjectName == "Log"){
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_LogPos, mf_Speed);
-            }else if (objectname == "Stone"){
+            }else if (sObjectName == "Stone"){
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_StonePos, mf_Speed);
-            }else if (objectname == "House"){
+            }else if (sObjectName == "House"){
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_HousePos, mf_Speed);
             }
         }
     }
 
-    void witchChange()
-    {
+    // 헨젤과 그레텔을 데리고 집으로 돌아가는 마녀의 Sprite로 바꿔주는 함수
+    void v_WithcChange(){
+        // 헨젤과 그레텔 오브젝트를 삭제해준다.
         Destroy(mg_Gretel);
         Destroy(mg_Hansel);
+        // 오브젝트의 크기, 위치 등을 조정하고 마녀의 Sprite를 다른 그림으로 바꾼다.
         mg_Witch.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         mg_Witch.transform.rotation = Quaternion.Euler(0, 0, 0);
         mg_Witch.GetComponent<SpriteRenderer>().sprite = ms_WitchWithcHAG;
+        // 바뀐 마녀의 모습을 확인하기 위해 tag를 바꿔준다.
         mg_Witch.gameObject.tag = "witchwithHAG";
-        
     }
 
-    void witchToHome()
-    {
+    // 마녀가 헨젤과 그레텔을 집으로 데려가는 함수
+    void v_WithcToHome(){
+        // 집으로 데려가도 되는지 표시하는 flag를 true로 바꿔준다.
         mb_WitchToHomeFlag = true;
-        if (mg_Witch.tag == "witchwithHAG")
-        {
-            mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(26f, 6.7f, -6.9f), 0.05f);
-        }
-
-    }
-
-    /*void ParticleAllPlay()
-    {
-        for (int i = 0; i < 6; i++)
-        {
-            if (Particle[i] != null)
-            {
-                Particle[i].Play();
-            }
-            
+        // 마녀가 집으로 돌아가도 되는지 조건 검사
+        if (mg_Witch.tag == "witchwithHAG"){
+            // 헨젤과 그레텔을 집으로 데려가는 모습의 마녀로 바뀌었다면, 마녀를 집으로 이동시킨다.
+            mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(35f, 6.7f, -6.9f), 0.05f);
         }
     }
 
-    int ddd(string objectName)
-    {
-        int result = 999;
-        for (int i = 0; i < 6; i++)
-        {
-
-            if (objectName == Particle[i].tag)
-            {
-                result = i;
-            }
-        }
-        return result; //니가 없앨 파티클 인덱스가 이거야~
-
-    }*/
-
-    public void v_ChangeNextScene()
-    {
+    //다음 씬으로 이동시켜주는 함수
+    public void v_ChangeNextScene(){
         SceneManager.LoadScene("1_10H&G");
     }
-    /*
-
-    void fffindHAG(string objectname, Vector3 objectpos)
-    {
-        for (int i = 0; i < 6; i++)
-        {
-
-            if (objectname == renders[i].tag)
-            {
-                mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, objectpos + new Vector3(10, 0, 10), 0.07f);
-            }
-        }
-    }
-    //파티클 0~5까지 아무거나 저장해놓고 plant가 2에 있음
-    //이름 같은 파티클 찾은다음에 */
-}
-#endregion
+ }

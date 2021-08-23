@@ -237,7 +237,7 @@ ParticleSystem:
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -5024,26 +5024,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465a9284fcb27b844b6d8e28b5d2dfd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mg_Hansel: {fileID: 0}
-  mg_Gretel: {fileID: 0}
-  sc: {fileID: 0}
-  vib: {fileID: 0}
-  PlantParticle: {fileID: 0}
-  CauldronParticle: {fileID: 0}
-  TreeParticle: {fileID: 0}
-  LogParticle: {fileID: 0}
-  StoneParticle: {fileID: 0}
-  HouseParticle: {fileID: 0}
-  destroyParticleIndex: 0
-  Particle:
-  - {fileID: 1636698409}
-  - {fileID: 1181216419}
-  - {fileID: 455427902}
-  - {fileID: 2032370394}
-  - {fileID: 0}
-  - {fileID: 1474541412}
-  lightParticle: {fileID: 0}
-  witchwithHAG: {fileID: 21300000, guid: 472d09244e1a20a4194c6e3debfff396, type: 3}
+  ms_WitchWithcHAG: {fileID: 21300000, guid: 472d09244e1a20a4194c6e3debfff396, type: 3}
+  msc_TextFinishFlag: {fileID: 0}
+  msc_Vibrate: {fileID: 0}
 --- !u!65 &188029505
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5154,26 +5137,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465a9284fcb27b844b6d8e28b5d2dfd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mg_Hansel: {fileID: 0}
-  mg_Gretel: {fileID: 0}
-  sc: {fileID: 0}
-  vib: {fileID: 0}
-  PlantParticle: {fileID: 0}
-  CauldronParticle: {fileID: 0}
-  TreeParticle: {fileID: 0}
-  LogParticle: {fileID: 0}
-  StoneParticle: {fileID: 0}
-  HouseParticle: {fileID: 0}
-  destroyParticleIndex: 0
-  Particle:
-  - {fileID: 1636698409}
-  - {fileID: 1181216419}
-  - {fileID: 455427902}
-  - {fileID: 2032370394}
-  - {fileID: 0}
-  - {fileID: 1474541412}
-  lightParticle: {fileID: 1636698409}
-  witchwithHAG: {fileID: 21300000, guid: 472d09244e1a20a4194c6e3debfff396, type: 3}
+  ms_WitchWithcHAG: {fileID: 21300000, guid: 472d09244e1a20a4194c6e3debfff396, type: 3}
+  msc_TextFinishFlag: {fileID: 0}
+  msc_Vibrate: {fileID: 0}
 --- !u!65 &189505854
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5222,7 +5188,7 @@ PrefabInstance:
     - target: {fileID: 5016832935264139679, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5016832935264139679, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
         type: 3}
@@ -5577,26 +5543,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465a9284fcb27b844b6d8e28b5d2dfd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mg_Hansel: {fileID: 0}
-  mg_Gretel: {fileID: 0}
-  sc: {fileID: 0}
-  vib: {fileID: 0}
-  PlantParticle: {fileID: 0}
-  CauldronParticle: {fileID: 0}
-  TreeParticle: {fileID: 0}
-  LogParticle: {fileID: 0}
-  StoneParticle: {fileID: 0}
-  HouseParticle: {fileID: 0}
-  destroyParticleIndex: 0
-  Particle:
-  - {fileID: 1636698409}
-  - {fileID: 1181216419}
-  - {fileID: 455427902}
-  - {fileID: 2032370394}
-  - {fileID: 0}
-  - {fileID: 1474541412}
-  lightParticle: {fileID: 2032370394}
-  witchwithHAG: {fileID: 21300000, guid: 472d09244e1a20a4194c6e3debfff396, type: 3}
+  ms_WitchWithcHAG: {fileID: 21300000, guid: 472d09244e1a20a4194c6e3debfff396, type: 3}
+  msc_TextFinishFlag: {fileID: 0}
+  msc_Vibrate: {fileID: 0}
 --- !u!65 &396876755
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10511,26 +10460,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465a9284fcb27b844b6d8e28b5d2dfd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mg_Hansel: {fileID: 0}
-  mg_Gretel: {fileID: 0}
-  sc: {fileID: 0}
-  vib: {fileID: 0}
-  PlantParticle: {fileID: 0}
-  CauldronParticle: {fileID: 0}
-  TreeParticle: {fileID: 0}
-  LogParticle: {fileID: 0}
-  StoneParticle: {fileID: 0}
-  HouseParticle: {fileID: 0}
-  destroyParticleIndex: 0
-  Particle:
-  - {fileID: 1636698409}
-  - {fileID: 1181216419}
-  - {fileID: 455427902}
-  - {fileID: 2032370394}
-  - {fileID: 0}
-  - {fileID: 1474541412}
-  lightParticle: {fileID: 1181216419}
-  witchwithHAG: {fileID: 21300000, guid: 472d09244e1a20a4194c6e3debfff396, type: 3}
+  ms_WitchWithcHAG: {fileID: 21300000, guid: 472d09244e1a20a4194c6e3debfff396, type: 3}
+  msc_TextFinishFlag: {fileID: 0}
+  msc_Vibrate: {fileID: 0}
 --- !u!65 &479689594
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -15689,26 +15621,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465a9284fcb27b844b6d8e28b5d2dfd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mg_Hansel: {fileID: 0}
-  mg_Gretel: {fileID: 0}
-  sc: {fileID: 0}
-  vib: {fileID: 0}
-  PlantParticle: {fileID: 0}
-  CauldronParticle: {fileID: 0}
-  TreeParticle: {fileID: 0}
-  LogParticle: {fileID: 0}
-  StoneParticle: {fileID: 0}
-  HouseParticle: {fileID: 0}
-  destroyParticleIndex: 0
-  Particle:
-  - {fileID: 1636698409}
-  - {fileID: 1181216419}
-  - {fileID: 455427902}
-  - {fileID: 2032370394}
-  - {fileID: 0}
-  - {fileID: 1474541412}
-  lightParticle: {fileID: 1474541412}
-  witchwithHAG: {fileID: 21300000, guid: 472d09244e1a20a4194c6e3debfff396, type: 3}
+  ms_WitchWithcHAG: {fileID: 21300000, guid: 472d09244e1a20a4194c6e3debfff396, type: 3}
+  msc_TextFinishFlag: {fileID: 0}
+  msc_Vibrate: {fileID: 0}
 --- !u!1 &1474541409
 GameObject:
   m_ObjectHideFlags: 0
@@ -20610,26 +20525,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465a9284fcb27b844b6d8e28b5d2dfd0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mg_Hansel: {fileID: 0}
-  mg_Gretel: {fileID: 0}
-  sc: {fileID: 0}
-  vib: {fileID: 0}
-  PlantParticle: {fileID: 0}
-  CauldronParticle: {fileID: 0}
-  TreeParticle: {fileID: 0}
-  LogParticle: {fileID: 0}
-  StoneParticle: {fileID: 0}
-  HouseParticle: {fileID: 0}
-  destroyParticleIndex: 0
-  Particle:
-  - {fileID: 1636698409}
-  - {fileID: 1181216419}
-  - {fileID: 455427902}
-  - {fileID: 2032370394}
-  - {fileID: 0}
-  - {fileID: 1474541412}
-  lightParticle: {fileID: 455427902}
-  witchwithHAG: {fileID: 21300000, guid: 472d09244e1a20a4194c6e3debfff396, type: 3}
+  ms_WitchWithcHAG: {fileID: 21300000, guid: 472d09244e1a20a4194c6e3debfff396, type: 3}
+  msc_TextFinishFlag: {fileID: 0}
+  msc_Vibrate: {fileID: 0}
 --- !u!65 &1503391838
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20826,7 +20724,7 @@ Transform:
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1625988859
 Animator:
