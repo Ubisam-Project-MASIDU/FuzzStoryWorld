@@ -11,7 +11,11 @@
     3) 2021-08-22 : 리드미 초기 작성
 ***
  - 구동화면 및 내용
-![SharedScreenshot](https://user-images.githubusercontent.com/88296556/130379819-02f00e3f-bf58-41f3-8669-8b0ae1106ddc.jpg)
+1) ![MainPic](https://user-images.githubusercontent.com/88296556/130381014-93ccc9f1-2621-4f32-9a85-e99ef6e55bfd.jpg)
+2) ![MainGamePic](https://user-images.githubusercontent.com/88296556/130381016-6bf892dc-cd4c-4bd7-9b80-6ca133a8c0fb.jpg)
+3)![IfMonsterDiePic](https://user-images.githubusercontent.com/88296556/130381166-c5cf0b45-2d4a-4c5d-a752-2c03976c8273.jpg)
+
+
 
     - 에피소드10에 해당하는 구동화면이다.
     - 헨젤과 그레텔이 마녀에게 잡혀 지하에 갇혀 있고 그곳에서 청소를 하는 장면이다.
