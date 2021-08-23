@@ -39,7 +39,7 @@ public class MoveHansel : MonoBehaviour{
     
     void Update(){
         mg_Hansel.transform.position = Vector3.MoveTowards(mg_Hansel.transform.position, mv3_TargetPoint, 0.07f); //현재 오브젝트가 mv3_TargetPoint위치로 0.07f의 속력으로 가는 함수
-        Invoke("popup", 3f);
+        Invoke("popup", 5f);
     }
 
     void popup()
