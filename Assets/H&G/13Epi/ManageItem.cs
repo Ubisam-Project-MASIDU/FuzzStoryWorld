@@ -91,6 +91,12 @@ public class ManageItem : MonoBehaviour
         v_IsStop();                                                                       // 매 프레임마다 모든 아이템들이 정지상테인지 확인
     }
 
+    // 객체가 삭제될때 작동되는 함수
+    private void OnDestroy()
+    {
+        
+    }
+
     #region 함수 선언부
     /// <summary>
     /// 아이템을 생성해주는 함수

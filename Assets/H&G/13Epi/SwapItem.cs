@@ -8,6 +8,7 @@
  * - History
  * 1) 2021-08-11 : 어느방향으로 드래그하였는지 알려주는 함수 작성
  * 2) 2021-08-12 : 상하좌우 방향으로 드래그 기능 구현
+ * 3) 2021-08-23 : 아이템이 터질때 이펙트 추가
  * 
  * - Variable 
  * mv3_screenSpace                                  월드좌표를 화면좌표로 변경하여 저장해두는 변수
@@ -24,7 +25,10 @@
  * mg_Col5                                          연결을 위한 변수 -> 5번째 세로줄 관리를 위한 변수
  * mg_Col6                                          연결을 위한 변수 -> 6번째 세로줄 관리를 위한 변수
  * mg_Col7                                          연결을 위한 변수 -> 7번째 세로줄 관리를 위한 변수
+ * mg_ItemPopEffectObject                           연결을 위한 변수 -> 아이템 터질때 이펙트
  * mg_TempGameObject                                아이템 스왑시 해당 오브젝트에 접근하기위한 변수
+ * mg_ItemPopEffectObject                           터질때 생성된 오브젝트를 조작하기 위한 변수
+ * 
  * 
  * - Function
  * OnMouseDown()                                                            마우스 왼쪽버튼을 누른 경우
@@ -59,8 +63,10 @@ public class SwapItem : MonoBehaviour
     GameObject mg_Col4;                                                                 // 연결을 위한 변수 -> 4번째 세로줄 관리를 위한 변수 
     GameObject mg_Col5;                                                                 // 연결을 위한 변수 -> 5번째 세로줄 관리를 위한 변수 
     GameObject mg_Col6;                                                                 // 연결을 위한 변수 -> 6번째 세로줄 관리를 위한 변수 
-    GameObject mg_Col7;                                                                 // 연결을 위한 변수 -> 7번째 세로줄 관리를 위한 변수 
+    GameObject mg_Col7;                                                                 // 연결을 위한 변수 -> 7번째 세로줄 관리를 위한 변수
+    public GameObject mg_ItemPopEffect;                                                 // 연결을 위한 변수 -> 아이템 터질때 이펙트
     GameObject mg_TempGameObject;                                                       // 아이템 스왑시 해당 오브젝트에 접근하기위한 변수
+    GameObject mg_ItemPopEffectObject;                                                  // 터질때 생성된 오브젝트를 조작하기 위한 변수
 
     // Start is called before the first frame update
     void Start()
@@ -74,6 +80,14 @@ public class SwapItem : MonoBehaviour
         mg_Col5 = GameObject.Find("Col5");
         mg_Col6 = GameObject.Find("Col6");
         mg_Col7 = GameObject.Find("Col7");
+    }
+
+    // 오브젝트가 없어질때 작동되는 함수
+    private void OnDestroy()
+    {
+        // 터질때 이펙트 생성
+        mg_ItemPopEffectObject = Instantiate(mg_ItemPopEffect) as GameObject;
+        mg_ItemPopEffectObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
     }
 
     /// <summary>

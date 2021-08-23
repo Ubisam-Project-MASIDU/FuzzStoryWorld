@@ -889,6 +889,7 @@ MonoBehaviour:
     type: 3}
   mg_Item7Star: {fileID: 354651604439116722, guid: dd9f056ed09f6d2429d2c694445c45bb,
     type: 3}
+  mg_PopEffect: {fileID: 100000, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
 --- !u!1 &800996595
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,7 +1102,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -5
   m_Sprite: {fileID: 21300000, guid: c4c79c32af52c46f7b21d484bc66b262, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1324,7 +1325,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -4
   m_Sprite: {fileID: 21300000, guid: 4d154d18977b44161a811e608d3ec541, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1580,7 +1581,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -3
   m_Sprite: {fileID: 21300000, guid: c769d9ffdd17e164f9159f8a3c1a9abe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_FlipX: 0
