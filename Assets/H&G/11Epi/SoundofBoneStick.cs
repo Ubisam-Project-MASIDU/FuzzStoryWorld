@@ -1,5 +1,5 @@
 /*
- * - Name : DragBoneStick.cs
+ * - Name : SoundofBoneStick.cs
  * - Writer : 이병권
  * - Content : 헨젤과그레텔Epi11 - 마우스로 뼈다귀를 마녀에게 주었을 때 소리가 나는 스크립
  *  
@@ -17,7 +17,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BonsStickSound : MonoBehaviour {
+public class SoundofBoneStick : MonoBehaviour {
 
     public AudioClip Givebone2Witch;
 

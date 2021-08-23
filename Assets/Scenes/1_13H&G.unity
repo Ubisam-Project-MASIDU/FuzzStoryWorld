@@ -862,6 +862,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mg_WinImage: {fileID: 5503044592389605986, guid: acfc90cd14035b44fafeeb45ab13d0ed,
     type: 3}
+  man_HasNoTime: {fileID: 1685425848}
 --- !u!114 &790769873
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1278,7 +1279,7 @@ GameObject:
   - component: {fileID: 1567766873}
   - component: {fileID: 1567766875}
   m_Layer: 0
-  m_Name: money-5606272_1280
+  m_Name: Treasure
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1438,8 +1439,9 @@ GameObject:
   - component: {fileID: 1685425845}
   - component: {fileID: 1685425847}
   - component: {fileID: 1685425846}
+  - component: {fileID: 1685425848}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Clock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1502,6 +1504,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1685425844}
   m_CullTransparentMesh: 1
+--- !u!95 &1685425848
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1685425844}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0072e9b8a807dcf44a221b493e485e5f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1852327410
 GameObject:
   m_ObjectHideFlags: 0
