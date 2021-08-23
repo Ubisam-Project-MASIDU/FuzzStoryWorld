@@ -100,7 +100,7 @@ MonoBehaviour:
   BonePos: {fileID: 0}
   HAG: {fileID: 0}
   mgo_BonePrefab: {fileID: 0}
-  mb_DelayThrowing: 1
+  mb_DelayThrowing: 0
 --- !u!65 &6581858066130693432
 BoxCollider:
   m_ObjectHideFlags: 0
