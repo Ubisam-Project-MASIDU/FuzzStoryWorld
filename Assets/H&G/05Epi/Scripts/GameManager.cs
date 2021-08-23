@@ -18,12 +18,12 @@
  * mg_SoundManager             효과음 재생 연결 오브젝트
  *
  * <Function>
- * PlayBtnClick()           게임 시작 버튼을 클릭하면 호출할 매소드
- * GameOver()               게임 끝 버튼을 클릭하면 호출할 매소드
- * nextScene()              다음씬으로 넘어가기 위한 매소드
+ * PlayBtnClick()              게임 시작 버튼을 클릭하면 호출할 매소드
+ * GameOver()                  게임 끝 버튼을 클릭하면 호출할 매소드
+ * nextScene()                 다음씬으로 넘어가기 위한 매소드
  *
- * delegate                 함수에 대한 참조, 하나의 delegate로 여러 함수들에 접근해 실행 가능, delegate를 이용해 함수를 파라미터로 전달할 수 있고, 여러 함수를 한꺼번에 실행하는 체인 기능과 
- *                          어떤 상황에 도달했을 때 이벤트를 발생시키는 delegate 이벤트도 제공됨.
+ * delegate                     함수에 대한 참조, 하나의 delegate로 여러 함수들에 접근해 실행 가능, delegate를 이용해 함수를 파라미터로 전달할 수 있고, 여러 함수를 한꺼번에 실행하는 체인 기능과 
+ *                              어떤 상황에 도달했을 때 이벤트를 발생시키는 delegate 이벤트도 제공됨.
  */
 
 using System.Collections;
