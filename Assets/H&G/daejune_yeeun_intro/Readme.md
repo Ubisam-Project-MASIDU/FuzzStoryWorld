@@ -27,6 +27,6 @@
     - Scene파일의 경우에도 FuzzStoryWorld/Assets/Scenes/daejus_yeeun_intro.unity 에서 진행하였다.
   - Script
     - GenerateEffect.cs : 해당 에피소드에 나오는 책으로 들어갈 때 풍덩 효과를 넣은 스크립트이다.
-    - JumpHG : 헨젤과 그레텔 책으로 점프하는 스크립트이다.
+    - JumpHG.cs : 헨젤과 그레텔 책으로 점프하는 스크립트이다.
 
 ***
