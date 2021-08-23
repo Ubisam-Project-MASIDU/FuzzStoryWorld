@@ -10,6 +10,8 @@
 ***
  - 구동화면 및 내용
 <img src= "https://user-images.githubusercontent.com/88296511/130379613-43427488-37cc-4fdb-b173-7bd6e8010ce9.jpg" width="500" height="220">
+<img src= "https://user-images.githubusercontent.com/88296511/130385449-f2a8b3c3-1af0-48bb-8faa-4d1f3a70db93.JPG" width="500" height="220">
+
 
 
 
