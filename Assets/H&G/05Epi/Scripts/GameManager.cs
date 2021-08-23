@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour{
     public GameObject mg_nextBtn;
     public GameObject mg_Mission;
 
-    public delegate void OnPlay(bool b_isplay); // 게임 시작 버튼이 눌리면 RespawnManager의 Coroutine이 작동되게 해주기
+    public delegate void OnPlay(bool b_isplay);                            // 게임 시작 버튼이 눌리면 RespawnManager의 Coroutine이 작동되게 해주기
     public OnPlay onPlay; // delegate 생성
 
     GameObject mg_SoundManager;
