@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -592,7 +592,7 @@ PrefabInstance:
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.size
-      value: 20
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
@@ -642,6 +642,11 @@ PrefabInstance:
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[19].sf_pitch
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[20].sf_pitch
       value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
@@ -721,6 +726,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[20].sstr_words
+      value: "\uBCF4\uBB3C\uC12C\uC5D0\uC11C \uBAA8\uC740 \uBCF4\uC11D \uB355\uBD84\uC5D0
+        \uBD80\uC790\uAC00 \uB41C \uD5E8\uC824\uACFC \uADF8\uB808\uD154\uC740 \uD589\uBCF5\uD558\uAC8C
+        \uC0B4\uC558\uB2F5\uB2C8\uB2E4.  "
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
       propertyPath: mvifl_SetVoiceInfoList.Array.data[0].sf_SpeakingRate
       value: 1
       objectReference: {fileID: 0}
@@ -769,10 +781,15 @@ PrefabInstance:
       propertyPath: mvifl_setVoiceInfoList.Array.data[19].sf_speakingRate
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[20].sf_speakingRate
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.size
-      value: 19
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
@@ -812,6 +829,16 @@ PrefabInstance:
     - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[18].sf_pitch
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].sf_pitch
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[20].sf_pitch
       value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
@@ -915,6 +942,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].sstr_words
+      value: "\u5176\u5B9E\u90A3\u4E2A\u5976\u5976\u662F\u6355\u98DF\u5B69\u5B50\u4EEC\u7684\u9B54\u5973\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[20].sstr_words
+      value: "\u6C49\u585E\u5C14\u548C\u683C\u857E\u7279\u56E0\u5728\u91D1\u94F6\u5C9B\u6536\u96C6\u7684\u73E0\u5B9D\u800C\u53D8\u5F97\u5BCC\u6709\uFF0C\u4ECE\u6B64\u8FC7\u4E0A\u4E86\u5E78\u798F\u7684\u751F\u6D3B\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[0].svt_voiceType
       value: 12
       objectReference: {fileID: 0}
@@ -1010,6 +1047,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].svt_voiceType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[20].svt_voiceType
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[11].sf_speakingRate
       value: 0.9
       objectReference: {fileID: 0}
@@ -1048,10 +1095,20 @@ PrefabInstance:
       propertyPath: mvifl_setVoiceInfoList.Array.data[18].sf_speakingRate
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].sf_speakingRate
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[20].sf_speakingRate
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.size
-      value: 19
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
@@ -1091,6 +1148,16 @@ PrefabInstance:
     - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[18].sf_pitch
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].sf_pitch
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[20].sf_pitch
       value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
@@ -1195,6 +1262,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].sstr_words
+      value: "\u5B9F\u306F\u305D\u306E\u304A\u5A46\u3055\u3093\u306F\u5B50\u4F9B\u9054\u3092\u98DF\u3063\u305F\u9B54\u5973\u3067\u3057\u305F\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[20].sstr_words
+      value: "\u5B9D\u5CF6\u3067\u96C6\u3081\u305F\u5B9D\u77F3\u306E\u304A\u304B\u3052\u3067\u91D1\u6301\u3061\u306B\u306A\u3063\u305F\u30D8\u30F3\u30BC\u30EB\u3068\u30B0\u30EC\u30FC\u30C6\u30EB\u306F\u5E78\u305B\u306B\u66AE\u3089\u3057\u305F\u305D\u3046\u3067\u3059\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[0].svt_voiceType
       value: 8
       objectReference: {fileID: 0}
@@ -1290,6 +1367,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].svt_voiceType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[20].svt_voiceType
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[11].sf_speakingRate
       value: 0.9
       objectReference: {fileID: 0}
@@ -1328,10 +1415,20 @@ PrefabInstance:
       propertyPath: mvifl_setVoiceInfoList.Array.data[18].sf_speakingRate
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].sf_speakingRate
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[20].sf_speakingRate
+      value: 0.9
+      objectReference: {fileID: 0}
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.size
-      value: 19
+      value: 21
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
@@ -1371,6 +1468,16 @@ PrefabInstance:
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[18].sf_pitch
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].sf_pitch
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[20].sf_pitch
       value: 3.25
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
@@ -1481,6 +1588,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].sstr_words
+      value: the grandmother was a witch who ate children.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[20].sstr_words
+      value: Hansel and Gretel, who became rich thanks to the jewels they collected
+        on Treasure Island, lived happily ever after.
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[1].svt_voiceType
       value: 4
       objectReference: {fileID: 0}
@@ -1571,6 +1689,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].svt_voiceType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[20].svt_voiceType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[11].sf_speakingRate
       value: 0.9
       objectReference: {fileID: 0}
@@ -1607,6 +1735,16 @@ PrefabInstance:
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[18].sf_speakingRate
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].sf_speakingRate
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[20].sf_speakingRate
       value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 7469000484905359781, guid: 32d23423ea1de4bfd997ff5333159e3a,
