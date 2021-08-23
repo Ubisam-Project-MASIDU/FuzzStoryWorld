@@ -75,7 +75,6 @@ public class BONE : MonoBehaviour {
 
                 // mgo_IntantBone.GetComponent<HAGAttack>().mb_SetPos = true;
                 mb_CheckBone = true;
-
             }  
         }
     }          

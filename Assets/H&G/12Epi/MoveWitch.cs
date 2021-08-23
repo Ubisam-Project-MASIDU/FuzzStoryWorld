@@ -38,6 +38,7 @@ public class MoveWitch : MonoBehaviour
     }
     Animator mani_Witch = null;
     SpriteRenderer spr_InvertWitch;
+    Rigidbody rigid;
     // 초기화
     void Awake()
     {
@@ -59,7 +60,7 @@ public class MoveWitch : MonoBehaviour
                 if (mani_Witch != null) {
                     mani_Witch.SetBool("Walking", true);
                 }
-                transform.position = Vector3.MoveTowards(transform.position, mgo_HanselGretel.transform.position, 2f * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, mgo_HanselGretel.transform.position, 4f * Time.deltaTime);
             }
             
             // 게임 오브젝트가 헨젤과 그레텔보다 앞에 있다면
@@ -76,5 +77,21 @@ public class MoveWitch : MonoBehaviour
             }
         }
     }
-}
+    void OnTriggerEnter(Collider collision) {
+        if(collision.gameObject.tag == "bone") {
+            OnDamaged(collision.transform.position);            
+        }
+    }
     
+    void OnDamaged(Vector3 targetPos) {
+        gameObject.layer = 15;
+        spr_InvertWitch.color = new Color(1, 1, 1, 0.4f);
+        int dirc = transform.position.x - targetPos.x > 0 ? 1 : -1;
+        gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(dirc, 7, 7), ForceMode.Impulse);
+        Invoke("OffDamaged", 0.7f);
+    }
+    void OffDamaged() {
+        gameObject.layer = 11;
+        spr_InvertWitch.color = new Color(1, 1, 1, 1);
+    }
+}
