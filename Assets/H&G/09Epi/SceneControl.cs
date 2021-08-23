@@ -15,10 +15,11 @@ public class SceneControl : MonoBehaviour
     public bool hidestartflag = false;
     private SpriteRenderer background;
     private SpriteRenderer witch;
+
     // Start is called before the first frame update
     void Start()
     {
-        mvm_VoiceManager = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();
+        mvm_VoiceManager = FindObjectOfType<VoiceManager>();
 
         mg_WitchText.SetActive(false);
         background = GameObject.Find("Background").GetComponent<SpriteRenderer>();
@@ -31,12 +32,12 @@ public class SceneControl : MonoBehaviour
     {
         if (!mb_PlayFirstVoice)
         {                                                             // 나레이션1 실행조건 검사
-            mvm_VoiceManager.playVoice(0);
+            mvm_VoiceManager.playVoice(16);
             mb_PlayFirstVoice = true;
             Invoke("SecondEvent", 4f);
             Invoke("ThirdEvent", 8f);
             Invoke("FourthEvent", 12f);
-            Invoke("ColorChange", 16f);
+            Invoke("ColorChange", 14f);
             // 나레이션1 출력 완료 
         }
     }
@@ -72,8 +73,4 @@ public class SceneControl : MonoBehaviour
         hidestartflag = true;
         Debug.Log("colorChange");
     }
-
-
-
-
 }
