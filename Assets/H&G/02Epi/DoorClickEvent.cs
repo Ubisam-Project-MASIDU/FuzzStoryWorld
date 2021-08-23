@@ -67,7 +67,7 @@ public class DoorClickEvent : MonoBehaviour{
     
     void Update(){
         if (!mb_PlayFirstVoice){                                                             // 나레이션1 실행조건 검사
-            mvm_VoiceManager.playVoice(12);                                                                                          // 나레이션1과 playVoice(0) 연결됨
+            mvm_VoiceManager.playVoice(1);                                                                                          // 나레이션1과 playVoice(1) 연결됨
             mb_PlayFirstVoice = true;                                                                                               // 나레이션1 출력 완료 
             Invoke("v_TutorialText", 7f);
         }
@@ -80,7 +80,7 @@ public class DoorClickEvent : MonoBehaviour{
     // 문을 클릭해서 문에 헨젤과 그레텔이 다다를수있게 하는 함수
     public void v_GotoDoor(){
         if (mvm_VoiceManager.isPlaying() == false && mb_PlayFirstVoice){                                                            // 현재 음성출력이 끝났다면
-            v_TutorialText();                                                                                                       // 문을 클릭하게하기 위한 튜토리얼 지시
+            //v_TutorialText();                                                                                                       // 문을 클릭하게하기 위한 튜토리얼 지시
             if (mg_Gretel.transform.position.x < 9){                                                                                // 현재 그레텔의 위치가 문보다 앞에 있다면
                 mg_Gretel.transform.Translate(1, 0, 0);                                                                             // 헨젤과 그레텔 모두 문쪽으로 이동
                 mg_Hansel.transform.Translate(1, 0, 0);
@@ -88,7 +88,7 @@ public class DoorClickEvent : MonoBehaviour{
             }else{                                                                                                                  // 문에 도착했다면
                 mg_DoorClickBlink.SetActive(false);                                                                                 // 문 클릭 지시 애니메이션을 비활성화
                 mt_Text.text = "\n           가난을 못 버티고 부모님은 헨젤과 그레텔을 숲속에 버리려 계획했어요.        \n";        // 문 클릭 이벤트 끝난 뒤 다음 자막 출력
-                mvm_VoiceManager.playVoice(13);                                                                                      // 자막과 함께 나레이션2 출력
+                mvm_VoiceManager.playVoice(12);                                                                                      // 자막과 함께 나레이션2 출력
                 mb_PlaySecondVoice = true;                                                                                          // 나레이션2 출력 완료
             }
         }
@@ -96,8 +96,8 @@ public class DoorClickEvent : MonoBehaviour{
     
     // 문 클릭 이벤트 지시를 도와주기 위한 튜토리얼 텍스트와 애니메이션을 활성화해주는 함수
     void v_TutorialText(){
-        
-        mt_Text.text = "\n     문을 터치해주세요        \n";                                                                        // 문을 클릭하게 하기 위한 텍스트 변경
+        mvm_VoiceManager.playVoice(13);
+        mt_Text.text = "\n     문을 클릭해주세요        \n";                                                                        // 문을 클릭하게 하기 위한 텍스트 변경
         mg_DoorClickBlink.SetActive(true);                                                                                          // 문 클릭 지시 애니메이션 활성화
         mg_DoorClickBlink.GetComponent<BlinkObject>().ChangBlinkFlagTrue();                                                         
     }
