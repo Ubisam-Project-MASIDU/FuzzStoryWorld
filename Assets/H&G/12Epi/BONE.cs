@@ -19,8 +19,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public class BONE : MonoBehaviour
-{
+public class BONE : MonoBehaviour {
     private Ray mr_CheckRay;                      // 마우스가 클릭된 곳을 카메라에서부터 레이져를 쏘아 감지하기 위한 Ray 
     private RaycastHit mrch_CheckHit;            // 레이져를 쏜 곳에 오브젝트가 
     private GameObject mgo_Target;
