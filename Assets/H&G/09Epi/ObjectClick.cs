@@ -33,7 +33,10 @@
  * 
  * <Function>
  * v_SetPos()                   헨젤과 그레텔을 초기위치로 이동하게 해주는 함수
- * v_CountAnswer()              퍼즐을 맞출때마다 개수 변수를 더해주는 함수
+ * v_FindHAG()                  숨어있는 헨젤과 그레텔을 마녀가 찾아 따라가게 하는 함수
+ * v_HideBehindObject()         헨젤과 그레텔을 오브젝트의 뒤로 이동하게 해주는 함수
+ * v_WitchChange()              헨젤과 그레텔을 데리고 집으로 돌아가는 마녀의 Sprite로 바꿔주는 함수
+ * v_WitchToHome()              마녀가 헨젤과 그레텔을 집으로 데려가는 함수
  * v_ChangeNextScene()          다음씬으로 넘어가는 함수
  * v_WinText()                  텍스트를 활성화해주는 함수
  * 
@@ -145,7 +148,7 @@ public class ObjectClick : MonoBehaviour {
                         }
                     }
                     // 클릭된 오브젝트의 이름을 매개변수로해서 헨젤과 그레텔이 오브젝트의 뒤로 숨게한다.
-                    HideBehindObject(ms_ObjectName);
+                    v_HideBehindObject(ms_ObjectName);
                     // 클릭된 오브젝트를 순서대로 배열에 저장, 각 오브젝트의 태그와 이름을 같게 설정해놓음
                     renders[mn_count] = GameObject.FindGameObjectWithTag(ms_ObjectName).GetComponent<SpriteRenderer>();
                     // 클릭횟수 증가
@@ -155,15 +158,15 @@ public class ObjectClick : MonoBehaviour {
             }
             // 오브젝트 6개가 모두 클릭됐다면 다음 씬으로 이동 
             else if (mn_count == 6) {
-                Invoke("witchChange", 1.5f);
-                Invoke("witchToHome", 2.5f);
+                Invoke("v_WithcChange", 1.5f);
+                Invoke("v_WithcToHome", 2.5f);
                 Invoke("v_ChangeNextScene", 5f);
             }
 
             // 마녀가 집으로 돌아가도 되는지 확인해주는 flag가 false라면 FindHAG함수 실행
             if (!mb_WitchToHomeFlag) {
                 // 마녀를 헨젤과 그레텔이 있는 곳으로 가게 하기 위한 함수 실행
-                FindHAG(ms_ObjectName);
+                v_FindHAG(ms_ObjectName);
             }
         }
     }
@@ -175,9 +178,12 @@ public class ObjectClick : MonoBehaviour {
         mb_InitPos = true;
     }
     
-    //
-    void HideBehindObject(string sObjectName) {
+    
+    // 헨젤과 그레텔을 오브젝트의 뒤로 이동하게 해주는 함수
+    // 클릭한 오브젝트의 이름을 매개변수로 받아 switch문 이용
+    void v_HideBehindObject(string sObjectName) {
         switch (sObjectName) {
+            // 오브젝트의 이름이 "Plant" 라면 Plant 오브젝트뒤에 위치시킨다.
             case "Plant":
                 mg_Hansel.transform.position = new Vector3(-5.6f, 10.2f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
@@ -185,6 +191,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
                 //ParticleAllPlay();
                 break;
+            // 오브젝트의 이름이 "Cauldron" 라면 Cauldron 오브젝트뒤에 위치시킨다.
             case "Cauldron":
                 mg_Hansel.transform.position = new Vector3(5.7f, 14f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
@@ -192,6 +199,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
                 //ParticleAllPlay();
                 break;
+            // 오브젝트의 이름이 "Tree" 라면 Tree 오브젝트뒤에 위치시킨다.
             case "Tree":
                 mg_Hansel.transform.position = new Vector3(-11.2f, 11.7f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -20);
@@ -199,6 +207,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
                 //ParticleAllPlay();
                 break;
+            // 오브젝트의 이름이 "Log" 라면 Log 오브젝트뒤에 위치시킨다.
             case "Log":
                 mg_Hansel.transform.position = new Vector3(3.4f, 4.7f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -20);
@@ -206,6 +215,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 20);
                 //ParticleAllPlay();
                 break;
+            // 오브젝트의 이름이 "Stone" 라면 Stone 오브젝트뒤에 위치시킨다.
             case "Stone":
                 mg_Hansel.transform.position = new Vector3(-25.9f, 8.3f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
@@ -213,6 +223,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 10);
                 //ParticleAllPlay();
                 break;
+            // 오브젝트의 이름이 "House" 라면 House 오브젝트뒤에 위치시킨다.
             case "House":
                 mg_Hansel.transform.position = new Vector3(19.8f, 16.4f, -11f);
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
@@ -220,51 +231,62 @@ public class ObjectClick : MonoBehaviour {
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 10);
                 //ParticleAllPlay();
                 break;
+            // 초기위치로 이동
             default:
                 v_SetPos();
                 break;
         }
         mb_InitPos = false;
     }
-
-    void FindHAG(string objectname){
+    
+    // 숨어있는 헨젤과 그레텔을 마녀가 찾아 따라가게 하는 함수
+    // 클릭한 오브젝트를 매개변수로 받아 if문으로 마녀를 클릭한 오브젝트로 이동시킴
+    void v_FindHAG(string sObjectName){
         mg_Witch.GetComponent<SpriteRenderer>().color = new Color(230 / 255f, 230 / 255f, 230 / 255f, 255 / 255f);
         for (int i = 0; i < 6; i++){
-            if (objectname == "Plant"){
+            if (sObjectName == "Plant"){
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_PlantPos, mf_Speed);
-            }else if (objectname == "Cauldron"){
+            }else if (sObjectName == "Cauldron"){
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_ObjectPos, mf_Speed);
-            }else if (objectname == "Tree"){
+            }else if (sObjectName == "Tree"){
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_TreePos, mf_Speed);
-            }else if (objectname == "Log"){
+            }else if (sObjectName == "Log"){
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_LogPos, mf_Speed);
-            }else if (objectname == "Stone"){
+            }else if (sObjectName == "Stone"){
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_StonePos, mf_Speed);
-            }else if (objectname == "House"){
+            }else if (sObjectName == "House"){
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_HousePos, mf_Speed);
             }
         }
     }
 
-    void witchChange()
-    {
+    // 헨젤과 그레텔을 데리고 집으로 돌아가는 마녀의 Sprite로 바꿔주는 함수
+    void v_WithcChange(){
+        // 헨젤과 그레텔 오브젝트를 삭제해준다.
         Destroy(mg_Gretel);
         Destroy(mg_Hansel);
+        // 오브젝트의 크기, 위치 등을 조정하고 마녀의 Sprite를 다른 그림으로 바꾼다.
         mg_Witch.transform.localScale = new Vector3(1.5f, 1.5f, 1.5f);
         mg_Witch.transform.rotation = Quaternion.Euler(0, 0, 0);
         mg_Witch.GetComponent<SpriteRenderer>().sprite = ms_WitchWithcHAG;
+        // 바뀐 마녀의 모습을 확인하기 위해 tag를 바꿔준다.
         mg_Witch.gameObject.tag = "witchwithHAG";
-        
     }
 
-    void witchToHome()
-    {
+    // 마녀가 헨젤과 그레텔을 집으로 데려가는 함수
+    void v_WithcToHome(){
+        // 집으로 데려가도 되는지 표시하는 flag를 true로 바꿔준다.
         mb_WitchToHomeFlag = true;
-        if (mg_Witch.tag == "witchwithHAG")
-        {
+        // 마녀가 집으로 돌아가도 되는지 조건 검사
+        if (mg_Witch.tag == "witchwithHAG"){
+            // 헨젤과 그레텔을 집으로 데려가는 모습의 마녀로 바뀌었다면, 마녀를 집으로 이동시킨다.
             mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(26f, 6.7f, -6.9f), 0.05f);
         }
+    }
 
+    //다음 씬으로 이동시켜주는 함수
+    public void v_ChangeNextScene(){
+        SceneManager.LoadScene("1_10H&G");
     }
 
     /*void ParticleAllPlay()
@@ -294,10 +316,6 @@ public class ObjectClick : MonoBehaviour {
 
     }*/
 
-    public void v_ChangeNextScene()
-    {
-        SceneManager.LoadScene("1_10H&G");
-    }
     /*
 
     void fffindHAG(string objectname, Vector3 objectpos)
