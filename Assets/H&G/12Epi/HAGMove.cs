@@ -29,6 +29,13 @@ public class HAGMove : MonoBehaviour {
     private Vector3 mv3_TargetPos;
     private bool mb_SetPos = false;
     private bool mb_DestroyOnce = false;
+    private bool mb_DontWalk = false;
+    private bool mb_HAGHit = false;
+    public bool DamagingHAG {
+        get {
+            return mb_HAGHit;
+        }
+    }
     private Animator mani_HAGAnimator;
     private Rigidbody mr_StandGround;
     private int mn_MaskingCharacters;
@@ -45,7 +52,7 @@ public class HAGMove : MonoBehaviour {
     }
 
     void FixedUpdate() {
-        if (mb_SetPos) {
+        if (mb_SetPos && !mb_DontWalk) {
             // 이동하고자하는 좌표 값과 현재 내 위치의 차이를 구한다.
             float f_CheckDistance = Vector3.Distance(transform.position, mv3_TargetPos);
             float f_LimitDistance = 4f;
@@ -70,11 +77,12 @@ public class HAGMove : MonoBehaviour {
                 mb_SetPos = false;
                 // mani_HAGAnimator.SetBool("isWalking", false);
             }
+        } else if (mb_DontWalk) {
+            mb_SetPos = false;
         }
     }
     void Update() {
         // walking mouse clicked position...
-        
         if (Input.GetMouseButtonDown(0)) {
             mr_CheckMousePosByRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -87,7 +95,6 @@ public class HAGMove : MonoBehaviour {
                 mb_SetPos = true;
             }
         }
-        
     }
 
     private float f_ComputeDistance(Vector3 v3Current, Vector3 v3Target) {
@@ -104,5 +111,38 @@ public class HAGMove : MonoBehaviour {
             itemCollider.enabled = !isEquip;
         }
         itemRigidbody.isKinematic = isEquip;
+    }
+
+    public void HAGHit() {
+        StartCoroutine(Damaging());
+    }
+
+    IEnumerator Damaging() {
+        Color c_HanselTempColor = transform.GetChild(0).GetComponent<SpriteRenderer>().color;
+        Color c_GretelTempColor = transform.GetChild(1).GetComponent<SpriteRenderer>().color;
+        mb_HAGHit = true;
+        mb_DontWalk = true;
+        for (int i = 40; i >= 0; i--) {
+            if (i % 2 == 0) {
+                c_HanselTempColor.a = 0.5f;
+                c_GretelTempColor.a = 0.5f;
+            } else {
+                c_HanselTempColor.a = 1f;
+                c_GretelTempColor.a = 1f;
+            }
+            if (i == 30) {
+                mb_DontWalk = false;
+            } 
+            transform.GetChild(0).GetComponent<SpriteRenderer>().color = c_HanselTempColor;
+            transform.GetChild(1).GetComponent<SpriteRenderer>().color = c_GretelTempColor;
+            yield return null;
+        }
+        mb_HAGHit = false;
+
+        c_HanselTempColor.a = 1f;
+        c_GretelTempColor.a = 1f;
+        transform.GetChild(0).GetComponent<SpriteRenderer>().color = c_HanselTempColor;
+        transform.GetChild(1).GetComponent<SpriteRenderer>().color = c_GretelTempColor;
+        yield return null;
     }
 }

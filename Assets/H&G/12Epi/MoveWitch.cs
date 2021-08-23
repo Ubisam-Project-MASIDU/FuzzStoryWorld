@@ -27,7 +27,16 @@ public class MoveWitch : MonoBehaviour
 {
     // 목표 오브젝트를 따라가기 위해 필요한 변수들
     public GameObject mgo_HanselGretel;
-    Animator mani_Witch;
+    private bool mb_StartRangeAttack = false;
+    public bool isRangeAttacking {
+        get {
+            return mb_StartRangeAttack;
+        }
+        set {
+            mb_StartRangeAttack = value;
+        }
+    }
+    Animator mani_Witch = null;
     SpriteRenderer spr_InvertWitch;
     // 초기화
     void Awake()
@@ -39,22 +48,32 @@ public class MoveWitch : MonoBehaviour
     { 
         // 게임 오브젝트가 헨젤과 그레텔에 가까워지면
         // 마녀가 걷는걸 멈춘다.
-        // 그렇지 않다면 헨젤과 그레텔을 쫓는다.    
-        if(Mathf.Abs(mgo_HanselGretel.transform.position.x - transform.position.x) < 1.0) {           
-            mani_Witch.SetBool("Walking", false);
+        // 그렇지 않다면 헨젤과 그레텔을 쫓는다. 
+        if (!mb_StartRangeAttack) {
+            if(Mathf.Abs(mgo_HanselGretel.transform.position.x - transform.position.x) < 1.0) {     
+                if (mani_Witch != null) {
+                    mani_Witch.SetBool("Walking", false);
+                }      
 
+            } else {
+                if (mani_Witch != null) {
+                    mani_Witch.SetBool("Walking", true);
+                }
+                transform.position = Vector3.MoveTowards(transform.position, mgo_HanselGretel.transform.position, 2f * Time.deltaTime);
+            }
+            
+            // 게임 오브젝트가 헨젤과 그레텔보다 앞에 있다면
+            // 좌우반전한다.
+            // 그렇지 않다면 바뀌지 않는다.
+            if(mgo_HanselGretel.transform.position.x - transform.position.x < 0) {
+                spr_InvertWitch.flipX = true;
+            } else {
+                spr_InvertWitch.flipX = false;
+            }
         } else {
-            mani_Witch.SetBool("Walking", true);
-            transform.position = Vector3.MoveTowards(transform.position, mgo_HanselGretel.transform.position, 2f * Time.deltaTime);
-        }
-        
-        // 게임 오브젝트가 헨젤과 그레텔보다 앞에 있다면
-        // 좌우반전한다.
-        // 그렇지 않다면 바뀌지 않는다.
-        if(mgo_HanselGretel.transform.position.x - transform.position.x < 0) {
-            spr_InvertWitch.flipX = true;
-        } else {
-            spr_InvertWitch.flipX = false;
+            if (mani_Witch != null) {
+                mani_Witch.SetBool("Walking", false);
+            }
         }
     }
 }
