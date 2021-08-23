@@ -22,11 +22,11 @@ using UnityEngine;
 
 public class SoundEffectes : MonoBehaviour
 {
-   public AudioClip audioAttack;
+   public AudioClip audioAttack;                // 공격을 당했을 때
 
-   public AudioClip audioDie;
+   public AudioClip audioDie;                   // 공격을 당해 죽었을 때
 
-   AudioSource audioSource;
+   AudioSource audioSource;                     // 두 경우를 하나의 저장해서 다른 곳에서 불러오게 한다 
 
    void Awake(){
 
@@ -35,10 +35,10 @@ public class SoundEffectes : MonoBehaviour
  
    public void PlaySound(string action) {
        switch(action) {
-           case "ATTACK":
+           case "ATTACK":                                   // 공격을 당했을 때
                 audioSource.clip = audioAttack;
                 break;
-            case "DIE" :
+            case "DIE" :                                    // 죽었을 때
                 audioSource.clip =  audioDie;
                 break;
 
