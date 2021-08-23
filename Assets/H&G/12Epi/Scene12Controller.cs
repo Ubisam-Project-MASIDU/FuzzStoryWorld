@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Scene12Controller : MonoBehaviour {
+
+    private enum GameResult {
+        Win,
+        Over
+    }
     private VoiceManager mvm_VoiceManager;
     [SerializeField]
     private GameObject mgo_WinHAGPos;
@@ -14,7 +19,7 @@ public class Scene12Controller : MonoBehaviour {
         set {
             mst_HAGStatus.HP = value;
             if (mst_HAGStatus.HP <= 0f) {
-                DisplayGameOverUI();
+                DisplayUI(GameResult.Over);
                 WitchTakeOnHAG();
             }
         }
@@ -33,7 +38,18 @@ public class Scene12Controller : MonoBehaviour {
             return mst_WitchStatus;
         }
     }
-
+    public float WitchHP {
+        set {
+            mst_WitchStatus.HP = value;
+            if (mst_WitchStatus.HP <= 0f) {
+                DisplayUI(GameResult.Win);
+                HAGMoveRewardStage();
+            }
+        }
+        get {
+            return mst_WitchStatus.HP;
+        }
+    }
     void Awake() {
         mvm_VoiceManager = FindObjectOfType<VoiceManager>();
         mst_HAGStatus = new Status(20f, 2f, 10f, Status.Character.HAG);
@@ -43,21 +59,47 @@ public class Scene12Controller : MonoBehaviour {
         // mvm_VoiceManager.playVoice()
     }
 
-    void DisplayGameOverUI() {
+    void DisplayUI(GameResult grResult) {
         GameObject go_UI = GameObject.Find("UI");
-        go_UI.transform.GetChild(0).gameObject.SetActive(false);
-        go_UI.transform.GetChild(1).gameObject.SetActive(false);
-        go_UI.transform.GetChild(2).gameObject.SetActive(true);
 
-        StartCoroutine(SetBright());
-
+        if (grResult == GameResult.Over) {
+            go_UI.transform.GetChild(0).gameObject.SetActive(false);
+            go_UI.transform.GetChild(1).gameObject.SetActive(false);
+            go_UI.transform.GetChild(2).gameObject.SetActive(true);
+            StartCoroutine(SetWinBright());
+        } else {
+            go_UI.transform.GetChild(0).gameObject.SetActive(false);
+            go_UI.transform.GetChild(1).gameObject.SetActive(false);
+            go_UI.transform.GetChild(3).gameObject.SetActive(true);
+            StartCoroutine(SetOverBright());
+        }
     }
-    IEnumerator SetBright() {
+    IEnumerator SetWinBright() {
         Color c_TempColor = mspr_SetBrightness.color;
 
         for (int i = 100; i >= 0; i--) {
             if (c_TempColor.a <= 0.2f) {
                 c_TempColor.a += Time.deltaTime * 0.8f;               //이미지 알파 값을 타임 델타 값 * 0.01
+            }
+            mspr_SetBrightness.color = c_TempColor;
+            yield return null;
+        }
+    } 
+    IEnumerator SetOverBright() {
+        Color c_TempColor = mspr_SetBrightness.color;
+
+        for (int i = 100; i >= 0; i--) {
+            if (c_TempColor.a <= 0.2f) {
+                c_TempColor.a += Time.deltaTime * 0.8f;               //이미지 알파 값을 타임 델타 값 * 0.01
+            }
+            mspr_SetBrightness.color = c_TempColor;
+            yield return null;
+        }
+        yield return new WaitForSeconds(1f);
+
+        for (int i = 100; i >= 0; i--) {
+            if (c_TempColor.a >= 0f) {
+                c_TempColor.a -= Time.deltaTime * 0.8f;               //이미지 알파 값을 타임 델타 값 * 0.01
             }
             mspr_SetBrightness.color = c_TempColor;
             yield return null;
@@ -73,5 +115,14 @@ public class Scene12Controller : MonoBehaviour {
         go_Witch.SetActive(false);
 
         Destroy(GameObject.Find("HAG"));
+    }
+
+    void HAGMoveRewardStage() {
+        Destroy(GameObject.Find("witch"));
+        transform.GetChild(1).transform.GetChild(5).gameObject.SetActive(true);
+        transform.GetChild(1).transform.GetChild(5).transform.position = GameObject.Find("HAG").transform.position;  
+        GameObject.Find("HAG").GetComponent<HAGMove>().mv3_TargetPos = mgo_WinHAGPos.transform.position;
+        GameObject.Find("HAG").GetComponent<HAGMove>().mb_SetPos = true;
+        GameObject.Find("HAG").GetComponent<HAGMove>().mb_SetWinWalk = true;
     }
 }

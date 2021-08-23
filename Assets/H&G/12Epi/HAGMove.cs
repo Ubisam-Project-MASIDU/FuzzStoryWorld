@@ -26,11 +26,13 @@ public class HAGMove : MonoBehaviour {
     private RaycastHit mrch_CheckMousePosHitObj;            // 레이져를 쏜 곳에 오브젝트가 
     public GameObject mgo_MovementMark;
     private GameObject mgo_PointingTarget;
-    private Vector3 mv3_TargetPos;
-    private bool mb_SetPos = false;
+    public Vector3 mv3_TargetPos;
+    public bool mb_SetPos = false;
     private bool mb_DestroyOnce = false;
     private bool mb_DontWalk = false;
     private bool mb_HAGHit = false;
+    public bool mb_SetWinWalk = false;
+    
     public bool DamagingHAG {
         get {
             return mb_HAGHit;
@@ -83,16 +85,18 @@ public class HAGMove : MonoBehaviour {
     }
     void Update() {
         // walking mouse clicked position...
-        if (Input.GetMouseButtonDown(0)) {
-            mr_CheckMousePosByRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        if (!mb_SetWinWalk) {
+            if (Input.GetMouseButtonDown(0)) {
+                mr_CheckMousePosByRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(mr_CheckMousePosByRay, out mrch_CheckMousePosHitObj, Mathf.Infinity, mn_MaskingCharacters)) {
-                if (mgo_PointingTarget.transform.childCount != 0) {
-                    Destroy(mgo_PointingTarget.transform.GetChild(0).gameObject);
+                if (Physics.Raycast(mr_CheckMousePosByRay, out mrch_CheckMousePosHitObj, Mathf.Infinity, mn_MaskingCharacters)) {
+                    if (mgo_PointingTarget.transform.childCount != 0) {
+                        Destroy(mgo_PointingTarget.transform.GetChild(0).gameObject);
+                    }
+                    Instantiate(mgo_MovementMark, mrch_CheckMousePosHitObj.point + new Vector3(0, 0.5f, 0), mgo_MovementMark.transform.rotation, mgo_PointingTarget.transform);
+                    mv3_TargetPos = mrch_CheckMousePosHitObj.point;
+                    mb_SetPos = true;
                 }
-                Instantiate(mgo_MovementMark, mrch_CheckMousePosHitObj.point + new Vector3(0, 0.5f, 0), mgo_MovementMark.transform.rotation, mgo_PointingTarget.transform);
-                mv3_TargetPos = mrch_CheckMousePosHitObj.point;
-                mb_SetPos = true;
             }
         }
     }
