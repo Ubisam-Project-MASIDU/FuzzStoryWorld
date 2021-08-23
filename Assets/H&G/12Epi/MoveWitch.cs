@@ -36,6 +36,7 @@ public class MoveWitch : MonoBehaviour
             mb_StartRangeAttack = value;
         }
     }
+    // publlic이 private의 get set이 됨. get 값 가져오기 set 값 설정하기
     Animator mani_Witch = null;
     SpriteRenderer spr_InvertWitch;
     Rigidbody rigid;
