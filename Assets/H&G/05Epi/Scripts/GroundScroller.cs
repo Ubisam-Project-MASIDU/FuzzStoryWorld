@@ -35,13 +35,13 @@ public class GroundScroller : MonoBehaviour{
                 // 타일 위치의 X좌표가 -6보다 작을 때 가장 뒤에 있는 타일을 찾아서 가장 뒤에 있는 타일의 X좌표보다 1만큼 더 뒤로 보내줌
                 if(-6f >= ma_tiles[i].transform.position.x){
                     // 가장 뒤(오른쪽)에 있는 타일을 검색하는 방법
-                    for(int j = 0; j < ma_tiles.Length; j++){                                                          // 현재 타일과 변수에 저장된 타일의 X 좌표를 비교하면서
-                        if(temp.transform.position.x < ma_tiles[j].transform.position.x){                              // 현재 타일이 변수가 저장된 타일보다 X좌표가 크면 변수의 타일을 현재 타일로 바꾸어 줌.  
+                    for(int j = 0; j < ma_tiles.Length; j++){                                                             // 현재 타일과 변수에 저장된 타일의 X 좌표를 비교하면서
+                        if(temp.transform.position.x < ma_tiles[j].transform.position.x){                                 // 현재 타일이 변수가 저장된 타일보다 X좌표가 크면 변수의 타일을 현재 타일로 바꾸어 줌.  
                             temp = ma_tiles[j];
                         }
                     }
-                    ma_tiles[i].transform.position = new Vector2(temp.transform.position.x+1, -0.3f);                  // 타일 위치의 X좌표가 -6을 넘어버린 타일은 제일 뒤로 보내줌
-                    ma_tiles[i].sprite = ma_groundImg[Random.Range(0,ma_groundImg.Length)];                                  // 제일 뒤로 보낸 Sprite를 Sprite 배열 중 한개로 랜덤하게 변경해줌
+                    ma_tiles[i].transform.position = new Vector2(temp.transform.position.x+1, -0.3f);                     // 타일 위치의 X좌표가 -6을 넘어버린 타일은 제일 뒤로 보내줌
+                    ma_tiles[i].sprite = ma_groundImg[Random.Range(0,ma_groundImg.Length)];                               // 제일 뒤로 보낸 Sprite를 Sprite 배열 중 한개로 랜덤하게 변경해줌
                 }
             }
             for(int i = 0; i < ma_tiles.Length; i++){
