@@ -8,14 +8,14 @@
  * 2021-08-18 : 코드 획일화 및 주석처리
  *
  * <Variable>
- * Rocks        GameObject형 배열
- * RockPool     GameObject형 리스트
- * objCnt       원하는 조약돌 갯수 지정 변수
+ * ma_Rocks        GameObject형 배열
+ * ml_RockPool     GameObject형 리스트
+ * mn_objCnt       원하는 조약돌 갯수 지정 변수
  *
  * <Function>
  * PlayGame()   게임 재생 메소드
  * DeativRock() 비활성화가 되어았는 오브젝트를 찾기
- * CreateObj()  RockPool에 추가할 오브젝트 복제를 위함
+ * CreateObj()  ml_RockPool에 추가할 오브젝트 복제를 위함
  */
 
 using System.Collections;
@@ -24,14 +24,14 @@ using UnityEngine;
 
 public class RespawnManager : MonoBehaviour{
     // GameObject형 배열과 리스트 선언
-    public GameObject[] Rocks;                                       // 조약돌 prefabs 을 넣어둠, 게임이 시작하면 배열의 prefabs을 복사해서 리스트에 추가하고 관리해 줄거임
-    public List<GameObject> RockPool = new List<GameObject>();
-    public int objCnt = 1;                                           // Inspector 창에서 조약돌 원하는 갯수 지정 가능
+    public GameObject[] ma_Rocks;                                    // 조약돌 prefabs 을 넣어둠, 게임이 시작하면 배열의 prefabs을 복사해서 리스트에 추가하고 관리해 줄거임
+    public List<GameObject> ml_RockPool = new List<GameObject>();
+    public int mn_objCnt = 1;                                        // Inspector 창에서 조약돌 원하는 갯수 지정 가능
 
     void Awake(){
-        for(int i = 0; i < Rocks.Length; i++){
-            for (int q = 0; q < objCnt; q++){                       // 조약돌 배열의 prefab을 원하는 수 만큼 생성해서 RockPool 리스트에 추가 
-                RockPool.Add(CreateObj(Rocks[i], transform));
+        for(int i = 0; i < ma_Rocks.Length; i++){
+            for (int q = 0; q < mn_objCnt; q++){                     // 조약돌 배열의 prefab을 원하는 수 만큼 생성해서 ml_RockPool 리스트에 추가 
+                ml_RockPool.Add(CreateObj(ma_Rocks[i], transform));
             }
         }
     }
@@ -43,9 +43,9 @@ public class RespawnManager : MonoBehaviour{
     // PlayGame 메소드 생성
     void PlayGame(bool isplay){
         // 모든 조약돌 비활성화 상태로 만들기
-        for (int i = 0; i < RockPool.Count; i++){                   
-            if(RockPool[i].activeSelf){                             // 조약돌이 활성화가 되어있다면
-                RockPool[i].SetActive(false);                       // 비활성화 시키기
+        for (int i = 0; i < ml_RockPool.Count; i++){                   
+            if(ml_RockPool[i].activeSelf){                          // 조약돌이 활성화가 되어있다면
+                ml_RockPool[i].SetActive(false);                    // 비활성화 시키기
             }
         }
         if(isplay){                                                 // 게임이 진행중이면
@@ -58,8 +58,8 @@ public class RespawnManager : MonoBehaviour{
     //Coroutine을 사용해서 정해진 시간마다 List의 조약돌 중 한개를 랜덤으로 뽑아 활성화
     IEnumerator CreateRock(){
         yield return new WaitForSeconds(0.5f);                      // Coroutine의 While문을 0.5초 뒤에 실행
-        while(GameManager.instance.isPlay){                         // 게임이 진행중인 동안
-            RockPool[DeativRock()].SetActive(true);                // 비활성화 되어있는 오브젝트(조약돌) 활성화
+        while(GameManager.instance.mb_isPlay){                      // 게임이 진행중인 동안
+            ml_RockPool[DeativRock()].SetActive(true);              // 비활성화 되어있는 오브젝트(조약돌) 활성화
             yield return new WaitForSeconds(Random.Range(1f,3f));   // 괄호 안에 숫자만큼 (1초에서 3초 사이 랜덤으로) 기다렸다가 다음 줄을 진행
         }
     }
@@ -67,9 +67,9 @@ public class RespawnManager : MonoBehaviour{
     // 비활성화가 되어았는 오브젝트를 찾기
     int DeativRock(){
         List<int>num = new List<int>();                             //정수형 리스트 생성
-        for (int i = 0; i < RockPool.Count; i++){
+        for (int i = 0; i < ml_RockPool.Count; i++){
             //비활성된 오브젝트를 찾아서
-            if(!RockPool[i].activeSelf){ 
+            if(!ml_RockPool[i].activeSelf){ 
                 //순번을 정수형 리스트에 추가
                 num.Add(i); 
             }

@@ -9,11 +9,12 @@
  * 2021-08-19 : 효과음 재생 추가
  *
  * <Variable>
- * gameSpeed                ground와 조약돌의 속도 조절 변수
- * isPlay                   게임이 시작됬는지 구분하는 변수
- * playBtn                  게임 시작 버튼 연결
- * nextBtn                  게임 끝 버튼 연결
- * SoundManager             효과음 재생 연결 오브젝트
+ * mf_gameSpeed                ground와 조약돌의 속도 조절 변수
+ * mb_isPlay                   게임이 시작됬는지 구분하는 변수
+ * mg_playBtn                  게임 시작 버튼 연결
+ * mg_nextBtn                  게임 끝 버튼 연결
+ * mg_Mission                  미션 스크립트 연결
+ * mg_SoundManager             효과음 재생 연결 오브젝트
  *
  * <Function>
  * PlayBtnClick()           게임 시작 버튼을 클릭하면 호출할 매소드
@@ -29,8 +30,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
-{
+public class GameManager : MonoBehaviour{
     //싱글톤 패턴 구현
     #region instance
     /*
@@ -49,35 +49,35 @@ public class GameManager : MonoBehaviour
     }
     #endregion
     
-    public float gameSpeed = 1;
-    public bool isPlay = false;
-    public GameObject playBtn;
-    public GameObject nextBtn;
-    public GameObject Mission;
+    public float mf_gameSpeed = 1;
+    public bool mb_isPlay = false;
+    public GameObject mg_playBtn;
+    public GameObject mg_nextBtn;
+    public GameObject mg_Mission;
 
-    public delegate void OnPlay(bool isplay); // 게임 시작 버튼이 눌리면 RespawnManager의 Coroutine이 작동되게 해주기
+    public delegate void OnPlay(bool b_isplay); // 게임 시작 버튼이 눌리면 RespawnManager의 Coroutine이 작동되게 해주기
     public OnPlay onPlay; // delegate 생성
 
-    GameObject SoundManager;
+    GameObject mg_SoundManager;
 
     void Start(){
-        SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
+        mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
     }
     // 게임 시작 버튼을 클릭하면 호출할 매소드
     public void PlayBtnClick(){ 
-        SoundManager.GetComponent<SoundManager>().playSound("Start");   // 시작 버튼 효과음 재생
-        playBtn.SetActive(false);   // 게임 시작 버튼 비활성화
-        Mission.SetActive(false);   // 미션 창 비활성화
-        isPlay = true;              // 게임 시작
-        onPlay.Invoke(isPlay);      // delegate 호출
+        mg_SoundManager.GetComponent<SoundManager>().playSound("Start");   // 시작 버튼 효과음 재생
+        mg_playBtn.SetActive(false);   // 게임 시작 버튼 비활성화
+        mg_Mission.SetActive(false);   // 미션 창 비활성화
+        mb_isPlay = true;              // 게임 시작
+        onPlay.Invoke(mb_isPlay);      // delegate 호출
     }
 
     // 게임 끝 버튼을 클릭하면 호출할 매소드
     public void GameOver(){
-        SoundManager.GetComponent<SoundManager>().playSound("End");     // 게임 끝 버튼 효과음 재생
-        nextBtn.SetActive(true);    // 게임 끝 버튼 활성화
-        isPlay = false;             // 게임 끝
-        onPlay.Invoke(isPlay);      
+        mg_SoundManager.GetComponent<SoundManager>().playSound("End");     // 게임 끝 버튼 효과음 재생
+        mg_nextBtn.SetActive(true);    // 게임 끝 버튼 활성화
+        mb_isPlay = false;             // 게임 끝
+        onPlay.Invoke(mb_isPlay);      
     } 
 
     public void nextScene(){        // 다음씬으로
