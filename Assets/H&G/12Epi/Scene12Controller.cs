@@ -104,6 +104,8 @@ public class Scene12Controller : MonoBehaviour {
             mspr_SetBrightness.color = c_TempColor;
             yield return null;
         }
+        transform.GetChild(1).transform.GetChild(5).gameObject.SetActive(false);
+
     } 
 
     void WitchTakeOnHAG() {
@@ -119,10 +121,12 @@ public class Scene12Controller : MonoBehaviour {
 
     void HAGMoveRewardStage() {
         Destroy(GameObject.Find("witch"));
+        Destroy(GameObject.Find("HAG"));
         transform.GetChild(1).transform.GetChild(5).gameObject.SetActive(true);
         transform.GetChild(1).transform.GetChild(5).transform.position = GameObject.Find("HAG").transform.position;  
-        GameObject.Find("HAG").GetComponent<HAGMove>().mv3_TargetPos = mgo_WinHAGPos.transform.position;
-        GameObject.Find("HAG").GetComponent<HAGMove>().mb_SetPos = true;
-        GameObject.Find("HAG").GetComponent<HAGMove>().mb_SetWinWalk = true;
+        GameObject.Find("Main Camera").transform.parent = transform.GetChild(1).transform.GetChild(5).transform;
+        GameObject.Find("EndHAG").GetComponent<HAGMove>().mv3_TargetPos = mgo_WinHAGPos.transform.position;
+        GameObject.Find("EndHAG").GetComponent<HAGMove>().mb_SetPos = true;
+        GameObject.Find("EndHAG").GetComponent<HAGMove>().mb_SetWinWalk = true;
     }
 }
