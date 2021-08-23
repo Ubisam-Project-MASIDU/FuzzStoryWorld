@@ -1,24 +1,26 @@
 /*
- * - Name : TrashMonsterMove.cs
+ * - Name : MoveTrashMonster.cs
  * - Writer : 이병권
  * - Content : 헨젤과그레텔Epi10 - 자동으로 쓰레기 몬스터 들이 움직이는 스크렙
   
- * - HISTORY (수정기록)
+ * 1. HISTORY (수정기록)
  * 1) 2021-08-5 : 초기 개발
  * 2) 2021-08-9 : 파일 인코딩 수정
  * 3) 2021-08-11 : 주석 처리 수정
+ * 4) 2021-08-23 : 주석 수정
  
- * <Function> 쓴것들에 대하여 설명
- * currentPostion : 현제 위치표시 하는 변수
- * rightMax : 캐릭터가 좌로 움직일 수 있는 총량 설정하는 변수
- * leftMax : 캐릭터가 우로 움직일 수 있는 총량 설정하는 변수
- * direction : 캐릭터가 움직일 때 이동하는 속도와 방향
+ * 2. <Function> 쓴것들에 대하여 설명
+ * 1) currentPostion : 현제 위치표시 하는 변수
+ * 2) rightMax : 캐릭터가 좌로 움직일 수 있는 총량 설정하는 변수
+ * 3) leftMax : 캐릭터가 우로 움직일 수 있는 총량 설정하는 변수
+ * 4) direction : 캐릭터가 움직일 때 이동하는 속도와 방향
+ *  
  */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrashMonsterMove : MonoBehaviour{
+public class ActiveTrashMonster : MonoBehaviour{
     float rightMax = 7.0f;                              // 좌로 이동가능한 (x)최대값
     float leftMax = -3.0f;                              // 우로 이동가능한 (x)최대값
     float currentPosition;                              // 현재 위치(x) 저장

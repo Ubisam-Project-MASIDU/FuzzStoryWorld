@@ -1,15 +1,15 @@
-/*
- * - Name : ResetButton.cs
- * - Writer : ±è¸íÇö
+ï»¿/*
+ * - Name : Treasure.cs
+ * - Writer : ê¹€ëª…í˜„
  * 
  * - Content :
- * º¸¹°À» Á¡¼ö¿¡µû¶ó Á¡Á¡ Áõ°¡½ÃÅ°´Â ½ºÅ©¸³Æ®
+ * ë³´ë¬¼ì„ ì ìˆ˜ì—ë”°ë¼ ì ì  ì¦ê°€ì‹œí‚¤ëŠ” ìŠ¤í¬ë¦½íŠ¸
  * 
  * - History
- * 1) 2021-08-20 : Á¡¼ö¿¡ µû¶ó Á¡Á¡ º¸¹°ÀÌ Áõ°¡µÇ°Ô ¼³Á¤
+ * 1) 2021-08-20 : ì ìˆ˜ì— ë”°ë¼ ì ì  ë³´ë¬¼ì´ ì¦ê°€ë˜ê²Œ ì„¤ì •
  * 
  * - Variable 
- * mg_GameDirector                      °ÔÀÓ µğ·ºÅÍ ¿ÀºêÁ§Æ®¿¡ Á¢±ÙÇÏ±â À§ÇÑ º¯¼ö
+ * mg_GameDirector                      ê²Œì„ ë””ë ‰í„° ì˜¤ë¸Œì íŠ¸ì— ì ‘ê·¼í•˜ê¸° ìœ„í•œ ë³€ìˆ˜
  * 
  * - Function   
  * 
@@ -20,7 +20,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// º¸¹°À» Á¡¼ö¿¡µû¶ó Á¡Á¡ Áõ°¡½ÃÅ°´Â ½ºÅ©¸³Æ®
+// ë³´ë¬¼ì„ ì ìˆ˜ì—ë”°ë¼ ì ì  ì¦ê°€ì‹œí‚¤ëŠ” ìŠ¤í¬ë¦½íŠ¸
 public class Treasure : MonoBehaviour
 {
     GameObject mg_GameDirector;

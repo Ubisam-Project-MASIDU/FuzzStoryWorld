@@ -93,4 +93,4 @@ public class BONE : MonoBehaviour {
     void HitWitch() {
         mst_WitchStatus.HP -= mst_HAGStatus.AttackDamage;
     }
-}
+} 

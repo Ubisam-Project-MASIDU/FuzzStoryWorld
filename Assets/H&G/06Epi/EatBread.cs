@@ -44,26 +44,18 @@ public class EatBread : MonoBehaviour
 
     // 음성출력에 필요한 변수들
     private VoiceManager mvm_VoiceManager; 
-    private bool mb_PlayOnce = false;
-    private bool mb_TellOnce = false;
 
     // 나레이션 출력
     void Start() {
-        mvm_VoiceManager = GameObject.Find("VoiceManager").GetComponent<VoiceManager>();
+        mvm_VoiceManager = FindObjectOfType<VoiceManager>();
+        mvm_VoiceManager.playVoice(6);
     }
     
     void Update() {
-        // 나레이션 한번 출력 
-        if(mvm_VoiceManager.mb_checkSceneReady && !mb_PlayOnce) {
-            mvm_VoiceManager.playVoice(0);
-            mb_PlayOnce = true;
-        }
-        
         // 음성 출력이 끝나면 다음 씬으로 이동
-        if(mvm_VoiceManager.isPlaying() == false && mvm_VoiceManager.mb_checkSceneReady && !mb_TellOnce) {
+        if(mvm_VoiceManager.isPlaying() == false) {
             Time.timeScale = 1;
             ChangeNextScene();  
-            mb_TellOnce = true;
         }
 
         if(Mathf.Abs(mgo_BigBread.transform.position.x - transform.position.x) < 1.0 && mb_CheckBread) {

@@ -11,18 +11,17 @@
  * 2) 2021-08-9 : 파일 인코딩 수정
  * 3) 2021-08-11 : 주석 처리 수정
  
- * <Variable> 쓴것들에 대하여 설명
- * mv2_mouseDragPosition        마우스 위치를 저장하는 벡터
- * mv2_worldObjectPosition      카메라의 월드좌표로 변환을 위한 벡터
+ * - <Variable> 쓴것들에 대하여 설명
+ * 1) mv2_mouseDragPosition        마우스 위치를 저장하는 벡터
+ * 2) mv2_worldObjectPosition      카메라의 월드좌표로 변환을 위한 벡터
  *
- * <Function>
- * OnMouseDown()                오브젝트를 클릭한 경우
- * OnMouseDrag()                오브젝트를 드래그한 경우
- * OnMouseUp()                  오브젝트에서 손을 떼는 경우
-
- * OnTriggerEnter : 해당 트리거 콜라이더와 트리거와 접촉한 강체(or 강체가 없다면 콜라이더)로 보내집니다 (충돌)
- * cCollider.tag : 충돌해야 하는 물체를 이름을 설정해서 지정해주는 것
- * Destory : 충돌하였을 때 사라지게 하는 것
+ * - <Function>
+ * 1) OnMouseDown()                오브젝트를 클릭한 경우
+ * 2) OnMouseDrag()                오브젝트를 드래그한 경우
+ * 3) OnMouseUp()                  오브젝트에서 손을 떼는 경우
+ * 4) OnTriggerEnter : 해당 트리거 콜라이더와 트리거와 접촉한 강체(or 강체가 없다면 콜라이더)로 보내집니다 (충돌)
+ * 5) cCollider.tag : 충돌해야 하는 물체를 이름을 설정해서 지정해주는 것
+ * 6) Destory : 충돌하였을 때 사라지게 하는 것
  */
 
 
