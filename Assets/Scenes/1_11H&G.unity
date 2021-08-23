@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mn_PlayVoiceIndex: 9
-  ms_ChangeNextSceneName: 1_12H&G
+  ms_ChangeNextSceneName: 1_11H&G_Game
 --- !u!212 &2115427295
 SpriteRenderer:
   m_ObjectHideFlags: 0
