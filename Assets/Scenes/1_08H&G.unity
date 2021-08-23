@@ -1463,6 +1463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mn_PlayVoiceIndex: 8
+  ms_ChangeNextSceneName: 1_08H&G_Game
 --- !u!61 &1043450237
 BoxCollider2D:
   m_ObjectHideFlags: 0

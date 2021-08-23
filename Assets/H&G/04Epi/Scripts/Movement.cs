@@ -6,6 +6,7 @@
  * - HISTORY
  * 2021-08-05 : 초기 개발
  * 2021-08-06 : 코드 획일화 및 주석처리
+ * 2021-08-20 : 화면 위치 재설정
  * 2021-08-20 : 이동 속도 재설정
  *
  * <Variable>
@@ -65,24 +66,24 @@ public class Movement : MonoBehaviour
     void Start(){
         mgo_Gratel = GameObject.Find("Gratel");
         mgo_Hansel = GameObject.Find("Hansel");
-        mv3_GratelPos = new Vector3(-1.5f,6.8f,-6.0f);                          // 그레텔 이동할 목표위치 
-        mv3_HanselPos = new Vector3(0.4f,7.0f,-6.0f);
+        mv3_GratelPos = new Vector3(-1.5f,1.0f,-6.5f);                          // 그레텔 이동할 목표위치 
+        mv3_HanselPos = new Vector3(0.4f,1.2f,-6.5f);
 
         mgo_Dad = GameObject.Find("Dad");
         mgo_Mom = GameObject.Find("Mom");
-        mv3_DadPos = new Vector3(-13.0f,7.5f,-6.0f);
-        mv3_MomPos = new Vector3(-12.0f,7.5f,-6.0f);
+        mv3_DadPos = new Vector3(-14.0f,1.5f,-7.0f);
+        mv3_MomPos = new Vector3(-10.0f,1.5f,-7.0f);
 
         mgo_RockRight = GameObject.Find("rockright");
         mgo_RockMid = GameObject.Find("rockmid");
         mgo_RockLeft = GameObject.Find("rockleft");
         
-        mv3_RockRightPosBefore = new Vector3(0.4f,6.0f,-6.0f);
-        mv3_RockMidPosBefore = new Vector3(0.4f,6.0f,-6.0f);
-        mv3_RockLeftPosBefore = new Vector3(0.4f,6.0f,-6.0f);
-        mv3_RockRightPosAfter = new Vector3(9.0f,5.7f,-6.0f);
-        mv3_RockMidPosAfter = new Vector3(6.0f,5.7f,-6.0f);
-        mv3_RockLeftPosAfter = new Vector3(3.0f,5.7f,-6.0f);
+        mv3_RockRightPosBefore = new Vector3(0.3f,0.5f,-6.5f);
+        mv3_RockMidPosBefore = new Vector3(0.3f,0.5f,-6.5f);
+        mv3_RockLeftPosBefore = new Vector3(0.3f,0.5f,-6.5f);
+        mv3_RockRightPosAfter = new Vector3(9.0f,-0.5f,-6.5f);
+        mv3_RockMidPosAfter = new Vector3(6.0f,-0.5f,-6.5f);
+        mv3_RockLeftPosAfter = new Vector3(3.0f,-0.5f,-6.5f);
     }
 
     void Update(){
@@ -96,11 +97,11 @@ public class Movement : MonoBehaviour
         ChangePosition(mgo_RockMid,mv3_RockMidPosBefore,1.0f);                 // 두번째 돌 이동
         ChangePosition(mgo_RockLeft,mv3_RockLeftPosBefore,1.0f);               // 세번째 돌 이동
 
-        if(mgo_Hansel.transform.position.x <= 8) {
+        if(mgo_Hansel.transform.position.x <= 7.5) {
             ChangePosition(mgo_RockRight,mv3_RockRightPosAfter,3.0f);          // 첫번째 돌 떨어뜨리기
-            if(mgo_Hansel.transform.position.x <= 5) {
+            if(mgo_Hansel.transform.position.x <= 4.5) {
                 ChangePosition(mgo_RockMid,mv3_RockMidPosAfter,3.0f);          // 두번째 돌 떨어뜨리기
-                if(mgo_Hansel.transform.position.x <= 2) {
+                if(mgo_Hansel.transform.position.x <= 1.5) {
                     ChangePosition(mgo_RockLeft,mv3_RockLeftPosAfter,3.0f);    // 세번째 돌 떨어뜨리기    
                 }
             }

@@ -641,6 +641,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].sf_pitch
+      value: 3.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
       propertyPath: mvifl_SetVoiceInfoList.Array.data[0].sstr_Words
       value: "\uC548\uB155\uD558\uC138\uC694"
       objectReference: {fileID: 0}
@@ -710,6 +715,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].sstr_words
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
       propertyPath: mvifl_SetVoiceInfoList.Array.data[0].sf_SpeakingRate
       value: 1
       objectReference: {fileID: 0}
@@ -751,6 +761,11 @@ PrefabInstance:
     - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[18].sf_speakingRate
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467370110106301, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[19].sf_speakingRate
       value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
@@ -1412,15 +1427,15 @@ PrefabInstance:
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[9].sstr_words
-      value: Hansel and Gretel put out the bones instead of their hands. After a
+      value: Hansel and Gretel pull out the bones instead of their hands. After a
         long time, the witch, who couldn't stand it, tried to eat both. The frightened
         children tried to escape from the witch.
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[10].sstr_words
-      value: The witch called Hansel and Gretel servants and checked the children's
-        hands every day to see if they had gained weight.
+      value: The witch handeled Hansel and Gretel likes servants and checked the
+        children's hands every day to see if they had gained weight.
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
