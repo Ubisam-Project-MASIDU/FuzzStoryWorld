@@ -33,7 +33,7 @@ public class SceneControl : MonoBehaviour
     { 
             if (!mb_PlayFirstVoice)
             {                                                             // 나레이션1 실행조건 검사
-                mvm_VoiceManager.playVoice(16);
+                mvm_VoiceManager.playVoice(17);
                 mb_PlayFirstVoice = true;
                 Invoke("SecondEvent", 4f);
                 Invoke("ThirdEvent", 8f);
@@ -79,6 +79,7 @@ public class SceneControl : MonoBehaviour
     {
         mg_WitchText.SetActive(false);
         mt_Text.text = "\n       사실 그 할머니는 아이들을 잡아먹는 무서운 마녀였어요.        \n";
+        mvm_VoiceManager.playVoice(18);
         Debug.Log("3");// 나레이션1과 playVoice(0) 연결됨
     }
 

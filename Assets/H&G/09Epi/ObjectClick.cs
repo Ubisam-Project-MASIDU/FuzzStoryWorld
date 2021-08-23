@@ -20,7 +20,6 @@
  *  mb_witchToHomeFlag                            마녀가 집으로 돌아가도 되는지 확인해주는 flag
  *  ms_WitchWithcHAG                              헨젤,그레텔과 같이 있는 마녀 spirte 연결
  *  mspra_ClickObject                             클릭한 오브젝트를 저장하는 배열
- *  
  *  mv3_PlantPos                                  오브젝트 위치 설정 -> Plant 연결
  *  mv3_CauldronPos                               오브젝트 위치 설정 -> Cauldron 연결
  *  mv3_TreePos                                   오브젝트 위치 설정 -> Tree 연결
@@ -61,7 +60,6 @@ public class ObjectClick : MonoBehaviour {
     public Sprite ms_WitchWithcHAG;
     private SpriteRenderer[] mspra_ClickObject = new SpriteRenderer[6];
 
-
     // 오브젝트 위치 설정
     private Vector3 mv3_PlantPos = new Vector3(-4.8f, 6.1f, -4.4f);
     private Vector3 mv3_CauldronPos = new Vector3(13.3f, 11.3f, 1.7f);
@@ -75,9 +73,6 @@ public class ObjectClick : MonoBehaviour {
     private SceneControl msc_TextFinishFlag;
     public SceneControl msc_Vibrate;
 
-    // 파티클 접근 변수
-    public ParticleSystem[] mptsa_Particle = new ParticleSystem[6];
-    
     void Start(){     
         msc_TextFinishFlag = GameObject.Find("GameControl").GetComponent<SceneControl>();
         msc_Vibrate = GameObject.Find("GameControl").GetComponent<SceneControl>();
