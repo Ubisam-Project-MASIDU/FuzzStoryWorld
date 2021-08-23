@@ -3,7 +3,8 @@ guid: c339f37822e05a2449c1c6ddeaa42840
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - mg_ItemPopEffect: {fileID: 100000, guid: f2dba9e16cd347f44a395b8204544ee5, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
