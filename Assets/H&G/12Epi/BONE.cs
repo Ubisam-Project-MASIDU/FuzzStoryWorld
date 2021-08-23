@@ -30,6 +30,7 @@ public class BONE : MonoBehaviour {
     public Transform BonePos;
     public Transform HAG;
     private Status mst_WitchStatus;
+    private Scene12Controller ms12c_CharacterInfo;
     private Status mst_HAGStatus;
     public GameObject mgo_BonePrefab;
     private GameObject mgo_IntantBone;
@@ -37,8 +38,7 @@ public class BONE : MonoBehaviour {
     public bool mb_DelayThrowing = false;
 
     void Start() {
-        mst_WitchStatus = GameObject.Find("GameController").GetComponent<Scene12Controller>().WitchStatus;
-        mst_HAGStatus = GameObject.Find("GameController").GetComponent<Scene12Controller>().HAGStatus;
+        ms12c_CharacterInfo = GameObject.Find("GameController").GetComponent<Scene12Controller>();
     }
     void FixedUpdate() {
         if (mb_SetPos) {
@@ -91,6 +91,6 @@ public class BONE : MonoBehaviour {
     }
     
     void HitWitch() {
-        mst_WitchStatus.HP -= mst_HAGStatus.AttackDamage;
+        ms12c_CharacterInfo.WitchHP -= ms12c_CharacterInfo.HAGStatus.AttackDamage;
     }
 } 
