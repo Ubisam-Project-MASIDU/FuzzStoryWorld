@@ -521,7 +521,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uD765\uBD80\uC640\uB180"
+  m_Text: "\uD765\uBD80\uC640\uB180\uBD80"
 --- !u!222 &241067331
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -830,7 +830,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uB85C\uBE48"
+  m_Text: "\uC7AD\uACFC\uCF69\uB098\uBB34"
 --- !u!222 &485383177
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1052,7 +1052,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Padding:
-    m_Left: 10
+    m_Left: 50
     m_Right: 150
     m_Top: 0
     m_Bottom: 0
@@ -1294,7 +1294,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBC31\uC124\uACF5"
+  m_Text: "\uBC31\uC124\uACF5\uC8FC"
 --- !u!222 &897395335
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2290,7 +2290,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 477295091}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.48
+  m_Size: 0.4608295
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2673,7 +2673,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uCF69\uC950\uD325"
+  m_Text: "\uCF69\uC950\uD325\uC950"
 --- !u!222 &1982274300
 CanvasRenderer:
   m_ObjectHideFlags: 0
