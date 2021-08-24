@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: cf8df4100f7785543b34efbb19faa148
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audioKorean: {fileID: 8300000, guid: 9893aa8fc61774648b2916c3dd2dce2b, type: 3}
+  - audioEnglisch: {fileID: 8300000, guid: 9893aa8fc61774648b2916c3dd2dce2b, type: 3}
+  - audioJapan: {fileID: 8300000, guid: 9893aa8fc61774648b2916c3dd2dce2b, type: 3}
+  - audioChina: {fileID: 8300000, guid: 9893aa8fc61774648b2916c3dd2dce2b, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

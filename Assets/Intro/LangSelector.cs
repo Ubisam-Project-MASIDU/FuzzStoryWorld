@@ -42,24 +42,28 @@ public class LangSelector : MonoBehaviour {
                         transform.DetachChildren();
                         mgo_VMController.SetActive(true);
                         mgo_VMController.GetComponent<VMController>().SetCountry(VMController.Country.KR);
+                        GetComponent<SoundsEffectesintro>().PlaySound("Korean");
                         break;
                     case "ENImage": 
                         mgo_VMController = transform.GetChild(0).gameObject;
                         transform.DetachChildren();
                         mgo_VMController.SetActive(true);
                         mgo_VMController.GetComponent<VMController>().SetCountry(VMController.Country.EN);
+                        GetComponent<SoundsEffectesintro>().PlaySound("Englisch");
                         break;
                     case "JPImage": 
                         mgo_VMController = transform.GetChild(0).gameObject;
                         transform.DetachChildren();
                         mgo_VMController.SetActive(true);
                         mgo_VMController.GetComponent<VMController>().SetCountry(VMController.Country.JP);
+                        GetComponent<SoundsEffectesintro>().PlaySound("Japan");
                         break;
                     case "CNImage": 
                         mgo_VMController = transform.GetChild(0).gameObject;
                         transform.DetachChildren();
                         mgo_VMController.SetActive(true);
                         mgo_VMController.GetComponent<VMController>().SetCountry(VMController.Country.CN);
+                        GetComponent<SoundsEffectesintro>().PlaySound("China");
                         break;
                  }
              }
