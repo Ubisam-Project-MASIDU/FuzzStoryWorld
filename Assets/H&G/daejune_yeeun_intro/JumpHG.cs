@@ -26,7 +26,7 @@ public class JumpHG : MonoBehaviour {
     public GameObject mv3_TargetPos;
     private bool mb_CheckOnceJump = true;
 
-    void Update() {
+    void Update() {z
         if (Mathf.Abs(mv3_TargetPos.transform.position.x - transform.position.x) < 0.001 && mb_CheckOnceJump) {
             Invoke("jump", 1.5f); 
             mb_CheckOnceJump = false;
