@@ -47,7 +47,7 @@ public class DoorClickEvent : MonoBehaviour{
     private bool mb_PlaySecondVoice = false;                                                                                        // 두번째 나레이션의 실행 유무를 위한 flag
 
     public GameObject mg_Popup;                                                                                                     // 팝업창 오브젝트 연결을 위한 변수
-
+    
     void Start(){
         //vm = FindObjectOfType<VMController>(); /////////////////////////////////////////////
         
@@ -67,7 +67,12 @@ public class DoorClickEvent : MonoBehaviour{
         mg_DoorClickBlink.SetActive(false);                                                                                         // 처음에는 문 클릭 지시 애니메이션을 비활성화
 
         mg_Popup.SetActive(false);
-        
+
+        if (PlayerPrefs.GetInt("SkipGame") == 1)
+        {
+            mg_Gretel.transform.position = new Vector3(9.28f, mg_Gretel.transform.position.y, mg_Gretel.transform.position.z);
+            mg_Hansel.transform.position = new Vector3(7.48f, mg_Hansel.transform.position.y, mg_Hansel.transform.position.z);
+        }
     }
     
     void Update(){
@@ -101,6 +106,7 @@ public class DoorClickEvent : MonoBehaviour{
             }else{                                                                                                                  // 문에 도착했다면
                 mg_DoorClickBlink.SetActive(false);                                                                                 // 문 클릭 지시 애니메이션을 비활성화
                 mt_Text.text = "\n           가난을 못 버티고 부모님은 헨젤과 그레텔을 숲속에 버리려 계획했어요.        \n";        // 문 클릭 이벤트 끝난 뒤 다음 자막 출력
+
                 mvm_VoiceManager.playVoice(13);                                                                                      // 자막과 함께 나레이션2 출력
                 mb_PlaySecondVoice = true;                                                                                          // 나레이션2 출력 완료
             }
@@ -111,9 +117,8 @@ public class DoorClickEvent : MonoBehaviour{
     void v_TutorialText(){
         if(PlayerPrefs.GetInt("SkipGame") == 1)
         {
-            mg_Gretel.transform.position = new Vector3(9.28f, mg_Gretel.transform.position.y, mg_Gretel.transform.position.z);
-            mg_Hansel.transform.position = new Vector3(7.48f, mg_Hansel.transform.position.y, mg_Hansel.transform.position.z);
             mt_Text.text = "\n           가난을 못 버티고 부모님은 헨젤과 그레텔을 숲속에 버리려 계획했어요.        \n";        // 문 클릭 이벤트 끝난 뒤 다음 자막 출력
+            
             mvm_VoiceManager.playVoice(13);                                                                                      // 자막과 함께 나레이션2 출력
             mb_PlaySecondVoice = true;                                                                                          // 나레이션2 출력 완료
         }

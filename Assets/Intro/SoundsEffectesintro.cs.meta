@@ -5,7 +5,7 @@ MonoImporter:
   serializedVersion: 2
   defaultReferences:
   - audioKorean: {fileID: 8300000, guid: 9893aa8fc61774648b2916c3dd2dce2b, type: 3}
-  - audioEnglisch: {fileID: 8300000, guid: 9893aa8fc61774648b2916c3dd2dce2b, type: 3}
+  - audioEnglish: {fileID: 8300000, guid: 9893aa8fc61774648b2916c3dd2dce2b, type: 3}
   - audioJapan: {fileID: 8300000, guid: 9893aa8fc61774648b2916c3dd2dce2b, type: 3}
   - audioChina: {fileID: 8300000, guid: 9893aa8fc61774648b2916c3dd2dce2b, type: 3}
   executionOrder: 0
