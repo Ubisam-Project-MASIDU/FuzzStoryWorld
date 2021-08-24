@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: c7b1c91afb1507745b810550483a7f15
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audioJumpandEnter: {fileID: 8300000, guid: bf41ac2f4fd43d34c9aa3d641f32aa48, type: 3}
+  - audioWalking: {fileID: 8300000, guid: 0c039177e400f264cb12fcde7f718eb6, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

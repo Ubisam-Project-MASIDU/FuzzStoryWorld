@@ -32,8 +32,9 @@ public class GenerateEffect : MonoBehaviour
 
     // 책과 헤네젤과그레텔이 부딪히면, 1초후에, 다음씬으로 넘어가도록 하였다.
     void OnTriggerEnter(Collider cCollider) {
+        GetComponent<SoundsEffectsSprash>().PlaySound("Enter");  
         Destroy(mg_RepresentChar);
-        this.transform.GetChild(0).gameObject.SetActive(true);
+        this.transform.GetChild(0).gameObject.SetActive(true);  
         Invoke("v_loadNextScene", 1f);
     }
 

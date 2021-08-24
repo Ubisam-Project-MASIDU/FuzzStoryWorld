@@ -28,7 +28,7 @@ public class JumpHG : MonoBehaviour {
 
     void Update() {
         if (Mathf.Abs(mv3_TargetPos.transform.position.x - transform.position.x) < 0.001 && mb_CheckOnceJump) {
-            Invoke("jump", 1.5f);
+            Invoke("jump", 1.5f); 
             mb_CheckOnceJump = false;
         } else {
             transform.position = Vector3.Slerp(transform.position, mv3_TargetPos.transform.position, 0.4f * Time.deltaTime);
