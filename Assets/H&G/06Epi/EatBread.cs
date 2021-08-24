@@ -11,6 +11,7 @@
  * 2) 2021-08-06 : 개발 수정
  * 3) 2021-08-09 : 코드 획일화 및 주석처리
  * 4) 2021-08-10 : 주석 수정
+ * 5) 2021-08-24 : 게임건너뛰기 분기점 지정 (김명현)
  *
  * - Variable 
  * mgo_BigBread                                큰빵 게임오브젝트
@@ -41,6 +42,8 @@ public class EatBread : MonoBehaviour
     public GameObject mgo_SmallBread;
     public GameObject mv3_FinalPos;
     private bool mb_CheckBread = true;
+    public GameObject mgo_HAG;
+    public GameObject mgo_TargetPos;
 
     // 음성출력에 필요한 변수들
     private VoiceManager mvm_VoiceManager; 
@@ -53,10 +56,18 @@ public class EatBread : MonoBehaviour
     
     void Update() {
         // 음성 출력이 끝나면 다음 씬으로 이동
-        if(mvm_VoiceManager.isPlaying() == false) {
-            Time.timeScale = 1;
-            ChangeNextScene();  
+         if(mvm_VoiceManager.isPlaying() == false) {
+             Time.timeScale = 1;
+            // 게임 건너뛰기 분기점
+            if (PlayerPrefs.GetInt("SkipGame") == 1) {
+                SceneManager.LoadScene("1_08H&G");
+            }
+            else {
+                ChangeNextScene();
+            }    
         }
+
+        mgo_HAG.transform.position = Vector3.MoveTowards(mgo_HAG.transform.position, mgo_TargetPos.transform.position, 0.5f*Time.deltaTime);
 
         if(Mathf.Abs(mgo_BigBread.transform.position.x - transform.position.x) < 1.0 && mb_CheckBread) {
             // 큰 빵이 게임오브젝트와 근사하면
