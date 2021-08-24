@@ -106,6 +106,10 @@ public class ObjectClick : MonoBehaviour {
             mg_Witch.GetComponent<MoveWitchToHAG>().enabled = false;
             // 진동애니메이션 비활성화
             msc_Vibrate.vibrate.SetActive(false);
+            // 만약 게임 스킵모드일 경우 미니게임 건너뛰기
+            if(PlayerPrefs.GetInt("SkipGame") == 1){
+                mn_count = 6;
+            }
             // 클릭한 오브젝트가 6개보다 적다면
             if (mn_count < 6) {
                 // 마우스를 왼쪽버튼을 클릭했을때 true반환
