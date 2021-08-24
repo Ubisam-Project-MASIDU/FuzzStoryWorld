@@ -1703,7 +1703,7 @@ PrefabInstance:
     - target: {fileID: 2134027239875846650, guid: 29c66f6e0b4f1458dadb684b604f1058,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.size
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 2134027239875846650, guid: 29c66f6e0b4f1458dadb684b604f1058,
         type: 3}
@@ -1735,6 +1735,12 @@ PrefabInstance:
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[17].sstr_words
       value: Drag the puzzle pieces to complete the puzzle.
+      objectReference: {fileID: 0}
+    - target: {fileID: 2134027239875846650, guid: 29c66f6e0b4f1458dadb684b604f1058,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[18].sstr_words
+      value: Hansel and Gretel, who became rich thanks to the jewels collected from
+        the treasure island, lived happily ever after.
       objectReference: {fileID: 0}
     - target: {fileID: 2134027239875846650, guid: 29c66f6e0b4f1458dadb684b604f1058,
         type: 3}
@@ -1834,7 +1840,7 @@ PrefabInstance:
     - target: {fileID: 5604343149860080240, guid: 29c66f6e0b4f1458dadb684b604f1058,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.size
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 5604343149860080240, guid: 29c66f6e0b4f1458dadb684b604f1058,
         type: 3}
@@ -1865,6 +1871,11 @@ PrefabInstance:
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[17].sstr_words
       value: "\u62D6\u52A8\u62FC\u56FE\u788E\u7247\u5B8C\u6210\u62FC\u56FE\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604343149860080240, guid: 29c66f6e0b4f1458dadb684b604f1058,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[18].sstr_words
+      value: "\u591A\u4E8F\u5728\u5B9D\u5C9B\u6536\u96C6\u7684\u5B9D\u77F3\u800C\u81F4\u5BCC\u7684\u6C49\u585E\u5C14\u548C\u683C\u96F7\u7279\u5E78\u798F\u5730\u751F\u6D3B\u7740\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 5604343149860080240, guid: 29c66f6e0b4f1458dadb684b604f1058,
         type: 3}
@@ -1969,7 +1980,7 @@ PrefabInstance:
     - target: {fileID: 8816920528196062816, guid: 29c66f6e0b4f1458dadb684b604f1058,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.size
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 8816920528196062816, guid: 29c66f6e0b4f1458dadb684b604f1058,
         type: 3}
@@ -2001,6 +2012,11 @@ PrefabInstance:
       propertyPath: mvifl_setVoiceInfoList.Array.data[17].sstr_words
       value: "\u30D1\u30BA\u30EB\u306E\u30D4\u30FC\u30B9\u3092\u30C9\u30E9\u30C3\u30B0\u3057\u3066\u3001
         \u30D1\u30BA\u30EB\u3092\u5B8C\u6210\u3057\u3066\u304F\u3060\u3055\u3044\u3002"
+      objectReference: {fileID: 0}
+    - target: {fileID: 8816920528196062816, guid: 29c66f6e0b4f1458dadb684b604f1058,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[18].sstr_words
+      value: "\u5B9D\u5CF6\u3067\u96C6\u3081\u305F\u5B9D\u77F3\u306E\u304A\u304B\u3052\u3067\u91D1\u6301\u3061\u306B\u306A\u3063\u305F\u30D8\u30F3\u30BC\u30EB\u3068\u30B0\u30EC\u30FC\u30C6\u30EB\u306F\u5E78\u305B\u306B\u66AE\u3089\u3057\u3066\u3044\u307E\u3057\u305F\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 8816920528196062816, guid: 29c66f6e0b4f1458dadb684b604f1058,
         type: 3}
@@ -2100,7 +2116,7 @@ PrefabInstance:
     - target: {fileID: 9004361323123476078, guid: 29c66f6e0b4f1458dadb684b604f1058,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.size
-      value: 18
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 9004361323123476078, guid: 29c66f6e0b4f1458dadb684b604f1058,
         type: 3}
@@ -2136,6 +2152,13 @@ PrefabInstance:
       propertyPath: mvifl_setVoiceInfoList.Array.data[17].sstr_words
       value: "\uD37C\uC990 \uC870\uAC01\uC744 \uB4DC\uB798\uADF8\uD574\uC11C \uD37C\uC990\uC744
         \uC644\uC131\uD574\uC8FC\uC138\uC694."
+      objectReference: {fileID: 0}
+    - target: {fileID: 9004361323123476078, guid: 29c66f6e0b4f1458dadb684b604f1058,
+        type: 3}
+      propertyPath: mvifl_setVoiceInfoList.Array.data[18].sstr_words
+      value: "\uBCF4\uBB3C\uC12C\uC5D0\uC11C \uBAA8\uC740 \uBCF4\uC11D \uB355\uBD84\uC5D0
+        \uBD80\uC790\uAC00 \uB41C \uD5E8\uC824\uACFC \uADF8\uB808\uD154\uC740 \uD589\uBCF5\uD558\uAC8C
+        \uC0B4\uC558\uB2F5\uB2C8\uB2E4.  "
       objectReference: {fileID: 0}
     - target: {fileID: 9004361323123476078, guid: 29c66f6e0b4f1458dadb684b604f1058,
         type: 3}
