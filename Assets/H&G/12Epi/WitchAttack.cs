@@ -30,7 +30,6 @@ public class WitchAttack : MonoBehaviour {
     public SpriteRenderer msr_SetBrightness;     
     public GameObject mgo_SkillThunder;     
     public GameObject mgo_SkillThunderPrefab;    
-    private bool mb_SetDark = false;
     private bool mb_CoroutineOnce = true;
     private bool mb_SetBright = false;
     public int mn_SetRange = 10;
