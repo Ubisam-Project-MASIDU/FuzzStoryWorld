@@ -44,9 +44,8 @@ public class LangSelector : MonoBehaviour {
                         mn_CountryIndex = 0;
                         mgo_VMController = transform.GetChild(0).gameObject;
                         transform.DetachChildren();
-                        DontDestroyOnLoad(mgo_VMController);
+                        DontDestroyOnLoad(mgo_VMController); 
                         mgo_VMController.GetComponent<VoiceManager>().country = VoiceManager.Country.KR;
-                        GetComponent<SoundEffectes>().PlaySound("Korean"); 
                         SceneManager.LoadScene("0_03Starting");
                         break;
                     case "ENImage":
@@ -55,7 +54,6 @@ public class LangSelector : MonoBehaviour {
                         transform.DetachChildren();
                         DontDestroyOnLoad(mgo_VMController);
                         mgo_VMController.GetComponent<VoiceManager>().country = VoiceManager.Country.EN;
-                        GetComponent<SoundEffectes>().PlaySound("Englisch"); 
                         SceneManager.LoadScene("0_03Starting");
                         break;
                     case "JPImage":
@@ -64,16 +62,14 @@ public class LangSelector : MonoBehaviour {
                         transform.DetachChildren();
                         DontDestroyOnLoad(mgo_VMController);
                         mgo_VMController.GetComponent<VoiceManager>().country = VoiceManager.Country.JP;
-                        GetComponent<SoundEffectes>().PlaySound("Japan"); 
-                        SceneManager.LoadScene("0_03Starting");
+                        SceneManager.LoadScene("0_03Starting"); 
                         break;
                     case "CNImage":
                         mn_CountryIndex = 3;
                         mgo_VMController = transform.GetChild(0).gameObject;
                         transform.DetachChildren();
-                        DontDestroyOnLoad(mgo_VMController);
+                        DontDestroyOnLoad(mgo_VMController); 
                         mgo_VMController.GetComponent<VoiceManager>().country = VoiceManager.Country.CN;
-                        GetComponent<SoundEffectes>().PlaySound("China");  
                         SceneManager.LoadScene("0_03Starting");
                         break;
                  }
