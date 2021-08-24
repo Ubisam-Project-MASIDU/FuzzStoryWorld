@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class ChangeCountry : MonoBehaviour
 {
-    private VoiceManager Country;
     private VoiceManager mvm_VoiceManager;
     public int mn_PlayVoiceIndex;
    // private VoiceManager 
