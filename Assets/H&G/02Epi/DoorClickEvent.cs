@@ -41,7 +41,7 @@ public class DoorClickEvent : MonoBehaviour{
     public Text mt_Text;                                                                                                            // 자막을 출력하기 위한 텍스트
 
     public VoiceManager mvm_VoiceManager;                                                                                           // 나레이션을 위한 변수
-    public VMController vm;                     
+                         
     
     private bool mb_PlayFirstVoice = false;                                                                                         // 첫번째 나레이션의 실행 유무를 위한 flag
     private bool mb_PlaySecondVoice = false;                                                                                        // 두번째 나레이션의 실행 유무를 위한 flag
@@ -49,7 +49,7 @@ public class DoorClickEvent : MonoBehaviour{
     public GameObject mg_Popup;                                                                                                     // 팝업창 오브젝트 연결을 위한 변수
 
     void Start(){
-        vm = FindObjectOfType<VMController>(); /////////////////////////////////////////////
+        //vm = FindObjectOfType<VMController>(); /////////////////////////////////////////////
         
         //오브젝트 연결
         mg_Hansel = GameObject.Find("Hansel");                                                                               
