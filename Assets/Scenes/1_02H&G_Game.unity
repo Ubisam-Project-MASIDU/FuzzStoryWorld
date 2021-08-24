@@ -996,7 +996,7 @@ PrefabInstance:
     - target: {fileID: 4360766068185178238, guid: 74151ff15bb6a324680e30ce1eac36c9,
         type: 3}
       propertyPath: m_Name
-      value: Panel (1)
+      value: CaptionPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74151ff15bb6a324680e30ce1eac36c9, type: 3}
