@@ -8,6 +8,7 @@
  * - History
  * 1) 2021-08-05 : 코드 구현. 
  * 2) 2021-08-09 : 주석 작성.
+ * 3) 2021-08-24 : 게임 건너뛰기시 설정 (김명현)
  *  
  * - Variable 
  * mn_PlayVoiceIndex    public으로 선언되어 인스펙터 창에서 설정할 수 있고, 음성을 출력할 대사의 인덱스를 나타낸다.
@@ -30,6 +31,7 @@ public class PlayVoice : MonoBehaviour {
 
     public int mn_PlayVoiceIndex = 0;
     public string ms_ChangeNextSceneName;
+    public string ms_ChangeNextSceneName_NoGame;
     private VoiceManager mvm_VoiceManager;
     
     // 씬에서 VoiceManager 컴포넌트를 찾아 초기화시킨다.
@@ -41,8 +43,16 @@ public class PlayVoice : MonoBehaviour {
 
     // 이 해당 컴포넌트가 들어있는 오브젝트가 생성되면 바로 음성을 출력하게 되어 있다. 이때 출력은 한번만 되도록 한다.
     void Update() {
+        // 게임 건너뛰기시 분기점
         if (!mvm_VoiceManager.isPlaying()) {
-            SceneManager.LoadScene(ms_ChangeNextSceneName);
+            if (PlayerPrefs.GetInt("SkipGame") == 1)
+            {
+                SceneManager.LoadScene(ms_ChangeNextSceneName_NoGame);
+            }
+            else
+            {
+                SceneManager.LoadScene(ms_ChangeNextSceneName);
+            }
         }
     }
 }
