@@ -1,15 +1,16 @@
 ﻿/*
- * - Name : ManageItem.cs
+ * - Name : CheckToSkipTheGame.cs
  * - Writer : 김명현
  * 
  * - Content :
- * 아이템들을 생성하고 삭제하는 함수들 작성
+ * 게임을 시작할때 게임을 스킵할것인지 체크하는 기능 구현
  * 
  * - History
  * 1) 2021-08-24 : 게임건너뛰기 기능 구현
  *  
  * - Variable 
- * mg_Item1Orange                                       오브젝트 연결을 위한 변수 -> 프리팹(아이템1) 연결을 위한 변수
+ * mg_CheckEffect                                       오브젝트 연결을 위한 변수 -> 체크 이미지를 보여주는 오브젝트 연결
+ * ms_CheckImage                                        체크 이미지를 불러오는 스프라이트
  * 
  * - Function
  * 
@@ -19,6 +20,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// 게임을 시작할때 게임을 스킵할것인지 체크하는 기능 구현
 public class CheckToSkipTheGame : MonoBehaviour
 {
     GameObject mg_CheckEffect;
@@ -39,9 +41,15 @@ public class CheckToSkipTheGame : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log("네모박스 클릭");
+        // 만약 체크이미지가 없으면 보이게 출력, 있으면 없어지게 설정
         if (mg_CheckEffect.GetComponent<SpriteRenderer>().sprite == null)
+        {
             mg_CheckEffect.GetComponent<SpriteRenderer>().sprite = ms_CheckImage;
+            PlayerPrefs.SetInt("SkipGame", 1);
+        }
         else
+        {
             mg_CheckEffect.GetComponent<SpriteRenderer>().sprite = null;
+        }
     }
 }
