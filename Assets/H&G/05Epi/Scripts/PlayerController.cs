@@ -7,6 +7,7 @@
  * 2021-08-13 : 초기 개발
  * 2021-08-18 : 코드 주석처리
  * 2021-08-23 : 코드 획일화
+ * 2021-08-24 : 총 횟수 창 추가
  *
  * <Variable>
  * mb_isJump           플레이어가 점프하고 있는 상태인지 체크하는 변수
@@ -15,14 +16,16 @@
  * mf_jumpSpeed        플레이어가 올라가는 속도 변수
  * mn_cntRock          조약돌 몇개 먹었는지 세는 변수
  * mn_totalRockNum     게임 시작 시 주어지는 조약돌 총 갯수 저장하는 변수
- * mv2_startPosition    처음 위치 저장 변수
- * animator         플레이어애개 저장되어있는 애니메이터를 저장하는 변수
+ * mv2_startPosition   처음 위치 저장 변수
+ * animator            플레이어애개 저장되어있는 애니메이터를 저장하는 변수
+ * ScriptTxt           총 횟수 표기
  * 
  */
 
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour{
     bool mb_isJump = false; 
@@ -34,11 +37,14 @@ public class PlayerController : MonoBehaviour{
     Vector2 mv2_startPosition;
     Animator animator;
     GameObject SoundManager;
+    public Text ScriptTxt;
     void Start(){
         mn_totalRockNum = UnityEngine.Random.Range(3,8);   // 게임시작할 때 플레이어가 주어야하는 조약돌의 갯수를 랜덤으로 배정해줌
+        ScriptTxt.text = mn_totalRockNum.ToString();       // 총 횟수 표기 연결(형 변환)
         Debug.Log(mn_totalRockNum + "번 도전!");
-        mv2_startPosition = transform.position;             // 스크립트가 실행될 때 오브젝트의 현재위치로 초기화
-        animator = GetComponent<Animator>();            // 플레이어애개 추가 되어있는 애니메이터 컴포넌트를 가져옴
+
+        mv2_startPosition = transform.position;            // 스크립트가 실행될 때 오브젝트의 현재위치로 초기화
+        animator = GetComponent<Animator>();               // 플레이어애개 추가 되어있는 애니메이터 컴포넌트를 가져옴
         SoundManager = GameObject.Find("SoundManager");
     }
 
@@ -74,9 +80,9 @@ public class PlayerController : MonoBehaviour{
             
             // 일정 높이에 도달한 상태이면 
             if(transform.position.y > mv2_startPosition.y && mb_isTop){ 
-                transform.position = Vector2.MoveTowards(transform.position,mv2_startPosition,mf_jumpSpeed * Time.deltaTime); //플레이어를 mv2_startPosition로 옮기기 (위에서 아래로)
+                //플레이어를 mv2_startPosition로 옮기기 (위에서 아래로)
+                transform.position = Vector2.MoveTowards(transform.position,mv2_startPosition,mf_jumpSpeed * Time.deltaTime); 
             }
-            
         }
     }
     
@@ -84,12 +90,12 @@ public class PlayerController : MonoBehaviour{
         if(cCollidObj.CompareTag("Item")){              // 플레이어가 조약돌과 충돌하면 (갖게 되면)
             SoundManager.GetComponent<SoundManager>().playSound("Collision");
             // Deative Item
-            mn_cntRock += 1;                               // 플레이어가 갖게 된 조약돌 갯수 +1
+            mn_cntRock += 1;                            // 플레이어가 갖게 된 조약돌 갯수 +1
             Debug.Log(mn_cntRock + "번째 돌 먹기 성공!");
             cCollidObj.gameObject.SetActive(false);     // 갖게 된 조약돌 비활성화
 
         }
-        if(mn_cntRock >= mn_totalRockNum ){                   // 플레이어가 mn_totalRockNum 개의 조약돌을 다 갖게되면
+        if(mn_cntRock >= mn_totalRockNum ){             // 플레이어가 mn_totalRockNum 개의 조약돌을 다 갖게되면
             GameManager.instance.GameOver();            // 게임 끝
         }
     }
