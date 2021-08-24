@@ -1,19 +1,19 @@
-/*
+ï»¿/*
  * - Name : MoveHansel.class
- * - Writer : À¯Èñ¼ö
- * - Content : ÇîÁ©°ú±×·¹ÅÚ Epi3 - ½ºÅä¸® ÁøÇà ÈÄ, ¹Ì´Ï°ÔÀÓ ½ÃÀÛÇØÁÖ´Â ½ºÅ©¸³Æ®
+ * - Writer : ìœ í¬ìˆ˜
+ * - Content : í—¨ì ¤ê³¼ê·¸ë ˆí…” Epi3 - ìŠ¤í† ë¦¬ ì§„í–‰ í›„, ë¯¸ë‹ˆê²Œì„ ì‹œì‘í•´ì£¼ëŠ” ìŠ¤í¬ë¦½íŠ¸
  *  
  * - HISTORY
- * 2021-08-10 : ÃÊ±â °³¹ß
- * 2021-08-17 : ÄÚµå È¹ÀÏÈ­ ¹× ÁÖ¼®Ã³¸®
+ * 2021-08-10 : ì´ˆê¸° ê°œë°œ
+ * 2021-08-17 : ì½”ë“œ íšì¼í™” ë° ì£¼ì„ì²˜ë¦¬
  *
  * <Variable>
- * mg_Hansel                    ÇîÁ© ¿ÀºêÁ§Æ® ¿¬°áÀ» À§ÇÑ º¯¼ö
- * mv3_TargetPoint              ÇîÁ©À» ÀÌµ¿½ÃÅ³ ¸ñÇ¥ ÁöÁ¡
- * mg_PopUp                     ¹Ì´Ï°ÔÀÓ ½ÃÀÛÀ» À§ÇÑ ÆË¾÷Ã¢
+ * mg_Hansel                    í—¨ì ¤ ì˜¤ë¸Œì íŠ¸ ì—°ê²°ì„ ìœ„í•œ ë³€ìˆ˜
+ * mv3_TargetPoint              í—¨ì ¤ì„ ì´ë™ì‹œí‚¬ ëª©í‘œ ì§€ì 
+ * mg_PopUp                     ë¯¸ë‹ˆê²Œì„ ì‹œì‘ì„ ìœ„í•œ íŒì—…ì°½
  *  
  * <Function>
- * v_NextScene                  ´ÙÀ½ ¾ÀÀ¸·Î ³Ñ°ÜÁÖ´Â ÇÔ¼ö
+ * v_NextScene                  ë‹¤ìŒ ì”¬ìœ¼ë¡œ ë„˜ê²¨ì£¼ëŠ” í•¨ìˆ˜
  * 
  */
 using System.Collections;
@@ -30,15 +30,15 @@ public class MoveWitchToHAG : MonoBehaviour
 
     void Start()
     {
-        mv3_TargetPoint = new Vector3(7.2f, 5.8f, -9f);                                                       //ÇîÁ©À» ÀÌµ¿½ÃÅ³ ¸ñÇ¥ÁöÁ¡ ¼³Á¤
-        mg_Witch = GameObject.Find("witch");                                                                    //º¯¼ö¿¡ ¿ÀºêÁ§Æ® ¿¬°á
-        //mg_PopUp.SetActive(false);                                                                                //ÆË¾÷Ã¢ ºñÈ°¼ºÈ­
+        mv3_TargetPoint = new Vector3(7.2f, 5.8f, -9f);                                                       //í—¨ì ¤ì„ ì´ë™ì‹œí‚¬ ëª©í‘œì§€ì  ì„¤ì •
+        mg_Witch = GameObject.Find("witch");                                                                    //ë³€ìˆ˜ì— ì˜¤ë¸Œì íŠ¸ ì—°ê²°
+        //mg_PopUp.SetActive(false);                                                                                //íŒì—…ì°½ ë¹„í™œì„±í™”
     }
 
     void Update()
     {
-        mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_TargetPoint, 0.08f); //ÇöÀç ¿ÀºêÁ§Æ®°¡ mv3_TargetPointÀ§Ä¡·Î 0.07fÀÇ ¼Ó·ÂÀ¸·Î °¡´Â ÇÔ¼ö
-        Debug.Log("Ã¹¹øÂ° ½ºÅ©¸³Æ®");
+        mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_TargetPoint, 0.08f); //í˜„ì¬ ì˜¤ë¸Œì íŠ¸ê°€ mv3_TargetPointìœ„ì¹˜ë¡œ 0.07fì˜ ì†ë ¥ìœ¼ë¡œ ê°€ëŠ” í•¨ìˆ˜
+        Debug.Log("ì²«ë²ˆì§¸ ìŠ¤í¬ë¦½íŠ¸");
         //Invoke("v_NextScene", 5f);
     }
 

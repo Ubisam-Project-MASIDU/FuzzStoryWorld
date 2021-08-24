@@ -15,6 +15,7 @@ public class SceneControl : MonoBehaviour
     public GameObject vibrate;
     public Text mt_Text;
     public bool hidestartflag = false;
+    bool mb_ChangeColorOnce = false;
     private SpriteRenderer background;
     private SpriteRenderer witch;
 
@@ -56,7 +57,11 @@ public class SceneControl : MonoBehaviour
                 mt_Text.text = "\n       물체를 클릭해서 마녀에게로부터 헨젤과 그레텔을 숨겨주세요.        \n";
                 mb_PlayThirdVoice = true;
             }
-            Invoke("ColorChange", 2f);
+            if(mb_ChangeColorOnce == false)
+            {
+                mb_ChangeColorOnce = true;
+                Invoke("ColorChange", 2f);
+            }
         }
 
         /*if (mvm_VoiceManager.isPlaying() == false && mb_PlayThirdVoice)

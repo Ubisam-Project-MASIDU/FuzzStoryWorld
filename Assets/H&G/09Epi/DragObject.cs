@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,11 +18,11 @@ public class DragObject : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        Debug.Log("ÀÛµ¿");
+        Debug.Log("ì‘ë™");
     }
 
     private void OnDrag()
     {
-        Debug.Log("ÀÛµ¿");
+        Debug.Log("ì‘ë™");
     }
 }
