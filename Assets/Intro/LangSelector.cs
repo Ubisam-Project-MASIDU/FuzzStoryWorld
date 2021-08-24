@@ -31,6 +31,7 @@ public class LangSelector : MonoBehaviour {
     private Ray mr_CheckMousePosByRay;                      // 마우스가 클릭된 곳을 카메라에서부터 레이져를 쏘아 감지하기 위한 Ray 
     private RaycastHit mrch_CheckMousePosHitObj;            // 레이져를 쏜 곳에 오브젝트가 있다면 이 hit 클래스 변수에 담긴다.
     private GameObject mgo_VMController;
+    public int mn_CountryIndex;
     
     // 클릭 이벤트 ( Input.GetMouseButtonDown(0))가 발생되면, 마우스 위치에 어떤 녀석이 있는지 판별한 후에, 음성 로드를 시작하게 하였다.
     void Update() {
@@ -39,7 +40,8 @@ public class LangSelector : MonoBehaviour {
         if(Physics.Raycast(mr_CheckMousePosByRay, out mrch_CheckMousePosHitObj)) {
              if(Input.GetMouseButtonDown(0)) {
                  switch (mrch_CheckMousePosHitObj.collider.name) {
-                     case "KRImage": 
+                     case "KRImage":
+                        mn_CountryIndex = 0;
                         mgo_VMController = transform.GetChild(0).gameObject;
                         transform.DetachChildren();
                         DontDestroyOnLoad(mgo_VMController);
@@ -47,7 +49,8 @@ public class LangSelector : MonoBehaviour {
                         GetComponent<SoundEffectes>().PlaySound("Korean"); 
                         SceneManager.LoadScene("0_03Starting");
                         break;
-                    case "ENImage": 
+                    case "ENImage":
+                        mn_CountryIndex = 1;
                         mgo_VMController = transform.GetChild(0).gameObject;
                         transform.DetachChildren();
                         DontDestroyOnLoad(mgo_VMController);
@@ -55,7 +58,8 @@ public class LangSelector : MonoBehaviour {
                         GetComponent<SoundEffectes>().PlaySound("Englisch"); 
                         SceneManager.LoadScene("0_03Starting");
                         break;
-                    case "JPImage": 
+                    case "JPImage":
+                        mn_CountryIndex = 2;
                         mgo_VMController = transform.GetChild(0).gameObject;
                         transform.DetachChildren();
                         DontDestroyOnLoad(mgo_VMController);
@@ -63,7 +67,8 @@ public class LangSelector : MonoBehaviour {
                         GetComponent<SoundEffectes>().PlaySound("Japan"); 
                         SceneManager.LoadScene("0_03Starting");
                         break;
-                    case "CNImage": 
+                    case "CNImage":
+                        mn_CountryIndex = 3;
                         mgo_VMController = transform.GetChild(0).gameObject;
                         transform.DetachChildren();
                         DontDestroyOnLoad(mgo_VMController);
