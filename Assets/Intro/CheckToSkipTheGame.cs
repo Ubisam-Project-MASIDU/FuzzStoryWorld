@@ -60,6 +60,7 @@ public class CheckToSkipTheGame : MonoBehaviour
         if (PlayerPrefs.GetInt("SkipGame") == 1)
         {
             mg_CheckEffect.GetComponent<SpriteRenderer>().sprite = null;
+            GetComponent<SoundEffectes>().PlaySound("English"); 
             PlayerPrefs.SetInt("SkipGame", 0);
         }
         else if (PlayerPrefs.GetInt("SkipGame") == 0)

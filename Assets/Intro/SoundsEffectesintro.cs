@@ -21,7 +21,7 @@ public class SoundsEffectesintro : MonoBehaviour
 {
    public AudioClip audioKorean;                // 한국어를 선택하였을 때
 
-   public AudioClip audioEnglisch;               // 영어를 선택하였을 때
+   public AudioClip audioEnglish;               // 영어를 선택하였을 때
 
    public AudioClip audioJapan;                 // 일본어를 선택하였을 때
 
@@ -39,8 +39,8 @@ public class SoundsEffectesintro : MonoBehaviour
             case "Korean":                                   // 한국어를 선택하였을 때
                 audioSource.clip = audioKorean;
                 break;
-            case "Englisch":                                // 영어를 선택하였을 때
-                audioSource.clip = audioEnglisch;
+            case "English":                                // 영어를 선택하였을 때
+                audioSource.clip = audioEnglish;
                 break;
             case "Japan":                                   // 일본어를 선택하였을 때
                 audioSource.clip = audioJapan;
