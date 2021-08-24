@@ -25,7 +25,6 @@ public class HAGAttack : MonoBehaviour {
     private GameObject mgo_Target;
     private Vector3 mv3_TargetPos;
     private bool mb_SetPos = false;
-    private bool mb_DestroyOnce = false;
     public GameObject mgo_witch;
     public Transform BonePos;
     public Transform HAG;
@@ -36,6 +35,7 @@ public class HAGAttack : MonoBehaviour {
     private GameObject mgo_IntantBone;
     private bool mb_CheckBone = true;
     public bool mb_DelayThrowing = false;
+    //rivate bool mb_DestroyOnce = true;
 
     void Start() {
         ms12c_CharacterInfo = GameObject.Find("GameController").GetComponent<Scene12Controller>();
@@ -48,7 +48,7 @@ public class HAGAttack : MonoBehaviour {
 
             if (f_CheckDistance > 8f) {
                 transform.position = Vector3.Slerp(transform.position, mv3_TargetPos, 5f * Time.deltaTime);
-                mb_DestroyOnce = false;
+                //mb_DestroyOnce = false;
             } 
         }
     }
@@ -60,7 +60,6 @@ public class HAGAttack : MonoBehaviour {
                     if (mrch_CheckHit.transform.gameObject.name == "witch" && mb_CheckBone) {
                         Debug.Log("뼈있음");                    
                         mv3_TargetPos = mrch_CheckHit.transform.position;
-                        // HAG.transform.GetChild(3).SetParent(GameObject.Find("Characters").transform);
                         mb_SetPos = true;
                         mb_CheckBone = false;
                     }                 
@@ -72,7 +71,6 @@ public class HAGAttack : MonoBehaviour {
                 mgo_IntantBone.GetComponent<HAGAttack>().BonePos = BonePos;
                 mgo_IntantBone.GetComponent<HAGAttack>().HAG = HAG;
                 mgo_IntantBone.GetComponent<HAGAttack>().mgo_BonePrefab = mgo_BonePrefab;
-
                 // mgo_IntantBone.GetComponent<HAGAttack>().mb_SetPos = true;
                 mb_CheckBone = true;
             }  
@@ -82,7 +80,7 @@ public class HAGAttack : MonoBehaviour {
         if (other.gameObject.name.Equals("witch") && mb_SetPos) {
             Destroy(this.gameObject);
             mb_CheckBone = false;
-            mb_DestroyOnce = true;
+            //mb_DestroyOnce = true;
             mb_SetPos = false;
             mgo_IntantBone.GetComponent<HAGAttack>().mb_DelayThrowing = true;
             HitWitch();

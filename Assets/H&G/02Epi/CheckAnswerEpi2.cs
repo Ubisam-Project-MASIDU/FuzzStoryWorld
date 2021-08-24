@@ -36,7 +36,7 @@ public class CheckAnswerEpi2 : MonoBehaviour{
     public void v_CountAnswer(){
         mn_count++;                                                              //개수 하나씩 더해준다
         Debug.Log(mn_count);
-        if (mn_count == 9){                                                      //맞춰진 퍼즐개수가 9개라면
+        if (mn_count == 4){                                                      //맞춰진 퍼즐개수가 9개라면
             Invoke("v_WinText", 1f);                                             //텍스트 활성화
             Invoke("v_ChangeNextScene", 3f);                                     //다음씬 불러오기
         }

@@ -44,7 +44,7 @@ public class VMController : MonoBehaviour {
         JP,
         CN
     }
-
+    public int countryindex = 9;
     public int mn_LanguageLength = 4;
     private int mn_CurrentVMIdx = 0;
     public bool mb_CheckSceneReady = false;
@@ -95,5 +95,6 @@ public class VMController : MonoBehaviour {
     public void SetCountry(Country ctStrCountry) {
         mct_CheckCountry = ctStrCountry;
         mb_CheckLanguageReady = false;
+        countryindex = ((int)mct_CheckCountry);
     }
 }

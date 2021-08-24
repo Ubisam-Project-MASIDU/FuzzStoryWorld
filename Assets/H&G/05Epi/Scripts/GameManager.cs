@@ -8,13 +8,15 @@
  * 2021-08-18 : 코드 주석처리
  * 2021-08-19 : 효과음 재생 추가
  * 2021-08-23 : 코드 획일화
+ * 2021-08-24 : 총 횟수 창 추가
  *
  * <Variable>
  * mf_gameSpeed                ground와 조약돌의 속도 조절 변수
  * mb_isPlay                   게임이 시작됬는지 구분하는 변수
- * mg_playBtn                  게임 시작 버튼 연결
- * mg_nextBtn                  게임 끝 버튼 연결
- * mg_Mission                  미션 스크립트 연결
+ * mg_playBtn                  게임 시작 버튼 
+ * mg_nextBtn                  게임 끝 버튼 
+ * mg_Mission                  미션 스크립트 
+ * mg_Counts                   총 횟수 창
  * mg_SoundManager             효과음 재생 연결 오브젝트
  *
  * <Function>
@@ -55,10 +57,10 @@ public class GameManager : MonoBehaviour{
     public GameObject mg_playBtn;
     public GameObject mg_nextBtn;
     public GameObject mg_Mission;
+    public GameObject mg_Counts;
 
     public delegate void OnPlay(bool b_isplay);                            // 게임 시작 버튼이 눌리면 RespawnManager의 Coroutine이 작동되게 해주기
-    public OnPlay onPlay; // delegate 생성
-
+    public OnPlay onPlay;                                                  // delegate 생성
     GameObject mg_SoundManager;
 
     void Start(){
@@ -69,6 +71,7 @@ public class GameManager : MonoBehaviour{
         mg_SoundManager.GetComponent<SoundManager>().playSound("Start");   // 시작 버튼 효과음 재생
         mg_playBtn.SetActive(false);   // 게임 시작 버튼 비활성화
         mg_Mission.SetActive(false);   // 미션 창 비활성화
+        mg_Counts.SetActive(true);     // 총 횟수 창 활성화
         mb_isPlay = true;              // 게임 시작
         onPlay.Invoke(mb_isPlay);      // delegate 호출
     }
@@ -77,11 +80,12 @@ public class GameManager : MonoBehaviour{
     public void GameOver(){
         mg_SoundManager.GetComponent<SoundManager>().playSound("End");     // 게임 끝 버튼 효과음 재생
         mg_nextBtn.SetActive(true);    // 게임 끝 버튼 활성화
+        mg_Counts.SetActive(false);    // 총 횟수 창 비활성화
         mb_isPlay = false;             // 게임 끝
         onPlay.Invoke(mb_isPlay);      
     } 
 
-    public void nextScene(){        // 다음씬으로
+    public void nextScene(){           // 다음씬으로
         SceneManager.LoadScene("1_06H&G");
     }
 }

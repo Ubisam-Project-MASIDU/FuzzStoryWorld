@@ -69,11 +69,26 @@ public class ObjectClick : MonoBehaviour {
     private Vector3 mv3_HousePos = new Vector3(13.6f, 3.7f, -6.9f);
     private float mf_Speed = 0.05f;
 
+    //
+    private GameObject mg_Plant;
+    private GameObject mg_Cauldron;
+    private GameObject mg_Tree;
+    private GameObject mg_Log;
+    private GameObject mg_Stone;
+    private GameObject mg_House;
+
     // SceneControl 스크립트 변수
     private SceneControl msc_TextFinishFlag;
     public SceneControl msc_Vibrate;
 
-    void Start(){     
+    void Start(){
+        mg_Plant = GameObject.Find("Plant");
+        mg_Cauldron = GameObject.Find("Cauldron");
+        mg_Tree = GameObject.Find("Tree");
+        mg_Log = GameObject.Find("Log");
+        mg_Stone = GameObject.Find("Stone");
+        mg_House = GameObject.Find("House");
+
         msc_TextFinishFlag = GameObject.Find("GameControl").GetComponent<SceneControl>();
         msc_Vibrate = GameObject.Find("GameControl").GetComponent<SceneControl>();
         mg_Hansel = GameObject.Find("Hansel");

@@ -27,10 +27,11 @@ public class MoveHansel : MonoBehaviour{
     public Vector3 mv3_TargetPoint;
     public GameObject mg_PopUp;
     public VoiceManager mvm_VoiceManager;
+    private bool mb_PlayFirstVoice = false;
 
     void Start(){
         mvm_VoiceManager = FindObjectOfType<VoiceManager>();
-        mvm_VoiceManager.playVoice(15);
+        
 
         mv3_TargetPoint = new Vector3(-2.7f, -0.8f, -2.5f);                                                       //헨젤을 이동시킬 목표지점 설정
         mg_Hansel = GameObject.Find("Hansel");                                                                    //변수에 오브젝트 연결
@@ -39,7 +40,16 @@ public class MoveHansel : MonoBehaviour{
     
     void Update(){
         mg_Hansel.transform.position = Vector3.MoveTowards(mg_Hansel.transform.position, mv3_TargetPoint, 0.07f); //현재 오브젝트가 mv3_TargetPoint위치로 0.07f의 속력으로 가는 함수
-        Invoke("popup", 5f);
+        if (!mb_PlayFirstVoice)
+        {
+            mvm_VoiceManager.playVoice(2);
+            mb_PlayFirstVoice = true;
+        }
+        
+        if (mb_PlayFirstVoice && mvm_VoiceManager.isPlaying() == false)
+        {
+            popup();
+        }
     }
 
     void popup()
