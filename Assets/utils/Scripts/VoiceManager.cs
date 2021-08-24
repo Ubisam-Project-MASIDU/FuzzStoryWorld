@@ -13,44 +13,38 @@
  * 5. VoiceManager클래스는 AudioClip형태로 오디오를 가지고 있고, 클래스 안의 함수인 playVoice(id or name) 함수를 통해서 음성을 씬에 출력하게 된다.
  *
  * - History -
- * 2021-07-19 : 구현
- * 2021-07-20 : 주석 처리
- * 2021-07-22 : thread에게 TTS 통신 처리 위임, TTS 통신 처리 중에 로드 화면 추가.
- * 2021-07-23 : isPlaying() 함수 추가.
- * 2021-07-27 : 피드백에 의한 주석 변경.
- * 2021-08-10 : 피드백 요구사항 변경으로 인한 추가적인 기능 구현 시작.
+ * 1. 2021-07-19 : 구현
+ * 2. 2021-07-20 : 주석 처리
+ * 3. 2021-07-22 : thread에게 TTS 통신 처리 위임, TTS 통신 처리 중에 로드 화면 추가.
+ * 4. 2021-07-23 : isPlaying() 함수 추가.
+ * 5. 2021-07-27 : 피드백에 의한 주석 변경.
+ * 6. 2021-08-10 : 피드백 요구사항 변경으로 인한 추가적인 기능 구현 시작.
+ * 7. 2021-08-24 : 피드백 요구사항 변경으로 인한 실시간 로딩 방식으로 수정. 로딩 방식으로는 첫번째 씬부터, 한국어 영어 일본어 중국어 순으로 로딩 후 두번째 씬 언어 로딩 ... 이렇게 진행된다.
+
  *
- * - VoiceManager Member Variable 
- * 
- * VoiceInfo[] mvifl_setVoiceInfoList           인스펙터창에서 음성 커스터마이징 할 수 있는 정보를 가진 struct 데이터이다. 구조체 안을 보면, {
-    public Voice svt_voiceType                  원하는 구글 TTS API의 기본 보이스를 설정하는 enum 데이터이다. 필요한 데이터만 정리를 하여 쓸것만 enum형식으로 재구성 하였다. enum 종류로는, KR_FEMALE_A, KR_FEMALE_B, KR_MALE_A, KR_MALE_B, EN_FEMALE_A, EN_FEMALE_B, EN_MALE_A, EN_MALE_B로 구성되어 있다.
-    public string sstr_words                    음성이 무슨 말을 출력할지를 string 형식으로 저장하는 변수이다.
-    public float sf_pitch                       음성의 음조(높낮이)를 조절하는 변수이다.
-    public string sf_speakingRate               음성의 말 빠르기를 조절하는 변수이다.
-    public AudioClip sac_voiceAudioClip         최종적으로 TTS 와의 통신으로 받아낸 음성 데이터를 저장하는 변수이다.
- }
- * mtts_getVoice                                TTS 통신을 정의한 클래스이다.
- * mas_playVoice                                최종적으로 반환받은 AudioClip을 이 유니티 컴포넌트 클래스를 통하여 씬에 출력하게 된다.
- * mn_checkCurInx                               스레드의 작업물의 결과로 인덱싱하기 위해서 필요한 변수이다.
- *  mquefa_queue                                메인 스레드와 생성된 스레드의 데이터 통신을 위한 큐로, 생성된 스레드는 이 큐에 작업물을 저장하게 되며, 그때 메인 스레드에서는 이 작업물을 통해 음성을 만들게 된다.
- * mth_workThread                               위에서 언급된 생성된 스레드이다. TTS 통신을 대신 작업하게 된다.
- * mb_checkSceneReady                           작업이 다 끝났다면 true로 만들어 다른 스크립트에서 감지할 수 있게 해주는 변수이다.
- * 
- * - VoiceManager Member Function
+ * - Variable 
+ * public enum Country {
+     KR,
+     EN,
+     JP,
+     CN
+ } 현재 선택된 언어를 표현하기 위한 enum 변수이다.
+ * mlva_LanguageVoices      현재 지원되는 언어의 스크립트 클래스이다.
+ * mn_LanguageLength        현재 지원되는 언어의 숫자이다.
+ * mct_CheckCountry         현재 선택된 언어를 뜻한다. 이 언어를 바꾸면, 자연스럽게 음성이 국가에 따라 나오게 된다.
+ * mas_playVoice            음성을 출력하기 위한 컴포넌트.
  *
- * Start()                                      VoiceManager 게임 오브젝트가 생성될 때 최초로 실행되는 함수로, 인스펙터 창에 입력된 음성 세팅값들을 통해 씬에서 필요한 음성 데이터를 만든다.
- * playVoice(int nPlayVoiceClipId)              생성된 음성 데이터를 가지고 있다가 이 함수가 호출되면 음성을 씬에 출력한다.
- * isPlaying()                                  현재 AudioSource를 통해 음성이 출력되고 있는지 아닌지를 반환해주는 함수. 출력되고 있다면 true, 아니라면 false를 반환한다.
- * runThread()                                  mth_workThread 스레드의 TTS 처리 코드가 실행되는 함수. 작업된 float array 반환 값은 mquefa_queue 큐에 저장하게 된다.
- * Update()                                     메인 스레드에서는 업데이트 함수를 통해 mquefa_queue에 데이터가 쌓이면, 그것을 가지고 AudioClip으로 만들고 mvifl_setVoiceInfoList struct 안의 sac_voiceAudioClip에 저장하게 된다.
- *
+ * - Function
+ * Awake()                  생성된 VMController 오브젝트를 씬 전환시 파괴되지 않도록 DonDestroyOnLoad에 저장하고, 로딩화면을 화면에 띄운다.
+ * stopVoice()              현재 출력중인 음성의 출력을 멈춘다.
+ * LoadLanguageByOrder()    정의한 순서대로 로딩을 시작한다.
+ * TakeVoice()              이제 VoiceManager에는 AudioClip이 있기 않고, LoadVoice 스크립트에 존재하기 때문에 그것을 가져와 playVoice로 출력시킨다.
  */
 
 using System.Collections;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using System.Threading;
 
 
 
@@ -59,66 +53,59 @@ using System.Threading;
 /// 씬에 VoiceManager의 인스펙터 창에서 설정한 음성 세팅값을 playVoice 함수를 통해 씬에 출력해주도록 도와주는 클래스.
 /// </summary>
 public class VoiceManager : MonoBehaviour {
-
-    // 인스펙터창에 입력되는 음성 세팅 값을 저장하는 struct이다.
-    [System.Serializable]
-    public struct VoiceInfo {
-        [SerializeField]
-        public TTS.Voice svt_voiceType;
-
-        //[SerializeField]
-        public string sstr_words;
-        [SerializeField]
-        public float sf_pitch;
-        public string sf_speakingRate;
-        [SerializeField]
-        public AudioClip sac_voiceAudioClip;
+    public enum Country {
+        KR,
+        EN,
+        JP,
+        CN
     }
 
-    public VoiceInfo[] mvifl_setVoiceInfoList;
-    private int mn_checkCurInx = 0;
-    private TTS mtts_getVoice;
-    private Queue<float[]> mquefa_queue = new Queue<float[]>();
+    public int mn_LanguageLength = 4;
+    private LoadVoice[] mlva_LanguageVoices;
     private AudioSource mas_playVoice;
-    private Thread mth_workThread;
-    public bool mb_checkSceneReady = false;
+    private Country mct_CheckCountry = Country.KR;
+    public Country country {
+        set {
+            mct_CheckCountry = value;
+        }
+        get {
+            return mct_CheckCountry;
+        }
+    }
 
-    // 해당 스크립트가 들어간 게임 오브젝트가 생성될 때, 인스펙터창에 저장된 음성 세팅 값들을 통해서 스레드를 하나 생성하여 TTS 통신 작업을 위임시킨다.
-    void Start() {
+
+    // VMController와 KRVoiceManager, ENVoiceManager, JPVoiceManager, CNVoiceManager는 씬이 전환되어도 유지되어야 하므로, DonDestroyOnLoad 함수로 Destroy 되지 않도록 한다. 또한 오브젝트가 만들어지자마자 코루틴을 통해 로딩 순서를 정의하여 로딩을 시작한다.
+    void Awake() {
+        mn_LanguageLength = transform.childCount;
         mas_playVoice = gameObject.GetComponent<AudioSource>();
-        mtts_getVoice = TTS.GetInstance();
-        mth_workThread = new Thread(runThread);
-        mth_workThread.Start();
-    }
-
-    // 메인 스레드는 작업중인 스레드가 큐에 저장한 작업 결과물을 통해 음성을 만들게 된다.
-    void Update() {
-        if(mquefa_queue.Count > 0) {
-            var fa_convertFloatArray = mquefa_queue.Dequeue();
-            
-            AudioClip ac_createAudioClip = AudioClip.Create("audioContent", fa_convertFloatArray.Length, 1, 44100, false);
-
-            ac_createAudioClip.SetData(fa_convertFloatArray, 0);
-            mvifl_setVoiceInfoList[mn_checkCurInx].sac_voiceAudioClip = ac_createAudioClip;
-            mn_checkCurInx++;
+        DontDestroyOnLoad(gameObject);
+        mlva_LanguageVoices = new LoadVoice[mn_LanguageLength];
+        for (int i = 0; i < mn_LanguageLength; i++) {
+            mlva_LanguageVoices[i] = transform.GetChild(i).GetComponent<LoadVoice>();
         }
-        if(mn_checkCurInx == mvifl_setVoiceInfoList.Length) {
-            mb_checkSceneReady = true;
-        }
+        StartCoroutine(LoadLanguageByOrder());
+        // mgo_loadingScene = Instantiate(mc_loadingScene);
+        // mgo_loadingScene.SetActive(true);
     }
-
-    // 생성된 스레드가 작업해야 하는 일을 정의한 함수이다.(TTS 통신)
-    private void runThread() {
-        float tempSpeakRate = 0.8f;
-        //load the audio clips to need...
-        for(int i = 0; i < mvifl_setVoiceInfoList.Length; i++) {
-            if (float.TryParse(mvifl_setVoiceInfoList[i].sf_speakingRate, out tempSpeakRate)) {
-                mquefa_queue.Enqueue(mtts_getVoice.CreateAudio(mvifl_setVoiceInfoList[i].sstr_words, mvifl_setVoiceInfoList[i].svt_voiceType, mvifl_setVoiceInfoList[i].sf_pitch, tempSpeakRate));
-            } else {
-                mquefa_queue.Enqueue(mtts_getVoice.CreateAudio(mvifl_setVoiceInfoList[i].sstr_words, mvifl_setVoiceInfoList[i].svt_voiceType, mvifl_setVoiceInfoList[i].sf_pitch));
+    
+    IEnumerator LoadLanguageByOrder() {
+        int n_CurrentLoadIndex = 0;
+        while (n_CurrentLoadIndex < mlva_LanguageVoices[0].mvifl_setVoiceInfoList.Length) {
+            for (int i = 0; i < mn_LanguageLength; i++) {
+                mlva_LanguageVoices[i].CurrentIndex = n_CurrentLoadIndex;
+                Debug.Log(n_CurrentLoadIndex.ToString() + ":" + (i).ToString() + "Start.");
+                yield return new WaitUntil(() => mlva_LanguageVoices[i].CheckLoadComplete);
+                mlva_LanguageVoices[i].CheckLoadComplete = false;
+                Debug.Log(n_CurrentLoadIndex.ToString() + ":" + (i).ToString() + "End.");
             }
+            n_CurrentLoadIndex++;
         }
+        yield break;
+
     }
+    // 인스펙터창에 입력되는 음성 세팅 값을 저장하는 struct이다.
+    // 해당 스크립트가 들어간 게임 오브젝트가 생성될 때, 인스펙터창에 저장된 음성 세팅 값들을 통해서 스레드를 하나 생성하여 TTS 통신 작업을 위임시킨다.
+   
 
     // 이 함수를 통해 저장했고 해당되는 AudioClip을 씬에 출력하게 된다. 
     /// <summary>
@@ -127,7 +114,7 @@ public class VoiceManager : MonoBehaviour {
     /// <param name="nPlayVoiceClipId">인스펙터 창에서 설정한 음성의 인덱스 값.</param>
     public void playVoice(int nPlayVoiceClipId) {
         if (!mas_playVoice.isPlaying) {
-            mas_playVoice.PlayOneShot(mvifl_setVoiceInfoList[nPlayVoiceClipId].sac_voiceAudioClip);
+            mas_playVoice.PlayOneShot(TakeVoice(nPlayVoiceClipId));
         }
     }
 
@@ -138,5 +125,13 @@ public class VoiceManager : MonoBehaviour {
     /// <returns> 출력중이면 true, 아니라면 false 값 반환. </returns>
     public bool isPlaying() {
         return mas_playVoice.isPlaying;
+    }
+
+    public void stopVoice() {
+        mas_playVoice.Stop();
+    }
+
+    private AudioClip TakeVoice(int nPlayVoiceClipId) {
+        return mlva_LanguageVoices[(int)country].mvifl_setVoiceInfoList[nPlayVoiceClipId].audioClip;
     }
 }
