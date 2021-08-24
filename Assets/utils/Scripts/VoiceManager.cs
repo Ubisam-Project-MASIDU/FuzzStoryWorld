@@ -61,7 +61,7 @@ public class VoiceManager : MonoBehaviour {
     }
 
     public int mn_LanguageLength = 4;
-    private LoadVoice[] mlva_LanguageVoices;
+    public LoadVoice[] mlva_LanguageVoices;
     private AudioSource mas_playVoice;
     private Country mct_CheckCountry = Country.KR;
     public Country country {

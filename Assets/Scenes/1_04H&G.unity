@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18386674, g: 0.22903052, b: 0.30322087, a: 1}
+  m_IndirectSpecularColor: {r: 0.18386632, g: 0.22902977, b: 0.30321953, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1321,10 +1321,33 @@ PrefabInstance:
     - target: {fileID: 4360766068185178238, guid: 74151ff15bb6a324680e30ce1eac36c9,
         type: 3}
       propertyPath: m_Name
-      value: Panel (1)
+      value: CaptionPanel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74151ff15bb6a324680e30ce1eac36c9, type: 3}
+--- !u!1 &917127767 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4360766068185178238, guid: 74151ff15bb6a324680e30ce1eac36c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 917127766}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &917127768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917127767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8139ac740f07cf0428dd52d414fd9fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mvm_VoiceManager: {fileID: 0}
+  mn_langIndex: 9
+  mg_CaptionPanel: {fileID: 0}
+  mt_CaptionText: {fileID: 0}
+  mn_VoicIndex: 3
 --- !u!4 &1010359000 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4429234843561282, guid: f5cd7354c5e2cd546a7d90d6e9ce0daa,
