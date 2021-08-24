@@ -1001,6 +1001,16 @@ PrefabInstance:
       propertyPath: mvifl_setVoiceInfoList.Array.data[19].sf_speakingRate
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 4653467370110106302, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371254984696, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 4653467371254984699, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.size
@@ -1279,6 +1289,11 @@ PrefabInstance:
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[18].sf_speakingRate
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371496534125, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371496534126, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
@@ -1559,6 +1574,11 @@ PrefabInstance:
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[18].sf_speakingRate
       value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4653467371990128645, guid: 32d23423ea1de4bfd997ff5333159e3a,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 4653467371990128646, guid: 32d23423ea1de4bfd997ff5333159e3a,
         type: 3}
@@ -2163,7 +2183,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: a2ecfd485b6b75241a623c01e3225677, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
