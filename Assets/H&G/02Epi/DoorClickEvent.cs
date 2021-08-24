@@ -40,12 +40,16 @@ public class DoorClickEvent : MonoBehaviour{
     public Text mt_Text;                                                                                                            // 자막을 출력하기 위한 텍스트
 
     public VoiceManager mvm_VoiceManager;                                                                                           // 나레이션을 위한 변수
+    public VMController vm;                     
+    /// </summary>
     private bool mb_PlayFirstVoice = false;                                                                                         // 첫번째 나레이션의 실행 유무를 위한 flag
     private bool mb_PlaySecondVoice = false;                                                                                        // 두번째 나레이션의 실행 유무를 위한 flag
 
     public GameObject mg_Popup;                                                                                                     // 팝업창 오브젝트 연결을 위한 변수
 
     void Start(){
+        vm = FindObjectOfType<VMController>(); /////////////////////////////////////////////
+        
         //오브젝트 연결
         mg_Hansel = GameObject.Find("Hansel");                                                                               
         mg_Gretel = GameObject.Find("Gretel");                                                                                  
@@ -59,13 +63,14 @@ public class DoorClickEvent : MonoBehaviour{
 
         mbtn_Door = transform.GetComponent<Button>();                                                                               // 문 클릭 버튼
         //mbtn_Door.onClick.AddListener(v_GotoDoor);                                                                                  // 버튼을 클릭하면 괄호안에 있는 함수를 불러옴
-
         mg_DoorClickBlink.SetActive(false);                                                                                         // 처음에는 문 클릭 지시 애니메이션을 비활성화
 
         mg_Popup.SetActive(false);
+        
     }
     
     void Update(){
+        
         if (!mb_PlayFirstVoice){                                                             // 나레이션1 실행조건 검사
             mvm_VoiceManager.playVoice(1);                                                                                          // 나레이션1과 playVoice(1) 연결됨
             mb_PlayFirstVoice = true;                                                                                               // 나레이션1 출력 완료 
@@ -97,6 +102,7 @@ public class DoorClickEvent : MonoBehaviour{
     // 문 클릭 이벤트 지시를 도와주기 위한 튜토리얼 텍스트와 애니메이션을 활성화해주는 함수
     void v_TutorialText(){
         mvm_VoiceManager.playVoice(13);
+        
         mt_Text.text = "\n     문을 클릭해주세요        \n";                                                                        // 문을 클릭하게 하기 위한 텍스트 변경
         mg_DoorClickBlink.SetActive(true);                                                                                          // 문 클릭 지시 애니메이션 활성화
         mg_DoorClickBlink.GetComponent<BlinkObject>().ChangBlinkFlagTrue();                                                         
