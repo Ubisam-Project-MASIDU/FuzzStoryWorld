@@ -66,7 +66,7 @@ public class VoiceManager : MonoBehaviour {
         [SerializeField]
         public TTS.Voice svt_voiceType;
 
-        [SerializeField]
+        //[SerializeField]
         public string sstr_words;
         [SerializeField]
         public float sf_pitch;
