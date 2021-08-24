@@ -67,7 +67,12 @@ public class DoorClickEvent : MonoBehaviour{
         mg_DoorClickBlink.SetActive(false);                                                                                         // 처음에는 문 클릭 지시 애니메이션을 비활성화
 
         mg_Popup.SetActive(false);
-        
+
+        if (PlayerPrefs.GetInt("SkipGame") == 1)
+        {
+            mg_Gretel.transform.position = new Vector3(9.28f, mg_Gretel.transform.position.y, mg_Gretel.transform.position.z);
+            mg_Hansel.transform.position = new Vector3(7.48f, mg_Hansel.transform.position.y, mg_Hansel.transform.position.z);
+        }
     }
     
     void Update(){
@@ -112,8 +117,6 @@ public class DoorClickEvent : MonoBehaviour{
     void v_TutorialText(){
         if(PlayerPrefs.GetInt("SkipGame") == 1)
         {
-            mg_Gretel.transform.position = new Vector3(9.28f, mg_Gretel.transform.position.y, mg_Gretel.transform.position.z);
-            mg_Hansel.transform.position = new Vector3(7.48f, mg_Hansel.transform.position.y, mg_Hansel.transform.position.z);
             mt_Text.text = "\n           가난을 못 버티고 부모님은 헨젤과 그레텔을 숲속에 버리려 계획했어요.        \n";        // 문 클릭 이벤트 끝난 뒤 다음 자막 출력
             
             mvm_VoiceManager.playVoice(13);                                                                                      // 자막과 함께 나레이션2 출력
