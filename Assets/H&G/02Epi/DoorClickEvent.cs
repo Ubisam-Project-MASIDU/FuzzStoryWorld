@@ -7,7 +7,8 @@
  * - History
  * 1) 2021-08-03 : 초기 개발
  * 2) 2021-08-12 : 코드 획일화 및 주석 처리
- *  
+ * 3) 2021-08-24 : 게임건너뛰기 기능 구현 (김명현)
+ * 
  * - Variable 
  * mg_Hansel
  * mg_Gretel
@@ -41,7 +42,7 @@ public class DoorClickEvent : MonoBehaviour{
 
     public VoiceManager mvm_VoiceManager;                                                                                           // 나레이션을 위한 변수
     public VMController vm;                     
-    /// </summary>
+    
     private bool mb_PlayFirstVoice = false;                                                                                         // 첫번째 나레이션의 실행 유무를 위한 flag
     private bool mb_PlaySecondVoice = false;                                                                                        // 두번째 나레이션의 실행 유무를 위한 flag
 
@@ -78,7 +79,14 @@ public class DoorClickEvent : MonoBehaviour{
         }
         
         if (mvm_VoiceManager.isPlaying() == false && mb_PlaySecondVoice){                    // 나레이션2까지 출력 끝나면 다음씬으로 이동
-            mg_Popup.SetActive(true);                                                                                               // 다음씬으로 이동하기 위한 함수
+            if (PlayerPrefs.GetInt("SkipGame") == 1)
+            {
+                SceneManager.LoadScene("1_03H&G");
+            }
+            else
+            {
+                mg_Popup.SetActive(true);                                                                                               // 다음씬으로 이동하기 위한 함수
+            }
         }
     }
 
@@ -93,7 +101,7 @@ public class DoorClickEvent : MonoBehaviour{
             }else{                                                                                                                  // 문에 도착했다면
                 mg_DoorClickBlink.SetActive(false);                                                                                 // 문 클릭 지시 애니메이션을 비활성화
                 mt_Text.text = "\n           가난을 못 버티고 부모님은 헨젤과 그레텔을 숲속에 버리려 계획했어요.        \n";        // 문 클릭 이벤트 끝난 뒤 다음 자막 출력
-                mvm_VoiceManager.playVoice(12);                                                                                      // 자막과 함께 나레이션2 출력
+                mvm_VoiceManager.playVoice(13);                                                                                      // 자막과 함께 나레이션2 출력
                 mb_PlaySecondVoice = true;                                                                                          // 나레이션2 출력 완료
             }
         }
@@ -101,11 +109,21 @@ public class DoorClickEvent : MonoBehaviour{
     
     // 문 클릭 이벤트 지시를 도와주기 위한 튜토리얼 텍스트와 애니메이션을 활성화해주는 함수
     void v_TutorialText(){
-        mvm_VoiceManager.playVoice(13);
-        
-        mt_Text.text = "\n     문을 클릭해주세요        \n";                                                                        // 문을 클릭하게 하기 위한 텍스트 변경
-        mg_DoorClickBlink.SetActive(true);                                                                                          // 문 클릭 지시 애니메이션 활성화
-        mg_DoorClickBlink.GetComponent<BlinkObject>().ChangBlinkFlagTrue();                                                         
+        if(PlayerPrefs.GetInt("SkipGame") == 1)
+        {
+            mg_Gretel.transform.position = new Vector3(9.28f, mg_Gretel.transform.position.y, mg_Gretel.transform.position.z);
+            mg_Hansel.transform.position = new Vector3(7.48f, mg_Hansel.transform.position.y, mg_Hansel.transform.position.z);
+            mt_Text.text = "\n           가난을 못 버티고 부모님은 헨젤과 그레텔을 숲속에 버리려 계획했어요.        \n";        // 문 클릭 이벤트 끝난 뒤 다음 자막 출력
+            mvm_VoiceManager.playVoice(13);                                                                                      // 자막과 함께 나레이션2 출력
+            mb_PlaySecondVoice = true;                                                                                          // 나레이션2 출력 완료
+        }
+        else
+        {
+            mvm_VoiceManager.playVoice(13);
+            mt_Text.text = "\n     문을 클릭해주세요        \n";                                                                        // 문을 클릭하게 하기 위한 텍스트 변경
+            mg_DoorClickBlink.SetActive(true);                                                                                          // 문 클릭 지시 애니메이션 활성화
+            mg_DoorClickBlink.GetComponent<BlinkObject>().ChangBlinkFlagTrue();
+        }                                                       
     }
 
     // 다음 씬으로 넘어가기 위한 함수
