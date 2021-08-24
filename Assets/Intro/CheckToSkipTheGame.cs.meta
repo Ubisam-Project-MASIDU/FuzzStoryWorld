@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: 6d8b524b7538b344db089899bc59b43d
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - ms_CheckImage: {fileID: 21300000, guid: 58772dd7afef5614c98ae126173980b0, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
