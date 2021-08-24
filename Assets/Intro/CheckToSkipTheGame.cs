@@ -30,6 +30,20 @@ public class CheckToSkipTheGame : MonoBehaviour
     void Start()
     {
         mg_CheckEffect = GameObject.Find("CheckEffect");
+
+        if (PlayerPrefs.HasKey("SkipGame") == false)
+        {
+            PlayerPrefs.SetInt("SkipGame", 1);
+            mg_CheckEffect.GetComponent<SpriteRenderer>().sprite = ms_CheckImage;
+        }
+        else if(PlayerPrefs.GetInt("SkipGame") == 1)
+        {
+            mg_CheckEffect.GetComponent<SpriteRenderer>().sprite = ms_CheckImage;
+        }
+        else if (PlayerPrefs.GetInt("SkipGame") == 0)
+        {
+            mg_CheckEffect.GetComponent<SpriteRenderer>().sprite = null;
+        }
     }
 
     // Update is called once per frame
@@ -41,15 +55,17 @@ public class CheckToSkipTheGame : MonoBehaviour
     private void OnMouseDown()
     {
         Debug.Log("네모박스 클릭");
+
         // 만약 체크이미지가 없으면 보이게 출력, 있으면 없어지게 설정
-        if (mg_CheckEffect.GetComponent<SpriteRenderer>().sprite == null)
+        if (PlayerPrefs.GetInt("SkipGame") == 1)
+        {
+            mg_CheckEffect.GetComponent<SpriteRenderer>().sprite = null;
+            PlayerPrefs.SetInt("SkipGame", 0);
+        }
+        else if (PlayerPrefs.GetInt("SkipGame") == 0)
         {
             mg_CheckEffect.GetComponent<SpriteRenderer>().sprite = ms_CheckImage;
             PlayerPrefs.SetInt("SkipGame", 1);
-        }
-        else
-        {
-            mg_CheckEffect.GetComponent<SpriteRenderer>().sprite = null;
         }
     }
 }
