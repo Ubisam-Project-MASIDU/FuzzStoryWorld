@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: a034fa308eb1d8d489f5ef87f415685a
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - audioWalk: {fileID: 8300000, guid: 42ba81871751b9649ae1ee701e818f07, type: 3}
+  - audioEnterGame1: {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
