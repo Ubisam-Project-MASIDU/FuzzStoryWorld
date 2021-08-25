@@ -1,13 +1,17 @@
 /*
  * - Name : DoorClickEvent.cs
  * - Writer : 유희수
- * 
+ * - Sounds : 이병권
+
  * - Content : 문을 클릭하는 튜토리얼을 통한 스크립트 진행
- *  * 
+ *             -1) 문을 클릭하면 케릭터가 걸어가는 소리가 난다.
+ *             -2) 게임을 시작하는 버튼을 누르면 소리가 난다.
+ *
  * - History
  * 1) 2021-08-03 : 초기 개발
  * 2) 2021-08-12 : 코드 획일화 및 주석 처리
  * 3) 2021-08-24 : 게임건너뛰기 기능 구현 (김명현)
+ * 3) 2021-08-25 : 게임 소리 나기 작업 (이병권)
  * 
  * - Variable 
  * mg_Hansel
@@ -106,6 +110,7 @@ public class DoorClickEvent : MonoBehaviour{
                 mg_Gretel.transform.Translate(1, 0, 0);                                                                             // 헨젤과 그레텔 모두 문쪽으로 이동
                 mg_Hansel.transform.Translate(1, 0, 0);
                 Debug.Log("buttonPress");
+                GetComponent<SoundofS2>().PlaySound("Walk");
             }else{                                                                                                                  // 문에 도착했다면
                 mg_DoorClickBlink.SetActive(false);                                                                                 // 문 클릭 지시 애니메이션을 비활성화
                 mt_Text.text = "\n           가난을 못 버티고 부모님은 헨젤과 그레텔을 숲속에 버리려 계획했어요.        \n";        // 문 클릭 이벤트 끝난 뒤 다음 자막 출력
@@ -139,6 +144,7 @@ public class DoorClickEvent : MonoBehaviour{
 
     // 다음 씬으로 넘어가기 위한 함수
     public void v_ChangeNextScene(){
+
         SceneManager.LoadScene("1_02H&G_Game");
     }
 

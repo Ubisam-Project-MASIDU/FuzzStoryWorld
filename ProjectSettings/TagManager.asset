@@ -55,6 +55,14 @@ TagManager:
   - logPar
   - stonePar
   - housePar
+  - "\uBBF8\uB140\uC640\uC57C\uC218"
+  - "\uD5E8\uC824\uACFC\uADF8\uB808\uD154"
+  - "\uC7AD\uACFC\uCF69\uB098\uBB34"
+  - "\uC544\uAE30\uB3FC\uC9C0\uC0BC\uD615\uC81C"
+  - "\uC2E0\uB370\uB810\uB77C"
+  - "\uBC31\uC124\uACF5\uC8FC"
+  - "\uD765\uBD80\uC640\uB180\uBD80"
+  - "\uC131\uB0E5\uD314\uC774\uC18C\uB140"
   layers:
   - Default
   - TransparentFX
