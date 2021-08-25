@@ -3,10 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SelectManager : MonoBehaviour{
-    void Update(){
-
-    }
-
     public void First(){
         SceneManager.LoadScene("0_01LanguageSelect");
     }
