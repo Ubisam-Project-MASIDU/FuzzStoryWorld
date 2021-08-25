@@ -89,7 +89,7 @@ public class MoveWitch : MonoBehaviour
         spr_InvertWitch.color = new Color(1, 1, 1, 0.4f);
         int dirc = transform.position.x - targetPos.x > 0 ? 1 : -1;
         gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(dirc, 7, 7), ForceMode.Impulse);
-        Invoke("OffDamaged", 1.7f);
+        Invoke("OffDamaged", 0.7f);
     }
     void OffDamaged() {
         gameObject.layer = 11;

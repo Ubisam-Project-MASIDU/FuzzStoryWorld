@@ -8,10 +8,11 @@ public class ChangeCountry : MonoBehaviour
 {
     private VoiceManager mvm_VoiceManager;
     public int mn_PlayVoiceIndex;
-   // private VoiceManager 
+
     void Start() {
         mvm_VoiceManager = FindObjectOfType<VoiceManager>();
     }
+    
     public void OnclickButton() {
         switch (this.gameObject.name) {
             case "korea": 

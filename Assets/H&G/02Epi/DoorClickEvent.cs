@@ -1,4 +1,4 @@
-﻿/*
+/*
  * - Name : DoorClickEvent.cs
  * - Writer : 유희수
  * 
@@ -33,6 +33,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class DoorClickEvent : MonoBehaviour{
+    private ChangeCountry mn_PlayVoiceIndex;
     public GameObject mg_Hansel;                                                                                                    // 연결을 위한 변수 -> 헨젤 연결
     public GameObject mg_Gretel;                                                                                                    // 연결을 위한 변수 -> 그레텔 연결
     string temp;
@@ -109,9 +110,13 @@ public class DoorClickEvent : MonoBehaviour{
                 mg_DoorClickBlink.SetActive(false);                                                                                 // 문 클릭 지시 애니메이션을 비활성화
                 mt_Text.text = "\n           가난을 못 버티고 부모님은 헨젤과 그레텔을 숲속에 버리려 계획했어요.        \n";        // 문 클릭 이벤트 끝난 뒤 다음 자막 출력
 
+<<<<<<< Updated upstream
                 mvm_VoiceManager.playVoice(12);
                 temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[12].words;
                 cc.mt_CaptionText.GetComponent<Text>().text = temp;// 자막과 함께 나레이션2 출력
+=======
+                mvm_VoiceManager.playVoice(12);                                                                                      // 자막과 함께 나레이션2 출력
+>>>>>>> Stashed changes
                 mb_PlaySecondVoice = true;                                                                                          // 나레이션2 출력 완료
             }
         }
@@ -122,14 +127,18 @@ public class DoorClickEvent : MonoBehaviour{
         if(PlayerPrefs.GetInt("SkipGame") == 1)
         {
             mt_Text.text = "\n           가난을 못 버티고 부모님은 헨젤과 그레텔을 숲속에 버리려 계획했어요.        \n";        // 문 클릭 이벤트 끝난 뒤 다음 자막 출력
+<<<<<<< Updated upstream
             temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[12].words;
             cc.mt_CaptionText.GetComponent<Text>().text = temp;
+=======
+            
+>>>>>>> Stashed changes
             mvm_VoiceManager.playVoice(12);                                                                                      // 자막과 함께 나레이션2 출력
             mb_PlaySecondVoice = true;                                                                                          // 나레이션2 출력 완료
         }
         else
         {
-            mvm_VoiceManager.playVoice(13);
+            mvm_VoiceManager.playVoice(12);
             mt_Text.text = "\n     문을 클릭해주세요        \n";                                                                        // 문을 클릭하게 하기 위한 텍스트 변경
             mg_DoorClickBlink.SetActive(true);                                                                                          // 문 클릭 지시 애니메이션 활성화
             mg_DoorClickBlink.GetComponent<BlinkObject>().ChangBlinkFlagTrue();
