@@ -1614,7 +1614,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.45
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1837,6 +1837,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChangeLanguage
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762327727425123680, guid: e70653d09807af14abc9d3c0a3844607,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70653d09807af14abc9d3c0a3844607, type: 3}

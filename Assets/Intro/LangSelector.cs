@@ -31,9 +31,13 @@ public class LangSelector : MonoBehaviour {
     private Ray mr_CheckMousePosByRay;                      // 마우스가 클릭된 곳을 카메라에서부터 레이져를 쏘아 감지하기 위한 Ray 
     private RaycastHit mrch_CheckMousePosHitObj;            // 레이져를 쏜 곳에 오브젝트가 있다면 이 hit 클래스 변수에 담긴다.
     private GameObject mgo_VMController;
+    GameObject mg_SoundManager;
     public int mn_CountryIndex;
     
     // 클릭 이벤트 ( Input.GetMouseButtonDown(0))가 발생되면, 마우스 위치에 어떤 녀석이 있는지 판별한 후에, 음성 로드를 시작하게 하였다.
+    void Start(){
+        mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
+    }
     void Update() {
         mr_CheckMousePosByRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -46,6 +50,7 @@ public class LangSelector : MonoBehaviour {
                         transform.DetachChildren();
                         DontDestroyOnLoad(mgo_VMController);
                         mgo_VMController.GetComponent<VoiceManager>().country = VoiceManager.Country.KR; 
+                        mg_SoundManager.GetComponent<SoundManager>().playSound("Flag");                  // 국기를 눌렀을 때 효과음 재생
                         SceneManager.LoadScene("0_03Starting");
                         break;
                     case "ENImage":
@@ -54,6 +59,7 @@ public class LangSelector : MonoBehaviour {
                         transform.DetachChildren();
                         DontDestroyOnLoad(mgo_VMController);
                         mgo_VMController.GetComponent<VoiceManager>().country = VoiceManager.Country.EN;
+                        mg_SoundManager.GetComponent<SoundManager>().playSound("Flag");
                         SceneManager.LoadScene("0_03Starting");
                         break;
                     case "JPImage":
@@ -62,6 +68,7 @@ public class LangSelector : MonoBehaviour {
                         transform.DetachChildren();
                         DontDestroyOnLoad(mgo_VMController);
                         mgo_VMController.GetComponent<VoiceManager>().country = VoiceManager.Country.JP;
+                        mg_SoundManager.GetComponent<SoundManager>().playSound("Flag");
                         SceneManager.LoadScene("0_03Starting");
                         break;
                     case "CNImage":
@@ -70,6 +77,7 @@ public class LangSelector : MonoBehaviour {
                         transform.DetachChildren();
                         DontDestroyOnLoad(mgo_VMController);
                         mgo_VMController.GetComponent<VoiceManager>().country = VoiceManager.Country.CN;
+                        mg_SoundManager.GetComponent<SoundManager>().playSound("Flag");
                         SceneManager.LoadScene("0_03Starting");
                         break;
                  }
