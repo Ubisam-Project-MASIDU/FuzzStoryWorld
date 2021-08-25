@@ -52,7 +52,9 @@ public class DoorClickEvent : MonoBehaviour{
     private bool mb_PlayFirstVoice = false;                                                                                         // 첫번째 나레이션의 실행 유무를 위한 flag
     private bool mb_PlaySecondVoice = false;                                                                                        // 두번째 나레이션의 실행 유무를 위한 flag
 
-    public GameObject mg_Popup;                                                                                                     // 팝업창 오브젝트 연결을 위한 변수
+    public GameObject mg_Popup;
+    
+        GameObject mg_SoundManager;                                                                                                     // 팝업창 오브젝트 연결을 위한 변수
     
     void Start(){
         //vm = FindObjectOfType<VMController>(); /////////////////////////////////////////////
@@ -74,6 +76,8 @@ public class DoorClickEvent : MonoBehaviour{
         mg_DoorClickBlink.SetActive(false);                                                                                         // 처음에는 문 클릭 지시 애니메이션을 비활성화
 
         mg_Popup.SetActive(false);
+
+        mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
 
         if (PlayerPrefs.GetInt("SkipGame") == 1)
         {
@@ -144,7 +148,8 @@ public class DoorClickEvent : MonoBehaviour{
 
     // 다음 씬으로 넘어가기 위한 함수
     public void v_ChangeNextScene(){
-
+        mg_SoundManager.GetComponent<SoundManager>().playSound("PlayMiniGame1");   // 시작 버튼을 눌렀을 때 나오는 효과음 재생
+        Invoke("LoadScene", 1f);
         SceneManager.LoadScene("1_02H&G_Game");
     }
 
@@ -152,5 +157,6 @@ public class DoorClickEvent : MonoBehaviour{
     {
         SceneManager.LoadScene("1_03H&G");
     }
+
 }
 

@@ -23,7 +23,6 @@ public class SoundofS2 : MonoBehaviour
 
   public AudioClip audioWalk;                // 문을 선택하여 걸어 갈때
 
-   public AudioClip audioEnterGame1;              // 영어를 선택하였을 때
    AudioSource audioSource;                     // 두 경우를 하나의 저장해서 다른 곳에서 불러오게 한다 
 
    void Awake(){
@@ -35,9 +34,6 @@ public class SoundofS2 : MonoBehaviour
        switch(action) {
             case "Walk":                                   // 한국어를 선택하였을 때
                 audioSource.clip = audioWalk;
-                break;
-            case "Game1":                                // 영어를 선택하였을 때
-                audioSource.clip = audioEnterGame1;
                 break;
         }
         audioSource.Play();
