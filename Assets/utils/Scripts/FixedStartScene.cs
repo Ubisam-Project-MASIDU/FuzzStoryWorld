@@ -23,7 +23,7 @@ using UnityEngine.SceneManagement;
 
 // 첫 번째로 화면에 표시되는 씬을 아래와 같은 씬으로 고정시킨다.
 public class FixedStartScene : MonoBehaviour {
-    
+    /*
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
     // intro 씬을 첫 번째 씬으로 고정시킨다.
     static void FirstLoad()
@@ -32,5 +32,5 @@ public class FixedStartScene : MonoBehaviour {
             SceneManager.LoadScene("0_02Intro");
         }
     }
-    
+    */
 }
