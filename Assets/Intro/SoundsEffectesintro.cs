@@ -25,7 +25,9 @@ public class SoundsEffectesintro : MonoBehaviour
 
    public AudioClip audioJapan;                 // 일본어를 선택하였을 때
 
-   public AudioClip audioChina;                 // 중국어를 선택하였을 때                       
+   public AudioClip audioChina;                 // 중국어를 선택하였을 때           
+
+   public AudioClip audioClickSkip;            
 
    AudioSource audioSource;                     // 두 경우를 하나의 저장해서 다른 곳에서 불러오게 한다 
 
@@ -48,10 +50,12 @@ public class SoundsEffectesintro : MonoBehaviour
             case "China":                                   // 중국어를 선택하였을 때
                 audioSource.clip = audioChina;
                 break;
+            case "ClickSkip":
+                audioSource.clip = audioClickSkip;
+                break;
 
         }
         audioSource.Play();
-   }
-   
+   }   
 
 }

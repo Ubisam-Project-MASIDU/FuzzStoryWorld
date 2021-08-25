@@ -56,14 +56,17 @@ public class CheckToSkipTheGame : MonoBehaviour
     {
         Debug.Log("네모박스 클릭");
 
+
         // 만약 체크이미지가 없으면 보이게 출력, 있으면 없어지게 설정
         if (PlayerPrefs.GetInt("SkipGame") == 1)
         {
+            GetComponent<SoundsEffectesintro>().PlaySound("ClickSkip");
             mg_CheckEffect.GetComponent<SpriteRenderer>().sprite = null;
             PlayerPrefs.SetInt("SkipGame", 0);
         }
         else if (PlayerPrefs.GetInt("SkipGame") == 0)
-        {
+        {   
+            GetComponent<SoundsEffectesintro>().PlaySound("ClickSkip");
             mg_CheckEffect.GetComponent<SpriteRenderer>().sprite = ms_CheckImage;
             PlayerPrefs.SetInt("SkipGame", 1);
         }
