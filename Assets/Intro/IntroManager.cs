@@ -39,6 +39,6 @@ public class IntroManager : MonoBehaviour{
 
     //Start 버튼을 누르면 스테이지 선택 화면으로 넘어감
     public void GoStartSelectScene(){
-        SceneManager.LoadScene("0_03Starting"); 
+        SceneManager.LoadScene("0_04Select"); 
     }
 }
