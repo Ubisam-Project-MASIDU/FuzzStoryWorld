@@ -575,10 +575,38 @@ PrefabInstance:
     - target: {fileID: 4360766068185178238, guid: 74151ff15bb6a324680e30ce1eac36c9,
         type: 3}
       propertyPath: m_Name
-      value: Panel (1)
+      value: CaptionPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962185075350434536, guid: 74151ff15bb6a324680e30ce1eac36c9,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74151ff15bb6a324680e30ce1eac36c9, type: 3}
+--- !u!1 &670223529 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4360766068185178238, guid: 74151ff15bb6a324680e30ce1eac36c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 670223528}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &670223530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670223529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8139ac740f07cf0428dd52d414fd9fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mvm_VoiceManager: {fileID: 0}
+  mn_langIndex: 9
+  mg_CaptionPanel: {fileID: 0}
+  mt_CaptionText: {fileID: 0}
+  mn_VoicIndex: 18
 --- !u!1 &866596738
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,6 +964,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ChangeLanguage
+      objectReference: {fileID: 0}
+    - target: {fileID: 3267896549936319964, guid: e70653d09807af14abc9d3c0a3844607,
+        type: 3}
+      propertyPath: mn_PlayVoiceIndex
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659417996301443778, guid: e70653d09807af14abc9d3c0a3844607,
+        type: 3}
+      propertyPath: mn_PlayVoiceIndex
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410277484407322061, guid: e70653d09807af14abc9d3c0a3844607,
+        type: 3}
+      propertyPath: mn_PlayVoiceIndex
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723243544458193989, guid: e70653d09807af14abc9d3c0a3844607,
+        type: 3}
+      propertyPath: mn_PlayVoiceIndex
+      value: 18
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70653d09807af14abc9d3c0a3844607, type: 3}

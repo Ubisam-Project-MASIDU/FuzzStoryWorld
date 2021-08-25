@@ -10587,6 +10587,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: ChangeLanguage
       objectReference: {fileID: 0}
+    - target: {fileID: 3267896549936319964, guid: e70653d09807af14abc9d3c0a3844607,
+        type: 3}
+      propertyPath: mn_PlayVoiceIndex
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4659417996301443778, guid: e70653d09807af14abc9d3c0a3844607,
+        type: 3}
+      propertyPath: mn_PlayVoiceIndex
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410277484407322061, guid: e70653d09807af14abc9d3c0a3844607,
+        type: 3}
+      propertyPath: mn_PlayVoiceIndex
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723243544458193989, guid: e70653d09807af14abc9d3c0a3844607,
+        type: 3}
+      propertyPath: mn_PlayVoiceIndex
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e70653d09807af14abc9d3c0a3844607, type: 3}
 --- !u!1 &1146761971
@@ -25900,6 +25920,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CaptionPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 5962185075350434536, guid: 74151ff15bb6a324680e30ce1eac36c9,
+        type: 3}
+      propertyPath: m_Text
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74151ff15bb6a324680e30ce1eac36c9, type: 3}
