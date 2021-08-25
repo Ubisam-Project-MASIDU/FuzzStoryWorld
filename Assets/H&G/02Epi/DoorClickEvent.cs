@@ -23,7 +23,7 @@
  * v_GotoDoor()                                     문을 클릭해서 문에 헨젤과 그레텔이 다다를수있게 하는 함수
  * v_TutorialText()                                 문 클릭 이벤트 지시를 도와주기 위한 튜토리얼 텍스트와 애니메이션을 활성화해주는 함수
  * v_ChangeNextScene()                              다음 씬으로 넘어가기 위한 함수
- *  
+ * v_ChangeNextSceneWhenSkipGame()                  게임이 스킵되는경우 다음씬으로 넘어가기 위한 함수
  */
 
 using System.Collections;
@@ -86,7 +86,7 @@ public class DoorClickEvent : MonoBehaviour{
         if (mvm_VoiceManager.isPlaying() == false && mb_PlaySecondVoice){                    // 나레이션2까지 출력 끝나면 다음씬으로 이동
             if (PlayerPrefs.GetInt("SkipGame") == 1)
             {
-                SceneManager.LoadScene("1_03H&G");
+                Invoke("v_ChangeNextSceneWhenSkipGame", 1f);
             }
             else
             {
@@ -119,7 +119,7 @@ public class DoorClickEvent : MonoBehaviour{
         {
             mt_Text.text = "\n           가난을 못 버티고 부모님은 헨젤과 그레텔을 숲속에 버리려 계획했어요.        \n";        // 문 클릭 이벤트 끝난 뒤 다음 자막 출력
             
-            mvm_VoiceManager.playVoice(13);                                                                                      // 자막과 함께 나레이션2 출력
+            mvm_VoiceManager.playVoice(12);                                                                                      // 자막과 함께 나레이션2 출력
             mb_PlaySecondVoice = true;                                                                                          // 나레이션2 출력 완료
         }
         else
@@ -134,6 +134,11 @@ public class DoorClickEvent : MonoBehaviour{
     // 다음 씬으로 넘어가기 위한 함수
     public void v_ChangeNextScene(){
         SceneManager.LoadScene("1_02H&G_Game");
+    }
+
+    public void v_ChangeNextSceneWhenSkipGame()
+    {
+        SceneManager.LoadScene("1_03H&G");
     }
 }
 
