@@ -59,6 +59,9 @@ public class SceneControl : MonoBehaviour
             //mvm_VoiceManager.playVoice(18);
             if (PlayerPrefs.GetInt("SkipGame") == 0)
             {
+                mvm_VoiceManager.playVoice(19);
+                temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[19].words;
+                cc.mt_CaptionText.GetComponent<Text>().text = temp;
                 mt_Text.text = "\n       물체를 클릭해서 마녀에게로부터 헨젤과 그레텔을 숨겨주세요.        \n";
                 mb_PlayThirdVoice = true;
             }

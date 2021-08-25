@@ -141,6 +141,8 @@ public class DoorClickEvent : MonoBehaviour{
         {
             mvm_VoiceManager.playVoice(13);
             mt_Text.text = "\n     문을 클릭해주세요        \n";                                                                        // 문을 클릭하게 하기 위한 텍스트 변경
+            temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[13].words;
+            cc.mt_CaptionText.GetComponent<Text>().text = temp;
             mg_DoorClickBlink.SetActive(true);                                                                                          // 문 클릭 지시 애니메이션 활성화
             mg_DoorClickBlink.GetComponent<BlinkObject>().ChangBlinkFlagTrue();
         }                                                       
