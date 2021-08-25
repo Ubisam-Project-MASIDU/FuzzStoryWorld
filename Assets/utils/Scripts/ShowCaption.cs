@@ -21,7 +21,7 @@ public class ShowCaption : MonoBehaviour
         
     }
 
-    public void captionClose()
+    public void captionOn() //on버튼 누르면 자막 사라지고 off버튼 나옴
     {
         this.gameObject.SetActive(false);
         On.SetActive(false);
@@ -29,7 +29,7 @@ public class ShowCaption : MonoBehaviour
 
     }
 
-    public void captionShow()
+    public void captionOff() //off버튼 누르면 자막 생기고 on버튼 나옴
     {
         this.gameObject.SetActive(true);
         On.SetActive(true);
