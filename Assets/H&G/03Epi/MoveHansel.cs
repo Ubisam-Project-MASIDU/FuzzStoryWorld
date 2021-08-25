@@ -15,7 +15,7 @@
  *  
  * <Function>
  * v_NextScene                  다음 씬으로 넘겨주는 함수
- * 
+ * v_NextSceneWhenSkipGame      게임 스킵시 넘어갈 씬
  */
 using System.Collections;
 using System.Collections.Generic;
@@ -52,7 +52,7 @@ public class MoveHansel : MonoBehaviour{
             // 게임건너뛰기가 켜져있는지 확인
             if(PlayerPrefs.GetInt("SkipGame") == 1)
             {
-                SceneManager.LoadScene("1_04H&G");
+                Invoke("v_NextSceneWhenSkipGame", 1f);
             }
             else
             {
@@ -67,5 +67,10 @@ public class MoveHansel : MonoBehaviour{
     }
     public void v_NextScene(){
         SceneManager.LoadScene("1_03H&G_Game");
+    }
+
+    public void v_NextSceneWhenSkipGame()
+    {
+        SceneManager.LoadScene("1_04H&G");
     }
 }

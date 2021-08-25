@@ -998,8 +998,36 @@ PrefabInstance:
       propertyPath: m_Name
       value: CaptionPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 5962185075350434536, guid: 74151ff15bb6a324680e30ce1eac36c9,
+        type: 3}
+      propertyPath: m_Text
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74151ff15bb6a324680e30ce1eac36c9, type: 3}
+--- !u!1 &791399257 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4360766068185178238, guid: 74151ff15bb6a324680e30ce1eac36c9,
+    type: 3}
+  m_PrefabInstance: {fileID: 791399256}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &791399258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791399257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8139ac740f07cf0428dd52d414fd9fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mvm_VoiceManager: {fileID: 0}
+  mn_langIndex: 9
+  mg_CaptionPanel: {fileID: 0}
+  mt_CaptionText: {fileID: 0}
+  mn_VoicIndex: 17
 --- !u!1 &794626254
 GameObject:
   m_ObjectHideFlags: 0

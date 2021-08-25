@@ -7,9 +7,11 @@ public class SceneControl : MonoBehaviour
 {
 
     public VoiceManager mvm_VoiceManager;
+    public CaptionControl cc;
     private bool mb_PlayFirstVoice = false;
     private bool mb_PlaySecondVoice = false;
     private bool mb_PlayThirdVoice = false;
+    string temp;
 
     public GameObject mg_WitchText;
     public GameObject vibrate;
@@ -23,6 +25,7 @@ public class SceneControl : MonoBehaviour
     void Start()
     {
         mvm_VoiceManager = FindObjectOfType<VoiceManager>();
+        cc = GameObject.Find("CaptionPanel").GetComponent<CaptionControl>();
 
         mg_WitchText.SetActive(false);
         background = GameObject.Find("Background").GetComponent<SpriteRenderer>();
@@ -35,14 +38,16 @@ public class SceneControl : MonoBehaviour
     {
         if (!mb_PlayFirstVoice)
         {
-            mvm_VoiceManager.playVoice(17); //그때무서운마녀가 나타났어요
+            mvm_VoiceManager.playVoice(15); //그때무서운마녀가 나타났어요
             mb_PlayFirstVoice = true;
             Invoke("v_WitchText", 2.5f); //누가 내 집을 먹는게냐 텍스트
         }
 
         if (mvm_VoiceManager.isPlaying() == false && mb_PlayFirstVoice && !mb_PlaySecondVoice) //사실 그 마녀는 웅엥
         {
-            mvm_VoiceManager.playVoice(18); //사실 그 할머니는 어쩌구
+            mvm_VoiceManager.playVoice(16); //사실 그 할머니는 어쩌구
+            temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[16].words;
+            cc.mt_CaptionText.GetComponent<Text>().text = temp;
             mb_PlaySecondVoice = true;
             mg_WitchText.SetActive(false);
             mt_Text.text = "\n       사실 그 할머니는 아이들을 잡아먹는 무서운 마녀였어요.        \n";
