@@ -145,6 +145,10 @@ public class ObjectClick : MonoBehaviour {
                 Invoke("v_WithcToHome", 2.5f);
                 Invoke("v_ChangeNextScene", 5f);
             }
+            else
+            {
+                mn_count = 6;
+            }
 
             // 마녀가 집으로 돌아가도 되는지 확인해주는 flag가 false라면 FindHAG함수 실행
             if (!mb_WitchToHomeFlag) {
