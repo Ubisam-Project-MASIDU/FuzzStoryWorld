@@ -35,14 +35,15 @@ using UnityEngine.SceneManagement;
 public class DoorClickEvent : MonoBehaviour{
     public GameObject mg_Hansel;                                                                                                    // 연결을 위한 변수 -> 헨젤 연결
     public GameObject mg_Gretel;                                                                                                    // 연결을 위한 변수 -> 그레텔 연결
+    string temp;
 
     public Button mbtn_Door;                                                                                                        // 문을 클릭하기 위한 버튼
     public GameObject mg_DoorClickBlink;                                                                                                   // 문 클릭을 지시하기 위한 애니메이션
     public Text mt_Text;                                                                                                            // 자막을 출력하기 위한 텍스트
 
     public VoiceManager mvm_VoiceManager;                                                                                           // 나레이션을 위한 변수
-                         
-    
+    public CaptionControl cc;
+
     private bool mb_PlayFirstVoice = false;                                                                                         // 첫번째 나레이션의 실행 유무를 위한 flag
     private bool mb_PlaySecondVoice = false;                                                                                        // 두번째 나레이션의 실행 유무를 위한 flag
 
@@ -59,6 +60,7 @@ public class DoorClickEvent : MonoBehaviour{
         
      
         mvm_VoiceManager = FindObjectOfType<VoiceManager>();
+        cc = GameObject.Find("CaptionPanel").GetComponent<CaptionControl>();
 
         //mg_DoorClickBlink = GameObject.Find("arrow");
 
@@ -107,7 +109,9 @@ public class DoorClickEvent : MonoBehaviour{
                 mg_DoorClickBlink.SetActive(false);                                                                                 // 문 클릭 지시 애니메이션을 비활성화
                 mt_Text.text = "\n           가난을 못 버티고 부모님은 헨젤과 그레텔을 숲속에 버리려 계획했어요.        \n";        // 문 클릭 이벤트 끝난 뒤 다음 자막 출력
 
-                mvm_VoiceManager.playVoice(13);                                                                                      // 자막과 함께 나레이션2 출력
+                mvm_VoiceManager.playVoice(12);
+                temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[12].words;
+                cc.mt_CaptionText.GetComponent<Text>().text = temp;// 자막과 함께 나레이션2 출력
                 mb_PlaySecondVoice = true;                                                                                          // 나레이션2 출력 완료
             }
         }
@@ -118,7 +122,8 @@ public class DoorClickEvent : MonoBehaviour{
         if(PlayerPrefs.GetInt("SkipGame") == 1)
         {
             mt_Text.text = "\n           가난을 못 버티고 부모님은 헨젤과 그레텔을 숲속에 버리려 계획했어요.        \n";        // 문 클릭 이벤트 끝난 뒤 다음 자막 출력
-            
+            temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[12].words;
+            cc.mt_CaptionText.GetComponent<Text>().text = temp;
             mvm_VoiceManager.playVoice(12);                                                                                      // 자막과 함께 나레이션2 출력
             mb_PlaySecondVoice = true;                                                                                          // 나레이션2 출력 완료
         }

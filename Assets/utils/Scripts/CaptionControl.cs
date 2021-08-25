@@ -12,9 +12,7 @@ public class CaptionControl : MonoBehaviour
     public int mn_VoicIndex = 99;
     string temp;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         mt_CaptionText = GameObject.Find("Caption");
         mvm_VoiceManager = GameObject.FindObjectOfType<VoiceManager>();
         mg_CaptionPanel = GameObject.Find("CaptionPanel");
@@ -23,18 +21,11 @@ public class CaptionControl : MonoBehaviour
         ShowCaption();
     }
 
-    // Update is called once per frame
-    
-
-    public void ShowCaption()
-    {
-        if (mn_langIndex == 0) //한국어 선택 -> 자막 없애기
-        {
+    public void ShowCaption(){
+        if (mn_langIndex == 0){ //한국어 선택 -> 자막 없애기
             this.gameObject.SetActive(false);
         }
-        else
-        {
-            //mt_CaptionText.GetComponent<Text>().text = mvm_VoiceManager.mlva_LanguageVoices[mn_langIndex].mvifl_setVoiceInfoList[mn_VoicIndex].words;
+        else{
             mt_CaptionText.GetComponent<Text>().text = temp;
         }
     }
