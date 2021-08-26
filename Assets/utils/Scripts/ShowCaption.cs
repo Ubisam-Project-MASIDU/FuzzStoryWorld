@@ -15,7 +15,11 @@ public class ShowCaption : MonoBehaviour
         cc = GameObject.Find("CaptionPanel").GetComponent<CaptionControl>();
         Off = GameObject.Find("Off");
         On = GameObject.Find("On");
-        Off.SetActive(false);
+        if(Off.activeSelf == true)
+        {
+            Off.SetActive(false);
+        }
+        
         
         
     }
