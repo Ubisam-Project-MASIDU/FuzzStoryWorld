@@ -928,7 +928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ms_ChangeNextSceneName: 1_08H&G
-  mn_PlayVoiceIndex: 7
+  mn_PlayVoiceIndex: 10
 --- !u!1 &259438899
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,7 +2360,7 @@ MonoBehaviour:
   mn_langIndex: 9
   mg_CaptionPanel: {fileID: 0}
   mt_CaptionText: {fileID: 0}
-  mn_VoicIndex: 7
+  mn_VoiceIndex: 10
 --- !u!114 &1009482618
 MonoBehaviour:
   m_ObjectHideFlags: 0

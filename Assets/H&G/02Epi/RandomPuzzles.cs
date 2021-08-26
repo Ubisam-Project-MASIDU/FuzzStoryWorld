@@ -35,7 +35,7 @@ public class RandomPuzzles : MonoBehaviour{
     /// </summary>
     void Start(){
         mvm_VoiceManager = FindObjectOfType<VoiceManager>();
-        mvm_VoiceManager.playVoice(17);
+        mvm_VoiceManager.playVoice(4);
         //mvm_VoiceManager.playVoice(15);
         //오브젝트 연결
         mga_Slot[0] = GameObject.Find("Slot1");

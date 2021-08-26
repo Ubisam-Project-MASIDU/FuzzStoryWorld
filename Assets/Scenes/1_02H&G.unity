@@ -2245,7 +2245,7 @@ MonoBehaviour:
   mn_langIndex: 9
   mg_CaptionPanel: {fileID: 0}
   mt_CaptionText: {fileID: 0}
-  mn_VoicIndex: 1
+  mn_VoiceIndex: 1
 --- !u!114 &5454299426059536642
 MonoBehaviour:
   m_ObjectHideFlags: 0

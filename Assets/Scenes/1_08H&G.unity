@@ -1628,7 +1628,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cabc65ce86e6e44d39dd57563760c76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mn_PlayVoiceIndex: 8
+  mn_PlayVoiceIndex: 11
   ms_ChangeNextSceneName: 1_08H&G_Game
   ms_ChangeNextSceneName_NoGame: 1_09H&G
 --- !u!61 &1043450237
@@ -2477,7 +2477,7 @@ MonoBehaviour:
   mn_langIndex: 9
   mg_CaptionPanel: {fileID: 0}
   mt_CaptionText: {fileID: 0}
-  mn_VoicIndex: 8
+  mn_VoiceIndex: 11
 --- !u!114 &1647029106
 MonoBehaviour:
   m_ObjectHideFlags: 0

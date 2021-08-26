@@ -468,7 +468,7 @@ MonoBehaviour:
   mn_langIndex: 9
   mg_CaptionPanel: {fileID: 0}
   mt_CaptionText: {fileID: 0}
-  mn_VoicIndex: 9
+  mn_VoiceIndex: 18
 --- !u!114 &243999545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1587,11 +1587,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Text
       value: "          \n         \uD5E8\uC824\uACFC \uADF8\uB808\uD154\uC740 \uBF08\uB2E4\uADC0\uB97C
-        \uC190 \uB300\uC2E0 \uB0B4\uBC00\uC5C8\uC2B5\uB2C8\uB2E4. \n         \uD55C\uCC38\uC774
-        \uC9C0\uB098\uB3C4\uC0B4\uC774 \uCC0C\uC9C0 \uC54A\uC790 \uCC38\uC9C0 \uBABB\uD55C
-        \uB9C8\uB140\uB294 \uB458\uB2E4 \uC7A1\uC544\uBA39\uC73C\uB824 \uD588\uC2B5\uB2C8\uB2E4.\r    
+        \uC190 \uB300\uC2E0 \uB0B4\uBC00\uC5C8\uC5B4\uC694.\n         \uD55C\uCC38\uC774
+        \uC9C0\uB098\uB3C4 \uC0B4\uC774 \uCC0C\uC9C0 \uC54A\uC790 \uCC38\uC9C0 \uBABB\uD55C
+        \uB9C8\uB140\uB294 \uB458\uB2E4 \uC7A1\uC544\uBA39\uC73C\uB824 \uD588\uC5B4\uC694.    
         \n\uAC81\uC5D0 \uC9C8\uB9B0 \uC544\uC774\uB4E4\uC740 \uB9C8\uB140\uC5D0\uAC8C
-        \uBC97\uC5B4\uB098\uB824\uACE0 \uC2DC\uB3C4\uD588\uC2B5\uB2C8\uB2E4.\r\n"
+        \uBC97\uC5B4\uB098\uB824\uACE0 \uC2DC\uB3C4\uD588\uC5B4\uC694.\r\n"
       objectReference: {fileID: 0}
     - target: {fileID: 5016832935403608147, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
         type: 3}
@@ -1882,7 +1882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cabc65ce86e6e44d39dd57563760c76e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mn_PlayVoiceIndex: 9
+  mn_PlayVoiceIndex: 18
   ms_ChangeNextSceneName: 1_11H&G_Game
   ms_ChangeNextSceneName_NoGame: 1_14H&G
 --- !u!212 &2115427295

@@ -1033,7 +1033,7 @@ MonoBehaviour:
   mn_langIndex: 9
   mg_CaptionPanel: {fileID: 0}
   mt_CaptionText: {fileID: 0}
-  mn_VoicIndex: 0
+  mn_VoiceIndex: 0
 --- !u!114 &1391552752
 MonoBehaviour:
   m_ObjectHideFlags: 0

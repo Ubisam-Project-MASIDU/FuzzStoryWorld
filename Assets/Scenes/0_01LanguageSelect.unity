@@ -2633,7 +2633,7 @@ PrefabInstance:
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[14].sstr_words
       value: "\uC0AC\uC2E4 \uADF8 \uD560\uBA38\uB2C8\uB294 \uC544\uC774\uB4E4\uC744
-        \uC7A1\uC544 \uBA39\uB294 \uB9C8\uB140\uC600\uC5B4\uC694."
+        \uC7A1\uC544 \uBA39\uB294 \uBB34\uC11C\uC6B4 \uB9C8\uB140\uC600\uC5B4\uC694."
       objectReference: {fileID: 0}
     - target: {fileID: 9004361323123476078, guid: 29c66f6e0b4f1458dadb684b604f1058,
         type: 3}
@@ -2658,10 +2658,10 @@ PrefabInstance:
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[18].sstr_words
       value: "\uD5E8\uC824\uACFC \uADF8\uB808\uD154\uC740 \uBF08\uB2E4\uADC0\uB97C
-        \uC190 \uB300\uC2E0 \uB0B4\uBC00\uC5C8\uC5B4\uC694. \uD55C\uCC38\uC774 \uC9C0\uB098\uB3C4\uC0B4\uC774
-        \uCC0C\uC9C0 \uC54A\uC790 \uCC38\uC9C0 \uBABB\uD55C \uB9C8\uB140\uB294 \uB458\uB2E4
-        \uC7A1\uC544\uBA39\uC73C\uB824 \uD588\uC5B4\uC694. \uAC81\uC5D0 \uC9C8\uB9B0
-        \uC544\uC774\uB4E4\uC740 \uB9C8\uB140\uC5D0\uAC8C \uBC97\uC5B4\uB098\uB824\uACE0
+        \uC190 \uB300\uC2E0 \uB0B4\uBC00\uC5C8\uC5B4\uC694. \uD55C\uCC38\uC774 \uC9C0\uB098\uB3C4
+        \uC0B4\uC774 \uCC0C\uC9C0 \uC54A\uC790 \uCC38\uC9C0 \uBABB\uD55C \uB9C8\uB140\uB294
+        \uB458\uB2E4 \uC7A1\uC544\uBA39\uC73C\uB824 \uD588\uC5B4\uC694. \uAC81\uC5D0
+        \uC9C8\uB9B0 \uC544\uC774\uB4E4\uC740 \uB9C8\uB140\uC5D0\uAC8C \uBC97\uC5B4\uB098\uB824\uACE0
         \uC2DC\uB3C4\uD588\uC5B4\uC694."
       objectReference: {fileID: 0}
     - target: {fileID: 9004361323123476078, guid: 29c66f6e0b4f1458dadb684b604f1058,

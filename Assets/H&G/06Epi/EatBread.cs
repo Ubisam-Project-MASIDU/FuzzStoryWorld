@@ -51,7 +51,7 @@ public class EatBread : MonoBehaviour
     // 나레이션 출력
     void Start() {
         mvm_VoiceManager = FindObjectOfType<VoiceManager>();
-        mvm_VoiceManager.playVoice(6);
+        mvm_VoiceManager.playVoice(9);
     }
     
     void Update() {

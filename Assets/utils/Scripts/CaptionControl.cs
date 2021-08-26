@@ -9,7 +9,7 @@ public class CaptionControl : MonoBehaviour
     public int mn_langIndex = 9;
     public GameObject mg_CaptionPanel;
     public GameObject mt_CaptionText;
-    public int mn_VoicIndex = 99;
+    public int mn_VoiceIndex = 99;
     string temp;
 
     void Start(){
@@ -17,7 +17,7 @@ public class CaptionControl : MonoBehaviour
         mvm_VoiceManager = GameObject.FindObjectOfType<VoiceManager>();
         mg_CaptionPanel = GameObject.Find("CaptionPanel");
         mn_langIndex = ((int)mvm_VoiceManager.country);
-        temp = mvm_VoiceManager.mlva_LanguageVoices[mn_langIndex].mvifl_setVoiceInfoList[mn_VoicIndex].words;
+        temp = mvm_VoiceManager.mlva_LanguageVoices[mn_langIndex].mvifl_setVoiceInfoList[mn_VoiceIndex].words;
         ShowCaption();
     }
 

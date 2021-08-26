@@ -2669,7 +2669,7 @@ MonoBehaviour:
   mn_langIndex: 9
   mg_CaptionPanel: {fileID: 0}
   mt_CaptionText: {fileID: 0}
-  mn_VoicIndex: 14
+  mn_VoiceIndex: 6
 --- !u!1 &1930355690
 GameObject:
   m_ObjectHideFlags: 0

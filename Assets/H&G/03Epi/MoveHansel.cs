@@ -48,7 +48,7 @@ public class MoveHansel : MonoBehaviour{
         if (!mb_PlayFirstVoice)
         {
             mg_SoundManager.GetComponent<SoundManager>().playSound("Walk2");     // 핸젤이 걸어 갈때 효과음 재생
-            mvm_VoiceManager.playVoice(2);
+            mvm_VoiceManager.playVoice(5);
             mb_PlayFirstVoice = true;
         }
         

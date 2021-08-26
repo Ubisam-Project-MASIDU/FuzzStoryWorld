@@ -626,7 +626,7 @@ MonoBehaviour:
   mn_langIndex: 9
   mg_CaptionPanel: {fileID: 0}
   mt_CaptionText: {fileID: 0}
-  mn_VoicIndex: 18
+  mn_VoiceIndex: 21
 --- !u!114 &670223531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1359,6 +1359,7 @@ GameObject:
   - component: {fileID: 2067996725}
   - component: {fileID: 2067996724}
   - component: {fileID: 2067996726}
+  - component: {fileID: 2067996727}
   m_Layer: 0
   m_Name: Hansel
   m_TagString: Untagged
@@ -1450,3 +1451,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2067996727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067996723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cabc65ce86e6e44d39dd57563760c76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mn_PlayVoiceIndex: 21
+  ms_ChangeNextSceneName: 
+  ms_ChangeNextSceneName_NoGame: 

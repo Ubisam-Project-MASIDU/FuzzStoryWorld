@@ -119,8 +119,8 @@ public class DoorClickEvent : MonoBehaviour{
                 mg_DoorClickBlink.SetActive(false);                                                                                 // 문 클릭 지시 애니메이션을 비활성화
                 mt_Text.text = "\n           가난을 못 버티고 부모님은 헨젤과 그레텔을 숲속에 버리려 계획했어요.        \n";        // 문 클릭 이벤트 끝난 뒤 다음 자막 출력
 
-                mvm_VoiceManager.playVoice(12);
-                temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[12].words;
+                mvm_VoiceManager.playVoice(3);
+                temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[3].words;
                 cc.mt_CaptionText.GetComponent<Text>().text = temp;// 자막과 함께 나레이션2 출력
                 mb_PlaySecondVoice = true;                                                                                          // 나레이션2 출력 완료
             }
@@ -132,17 +132,17 @@ public class DoorClickEvent : MonoBehaviour{
         if(PlayerPrefs.GetInt("SkipGame") == 1)
         {
             mt_Text.text = "\n           가난을 못 버티고 부모님은 헨젤과 그레텔을 숲속에 버리려 계획했어요.        \n";        // 문 클릭 이벤트 끝난 뒤 다음 자막 출력
-            temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[12].words;
+            temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[3].words;
             cc.mt_CaptionText.GetComponent<Text>().text = temp;
-            mvm_VoiceManager.playVoice(12);                                                                                      // 자막과 함께 나레이션2 출력
+            mvm_VoiceManager.playVoice(3);                                                                                      // 자막과 함께 나레이션2 출력
             mb_PlaySecondVoice = true;                                                                                          // 나레이션2 출력 완료
         }
         else
         {
-            mvm_VoiceManager.playVoice(13);
+            mvm_VoiceManager.playVoice(2);
             Debug.Log("문클릭 음성");
             mt_Text.text = "\n     문을 클릭해주세요        \n";                                                                        // 문을 클릭하게 하기 위한 텍스트 변경
-            temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[13].words;
+            temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[2].words;
             cc.mt_CaptionText.GetComponent<Text>().text = temp;
             mg_DoorClickBlink.SetActive(true);                                                                                          // 문 클릭 지시 애니메이션 활성화
             mg_DoorClickBlink.GetComponent<BlinkObject>().ChangBlinkFlagTrue();
