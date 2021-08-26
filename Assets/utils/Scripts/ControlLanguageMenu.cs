@@ -25,21 +25,18 @@ public class ControlLanguageMenu : MonoBehaviour
         else if (PlayerPrefs.GetInt("ShowLanguageMenu") == 1)
         {
             mg_Country.SetActive(true);
-            //mg_LanguagePenel.SetActive(true);
-            mg_LanguagePenel.GetComponent<RectTransform>().position = new Vector3(2279, 608.2f, 0);
-            mg_LanguagePenel.GetComponent<RectTransform>().localScale = new Vector3(0.1f, 0.55f, 0);
             this.GetComponent<Image>().sprite = ms_ButtonImage;
-            this.transform.localPosition = new Vector3(40, -330, 0);
+            mg_LanguagePenel.GetComponent<RectTransform>().localPosition = new Vector3(50f, -50f, 0);
+            mg_LanguagePenel.GetComponent<RectTransform>().localScale = new Vector3(0.1f, 0.53f, 0);
+            this.transform.localPosition = new Vector3(40, -325, 0);
         }
         else if (PlayerPrefs.GetInt("ShowLanguageMenu") == 0)
         {
             mg_Country.SetActive(false);
-            //mg_LanguagePenel.GetComponent<RectTransform>().offsetMax.Set(-1099.242f, -950f);
-            mg_LanguagePenel.GetComponent<RectTransform>().position = new Vector3(2255.24f, 859, 0);
-            mg_LanguagePenel.GetComponent<RectTransform>().localScale = new Vector3(0.1f, 0.11f, 0);
-            //mg_LanguagePenel.SetActive(false);
             this.GetComponent<Image>().sprite = ms_ButtonImageFlip;
-            this.transform.localPosition = new Vector3(40, 160, 0);
+            mg_LanguagePenel.GetComponent<RectTransform>().localPosition = new Vector3(50f, 200f, 0);
+            mg_LanguagePenel.GetComponent<RectTransform>().localScale = new Vector3(0.1f, 0.1f, 0);
+            this.transform.localPosition = new Vector3(40, 175, 0);
         }
 
 
@@ -51,21 +48,19 @@ public class ControlLanguageMenu : MonoBehaviour
         {
             PlayerPrefs.SetInt("ShowLanguageMenu", 0);
             mg_Country.SetActive(false);
-            //mg_LanguagePenel.SetActive(false);
-            mg_LanguagePenel.GetComponent<RectTransform>().position = new Vector3(2255.24f, 859, 0);
-            mg_LanguagePenel.GetComponent<RectTransform>().localScale = new Vector3(0.1f, 0.11f, 0);
+            mg_LanguagePenel.GetComponent<RectTransform>().localPosition = new Vector3(50f, 200f, 0);
+            mg_LanguagePenel.GetComponent<RectTransform>().localScale = new Vector3(0.1f, 0.1f, 0);
             this.GetComponent<Image>().sprite = ms_ButtonImageFlip;
-            this.transform.localPosition = new Vector3(40, 160, 0);  
+            this.transform.localPosition = new Vector3(40, 175, 0);  
         }
         else if (PlayerPrefs.GetInt("ShowLanguageMenu") == 0)
         {
             PlayerPrefs.SetInt("ShowLanguageMenu", 1);
             mg_Country.SetActive(true);
-            //mg_LanguagePenel.SetActive(true);
-            mg_LanguagePenel.GetComponent<RectTransform>().position = new Vector3(2279, 608.2f, 0);
-            mg_LanguagePenel.GetComponent<RectTransform>().localScale = new Vector3(0.1f, 0.55f, 0);
+            mg_LanguagePenel.GetComponent<RectTransform>().localPosition = new Vector3(50f, -50f, 0);
+            mg_LanguagePenel.GetComponent<RectTransform>().localScale = new Vector3(0.1f, 0.53f, 0);
             this.GetComponent<Image>().sprite = ms_ButtonImage;
-            this.transform.localPosition = new Vector3(40, -330, 0);
+            this.transform.localPosition = new Vector3(40, -325, 0);
         }
     }
 }

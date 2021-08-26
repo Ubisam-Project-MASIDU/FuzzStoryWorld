@@ -28,16 +28,14 @@ public class IntroManager : MonoBehaviour{
 
     //초기설정
     void Start(){
-        StartCoroutine(DelayTime(4));               //4초 후 실행
+        StartCoroutine(DelayTime(4.0f));               //4초 후 실행
     }
 
     IEnumerator DelayTime(float time){
         yield return new WaitForSeconds(time);
-        mg_IntroPanel.SetActive(false);             //인트로화면 페이드 아웃
         GoStartSelectScene();
     }
-
-    //Start 버튼을 누르면 스테이지 선택 화면으로 넘어감
+    
     public void GoStartSelectScene(){
         SceneManager.LoadScene("0_04Select"); 
     }
