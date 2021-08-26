@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class ShowCaption : MonoBehaviour
 {
-    public ChangeCountry changecc;
-    public CaptionControl cc;
+    private ChangeCountry changecc;
+    private CaptionControl cc;
     private GameObject Off;
     private GameObject On;
     // Start is called before the first frame update
@@ -15,26 +15,15 @@ public class ShowCaption : MonoBehaviour
         cc = GameObject.Find("CaptionPanel").GetComponent<CaptionControl>();
         Off = GameObject.Find("Off");
         On = GameObject.Find("On");
-        if(Off.activeSelf == true)
-        {
-            Off.SetActive(false);
-        }
-        
-        
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
         
     }
 
     public void captionOn() //on버튼 누르면 자막 사라지고 off버튼 나옴
     {
         
-            this.gameObject.SetActive(false);
-            On.SetActive(false);
+        this.gameObject.SetActive(false);
+        
+        On.SetActive(false);
             Off.SetActive(true);
         
     }

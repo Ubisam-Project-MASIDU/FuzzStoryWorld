@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class CaptionControl : MonoBehaviour
 {
-    public VoiceManager mvm_VoiceManager;
+    private VoiceManager mvm_VoiceManager;
     public int mn_langIndex = 9;
-    public GameObject mg_CaptionPanel;
+    private GameObject mg_CaptionPanel;
     public GameObject mt_CaptionText;
     public int mn_VoiceIndex = 99;
     string temp;
-    public GameObject OnButton;
-    public GameObject OffButton;
+    private GameObject OnButton;
+    private GameObject OffButton;
 
     void Start(){
         OnButton = GameObject.Find("On");
