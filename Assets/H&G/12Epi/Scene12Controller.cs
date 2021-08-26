@@ -77,6 +77,9 @@ public class Scene12Controller : MonoBehaviour {
             go_UI.transform.GetChild(3).gameObject.SetActive(true);
             Invoke("DestroyUI", 1.2f);
             StartCoroutine(SetOverBright());
+            // transform.GetChild(1).transform.GetChild(4).gameObject.SetActive(true);
+            // transform.GetChild(1).transform.GetChild(4).gameObject.SetActive(true);
+
         }
     }
     IEnumerator SetWinBright() {
