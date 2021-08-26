@@ -140,6 +140,7 @@ public class DoorClickEvent : MonoBehaviour{
         else
         {
             mvm_VoiceManager.playVoice(13);
+            Debug.Log("문클릭 음성");
             mt_Text.text = "\n     문을 클릭해주세요        \n";                                                                        // 문을 클릭하게 하기 위한 텍스트 변경
             temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[13].words;
             cc.mt_CaptionText.GetComponent<Text>().text = temp;

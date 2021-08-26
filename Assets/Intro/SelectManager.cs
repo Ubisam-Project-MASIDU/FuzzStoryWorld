@@ -4,8 +4,15 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class SelectManager : MonoBehaviour{
     public void First(){
-        SceneManager.LoadScene("0_01LanguageSelect");
+        StartCoroutine(ChangeNextScene("0_01LanguageSelect"));
     }
+
+    IEnumerator ChangeNextScene(string name){
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(name);
+    }
+
+/* 추후 동화 업데이트를 하게 된다면 사용 예정 
     public void Second(){
         //Support.SetActive(true);
     }
@@ -27,7 +34,6 @@ public class SelectManager : MonoBehaviour{
     public void Eighth(){
         //SceneManager.LoadScene("New Scene");
     }
-
-
+*/
 
 }
