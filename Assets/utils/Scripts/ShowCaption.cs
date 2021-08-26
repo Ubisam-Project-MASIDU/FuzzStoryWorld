@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ShowCaption : MonoBehaviour
 {
+    public ChangeCountry changecc;
     public CaptionControl cc;
     private GameObject Off;
     private GameObject On;
@@ -14,7 +15,13 @@ public class ShowCaption : MonoBehaviour
         cc = GameObject.Find("CaptionPanel").GetComponent<CaptionControl>();
         Off = GameObject.Find("Off");
         On = GameObject.Find("On");
-        Off.SetActive(false);
+        if(Off.activeSelf == true)
+        {
+            Off.SetActive(false);
+        }
+        
+        
+        
     }
 
     // Update is called once per frame

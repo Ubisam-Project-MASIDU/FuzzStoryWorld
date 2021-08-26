@@ -28,7 +28,7 @@ public class ChangeCountry : MonoBehaviour
             case "korea": 
                 Debug.Log("한국");
                 mcc_langIndex = 0;
-                if (OnButton.activeSelf == true)
+                if (OnButton.activeSelf && OffButton.activeSelf && CaptionPanel.activeSelf)
                 {
                     OnButton.SetActive(false);
                     OffButton.SetActive(false);

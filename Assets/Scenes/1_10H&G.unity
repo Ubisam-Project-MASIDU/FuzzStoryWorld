@@ -515,6 +515,8 @@ MonoBehaviour:
   mg_CaptionPanel: {fileID: 0}
   mt_CaptionText: {fileID: 0}
   mn_VoiceIndex: 16
+  OnButton: {fileID: 0}
+  OffButton: {fileID: 0}
 --- !u!114 &467932326
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,6 +529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 350e6f02914b03346b1a8bfa41e524a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cc: {fileID: 0}
 --- !u!1001 &592235699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2333,6 +2336,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762327727425123680, guid: e70653d09807af14abc9d3c0a3844607,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 945
+      objectReference: {fileID: 0}
+    - target: {fileID: 2762327727425123680, guid: e70653d09807af14abc9d3c0a3844607,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 251
       objectReference: {fileID: 0}
     - target: {fileID: 3267896549936319964, guid: e70653d09807af14abc9d3c0a3844607,
         type: 3}
