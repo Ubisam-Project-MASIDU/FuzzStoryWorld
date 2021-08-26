@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5385,7 +5385,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &350206414
 GameObject:
@@ -10874,7 +10874,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &961880031
 PrefabInstance:
@@ -11073,11 +11073,9 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.2786, y: 6.1286, z: 0}
   m_LocalScale: {x: 2.1626005, y: 2.419995, z: 1}
-  m_Children:
-  - {fileID: 1962625142}
-  - {fileID: 1555243057}
+  m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1181216416
 GameObject:
@@ -21021,7 +21019,7 @@ GameObject:
   - component: {fileID: 1555243057}
   - component: {fileID: 1555243058}
   m_Layer: 0
-  m_Name: KakaoTalk_20210818_100533827
+  m_Name: Cauldron2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21035,11 +21033,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1555243056}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.27, y: -0.11, z: 0}
-  m_LocalScale: {x: 0.40566903, y: 0.35983545, z: 1}
+  m_LocalPosition: {x: 7.3503036, y: 5.8624005, z: 0}
+  m_LocalScale: {x: 0.8773001, y: 0.8708, z: 1}
   m_Children: []
-  m_Father: {fileID: 1146761973}
-  m_RootOrder: 1
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1555243058
 SpriteRenderer:
@@ -26213,7 +26211,7 @@ PrefabInstance:
     - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
@@ -26638,7 +26636,7 @@ Transform:
   - {fileID: 188029503}
   - {fileID: 1358985238}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1962625140
 GameObject:
@@ -26651,7 +26649,7 @@ GameObject:
   - component: {fileID: 1962625142}
   - component: {fileID: 1962625141}
   m_Layer: 0
-  m_Name: KakaoTalk_20210818_093044185
+  m_Name: Tree2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26716,11 +26714,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1962625140}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.509662, y: 0.11214898, z: 0}
-  m_LocalScale: {x: 0.33101174, y: 0.30865616, z: 1}
+  m_LocalPosition: {x: -31.1, y: 6.4000006, z: -0}
+  m_LocalScale: {x: 0.7158462, y: 0.7469464, z: 1}
   m_Children: []
-  m_Father: {fileID: 1146761973}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2032370391
 GameObject:
@@ -31650,7 +31648,7 @@ PrefabInstance:
     - target: {fileID: 1263990938594409264, guid: e0bc8c18a274c6e44bca2c2aa482489b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1263990938594409264, guid: e0bc8c18a274c6e44bca2c2aa482489b,
         type: 3}
