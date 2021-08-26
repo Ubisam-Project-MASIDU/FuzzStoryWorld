@@ -78,6 +78,8 @@ public class ObjectClick : MonoBehaviour {
     private GameObject mg_Log;
     private GameObject mg_Stone;
     private GameObject mg_House;
+    private GameObject mg_Tree2;
+    private GameObject mg_Caulron2;
 
     // SceneControl 스크립트 변수
     private SceneControl msc_TextFinishFlag;
@@ -92,6 +94,8 @@ public class ObjectClick : MonoBehaviour {
         mg_Log = GameObject.Find("Log");
         mg_Stone = GameObject.Find("Stone");
         mg_House = GameObject.Find("House");
+        mg_Tree2 = GameObject.Find("Tree2");
+        mg_Caulron2 = GameObject.Find("Cauldron2");
 
         msc_TextFinishFlag = GameObject.Find("GameControl").GetComponent<SceneControl>();
         msc_Vibrate = GameObject.Find("GameControl").GetComponent<SceneControl>();
@@ -132,6 +136,14 @@ public class ObjectClick : MonoBehaviour {
                         if (mn_count > 0) {
                             // 색을 어둡게해서 이미 클릭했음을 보여줌
                             mspra_ClickObject[mn_count - 1].color = new Color(100 / 255f, 100 / 255f, 100 / 255f, 255 / 255f);
+                            if(mspra_ClickObject[mn_count-1].tag == "Tree")
+                            {
+                                mg_Tree2.GetComponent<SpriteRenderer>().color = new Color(100 / 255f, 100 / 255f, 100 / 255f, 255 / 255f);
+                            }
+                            if(mspra_ClickObject[mn_count - 1].tag == "Cauldron")
+                            {
+                                mg_Caulron2.GetComponent<SpriteRenderer>().color = new Color(100 / 255f, 100 / 255f, 100 / 255f, 255 / 255f);
+                            }
                             // destroyParticleIndex = ddd(renders[count - 1].name);
                             // Destroy(Particle[destroyParticleIndex]);
                         }
