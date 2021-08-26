@@ -105,13 +105,11 @@ public class Movement : MonoBehaviour
 
         if(mgo_Hansel.transform.position.x <= 7.5) {
             ChangePosition(mgo_RockRight,mv3_RockRightPosAfter,3.0f);          // 첫번째 돌 떨어뜨리기
-            mg_SoundManager.GetComponent<SoundManager>().playSound("DropRock");     // 돌맹이를 떨어 트렸을 때 소리
             if(mgo_Hansel.transform.position.x <= 4.5) {
                 ChangePosition(mgo_RockMid,mv3_RockMidPosAfter,3.0f);          // 두번째 돌 떨어뜨리기
-                //mg_SoundManager.GetComponent<SoundManager>().playSound("DropRock");     // 돌맹이를 떨어 트렸을 때 소리
                 if(mgo_Hansel.transform.position.x <= 1.5) {
                     ChangePosition(mgo_RockLeft,mv3_RockLeftPosAfter,3.0f);    // 세번째 돌 떨어뜨리기
-                    //mg_SoundManager.GetComponent<SoundManager>().playSound("DropRock");     // 돌맹이를 떨어 트렸을 때 소리    
+                    mg_SoundManager.GetComponent<SoundManager>().playSound("DropRock");     // 돌맹이를 떨어 트렸을 때 소리    
                 }
             }
         }   
