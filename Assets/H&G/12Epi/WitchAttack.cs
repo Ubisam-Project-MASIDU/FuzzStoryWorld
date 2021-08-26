@@ -70,7 +70,7 @@ public class WitchAttack : MonoBehaviour {
 
     void RangedAttack() {
         for (int i = 0; i < mn_NumThunder; i++) {
-            mg_SoundManager.GetComponent<SoundManager>().playSound("Thunder");     // 번개가 떨어질 때 소리
+            mg_SoundManager.GetComponent<SoundManager>().playSound("Thunder");     // 번개가 떨어때
             Vector3 v3_SetThunderPos = new Vector3(mgo_HAG.transform.position.x + Random.Range(-mn_SetRange, mn_SetRange), 3, mgo_HAG.transform.position.z + Random.Range(-mn_SetRange, mn_SetRange));
             mgo_SkillThunder = Instantiate(mgo_SkillThunderPrefab, v3_SetThunderPos, transform.rotation) as GameObject;
         }

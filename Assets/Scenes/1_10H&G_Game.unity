@@ -2656,9 +2656,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8139ac740f07cf0428dd52d414fd9fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mvm_VoiceManager: {fileID: 0}
   mn_langIndex: 9
-  mg_CaptionPanel: {fileID: 0}
   mt_CaptionText: {fileID: 0}
   mn_VoiceIndex: 17
 --- !u!1 &2066554969

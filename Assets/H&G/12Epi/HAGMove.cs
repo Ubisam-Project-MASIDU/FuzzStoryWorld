@@ -72,7 +72,6 @@ public class HAGMove : MonoBehaviour {
                     transform.GetChild(1).GetComponent<SpriteRenderer>().flipX = false;
                 }
 
-                mg_SoundManager.GetComponent<SoundManager>().playSound("Walk4");     // 아이들이 걸어 다닐 때
                 transform.position = Vector3.MoveTowards(transform.position, mv3_TargetPos, HAGStatus.WalkSpeed * Time.deltaTime);
                 
                 mb_DestroyOnce = false;
