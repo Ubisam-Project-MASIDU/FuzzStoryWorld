@@ -9,17 +9,31 @@ public class ChangeCountry : MonoBehaviour
     private VoiceManager mvm_VoiceManager;
     private CaptionControl cc;
     private string temp;
+    public int mcc_langIndex = 0;
+    public GameObject OnButton;
+    public GameObject OffButton;
+    public GameObject CaptionPanel;
     //public int mn_PlayVoiceIndex;
 
     void Start() {
         mvm_VoiceManager = FindObjectOfType<VoiceManager>();
         cc = GameObject.Find("CaptionPanel").GetComponent<CaptionControl>();
+        OnButton = GameObject.Find("On");
+        OffButton = GameObject.Find("Off");
+        CaptionPanel = GameObject.Find("CaptionPanel");
     }
     
     public void OnclickButton() {
         switch (this.gameObject.name) {
             case "korea": 
                 Debug.Log("한국");
+                mcc_langIndex = 0;
+                if (OnButton.activeSelf == true)
+                {
+                    OnButton.SetActive(false);
+                    OffButton.SetActive(false);
+                    CaptionPanel.SetActive(false);
+                }
                 mvm_VoiceManager.stopVoice();
                 mvm_VoiceManager.country = VoiceManager.Country.KR;
                 mvm_VoiceManager.playVoice(cc.mn_VoiceIndex);
@@ -29,6 +43,9 @@ public class ChangeCountry : MonoBehaviour
                 break;
             case "usa": 
                 Debug.Log("미국");
+                mcc_langIndex = 1;
+                OnButton.SetActive(true);
+                OffButton.SetActive(true);
                 mvm_VoiceManager.stopVoice();
                 mvm_VoiceManager.country = VoiceManager.Country.EN;
                 mvm_VoiceManager.playVoice(cc.mn_VoiceIndex);
@@ -38,6 +55,9 @@ public class ChangeCountry : MonoBehaviour
                 break;
             case "japan": 
                 Debug.Log("일본");
+                mcc_langIndex = 2;
+                OnButton.SetActive(true);
+                OffButton.SetActive(true);
                 mvm_VoiceManager.stopVoice();
                 mvm_VoiceManager.country = VoiceManager.Country.JP;
                 mvm_VoiceManager.playVoice(cc.mn_VoiceIndex);
@@ -47,6 +67,9 @@ public class ChangeCountry : MonoBehaviour
                 break;
             case "china": 
                 Debug.Log("중국");
+                OnButton.SetActive(true);
+                OffButton.SetActive(true);
+                mcc_langIndex = 3;
                 mvm_VoiceManager.stopVoice();
                 mvm_VoiceManager.country = VoiceManager.Country.CN;
                 mvm_VoiceManager.playVoice(cc.mn_VoiceIndex);

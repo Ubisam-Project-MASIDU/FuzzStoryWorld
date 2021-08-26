@@ -11,8 +11,12 @@ public class CaptionControl : MonoBehaviour
     public GameObject mt_CaptionText;
     public int mn_VoiceIndex = 99;
     string temp;
+    public GameObject OnButton;
+    public GameObject OffButton;
 
     void Start(){
+        OnButton = GameObject.Find("On");
+        OffButton = GameObject.Find("Off");
         mt_CaptionText = GameObject.Find("Caption");
         mvm_VoiceManager = GameObject.FindObjectOfType<VoiceManager>();
         mg_CaptionPanel = GameObject.Find("CaptionPanel");
@@ -24,6 +28,8 @@ public class CaptionControl : MonoBehaviour
     public void ShowCaption(){
         if (mn_langIndex == 0){ //한국어 선택 -> 자막 없애기
             this.gameObject.SetActive(false);
+            OnButton.SetActive(false);
+            OffButton.SetActive(false);
         }
         else{
             mt_CaptionText.GetComponent<Text>().text = temp;
