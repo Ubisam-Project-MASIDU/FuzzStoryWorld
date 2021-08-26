@@ -89,7 +89,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/0_01LanguageSelect.unity
     guid: 9f67e458c8a0c4051b804e3af90aab97
-  - enabled: 1
+  - enabled: 0
     path: Assets/Intro/New Scene.unity
     guid: 30b19105a1ed8455e8b57d252e122e57
   m_configObjects: {}
