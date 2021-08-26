@@ -10,8 +10,8 @@ public class ChangeCountry : MonoBehaviour
     private CaptionControl cc;
     private string temp;
     public int mcc_langIndex = 0;
-    public GameObject OnButton;
-    public GameObject OffButton;
+    private GameObject OnButton;
+    private GameObject OffButton;
     public GameObject CaptionPanel;
     //public int mn_PlayVoiceIndex;
 
@@ -28,12 +28,9 @@ public class ChangeCountry : MonoBehaviour
             case "korea": 
                 Debug.Log("한국");
                 mcc_langIndex = 0;
-                if (OnButton.activeSelf && OffButton.activeSelf && CaptionPanel.activeSelf)
-                {
-                    OnButton.SetActive(false);
-                    OffButton.SetActive(false);
-                    CaptionPanel.SetActive(false);
-                }
+                OnButton.SetActive(false);
+                OffButton.SetActive(false);
+                CaptionPanel.SetActive(false);
                 mvm_VoiceManager.stopVoice();
                 mvm_VoiceManager.country = VoiceManager.Country.KR;
                 mvm_VoiceManager.playVoice(cc.mn_VoiceIndex);
