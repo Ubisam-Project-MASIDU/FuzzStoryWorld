@@ -21,7 +21,7 @@ public class ControlMonster : MonoBehaviour {
 
     void Update(){
 
-        if(num<=0){
+        if(num==0){
             SceneManager.LoadScene("1_11H&G");                     // 0이 되면 다음 페이지로 넘어감
         }
     }

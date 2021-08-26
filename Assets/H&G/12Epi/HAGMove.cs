@@ -1,10 +1,11 @@
 /*
  * - Name : HAGMove.cs
- * - Writer : 최대준
+ * - Writer : 최대준, 이병권
  * 
  * - Content : 
  *  헨젤과 그레텔이 움직임을 표현하는 스크립트 클래스이다.
- * 
+ *  1) 아이들이 걸어다닐 때 소리 
+ *
  * - History
  * 1) 2021-08-13 : 코드 구현중. 
  * 2) 2021-08-13 : 주석 작성.
@@ -32,7 +33,8 @@ public class HAGMove : MonoBehaviour {
     private bool mb_DontWalk = false;
     private bool mb_HAGHit = false;
     public bool mb_SetWinWalk = false;
-    
+    GameObject mg_SoundManager;
+
     public bool DamagingHAG {
         get {
             return mb_HAGHit;
@@ -50,6 +52,7 @@ public class HAGMove : MonoBehaviour {
         mr_StandGround = GetComponent<Rigidbody>();
         mn_MaskingCharacters = (1 << LayerMask.NameToLayer("Platform"));
         mCharCon_HAGMoveController = GetComponent<CharacterController>();
+        mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
         HAGStatus = GameObject.Find("GameController").GetComponent<Scene12Controller>().HAGStatus;
     }
 
@@ -69,8 +72,9 @@ public class HAGMove : MonoBehaviour {
                     transform.GetChild(1).GetComponent<SpriteRenderer>().flipX = false;
                 }
 
-
+                mg_SoundManager.GetComponent<SoundManager>().playSound("Walk4");     // 아이들이 걸어 다닐 때
                 transform.position = Vector3.MoveTowards(transform.position, mv3_TargetPos, HAGStatus.WalkSpeed * Time.deltaTime);
+                
                 mb_DestroyOnce = false;
                 // mani_HAGAnimator.SetBool("isWalking", true);
             } else if (!mb_DestroyOnce && f_CheckDistance <= f_LimitDistance) {

@@ -28,6 +28,8 @@ public class MoveWitch : MonoBehaviour
     // 목표 오브젝트를 따라가기 위해 필요한 변수들
     public GameObject mgo_HanselGretel;
     private bool mb_StartRangeAttack = false;
+
+    GameObject mg_SoundManager;
     public bool isRangeAttacking {
         get {
             return mb_StartRangeAttack;
@@ -41,6 +43,10 @@ public class MoveWitch : MonoBehaviour
     SpriteRenderer spr_InvertWitch;
     Rigidbody rigid;
     // 초기화
+
+    void Start(){
+        mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
+    }
     void Awake()
     {
         mani_Witch = GetComponent<Animator>();
@@ -80,6 +86,7 @@ public class MoveWitch : MonoBehaviour
     }
     void OnTriggerEnter(Collider collision) {
         if(collision.gameObject.tag == "bone") {
+            mg_SoundManager.GetComponent<SoundManager>().playSound("HitbyB");   // 뻐다귀를 맞았을 때 
             OnDamaged(collision.transform.position);            
         }
     }

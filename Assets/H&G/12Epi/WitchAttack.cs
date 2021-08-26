@@ -36,8 +36,11 @@ public class WitchAttack : MonoBehaviour {
     private float mf_CheckAttackCoolTime = 0f;
     private int mn_NumThunder = 3;
 
+    GameObject mg_SoundManager;
+
     void Start() {
         msr_SetBrightness = GameObject.Find("Bright").GetComponent<SpriteRenderer>();
+        mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
     }
 
     void Update() {
@@ -67,6 +70,7 @@ public class WitchAttack : MonoBehaviour {
 
     void RangedAttack() {
         for (int i = 0; i < mn_NumThunder; i++) {
+            mg_SoundManager.GetComponent<SoundManager>().playSound("Thunder");     // 번개가 떨어질 때 소리
             Vector3 v3_SetThunderPos = new Vector3(mgo_HAG.transform.position.x + Random.Range(-mn_SetRange, mn_SetRange), 3, mgo_HAG.transform.position.z + Random.Range(-mn_SetRange, mn_SetRange));
             mgo_SkillThunder = Instantiate(mgo_SkillThunderPrefab, v3_SetThunderPos, transform.rotation) as GameObject;
         }

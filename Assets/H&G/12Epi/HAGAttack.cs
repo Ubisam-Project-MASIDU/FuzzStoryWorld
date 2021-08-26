@@ -36,7 +36,10 @@ public class HAGAttack : MonoBehaviour {
     private bool mb_CheckBone = true;
     public bool mb_DelayThrowing = false;
 
+    GameObject mg_SoundManager;
+
     void Start() {
+        mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
         ms12c_CharacterInfo = GameObject.Find("GameController").GetComponent<Scene12Controller>();
     }
     void FixedUpdate() {
