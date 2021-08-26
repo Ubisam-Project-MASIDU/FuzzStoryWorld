@@ -14,7 +14,8 @@
  * 2021-08-11 : 주석 작성
  * 2021-08-13 : 소리 나오게는 스크립 적용
  * 2021-08-17 : 오류 수정 및 마우스로 입력 되었을 때 움직이게 수정
- * 
+ * 2021-08-26 : 오류 수정 및 소리 설정 다시 체크 
+ *
  * - Variable 
  * T_Monster_HP : 쓰레기 몬스터 HP 설정 변수
  *
@@ -32,8 +33,11 @@ public class KillTheMonster : MonoBehaviour {
     
     private bool state;                                                    // 참과 거짓 판별하게 작성
     GameObject ControlMonster;
+
+    GameObject mg_SoundManager;
     
     void Start(){
+        mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
         ControlMonster = GameObject.Find("ControlMonster");
         state = true;
     }
@@ -48,6 +52,7 @@ public class KillTheMonster : MonoBehaviour {
                 if(state == true) {
                     gameObject.SetActive(false);
                     Invoke("destroyTrash", 1f);                           // 바로 죽지 않고 0.4초 딜레이 후 삭제
+                    mg_SoundManager.GetComponent<SoundManager>().playSound("Die");     // 몬스터가 죽었을 때 효과음 재생
                     print("사라져");
                     state = true;
                 } else {
