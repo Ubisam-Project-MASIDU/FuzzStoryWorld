@@ -1,8 +1,10 @@
 ﻿/*
  * - Name : CheckAnswerEpi9.class
- * - Writer : 유희수
+ * - Writer : 유희수, 이병권
  * - Content : 헨젤과그레텔 Epi9 - 오브젝트를 클릭하게 해서 모두 클릭하면 다음씬으로 넘어가는 스크립트
- *  
+ *                                  1) 케릭터가 움직이면 소리가 나게 한다
+ *                                  2) 마녀에게 잡혔을 때 소리나게 한다                       
+ *
  * - HISTORY
  * 1) 2021-08-17 : 초기 개발
  * 2) 2021-08-23 : 코드 획일화 및 주석처리
@@ -81,6 +83,8 @@ public class ObjectClick : MonoBehaviour {
     private SceneControl msc_TextFinishFlag;
     public SceneControl msc_Vibrate;
 
+    GameObject mg_SoundManager;
+
     void Start(){
         mg_Plant = GameObject.Find("Plant");
         mg_Cauldron = GameObject.Find("Cauldron");
@@ -97,6 +101,8 @@ public class ObjectClick : MonoBehaviour {
         // mn_count 초기화
         mn_count = 0;
         // 헨젤과 그레텔이 처음에 초기 위치에 있게 하기 위함.
+        mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
+    
         v_SetPos();
     }
 
@@ -176,6 +182,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
                 mg_Gretel.transform.position = new Vector3(-9.5f, 9.8f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
+                mg_SoundManager.GetComponent<SoundManager>().playSound("Hide");   // 애들이 숨었을 때 소리나게 한다                
                 //ParticleAllPlay();
                 break;
             // 오브젝트의 이름이 "Cauldron" 라면 Cauldron 오브젝트뒤에 위치시킨다.
@@ -184,6 +191,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
                 mg_Gretel.transform.position = new Vector3(2.7f, 13.6f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
+                mg_SoundManager.GetComponent<SoundManager>().playSound("Hide");   // 애들이 숨었을 때 소리나게 한다
                 //ParticleAllPlay();
                 break;
             // 오브젝트의 이름이 "Tree" 라면 Tree 오브젝트뒤에 위치시킨다.
@@ -192,6 +200,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -20);
                 mg_Gretel.transform.position = new Vector3(-14.6f, 11f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 11);
+                mg_SoundManager.GetComponent<SoundManager>().playSound("Hide");   // 애들이 숨었을 때 소리나게 한다
                 //ParticleAllPlay();
                 break;
             // 오브젝트의 이름이 "Log" 라면 Log 오브젝트뒤에 위치시킨다.
@@ -200,6 +209,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -20);
                 mg_Gretel.transform.position = new Vector3(-2f, 4.2f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 20);
+                mg_SoundManager.GetComponent<SoundManager>().playSound("Hide");   // 애들이 숨었을 때 소리나게 한다
                 //ParticleAllPlay();
                 break;
             // 오브젝트의 이름이 "Stone" 라면 Stone 오브젝트뒤에 위치시킨다.
@@ -208,6 +218,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
                 mg_Gretel.transform.position = new Vector3(-28.4f, 7.2f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 10);
+                mg_SoundManager.GetComponent<SoundManager>().playSound("Hide");   // 애들이 숨었을 때 소리나게 한다
                 //ParticleAllPlay();
                 break;
             // 오브젝트의 이름이 "House" 라면 House 오브젝트뒤에 위치시킨다.
@@ -216,6 +227,7 @@ public class ObjectClick : MonoBehaviour {
                 mg_Hansel.transform.rotation = Quaternion.Euler(0, 0, -10);
                 mg_Gretel.transform.position = new Vector3(17f, 15.4f, -11f);
                 mg_Gretel.transform.rotation = Quaternion.Euler(0, 0, 10);
+                mg_SoundManager.GetComponent<SoundManager>().playSound("Hide");   // 애들이 숨었을 때 소리나게 한다
                 //ParticleAllPlay();
                 break;
             // 초기위치로 이동
@@ -232,6 +244,7 @@ public class ObjectClick : MonoBehaviour {
         mg_Witch.GetComponent<SpriteRenderer>().color = new Color(230 / 255f, 230 / 255f, 230 / 255f, 255 / 255f);
         for (int i = 0; i < 6; i++){
             if (sObjectName == "Plant"){
+                //
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_PlantPos, mf_Speed);
             }else if (sObjectName == "Cauldron"){
                 mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, mv3_ObjectPos, mf_Speed);
@@ -266,6 +279,7 @@ public class ObjectClick : MonoBehaviour {
         mb_WitchToHomeFlag = true;
         // 마녀가 집으로 돌아가도 되는지 조건 검사
         if (mg_Witch.tag == "witchwithHAG"){
+            mg_SoundManager.GetComponent<SoundManager>().playSound("Catch");   // 마녀가 아이들을 잡았을 때 소리나게 한다
             // 헨젤과 그레텔을 집으로 데려가는 모습의 마녀로 바뀌었다면, 마녀를 집으로 이동시킨다.
             mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(35f, 6.7f, -6.9f), 0.05f);
         }
