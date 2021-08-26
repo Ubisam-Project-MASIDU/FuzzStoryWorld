@@ -77,9 +77,6 @@ public class Scene12Controller : MonoBehaviour {
             go_UI.transform.GetChild(3).gameObject.SetActive(true);
             Invoke("DestroyUI", 1.2f);
             StartCoroutine(SetOverBright());
-            // transform.GetChild(1).transform.GetChild(4).gameObject.SetActive(true);
-            // transform.GetChild(1).transform.GetChild(4).gameObject.SetActive(true);
-
         }
     }
     IEnumerator SetWinBright() {
@@ -130,8 +127,9 @@ public class Scene12Controller : MonoBehaviour {
         Destroy(GameObject.Find("witch"));
         Destroy(GameObject.Find("HAG"));
         transform.GetChild(1).transform.GetChild(5).gameObject.SetActive(true);
+        GameObject.Find("MainCamera").SetActive(false);
         transform.GetChild(1).transform.GetChild(5).transform.position = GameObject.Find("HAG").transform.position;  
-        GameObject.Find("Main Camera").transform.parent = transform.GetChild(1).transform.GetChild(5).transform;
+        //GameObject.Find("Main Camera").transform.parent = transform.GetChild(1).transform.GetChild(5).transform;
         GameObject.Find("EndHAG").GetComponent<HAGMove>().mv3_TargetPos = mgo_WinHAGPos.transform.position;
         GameObject.Find("EndHAG").GetComponent<HAGMove>().mb_SetPos = true;
         GameObject.Find("EndHAG").GetComponent<HAGMove>().mb_SetWinWalk = true;
