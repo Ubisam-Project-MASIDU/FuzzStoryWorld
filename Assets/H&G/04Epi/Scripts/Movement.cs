@@ -1,13 +1,15 @@
 /*
  * - Name : Movement.cs
- * - Writer : 이윤교
+ * - Writer : 이윤교, 이병권
  * - Content : 헨젤과그레텔 Epi4 _ 게임오브젝트 이동 스크립트
- * 
+ *                                  1) 돌맹이를 떨어 트렸을 때 소리 
+ *
  * - HISTORY
  * 2021-08-05 : 초기 개발
  * 2021-08-06 : 코드 획일화 및 주석처리
  * 2021-08-20 : 화면 위치 재설정
  * 2021-08-20 : 이동 속도 재설정
+ * 2021-08-26 : 돌맹이를 떨어 트렸을 때 소리 설정
  *
  * <Variable>
  * mgo_Gratel : 그레텔 게임오브젝트
@@ -63,6 +65,8 @@ public class Movement : MonoBehaviour
     private Vector3 mv3_RockMidPosAfter;
     private Vector3 mv3_RockLeftPosAfter;
 
+    GameObject mg_SoundManager;
+
     void Start(){
         mgo_Gratel = GameObject.Find("Gratel");
         mgo_Hansel = GameObject.Find("Hansel");
@@ -84,6 +88,8 @@ public class Movement : MonoBehaviour
         mv3_RockRightPosAfter = new Vector3(9.0f,-0.5f,-6.5f);
         mv3_RockMidPosAfter = new Vector3(6.0f,-0.5f,-6.5f);
         mv3_RockLeftPosAfter = new Vector3(3.0f,-0.5f,-6.5f);
+        
+        mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
     }
 
     void Update(){
@@ -98,11 +104,15 @@ public class Movement : MonoBehaviour
         ChangePosition(mgo_RockLeft,mv3_RockLeftPosBefore,1.0f);               // 세번째 돌 이동
 
         if(mgo_Hansel.transform.position.x <= 7.5) {
+            //mg_SoundManager.GetComponent<SoundManager>().playSound("DropRock");
             ChangePosition(mgo_RockRight,mv3_RockRightPosAfter,3.0f);          // 첫번째 돌 떨어뜨리기
+            //mg_SoundManager.GetComponent<SoundManager>().playSound("DropRock");     // 돌맹이를 떨어 트렸을 때 소리
             if(mgo_Hansel.transform.position.x <= 4.5) {
                 ChangePosition(mgo_RockMid,mv3_RockMidPosAfter,3.0f);          // 두번째 돌 떨어뜨리기
+                //mg_SoundManager.GetComponent<SoundManager>().playSound("DropRock");     // 돌맹이를 떨어 트렸을 때 소리
                 if(mgo_Hansel.transform.position.x <= 1.5) {
-                    ChangePosition(mgo_RockLeft,mv3_RockLeftPosAfter,3.0f);    // 세번째 돌 떨어뜨리기    
+                    ChangePosition(mgo_RockLeft,mv3_RockLeftPosAfter,3.0f);    // 세번째 돌 떨어뜨리기
+                    //mg_SoundManager.GetComponent<SoundManager>().playSound("DropRock");     // 돌맹이를 떨어 트렸을 때 소리    
                 }
             }
         }   
