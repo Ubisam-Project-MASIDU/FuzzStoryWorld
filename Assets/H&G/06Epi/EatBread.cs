@@ -1,10 +1,11 @@
 /*
  * - Name : BirdEatBreads.class
- * - Writer : 이예은
+ * - Writer : 이예은, 이병권
  * 
  * - Content :
  *  새가 빵(게임오브젝트)를 먹고(삭제)하고 새를 정지시키는 함수 작성
  *  나레이션 출력 함수 작성
+ *  새가 빵을 먹을 떄 소리가 난다(이병권)
  *
  * - HISTORY
  * 1) 2021-08-05 : 초기 개발
@@ -12,6 +13,7 @@
  * 3) 2021-08-09 : 코드 획일화 및 주석처리
  * 4) 2021-08-10 : 주석 수정
  * 5) 2021-08-24 : 게임건너뛰기 분기점 지정 (김명현)
+ * 6) 2021-08-26 : 새가 빵을 먹으면 소리가 난다(이병권)
  *
  * - Variable 
  * mgo_BigBread                                큰빵 게임오브젝트
@@ -47,11 +49,14 @@ public class EatBread : MonoBehaviour
 
     // 음성출력에 필요한 변수들
     private VoiceManager mvm_VoiceManager; 
+    GameObject mg_SoundManager;
+
 
     // 나레이션 출력
     void Start() {
         mvm_VoiceManager = FindObjectOfType<VoiceManager>();
         mvm_VoiceManager.playVoice(6);
+         mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
     }
     
     void Update() {
@@ -95,12 +100,14 @@ public class EatBread : MonoBehaviour
 
     // 큰 빵 사라지게하는 함수
     void DestroyBigBread() {
+        mg_SoundManager.GetComponent<SoundManager>().playSound("EatBread");    // 빵을 먹는 효과음 재생
         mgo_BigBread.GetComponent<SpriteRenderer>().sprite = null;      
  
     }
     
     // 작은 빵 사라지게하는 함수
     void DestroySmallBread() {
+        mg_SoundManager.GetComponent<SoundManager>().playSound("EatBread");    // 빵을 먹는 효과음 재생
         mgo_SmallBread.GetComponent<SpriteRenderer>().sprite = null;      
     }
 
