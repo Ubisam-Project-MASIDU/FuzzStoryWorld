@@ -31,7 +31,7 @@ public class MoveHAG : MonoBehaviour {
     // mb_StartWalk가 true로 바뀌면, 헨젤과 그레텔을 점차 새 위치로 움직인다.
     void Update() {
         if(mb_StartWalk == true) {
-            transform.position = Vector3.MoveTowards(transform.position, new Vector3(mv3_TargetPos.x, transform.position.y, mv3_TargetPos.z), 0.5f * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(mv3_TargetPos.x, transform.position.y, mv3_TargetPos.z), 1f * Time.deltaTime);
         }
     }
 
