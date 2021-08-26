@@ -33,7 +33,7 @@ public class CheckAnswerEpi3 : MonoBehaviour{
         mvm_VoiceManager = FindObjectOfType<VoiceManager>();
         mn_count = 0;                                                           //퍼즐 개수 변수 0으로 초기화
         v_YouWinText.SetActive(false);                                          //텍스트 비활성화
-        mvm_VoiceManager.playVoice(14);
+        mvm_VoiceManager.playVoice(6);
     }
 
     //모양을 맞출때마다 개수 변수를 더해주는 함수
