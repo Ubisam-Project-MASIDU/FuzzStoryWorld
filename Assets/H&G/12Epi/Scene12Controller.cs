@@ -12,6 +12,7 @@ public class Scene12Controller : MonoBehaviour {
     private VoiceManager mvm_VoiceManager;
     [SerializeField]
     private GameObject mgo_WinHAGPos;
+    public GameObject mgo_Script;
     private SpriteRenderer mspr_SetBrightness;
     // private int mn_NumCharacter = 2;
     private Status mst_HAGStatus;
@@ -56,8 +57,11 @@ public class Scene12Controller : MonoBehaviour {
         mst_WitchStatus = new Status(Status.Character.Witch);
         mspr_SetBrightness = GameObject.Find("Bright").GetComponent<SpriteRenderer>();
         // 마녀를 무찌르세요 ! 라는 문구 0_01Straing 씬에서 VMLoader -> VMController -> KRVoiceManager, ENVoiceManager, JPVoiceManager, CNVoiceManager 각각 인스펙터창에 삽입하기
-        // mvm_VoiceManager.playVoice()
+        mvm_VoiceManager.playVoice(5);
+        //
     }
+    
+
 
     void DisplayUI(GameResult grResult) {
         GameObject go_UI = GameObject.Find("UI");
@@ -71,6 +75,7 @@ public class Scene12Controller : MonoBehaviour {
             go_UI.transform.GetChild(0).gameObject.SetActive(false);
             go_UI.transform.GetChild(1).gameObject.SetActive(false);
             go_UI.transform.GetChild(3).gameObject.SetActive(true);
+            Invoke("DestroyUI", 1.2f);
             StartCoroutine(SetOverBright());
         }
     }
@@ -104,8 +109,7 @@ public class Scene12Controller : MonoBehaviour {
             mspr_SetBrightness.color = c_TempColor;
             yield return null;
         }
-        transform.GetChild(1).transform.GetChild(5).gameObject.SetActive(false);
-
+        //transform.GetChild(1).transform.GetChild(5).gameObject.SetActive(false);
     } 
 
     void WitchTakeOnHAG() {
@@ -128,5 +132,21 @@ public class Scene12Controller : MonoBehaviour {
         GameObject.Find("EndHAG").GetComponent<HAGMove>().mv3_TargetPos = mgo_WinHAGPos.transform.position;
         GameObject.Find("EndHAG").GetComponent<HAGMove>().mb_SetPos = true;
         GameObject.Find("EndHAG").GetComponent<HAGMove>().mb_SetWinWalk = true;
+        
+    }
+    
+    void DestroyUI() {
+        GameObject go_UI = GameObject.Find("UI");
+        go_UI.transform.GetChild(3).gameObject.SetActive(false);
+    }
+    
+    void CreateUI() {
+        GameObject go_UI = GameObject.Find("UI");
+        go_UI.transform.GetChild(5).gameObject.SetActive(true);
+    }
+    void Update() {
+       if(mvm_VoiceManager.isPlaying() == false) {
+             mgo_Script.SetActive(false);
+          }  
     }
 }
