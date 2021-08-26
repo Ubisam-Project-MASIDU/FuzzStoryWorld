@@ -54,14 +54,20 @@ EditorBuildSettings:
     path: Assets/Scenes/1_09H&G.unity
     guid: f7281405c39ca4ac087919976ae7fcc4
   - enabled: 1
+    path: Assets/Scenes/1_10H&G.unity
+    guid: 9bd692d526f2643e1bb1cd8963ecdf51
+  - enabled: 1
+    path: Assets/Scenes/1_10H&G_Game.unity
+    guid: aaca805e97c7d5c42a474ec9a1437f7b
+  - enabled: 1
     path: Assets/Scenes/1_11H&G.unity
     guid: e9c79a9a6db5fb14a8678d7e00fa851a
+  - enabled: 1
+    path: Assets/Scenes/1_11H&G_Game.unity
+    guid: e0efa114ef0f91741a193c635e29d224
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 1
-    path: Assets/Scenes/1_10H&G.unity
-    guid: 9bd692d526f2643e1bb1cd8963ecdf51
   - enabled: 1
     path: Assets/Scenes/1_12H&G.unity
     guid: 20703e7154fa74329b6c4ef885d0e4a5
@@ -83,9 +89,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/0_01LanguageSelect.unity
     guid: 9f67e458c8a0c4051b804e3af90aab97
-  - enabled: 1
-    path: Assets/Scenes/1_10H&G_Game.unity
-    guid: aaca805e97c7d5c42a474ec9a1437f7b
   - enabled: 1
     path: Assets/Intro/New Scene.unity
     guid: 30b19105a1ed8455e8b57d252e122e57
