@@ -67,6 +67,9 @@ public class Movement : MonoBehaviour
 
     GameObject mg_SoundManager;
 
+    bool mb_checkFirst;
+    bool mb_checkSecond;
+    bool mb_checkThird;
     void Start(){
         mgo_Gratel = GameObject.Find("Gratel");
         mgo_Hansel = GameObject.Find("Hansel");
@@ -90,6 +93,10 @@ public class Movement : MonoBehaviour
         mv3_RockLeftPosAfter = new Vector3(3.0f,-0.5f,-6.5f);
         
         mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
+
+        mb_checkFirst = false;
+        mb_checkSecond = false;
+        mb_checkThird = false;
     }
 
     void Update(){
@@ -105,13 +112,23 @@ public class Movement : MonoBehaviour
 
         if(mgo_Hansel.transform.position.x <= 7.5) {
             ChangePosition(mgo_RockRight,mv3_RockRightPosAfter,3.0f);          // 첫번째 돌 떨어뜨리기
-            //mg_SoundManager.GetComponent<SoundManager>().playSound("DropRock");     // 돌맹이를 떨어 트렸을 때 소리
+            if(mb_checkFirst == false){
+                mg_SoundManager.GetComponent<SoundManager>().playSound("DropRock");     // 돌맹이를 떨어 트렸을 때 소리
+                mb_checkFirst = true;
+            }
+            
             if(mgo_Hansel.transform.position.x <= 4.5) {
                 ChangePosition(mgo_RockMid,mv3_RockMidPosAfter,3.0f);          // 두번째 돌 떨어뜨리기
-                //mg_SoundManager.GetComponent<SoundManager>().playSound("DropRock");     // 돌맹이를 떨어 트렸을 때 소리
+                if(mb_checkSecond == false){
+                    mg_SoundManager.GetComponent<SoundManager>().playSound("DropRock");     // 돌맹이를 떨어 트렸을 때 소리
+                    mb_checkSecond = true;
+                }
                 if(mgo_Hansel.transform.position.x <= 1.5) {
                     ChangePosition(mgo_RockLeft,mv3_RockLeftPosAfter,3.0f);    // 세번째 돌 떨어뜨리기
-                    //mg_SoundManager.GetComponent<SoundManager>().playSound("DropRock");     // 돌맹이를 떨어 트렸을 때 소리    
+                    if(mb_checkThird == false){
+                        mg_SoundManager.GetComponent<SoundManager>().playSound("DropRock");     // 돌맹이를 떨어 트렸을 때 소리
+                        mb_checkThird = true;
+                    }
                 }
             }
         }   
