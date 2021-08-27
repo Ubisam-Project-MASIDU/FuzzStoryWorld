@@ -35,15 +35,26 @@ public class RandomCandy : MonoBehaviour{
     int mn_leftTime;                                                                                            // 남은 아이템 개수 저장해두는 변수                       
     bool mb_ItemFlag;                                                                                           // 정답이 바뀌어야되는 타이밍을 알려주는 flag                
     
+
+    private VoiceManager mvm_VoiceManager;
+    private bool mb_PlayOnce = false;
+    public int mn_PlayVoiceIndex;
+
     void Start(){
         this.mg_GameDirector = GameObject.Find("GameDirector");                                                 // 오브젝트 연결
         this.mg_RandomItem = GameObject.Find("RandomImage");
         mn_RandomValue = mg_GameDirector.GetComponent<CandyControl>().n_RandomItemValue();                      // 랜덤 값 저장
         this.mg_RandomItem.GetComponent<SpriteRenderer>().sprite = mspa_SpriteImage[mn_RandomValue];            // 해당 랜덤 값에 맞는 아이템 이미지 변경
         mb_ItemFlag = false;                                                                                    // Flag 값 False 로 초기화                                  
+        
+        mvm_VoiceManager = FindObjectOfType<VoiceManager>();
     }
     
     void Update(){
+        if (!mb_PlayOnce) {
+            mvm_VoiceManager.playVoice(mn_PlayVoiceIndex);
+            mb_PlayOnce = true;
+        }
         mb_ItemFlag = mg_GameDirector.GetComponent<CandyControl>().b_checkFlag();                               // 정답이 바뀌는 Flag값 실시간 업데이트
         if (mb_ItemFlag == true){                                                                               // Flag값이 바뀐경우
             mn_leftTime = mg_GameDirector.GetComponent<CandyControl>().n_HowManyleftArr();                      // 남은 아이템 개수 확인
@@ -53,7 +64,7 @@ public class RandomCandy : MonoBehaviour{
                 mg_GameDirector.GetComponent<CandyControl>().v_ChangeFlagFalse();                               // Flag값 False로 변경
             }
             else if(mn_leftTime == 0){                                                                          // 만약 남은 아이템개수가 0개라면 Clear                            
-                Invoke("v_NextSceneLoad", 2f);                                                                  // 2초뒤 다음씬 넘어가는 함수 실행
+                Invoke("v_NextSceneLoad", 1.0f);                                                                  // 2초뒤 다음씬 넘어가는 함수 실행
             } 
         }
     }
@@ -62,9 +73,9 @@ public class RandomCandy : MonoBehaviour{
     public int n_ReturnAnswer(){                                                            
         return mn_RandomValue;
     }
-
+    
     //다음 씬으로 넘어가는 함수
-    void v_NextSceneLoad() {
+        void v_NextSceneLoad() {
         SceneManager.LoadScene("1_09H&G");
     }
 }

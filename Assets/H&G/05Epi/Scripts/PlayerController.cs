@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour{
     private bool mb_PlayOnce = false;
     public string ms_ChangeNextSceneName;
     public int mn_PlayVoiceIndex;
+    
     void Start(){
         mb_isJump = false;
         mb_isTop = false;
