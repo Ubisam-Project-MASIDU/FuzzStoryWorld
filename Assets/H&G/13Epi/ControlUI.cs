@@ -78,6 +78,7 @@ public class ControlUI : MonoBehaviour
         if (mi_LeftTimeCircle.fillAmount <= 0.3)
         {
             man_HasNoTime.SetTrigger("NoTime");
+            
             if(mb_NoTimeFlag == false){
                  mg_SoundManager.GetComponent<SoundManager>().playSound("NoMoreTime");     // 게임 끝 버튼 효과음 재생
             }

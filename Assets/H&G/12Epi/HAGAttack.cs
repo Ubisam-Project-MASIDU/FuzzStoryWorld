@@ -73,7 +73,7 @@ public class HAGAttack : MonoBehaviour {
                 mgo_IntantBone.GetComponent<HAGAttack>().BonePos = BonePos;
                 mgo_IntantBone.GetComponent<HAGAttack>().HAG = HAG;
                 mgo_IntantBone.GetComponent<HAGAttack>().mgo_BonePrefab = mgo_BonePrefab;
-
+                
                 mb_CheckBone = true;
             }  
         }
@@ -83,12 +83,12 @@ public class HAGAttack : MonoBehaviour {
             Destroy(this.gameObject);
             mb_CheckBone = false;
             mb_SetPos = false;
-            mgo_IntantBone.GetComponent<HAGAttack>().mb_DelayThrowing = true;
-            HitWitch();
+            mgo_IntantBone.GetComponent<HAGAttack>().mb_DelayThrowing = true; //error
+            HitWitch();             
         }
     }
     
     void HitWitch() {
-        ms12c_CharacterInfo.WitchHP -= ms12c_CharacterInfo.HAGStatus.AttackDamage + 3f;
+        ms12c_CharacterInfo.WitchHP -= ms12c_CharacterInfo.HAGStatus.AttackDamage + 3f;  
     }
 } 
