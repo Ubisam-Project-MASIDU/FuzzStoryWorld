@@ -65,7 +65,7 @@ public class RandomCandy : MonoBehaviour{
                 mg_GameDirector.GetComponent<CandyControl>().v_ChangeFlagFalse();                               // Flag값 False로 변경
             }
             else if(mn_leftTime == 0){                                                                          // 만약 남은 아이템개수가 0개라면 Clear                            
-                Invoke("v_NextSceneLoad", 1.0f);                                                                  // 2초뒤 다음씬 넘어가는 함수 실행
+                Invoke("v_NextSceneLoad", 2.0f);                                                                  // 2초뒤 다음씬 넘어가는 함수 실행
             } 
         }
     }
