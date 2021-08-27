@@ -1,14 +1,17 @@
 ﻿/*
  * - Name : SwapItem.cs
- * - Writer : 김명현
+ * - Writer : 김명현, 이병권
  * 
  * - Content :
  * 아이템을 드래그하면 어느방향으로 드래그 하였는지 할려주는 스크립트
- * 
+ * 1) 아이템을 스왑 하면 소리가 난다
+ * 2) 아이템이 터지면 소리가 난다
+ *
  * - History
  * 1) 2021-08-11 : 어느방향으로 드래그하였는지 알려주는 함수 작성
  * 2) 2021-08-12 : 상하좌우 방향으로 드래그 기능 구현
  * 3) 2021-08-23 : 아이템이 터질때 이펙트 추가
+ * 4) 2021-08-27 : 아이템을 스왑하면 소리가 난다.
  * 
  * - Variable 
  * mv3_screenSpace                                  월드좌표를 화면좌표로 변경하여 저장해두는 변수
@@ -45,6 +48,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // 아이템들을 서로 바꿀때의 처리를 작성해둔 스크립트
 public class SwapItem : MonoBehaviour
@@ -68,6 +72,7 @@ public class SwapItem : MonoBehaviour
     GameObject mg_TempGameObject;                                                       // 아이템 스왑시 해당 오브젝트에 접근하기위한 변수
     GameObject mg_ItemPopEffectObject;                                                  // 터질때 생성된 오브젝트를 조작하기 위한 변수
 
+    GameObject mg_SoundManager;
     // Start is called before the first frame update
     void Start()
     {
@@ -80,6 +85,7 @@ public class SwapItem : MonoBehaviour
         mg_Col5 = GameObject.Find("Col5");
         mg_Col6 = GameObject.Find("Col6");
         mg_Col7 = GameObject.Find("Col7");
+        mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
     }
 
     // 오브젝트가 없어질때 작동되는 함수
@@ -88,6 +94,9 @@ public class SwapItem : MonoBehaviour
         // 터질때 이펙트 생성
         mg_ItemPopEffectObject = Instantiate(mg_ItemPopEffect) as GameObject;
         mg_ItemPopEffectObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
+        
+        mg_SoundManager.GetComponent<SoundManager>().playSound("Pop");   // 시작 버튼 효과음 재생
+
     }
 
     /// <summary>
@@ -190,6 +199,7 @@ public class SwapItem : MonoBehaviour
                         v_ChangeExchageFlagFalse();
                     break;
             }
+            mg_SoundManager.GetComponent<SoundManager>().playSound("Switch");   // 시작 버튼 효과음 재생
         }
     }
 
@@ -289,6 +299,7 @@ public class SwapItem : MonoBehaviour
             // 배열 이동
             mg_GameDirector.GetComponent<ManageItemArray>().v_ReplaceWithBottomValue(ni, nj);
         }
+        mg_SoundManager.GetComponent<SoundManager>().playSound("Switch");   // 시작 버튼 효과음 재생
     }
 
     /// <summary>
@@ -364,6 +375,8 @@ public class SwapItem : MonoBehaviour
             // 배열 이동
             mg_GameDirector.GetComponent<ManageItemArray>().v_ReplaceWithTopValue(ni, nj);
         }
+        mg_SoundManager.GetComponent<SoundManager>().playSound("Switch");   // 시작 버튼 효과음 재생
+
     }
 
     /// <summary>
@@ -491,6 +504,8 @@ public class SwapItem : MonoBehaviour
             // 배열 이동
             mg_GameDirector.GetComponent<ManageItemArray>().v_ReplaceWithRightValue(ni, nj);
         }
+        mg_SoundManager.GetComponent<SoundManager>().playSound("Switch");   // 시작 버튼 효과음 재생
+
     }
 
     /// <summary>

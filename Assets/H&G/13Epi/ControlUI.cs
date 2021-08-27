@@ -1,16 +1,19 @@
 ﻿/*
  * - Name : ControlUI.cs
- * - Writer : 김명현
+ * - Writer : 김명현, 이병권
  * 
  * - Content :
  * 전체적인 UI를 총괄하는 스크립트
  * 스코어 계산 및 남은시간 UI를 조정해준다.
- * 
+ * 1) 시간이 남지 않았을 때 소리가 나게 한다 
+ *
  * - History
  * 1) 2021-08-13 : 블록이 터질때 점수가 산정되게 설정
  * 2) 2021-08-17 : 시간이 모두 초과되고 점수가 0점보다 높으면 다음신으로 연결되게 설정
  * 3) 2021-08-20 : 블록이 터질때 시간증가 되는 함수 작성
  * 4) 2021-08-23 : 남은시간이 적을때 시계 애니메이션 작동되게 설정
+ * 5) 2021-08-27 : 소리가 남지 않았을 때 소리가 나게 한다
+ *
  * 
  * - Variable
  * mg_WinImage                                      Win오브젝트 연결을 위한 변수
@@ -45,6 +48,9 @@ public class ControlUI : MonoBehaviour
     double md_score = 0;
     float mf_delta = 0;
     bool mb_EndGameFlag = false;
+    bool mb_NoTimeFlag = false;
+
+    GameObject mg_SoundManager;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +58,7 @@ public class ControlUI : MonoBehaviour
         mg_Score = GameObject.Find("Score");
         mi_LeftTimeCircle = GameObject.Find("LeftTimeCircle").GetComponent<Image>();
         mi_LeftTimeCircle.fillAmount = 1;
+        mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
     }
 
     // Update is called once per frame
@@ -71,6 +78,10 @@ public class ControlUI : MonoBehaviour
         if (mi_LeftTimeCircle.fillAmount <= 0.3)
         {
             man_HasNoTime.SetTrigger("NoTime");
+            if(mb_NoTimeFlag == false){
+                 mg_SoundManager.GetComponent<SoundManager>().playSound("NoMoreTime");     // 게임 끝 버튼 효과음 재생
+            }
+            mb_NoTimeFlag = true;
         }
         else
         {
@@ -93,8 +104,11 @@ public class ControlUI : MonoBehaviour
         else if(mi_LeftTimeCircle.fillAmount >= 1)
         {
             mi_LeftTimeCircle.fillAmount = 1;
+            
         }
     }
+
+    
 
     /// <summary>
     /// 점수를 증가시켜주는 함수
