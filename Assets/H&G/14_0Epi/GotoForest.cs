@@ -8,12 +8,10 @@ public class GotoForest : MonoBehaviour
     private GameObject Hansel;
     private GameObject Gretel;
     private GameObject Witch;
-    public Transform AT;
-
+ 
     // Start is called before the first frame update
     void Start()
     {
-        AT = Hansel.transform;
         Hansel = GameObject.Find("hansel");
         Gretel = GameObject.Find("gretel");
         Witch = GameObject.Find("witch");
@@ -29,12 +27,10 @@ public class GotoForest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-       
-        Hansel.transform.position = Vector3.MoveTowards(Hansel.transform.position, new Vector3(15, -2.47f , 0), 0.06f);
-        Gretel.transform.position = Vector3.MoveTowards(Gretel.transform.position, new Vector3(15, -2.47f, 0), 0.06f);
-        Witch.transform.position = Vector3.MoveTowards(Witch.transform.position, new Vector3(15, -2.47f, 0), 0.03f);
-        transform.position = new Vector3(AT.position.x, transform.position.y, transform.position.z);
+        Hansel.transform.position = Vector3.MoveTowards(Hansel.transform.position, new Vector3(90, -4f , -6), 0.08f);
+        Gretel.transform.position = Vector3.MoveTowards(Gretel.transform.position, new Vector3(90, -4f, -6), 0.08f);
+        //Witch.transform.position = Vector3.MoveTowards(Witch.transform.position, new Vector3(15, -2.47f, 0), 0.03f);
+        //transform.position = new Vector3(AT.position.x, transform.position.y, transform.position.z);
 
     }
 
