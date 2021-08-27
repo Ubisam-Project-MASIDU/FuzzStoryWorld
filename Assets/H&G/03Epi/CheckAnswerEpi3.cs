@@ -28,12 +28,14 @@ public class CheckAnswerEpi3 : MonoBehaviour{
     public VoiceManager mvm_VoiceManager;
     public int mn_count;
     public GameObject v_YouWinText;
+    GameObject mg_SoundManager;
 
     void Start(){
         mvm_VoiceManager = FindObjectOfType<VoiceManager>();
         mn_count = 0;                                                           //퍼즐 개수 변수 0으로 초기화
         v_YouWinText.SetActive(false);                                          //텍스트 비활성화
         mvm_VoiceManager.playVoice(6);
+        mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
     }
 
     //모양을 맞출때마다 개수 변수를 더해주는 함수
@@ -55,5 +57,6 @@ public class CheckAnswerEpi3 : MonoBehaviour{
     //텍스트를 활성화해주는 함수
     public void v_WinText(){
         v_YouWinText.SetActive(true);
+        mg_SoundManager.GetComponent<SoundManager>().playSound("Win2");     // 게임 끝 버튼 효과음 재생       
     }
 }
