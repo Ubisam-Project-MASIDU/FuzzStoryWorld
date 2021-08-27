@@ -124,7 +124,7 @@ public class ControlUI : MonoBehaviour
     /// </summary>
     private void v_NextScene()
     {
-        SceneManager.LoadScene("0_03Starting");
+        SceneManager.LoadScene("1_14H&G");
     }
 
     /// <summary>
