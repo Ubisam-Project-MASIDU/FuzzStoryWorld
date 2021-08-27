@@ -33,7 +33,7 @@ public class HAGMove : MonoBehaviour {
     private bool mb_DontWalk = false;
     private bool mb_HAGHit = false;
     public bool mb_SetWinWalk = false;
-    bool mb_Walk4 = false;
+    // bool mb_Walk4 = false;
     GameObject mg_SoundManager;
 
     public bool DamagingHAG {
@@ -75,12 +75,12 @@ public class HAGMove : MonoBehaviour {
 
                 transform.position = Vector3.MoveTowards(transform.position, mv3_TargetPos, HAGStatus.WalkSpeed * Time.deltaTime);
                 
-                if(mb_Walk4 == false){
+                // if(mb_Walk4 == false){
                 
-                 mg_SoundManager.GetComponent<SoundManager>().playSound("Walk4");     // 게임 끝 버튼 효과음 재생
+                //     mg_SoundManager.GetComponent<SoundManager>().playSound("Walk4");     // 게임 끝 버튼 효과음 재생
                 
-                }
-                mb_Walk4 = true;
+                // }
+                // mb_Walk4 = true;
 
                 mb_DestroyOnce = false;
                 // mani_HAGAnimator.SetBool("isWalking", true);
@@ -130,6 +130,8 @@ public class HAGMove : MonoBehaviour {
 
     public void HAGHit() {
         StartCoroutine(Damaging());
+        mg_SoundManager.GetComponent<SoundManager>().playSound("Attack2");     // 게임 끝 버튼 효과음 재생
+
     }
 
     IEnumerator Damaging() {

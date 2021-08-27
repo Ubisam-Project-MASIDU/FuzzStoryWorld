@@ -44,7 +44,7 @@ public class Scene12Controller : MonoBehaviour {
             mst_WitchStatus.HP = value;
             if (mst_WitchStatus.HP <= 0f) {
                 DisplayUI(GameResult.Win);
-                HAGMoveRewardStage();
+                HAGMoveRewardStage();       //error
             }
         }
         get {
@@ -127,9 +127,11 @@ public class Scene12Controller : MonoBehaviour {
         Destroy(GameObject.Find("witch"));
         Destroy(GameObject.Find("HAG"));
         transform.GetChild(1).transform.GetChild(5).gameObject.SetActive(true);
-        GameObject.Find("MainCamera").SetActive(false);
+        //GameObject.Find("MainCamera").SetActive(false);         //error
         transform.GetChild(1).transform.GetChild(5).transform.position = GameObject.Find("HAG").transform.position;  
-        //GameObject.Find("Main Camera").transform.parent = transform.GetChild(1).transform.GetChild(5).transform;
+        GameObject.Find("MainCamera").transform.parent = transform.GetChild(1).transform.GetChild(5).transform;
+        GameObject.Find("MainCamera").transform.localPosition = new Vector3(1.69f, 10.6f, -24.15f);
+        GameObject.Find("MainCamera").transform.localEulerAngles = new Vector3(7.272f, 0f, 0f);
         GameObject.Find("EndHAG").GetComponent<HAGMove>().mv3_TargetPos = mgo_WinHAGPos.transform.position;
         GameObject.Find("EndHAG").GetComponent<HAGMove>().mb_SetPos = true;
         GameObject.Find("EndHAG").GetComponent<HAGMove>().mb_SetWinWalk = true;
