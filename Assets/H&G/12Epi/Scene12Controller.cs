@@ -127,7 +127,6 @@ public class Scene12Controller : MonoBehaviour {
         Destroy(GameObject.Find("witch"));
         Destroy(GameObject.Find("HAG"));
         transform.GetChild(1).transform.GetChild(5).gameObject.SetActive(true);
-        //GameObject.Find("MainCamera").SetActive(false);         //error
         transform.GetChild(1).transform.GetChild(5).transform.position = GameObject.Find("HAG").transform.position;  
         GameObject.Find("MainCamera").transform.parent = transform.GetChild(1).transform.GetChild(5).transform;
         GameObject.Find("MainCamera").transform.localPosition = new Vector3(1.69f, 10.6f, -24.15f);
