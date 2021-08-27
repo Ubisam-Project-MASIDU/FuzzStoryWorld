@@ -94,9 +94,6 @@ public class SwapItem : MonoBehaviour
         // 터질때 이펙트 생성
         mg_ItemPopEffectObject = Instantiate(mg_ItemPopEffect) as GameObject;
         mg_ItemPopEffectObject.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, 0);
-        
-        mg_SoundManager.GetComponent<SoundManager>().playSound("Pop");   // 시작 버튼 효과음 재생
-
     }
 
     /// <summary>

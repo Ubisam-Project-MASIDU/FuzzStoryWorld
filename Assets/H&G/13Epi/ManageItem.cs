@@ -70,6 +70,8 @@ public class ManageItem : MonoBehaviour
 
     // Flag 값 
     bool mb_IsStopFlag = false;                                                     // Flag 값 -> 모든 아이템들이 정지된 상태인지 확인하기위한 Flag
+
+    GameObject mg_SoundManager;
     #endregion
 
     // Start is called before the first frame update
@@ -83,6 +85,7 @@ public class ManageItem : MonoBehaviour
         mg_Col5 = GameObject.Find("Col5");
         mg_Col6 = GameObject.Find("Col6");
         mg_Col7 = GameObject.Find("Col7");
+        mg_SoundManager = GameObject.Find("SoundManager");
     }
 
     // Update is called once per frame
@@ -190,6 +193,8 @@ public class ManageItem : MonoBehaviour
                 Destroy(mg_DeletedObject.gameObject, 1f);
                 Invoke("v_IncreaseScore", 1f);
                 Invoke("v_IncreaseTime", 1f);
+                Invoke("v_PlayPopSound", 1f);
+
             }
             mg_DeletedObject = null;
         }
@@ -243,5 +248,9 @@ public class ManageItem : MonoBehaviour
         GetComponent<ControlUI>().v_IncreaseTime();
     }
     
+    public void v_PlayPopSound()
+    {
+        mg_SoundManager.GetComponent<SoundManager>().playSound("Pop");
+    }
     #endregion
 }
