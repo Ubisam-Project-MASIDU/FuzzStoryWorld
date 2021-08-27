@@ -16,21 +16,21 @@
 //  *
 //  */
 
-// using System.Collections;
-// using System.Collections.Generic;
-// using UnityEngine;
-// using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
-// // 첫 번째로 화면에 표시되는 씬을 아래와 같은 씬으로 고정시킨다.
-// public class FixedStartScene : MonoBehaviour {
+// 첫 번째로 화면에 표시되는 씬을 아래와 같은 씬으로 고정시킨다.
+public class FixedStartScene : MonoBehaviour {
     
-//      [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
-//      // intro 씬을 첫 번째 씬으로 고정시킨다.
-//      static void FirstLoad()
-//      {
-//          if (SceneManager.GetActiveScene().name.CompareTo("intro") != 0){
-//              SceneManager.LoadScene("0_02Intro");
-//          }
-//      }
+     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+     // intro 씬을 첫 번째 씬으로 고정시킨다.
+     static void FirstLoad()
+     {
+        /*if (SceneManager.GetActiveScene().name.CompareTo("intro") != 0){
+            SceneManager.LoadScene("0_02Intro");
+         }*/
+     }
     
-// }
+}
