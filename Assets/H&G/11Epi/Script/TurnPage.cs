@@ -19,14 +19,28 @@ using UnityEngine.SceneManagement;
 public class TurnPage : MonoBehaviour
 {
    int num = 2;                                                    // 케릭터의 수 2으로 저장하기
+    private VoiceManager mvm_VoiceManager;
+    private bool mb_PlayOnce = false;
+    public int mn_PlayVoiceIndex;
 
+    void Start(){
+        mvm_VoiceManager = FindObjectOfType<VoiceManager>();
+    }
     void Update(){
+        if (!mb_PlayOnce) {
+            mvm_VoiceManager.playVoice(mn_PlayVoiceIndex);
+            mb_PlayOnce = true;
+        }
 
         if(num<=0){
-            SceneManager.LoadScene("1_12H&G");                     // 0이 되면 다음 페이지로 넘어감
+            Invoke("v_NextSceneLoad", 1.0f);                     // 0이 되면 다음 페이지로 넘어감
         }
     }
     public void Delete(){
         num--;
+    }
+        //다음 씬으로 넘어가는 함수
+    void v_NextSceneLoad() {
+        SceneManager.LoadScene("1_12H&G");
     }
 }

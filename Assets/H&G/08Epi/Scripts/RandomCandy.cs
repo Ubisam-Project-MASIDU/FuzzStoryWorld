@@ -75,7 +75,7 @@ public class RandomCandy : MonoBehaviour{
     }
     
     //다음 씬으로 넘어가는 함수
-        void v_NextSceneLoad() {
+    void v_NextSceneLoad() {
         SceneManager.LoadScene("1_09H&G");
     }
 }
