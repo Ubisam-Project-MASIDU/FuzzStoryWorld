@@ -47,6 +47,9 @@ public class EatBread : MonoBehaviour
     public GameObject mgo_HAG;
     public GameObject mgo_TargetPos;
 
+    bool mb_EatBread = false;
+
+    bool mb_EatBread2 = false;
     // 음성출력에 필요한 변수들
     private VoiceManager mvm_VoiceManager; 
 
@@ -78,6 +81,11 @@ public class EatBread : MonoBehaviour
             // 큰 빵이 게임오브젝트와 근사하면
             // 큰 빵 없애기
             Invoke("DestroyBigBread", 1f);
+            if(mb_EatBread == false){
+                 mg_SoundManager.GetComponent<SoundManager>().playSound("EatBread");     // 게임 끝 버튼 효과음 재생
+            }
+            mb_EatBread = true;
+
             mb_CheckBread = false;
             
         } else if(Mathf.Abs(mgo_SmallBread.transform.position.x - transform.position.x) < 0.7 && !mb_CheckBread) {
@@ -85,6 +93,12 @@ public class EatBread : MonoBehaviour
             // 작은 빵 없애기
             // 작은 빵이 없어지면 게임 오브젝트도 정지
             Invoke("DestroySmallBread", 1f);
+
+            if(mb_EatBread2 == false){
+                mg_SoundManager.GetComponent<SoundManager>().playSound("EatBread2");     // 게임 끝 버튼 효과음 재생
+            }
+            mb_EatBread2 = true;
+
             Invoke("Stop", 1.3f);
             
         } else {
@@ -100,14 +114,14 @@ public class EatBread : MonoBehaviour
 
     // 큰 빵 사라지게하는 함수
     void DestroyBigBread() {
-        mg_SoundManager.GetComponent<SoundManager>().playSound("EatBread");   // 빵을 먹을 떄 나는 효과음 재생 
+        //mg_SoundManager.GetComponent<SoundManager>().playSound("EatBread");   // 빵을 먹을 떄 나는 효과음 재생 
         mgo_BigBread.GetComponent<SpriteRenderer>().sprite = null;      
  
     }
     
     // 작은 빵 사라지게하는 함수
     void DestroySmallBread() {
-        mg_SoundManager.GetComponent<SoundManager>().playSound("EatBread");   // 빵을 먹을 떄 나는 효과음 재생 
+        //mg_SoundManager.GetComponent<SoundManager>().playSound("EatBread");   // 빵을 먹을 떄 나는 효과음 재생 
         mgo_SmallBread.GetComponent<SpriteRenderer>().sprite = null;      
     }
 

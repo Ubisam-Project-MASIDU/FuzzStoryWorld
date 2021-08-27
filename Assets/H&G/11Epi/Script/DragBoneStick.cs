@@ -34,8 +34,15 @@ public class DragBoneStick : MonoBehaviour
     private Vector3 screenSpace;
     private Vector3 offset;
 
+    GameObject mg_SoundManager;
+
+    void Start(){
+        mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
+    }
+
     // 오브젝트를 클릭한 경우
     private void OnMouseDown(){
+        mg_SoundManager.GetComponent<SoundManager>().playSound("Clik3");   // 시작 버튼 효과음 재생
         screenSpace = Camera.main.WorldToScreenPoint(transform.position);
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z));
     }
