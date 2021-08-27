@@ -123,39 +123,47 @@ public class ObjectClick : MonoBehaviour {
             // 클릭한 오브젝트가 6개보다 적다면
             if (mn_count < 6) {
                 // 마우스를 왼쪽버튼을 클릭했을때 true반환
-                if (Input.GetMouseButtonDown(0)) {
-                    // 마우스가 클릭된곳을 카메라에서부터 레이저를 쏘아 감지하기 위한 Ray
-                    Ray mr_CheckClickByRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-                    // 레이저를 쏜 곳에 있는 오브젝트가 있다면
-                    if (Physics.Raycast(mr_CheckClickByRay, out mrch_CheckClickObj)) {
-                        // 오브젝트의 위치와 이름을 변수에 저장
-                        mv3_ObjectPos = mrch_CheckClickObj.collider.gameObject.transform.position;
-                        ms_ObjectName = mrch_CheckClickObj.collider.gameObject.name;
-                        Debug.Log(ms_ObjectName);
-                        // 현재 오브젝트가 아닌 다음 오브젝트를 클릭했을때, 직전에 클릭한 오브젝트를 비활성화
-                        if (mn_count > 0) {
-                            // 색을 어둡게해서 이미 클릭했음을 보여줌
-                            mspra_ClickObject[mn_count - 1].color = new Color(100 / 255f, 100 / 255f, 100 / 255f, 255 / 255f);
-                            if(mspra_ClickObject[mn_count-1].tag == "Tree")
+                if (!UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(0))
+                {
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        // 마우스가 클릭된곳을 카메라에서부터 레이저를 쏘아 감지하기 위한 Ray
+                        Ray mr_CheckClickByRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+                        // 레이저를 쏜 곳에 있는 오브젝트가 있다면
+                        if (Physics.Raycast(mr_CheckClickByRay, out mrch_CheckClickObj))
+                        {
+                            // 오브젝트의 위치와 이름을 변수에 저장
+                            mv3_ObjectPos = mrch_CheckClickObj.collider.gameObject.transform.position;
+                            ms_ObjectName = mrch_CheckClickObj.collider.gameObject.name;
+                            Debug.Log(ms_ObjectName);
+                            // 현재 오브젝트가 아닌 다음 오브젝트를 클릭했을때, 직전에 클릭한 오브젝트를 비활성화
+                            if (mn_count > 0)
                             {
-                                mg_Tree2.GetComponent<SpriteRenderer>().color = new Color(100 / 255f, 100 / 255f, 100 / 255f, 255 / 255f);
+                                // 색을 어둡게해서 이미 클릭했음을 보여줌
+                                mspra_ClickObject[mn_count - 1].color = new Color(100 / 255f, 100 / 255f, 100 / 255f, 255 / 255f);
+                                if (mspra_ClickObject[mn_count - 1].tag == "Tree")
+                                {
+                                    mg_Tree2.GetComponent<SpriteRenderer>().color = new Color(100 / 255f, 100 / 255f, 100 / 255f, 255 / 255f);
+                                }
+                                if (mspra_ClickObject[mn_count - 1].tag == "Cauldron")
+                                {
+                                    mg_Caulron2.GetComponent<SpriteRenderer>().color = new Color(100 / 255f, 100 / 255f, 100 / 255f, 255 / 255f);
+                                }
+                                // destroyParticleIndex = ddd(renders[count - 1].name);
+                                // Destroy(Particle[destroyParticleIndex]);
                             }
-                            if(mspra_ClickObject[mn_count - 1].tag == "Cauldron")
-                            {
-                                mg_Caulron2.GetComponent<SpriteRenderer>().color = new Color(100 / 255f, 100 / 255f, 100 / 255f, 255 / 255f);
-                            }
-                            // destroyParticleIndex = ddd(renders[count - 1].name);
-                            // Destroy(Particle[destroyParticleIndex]);
+                            // 클릭된 오브젝트의 이름을 매개변수로해서 헨젤과 그레텔이 오브젝트의 뒤로 숨게한다.
+                            v_HideBehindObject(ms_ObjectName);
+                            // 클릭된 오브젝트를 순서대로 배열에 저장, 각 오브젝트의 태그와 이름을 같게 설정해놓음
+                            mspra_ClickObject[mn_count] = GameObject.FindGameObjectWithTag(ms_ObjectName).GetComponent<SpriteRenderer>();
+                            // 클릭횟수 증가
+                            mn_count++;
+                            Debug.Log(mn_count);
                         }
+                        
                     }
-                    // 클릭된 오브젝트의 이름을 매개변수로해서 헨젤과 그레텔이 오브젝트의 뒤로 숨게한다.
-                    v_HideBehindObject(ms_ObjectName);
-                    // 클릭된 오브젝트를 순서대로 배열에 저장, 각 오브젝트의 태그와 이름을 같게 설정해놓음
-                    mspra_ClickObject[mn_count] = GameObject.FindGameObjectWithTag(ms_ObjectName).GetComponent<SpriteRenderer>();
-                    // 클릭횟수 증가
-                    mn_count++;
-                    Debug.Log(mn_count);
                 }
+                
             }
             // 오브젝트 6개가 모두 클릭됐다면 다음 씬으로 이동 
             else if (mn_count == 6) {

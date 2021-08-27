@@ -28,9 +28,9 @@ public class FixedStartScene : MonoBehaviour {
      // intro 씬을 첫 번째 씬으로 고정시킨다.
      static void FirstLoad()
      {
-         if (SceneManager.GetActiveScene().name.CompareTo("intro") != 0){
-             SceneManager.LoadScene("0_02Intro");
-         }
+        /*if (SceneManager.GetActiveScene().name.CompareTo("intro") != 0){
+            SceneManager.LoadScene("0_02Intro");
+         }*/
      }
     
 }
