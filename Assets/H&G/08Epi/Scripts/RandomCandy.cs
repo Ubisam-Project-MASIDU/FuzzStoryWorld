@@ -6,6 +6,7 @@
  * - HISTORY
  * 2021-08-10 : 초기 개발
  * 2021-08-11 : 코드 획일화 및 주석처리
+ * 2021-08-27 : Voice Manager 수정
  *
  * <Variable>
  * mg_RandomItem : RandomItem 오브젝트 연결을 위한 변수
@@ -75,7 +76,7 @@ public class RandomCandy : MonoBehaviour{
     }
     
     //다음 씬으로 넘어가는 함수
-        void v_NextSceneLoad() {
+    void v_NextSceneLoad() {
         SceneManager.LoadScene("1_09H&G");
     }
 }
