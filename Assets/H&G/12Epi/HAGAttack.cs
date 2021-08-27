@@ -35,7 +35,6 @@ public class HAGAttack : MonoBehaviour {
     private GameObject mgo_IntantBone;
     private bool mb_CheckBone = true;
     public bool mb_DelayThrowing = false;
-
     GameObject mg_SoundManager;
 
     void Start() {
@@ -68,22 +67,32 @@ public class HAGAttack : MonoBehaviour {
             }
             if(!mb_CheckBone) {
                 Debug.Log("뼈없음");
-                Invoke("Create", 5f);
+                //Invoke("MakeBone", 1f);
                 mgo_IntantBone = Instantiate(mgo_BonePrefab, BonePos.position, BonePos.rotation, HAG) as GameObject;
                 mgo_IntantBone.GetComponent<HAGAttack>().BonePos = BonePos;
                 mgo_IntantBone.GetComponent<HAGAttack>().HAG = HAG;
                 mgo_IntantBone.GetComponent<HAGAttack>().mgo_BonePrefab = mgo_BonePrefab;
+                mgo_IntantBone.GetComponent<HAGAttack>().mb_DelayThrowing = true;
                 
                 mb_CheckBone = true;
             }  
         }
     }          
+    void MakeBone() {
+                mgo_IntantBone = Instantiate(mgo_BonePrefab, BonePos.position, BonePos.rotation, HAG) as GameObject;
+                mgo_IntantBone.GetComponent<HAGAttack>().BonePos = BonePos;
+                mgo_IntantBone.GetComponent<HAGAttack>().HAG = HAG;
+                mgo_IntantBone.GetComponent<HAGAttack>().mgo_BonePrefab = mgo_BonePrefab;
+                mgo_IntantBone.GetComponent<HAGAttack>().mb_DelayThrowing = true;
+                
+                mb_CheckBone = true;
+    }
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.name.Equals("witch") && mb_SetPos) {
             Destroy(this.gameObject);
             mb_CheckBone = false;
             mb_SetPos = false;
-            mgo_IntantBone.GetComponent<HAGAttack>().mb_DelayThrowing = true; //error
+            //mgo_IntantBone.GetComponent<HAGAttack>().mb_DelayThrowing = true; //error
             HitWitch();             
         }
     }

@@ -1,6 +1,6 @@
 /*
  * - Name : WitchAttack.cs
- * - Writer : 이예은
+ * - Writer : 최대준
  * 
  * - Content :
  * 마녀가 헨젤과 그레텔에게 공격하는 것을 표현하는 스크립트 클래스이다.
@@ -34,7 +34,7 @@ public class WitchAttack : MonoBehaviour {
     private bool mb_SetBright = false;
     public int mn_SetRange = 10;
     private float mf_CheckAttackCoolTime = 0f;
-    private int mn_NumThunder = 3;
+    private int mn_NumThunder = 5;
 
     GameObject mg_SoundManager;
 
@@ -44,12 +44,13 @@ public class WitchAttack : MonoBehaviour {
     }
 
     void Update() {
+        //Debug.Log(Vector3.Distance(mgo_HAG.transform.position, transform.position));
         mf_CheckAttackCoolTime += Time.deltaTime;
         if (mgo_HAG != null) {
-            if(Vector3.Distance(mgo_HAG.transform.position, transform.position) < 6f) {
+            if(Vector3.Distance(mgo_HAG.transform.position, transform.position) < 5f) {
                 MeleeAttack();
-                mf_CheckAttackCoolTime = 0f;
-            } else if (mf_CheckAttackCoolTime >= 8f) {
+                //mf_CheckAttackCoolTime = 0f;
+            } else if (mf_CheckAttackCoolTime >= 6f) {
                 RangedAttack();
                 mf_CheckAttackCoolTime = 0f;
                 mb_SetBright = true;
@@ -60,11 +61,14 @@ public class WitchAttack : MonoBehaviour {
                 mb_CoroutineOnce = false;
             }
         }
-        
     }
 
     void MeleeAttack() {
         this.transform.GetChild(0).gameObject.SetActive(true);
+        Invoke("FinishAttack", 3f);
+    }
+    
+    void FinishAttack() {
         this.transform.GetChild(0).gameObject.SetActive(false);
     }
 
