@@ -8,6 +8,7 @@
  * 2021-08-18 : 코드 주석처리
  * 2021-08-23 : 코드 획일화
  * 2021-08-24 : 총 횟수 창 추가
+ * 2021-08-27 : 남은 횟수 코드 추가
  *
  * <Variable>
  * mb_isJump           플레이어가 점프하고 있는 상태인지 체크하는 변수
@@ -16,6 +17,7 @@
  * mf_jumpSpeed        플레이어가 올라가는 속도 변수
  * mn_cntRock          조약돌 몇개 먹었는지 세는 변수
  * mn_totalRockNum     게임 시작 시 주어지는 조약돌 총 갯수 저장하는 변수
+ * mn_Showcnt          남은 횟수 저장 변수
  * mv2_startPosition   처음 위치 저장 변수
  * animator            플레이어애개 저장되어있는 애니메이터를 저장하는 변수
  * ScriptTxt           총 횟수 표기
@@ -26,29 +28,45 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour{
-    bool mb_isJump = false; 
-    bool mb_isTop = false;
-    public float mf_jumpHeight = 0;
-    public float mf_jumpSpeed = 0;
-    int mn_cntRock = 0;
-    private int mn_totalRockNum;
+    bool mb_isJump; 
+    bool mb_isTop;
+    public float mf_jumpHeight;
+    public float mf_jumpSpeed;
+    int mn_cntRock;
+    int mn_totalRockNum;
+    int mn_Showcnt;
     Vector2 mv2_startPosition;
     Animator animator;
     GameObject SoundManager;
     public Text ScriptTxt;
+
+    private VoiceManager mvm_VoiceManager;
+    private bool mb_PlayOnce = false;
+    public string ms_ChangeNextSceneName;
+    public int mn_PlayVoiceIndex;
     void Start(){
+        mb_isJump = false;
+        mb_isTop = false;
+
         mn_totalRockNum = UnityEngine.Random.Range(3,8);   // 게임시작할 때 플레이어가 주어야하는 조약돌의 갯수를 랜덤으로 배정해줌
+        mn_Showcnt = mn_totalRockNum;                      // 남은 횟수를 처음에 총 횟수로 초기화
         ScriptTxt.text = mn_totalRockNum.ToString();       // 총 횟수 표기 연결(형 변환)
         Debug.Log(mn_totalRockNum + "번 도전!");
 
         mv2_startPosition = transform.position;            // 스크립트가 실행될 때 오브젝트의 현재위치로 초기화
         animator = GetComponent<Animator>();               // 플레이어애개 추가 되어있는 애니메이터 컴포넌트를 가져옴
         SoundManager = GameObject.Find("SoundManager");
+
+        mvm_VoiceManager = FindObjectOfType<VoiceManager>();
     }
 
     void Update(){
+        if (!mb_PlayOnce) {
+            mvm_VoiceManager.playVoice(mn_PlayVoiceIndex);
+            mb_PlayOnce = true;
+        }
         // 게임 시작 버튼을 누르면
         if(GameManager.instance.mb_isPlay){
             animator.SetBool("Run",true); // 애니메이터의 Run 파라미트를 참으로 변경 -> 플레이어가 Run 모션 재생
@@ -97,7 +115,15 @@ public class PlayerController : MonoBehaviour{
         }
         if(mn_cntRock >= mn_totalRockNum ){             // 플레이어가 mn_totalRockNum 개의 조약돌을 다 갖게되면
             GameManager.instance.GameOver();            // 게임 끝
+            Invoke("v_changeNextScene", 1.0f);
+        }else{                                          // 게임이 끝나지 않았다면
+            mn_Showcnt -= 1;                            // 남은 횟수 적용
+            ScriptTxt.text = mn_Showcnt.ToString();     // 남은 횟수 표기
         }
     }
 
+    private void v_changeNextScene() {
+        SceneManager.LoadScene(ms_ChangeNextSceneName);
+    }
 }
+

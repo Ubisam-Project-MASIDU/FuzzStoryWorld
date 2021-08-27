@@ -2735,6 +2735,8 @@ MonoBehaviour:
   mf_jumpHeight: 3
   mf_jumpSpeed: 8
   ScriptTxt: {fileID: 1807689123}
+  ms_ChangeNextSceneName: 1_06H&G
+  mn_PlayVoiceIndex: 8
 --- !u!70 &1123369988
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
