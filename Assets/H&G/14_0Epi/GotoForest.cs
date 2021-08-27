@@ -30,13 +30,13 @@ public class GotoForest : MonoBehaviour
     }
     void Update()
     {
-        Hansel.transform.position = Vector3.MoveTowards(Hansel.transform.position, HanselPos, 0.08f);
-        Gretel.transform.position = Vector3.MoveTowards(Gretel.transform.position, GretelPos, 0.08f);
-        Witch.transform.position = Vector3.MoveTowards(Witch.transform.position, new Vector3(15, -2.47f, 0), 0.04f);
+        Hansel.transform.position = Vector3.MoveTowards(Hansel.transform.position, HanselPos, 0.04f);
+        Gretel.transform.position = Vector3.MoveTowards(Gretel.transform.position, GretelPos, 0.04f);
+        Witch.transform.position = Vector3.MoveTowards(Witch.transform.position, new Vector3(15, -2.47f, 0), 0.02f);
 
-        if(Hansel.transform.position == HanselPos)
+        if(Hansel.transform.position == HanselPos && playFirstVoice && mvm_VoiceManager.isPlaying() == false)
         {
-            v_ChangeNextScene();
+            Invoke("v_ChangeNextScene", 1f);
         }
     }
     public void v_ChangeNextScene()
