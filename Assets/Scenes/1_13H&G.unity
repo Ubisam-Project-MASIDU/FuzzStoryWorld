@@ -130,6 +130,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1983530800160481096, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 1983530800160481097, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
       propertyPath: m_Name
@@ -193,7 +198,7 @@ PrefabInstance:
     - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
       propertyPath: mssl_saveSounds.Array.size
-      value: 4
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
@@ -218,13 +223,43 @@ PrefabInstance:
     - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
       propertyPath: mssl_saveSounds.Array.data[4].name
-      value: NoMoreTime
+      value: Gold1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[5].name
+      value: Gold2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[6].name
+      value: Gold3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[7].name
+      value: Gold4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[8].name
+      value: Gold5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[9].name
+      value: Gold6
       objectReference: {fileID: 0}
     - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
       propertyPath: mssl_saveSounds.Array.data[0].sound
       value: 
       objectReference: {fileID: 8300000, guid: e5fcd6e192c6e544b986bef3f53f6e89, type: 3}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[10].name
+      value: Gold7
+      objectReference: {fileID: 0}
     - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
       propertyPath: mssl_saveSounds.Array.data[1].sound
@@ -244,7 +279,37 @@ PrefabInstance:
         type: 3}
       propertyPath: mssl_saveSounds.Array.data[4].sound
       value: 
-      objectReference: {fileID: 8300000, guid: 3f6cfa7b01cd7e94c9a26420ca065e3d, type: 3}
+      objectReference: {fileID: 8300000, guid: 1b09a4dbaa4084341beccd35682124eb, type: 3}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[5].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b09a4dbaa4084341beccd35682124eb, type: 3}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[6].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b09a4dbaa4084341beccd35682124eb, type: 3}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[7].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b09a4dbaa4084341beccd35682124eb, type: 3}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[8].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b09a4dbaa4084341beccd35682124eb, type: 3}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[9].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b09a4dbaa4084341beccd35682124eb, type: 3}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[10].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 1b09a4dbaa4084341beccd35682124eb, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d56623e6ba012449d9e09e4fe31f9598, type: 3}
 --- !u!1 &188172238
