@@ -39,7 +39,7 @@ public class SceneControl : MonoBehaviour
         if (!mb_PlayFirstVoice)
         {
             mvm_VoiceManager.playVoice(13); //그때무서운마녀가 나타났어요
-            temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[13].words;
+            temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_LangIndex].mvifl_setVoiceInfoList[13].words;
             cc.mt_CaptionText.GetComponent<Text>().text = temp;
             mb_PlayFirstVoice = true;
             Invoke("v_WitchText", 2.5f); //누가 내 집을 먹는게냐 텍스트
@@ -49,7 +49,7 @@ public class SceneControl : MonoBehaviour
         {
             mvm_VoiceManager.playVoice(14); //사실 그 할머니는 어쩌구
             cc.mn_VoiceIndex = 14;
-            temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[14].words;
+            temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_LangIndex].mvifl_setVoiceInfoList[14].words;
             cc.mt_CaptionText.GetComponent<Text>().text = temp;
             mb_PlaySecondVoice = true;
             mg_WitchText.SetActive(false);
@@ -64,7 +64,7 @@ public class SceneControl : MonoBehaviour
             {
                 mvm_VoiceManager.playVoice(15);
                 cc.mn_VoiceIndex = 15;
-                temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_langIndex].mvifl_setVoiceInfoList[15].words;
+                temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_LangIndex].mvifl_setVoiceInfoList[15].words;
                 cc.mt_CaptionText.GetComponent<Text>().text = temp;
                 mt_Text.text = "\n       물체를 클릭해서 마녀에게로부터 헨젤과 그레텔을 숨겨주세요.        \n";
                 mb_PlayThirdVoice = true;

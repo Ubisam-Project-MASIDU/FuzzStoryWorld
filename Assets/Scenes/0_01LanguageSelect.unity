@@ -2063,7 +2063,7 @@ PrefabInstance:
     - target: {fileID: 5604343149860080240, guid: 29c66f6e0b4f1458dadb684b604f1058,
         type: 3}
       propertyPath: mvifl_setVoiceInfoList.Array.data[3].sstr_words
-      value: 
+      value: "\u56E0\u4E3A\u65E0\u6CD5\u5FCD\u53D7\u8D2B\u56F0\uFF0C\u7236\u6BCD\u8BA1\u5212\u628A\u6C49\u585E\u5C14\u548C\u683C\u96F7\u7279\u6254\u8FDB\u6811\u6797\u3002"
       objectReference: {fileID: 0}
     - target: {fileID: 5604343149860080240, guid: 29c66f6e0b4f1458dadb684b604f1058,
         type: 3}
