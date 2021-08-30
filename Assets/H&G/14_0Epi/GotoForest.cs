@@ -53,6 +53,7 @@ public class GotoForest : MonoBehaviour{
         }
     }
     void Update(){
+<<<<<<< Updated upstream
         // 헨젤과 그레텔을 목표 위치로 이동
         mg_Hansel.transform.position = Vector3.MoveTowards(mg_Hansel.transform.position, mv3_HanselPos, 0.04f);
         mg_Gretel.transform.position = Vector3.MoveTowards(mg_Gretel.transform.position, mv3_GretelPos, 0.04f);
@@ -61,6 +62,16 @@ public class GotoForest : MonoBehaviour{
         // 게임 끝 버튼 효과음 재생
         if (mb_Runing == false){
             mg_SoundManager.GetComponent<SoundManager>().playSound("Runing"); 
+=======
+        // ������ �׷����� �������� �̵������ش�
+        mg_Hansel.transform.position = Vector3.MoveTowards(mg_Hansel.transform.position, mv3_HanselPos, 2f * Time.deltaTime);
+        mg_Gretel.transform.position = Vector3.MoveTowards(mg_Gretel.transform.position, mv3_GretelPos, 2f * Time.deltaTime);
+        // ����� ������ �׷��ں��� ������ �̵���Ų��
+        mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(15, -2.47f, 0), 1f * Time.deltaTime);
+
+        if(mb_Runing == false){
+            mg_SoundManager.GetComponent<SoundManager>().playSound("Runing");     // 게임 끝 버튼 효과음 재생
+>>>>>>> Stashed changes
         }
         mb_Runing = true;
 
