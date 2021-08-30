@@ -33,7 +33,7 @@ public class GotoForest : MonoBehaviour{
     private VoiceManager mvm_VoiceManager;
     private bool mb_PlayFirstVoice = false;
     private Vector3 mv3_HanselPos = new Vector3(90, -4f, -6);
-    private Vector3 mv3_GretelPos = new Vector3(85, -4f, -6);
+    private Vector3 mv3_GretelPos = new Vector3(88, -4f, -6);
     GameObject mg_SoundManager;
     bool mb_Runing = false;
 
@@ -54,8 +54,8 @@ public class GotoForest : MonoBehaviour{
     }
     void Update(){
         // 헨젤과 그레텔을 목표 위치로 이동
-        mg_Hansel.transform.position = Vector3.MoveTowards(mg_Hansel.transform.position, mv3_HanselPos, 6f * Time.deltaTime);
-        mg_Gretel.transform.position = Vector3.MoveTowards(mg_Gretel.transform.position, mv3_GretelPos, 6f * Time.deltaTime);
+        mg_Hansel.transform.position = Vector3.MoveTowards(mg_Hansel.transform.position, mv3_HanselPos, 7f * Time.deltaTime);
+        mg_Gretel.transform.position = Vector3.MoveTowards(mg_Gretel.transform.position, mv3_GretelPos, 7f * Time.deltaTime);
         // 헨젤과 그레텔보다 느리게 이동
         mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(15, -2.47f, 0), 3f * Time.deltaTime);
         // 게임 끝 버튼 효과음 재생
