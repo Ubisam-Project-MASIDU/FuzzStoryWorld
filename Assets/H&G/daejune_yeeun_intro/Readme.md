@@ -10,15 +10,15 @@
     4) 2021-08-20 : 리드미 초기 작성
 ***
  - 구동화면 및 내용
-
-
-
-
+<img src="https://user-images.githubusercontent.com/88296511/131269793-2e864c70-1638-4828-a6f2-7e6ac8de15c6.JPG" width="500" height="220">
+<img src="https://user-images.githubusercontent.com/88296511/131269707-16784973-b20c-487b-8430-03efec5bca13.JPG" width="500" height="220">
+<img src="https://user-images.githubusercontent.com/88296511/131269699-ba9940bd-ee97-4522-8065-8926c8a38292.JPG" width="500" height="220">
+<img src="https://user-images.githubusercontent.com/88296511/131269685-dfde6036-ce89-44b9-8d08-a2cd066f7bec.jpg" width="500" height="220">
 
     - intro에 해당하는 구동화면이다.
     - 헨젤과 그레텔이 앞 쪽으로 걸어 나온다.
-    - 책으로 들어간다.
-    - 들어가는 효과가 나온다.
+    - 책으로 들어가면서 이야기가 시작된다.
+    - 책 안으로 들어가는 효과가 나온다.
 ***
 - H&G (intro) 구성 정보
   - Image
