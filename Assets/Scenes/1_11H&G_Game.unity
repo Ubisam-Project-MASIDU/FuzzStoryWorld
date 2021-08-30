@@ -862,7 +862,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
+      propertyPath: mssl_saveSounds.Array.data[1].name
+      value: Clik3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
       propertyPath: mssl_saveSounds.Array.data[0].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: c3e80dd3a2492e84ea7b76763131ac4d, type: 3}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[1].sound
       value: 
       objectReference: {fileID: 8300000, guid: 130a177e727814a2ea78a886ab72213d, type: 3}
     m_RemovedComponents: []
@@ -1672,7 +1682,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8139ac740f07cf0428dd52d414fd9fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mn_langIndex: 9
+  mn_LangIndex: 9
   mt_CaptionText: {fileID: 0}
   mn_VoiceIndex: 19
 --- !u!1 &2004624330
