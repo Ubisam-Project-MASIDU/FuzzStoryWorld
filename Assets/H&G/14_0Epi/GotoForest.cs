@@ -1,25 +1,25 @@
 /*
  * - Name : DoorClickEvent.cs
- * - Writer : À¯Èñ¼ö
+ * - Writer : ï¿½ï¿½ï¿½ï¿½ï¿½
  * 
- * - Content : ¸¶³à ÁıÀ» ¹ş¾î³ª ½£À¸·Î °¡´Â ½ºÅ©¸³Æ®¸¦ ÅëÇÑ ½ºÅä¸® ÁøÇà
+ * - Content : ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½î³ª ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ä¸® ï¿½ï¿½ï¿½ï¿½
  *
  * - History
- * 1) 2021-08-27 : ÃÊ±â °³¹ß
- * 2) 2021-08-30 : ÄÚµå È¹ÀÏÈ­ ¹× ÁÖ¼® Ã³¸®
+ * 1) 2021-08-27 : ï¿½Ê±ï¿½ ï¿½ï¿½ï¿½ï¿½
+ * 2) 2021-08-30 : ï¿½Úµï¿½ È¹ï¿½ï¿½È­ ï¿½ï¿½ ï¿½Ö¼ï¿½ Ã³ï¿½ï¿½
  * 
  * - Variable 
- * mg_Hansel                                        ÇîÁ© ¿ÀºêÁ§Æ® ¿¬°áÀ» À§ÇÑ º¯¼ö
- * mg_Gretel                                        ±×·¹ÅÚ ¿ÀºêÁ§Æ® ¿¬°áÀ» À§ÇÑ º¯¼ö
- * mg_Witch                                         ¸¶³à ¿ÀºêÁ§Æ® ¿¬°áÀ» À§ÇÑ º¯¼ö
+ * mg_Hansel                                        ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ * mg_Gretel                                        ï¿½×·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ * mg_Witch                                         ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
- * mvm_VoiceManager                                 ³ª·¹ÀÌ¼ÇÀ» À§ÇÑ º¯¼ö
- * mb_PlayFirstVoice                                Ã¹¹øÂ° ³ª·¹ÀÌ¼ÇÀÇ ½ÇÇà À¯¹«¸¦ À§ÇÑ flag
- * mv3_HanselPos                                    ÇîÁ©ÀÇ ¸ñÀûÁö 
- * mv3_GretelPos                                    ±×·¹ÅÚÀÇ ¸ñÀûÁö
+ * mvm_VoiceManager                                 ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+ * mb_PlayFirstVoice                                Ã¹ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ flag
+ * mv3_HanselPos                                    ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 
+ * mv3_GretelPos                                    ï¿½×·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
  * 
  * - Function
- * v_ChangeNextScene()                              ´ÙÀ½ ¾ÀÀ¸·Î ³Ñ¾î°¡±â À§ÇÑ ÇÔ¼ö
+ * v_ChangeNextScene()                              ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¾î°¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
  */
 
 using System.Collections;
@@ -29,7 +29,7 @@ using UnityEngine.SceneManagement;
 
 public class GotoForest : MonoBehaviour
 {
-    //¿ÀºêÁ§Æ® ¿¬°á
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
     private GameObject mg_Hansel;
     private GameObject mg_Gretel;
     private GameObject mg_Witch;
@@ -37,26 +37,36 @@ public class GotoForest : MonoBehaviour
     private bool mb_PlayFirstVoice = false;
     private Vector3 mv3_HanselPos = new Vector3(90, -4f, -6);
     private Vector3 mv3_GretelPos = new Vector3(88, -4f, -6);
+    GameObject mg_SoundManager;
+
+    bool mb_Runing = false;
+
     void Start(){
         mg_Hansel = GameObject.Find("hansel");
         mg_Gretel = GameObject.Find("gretel");
         mg_Witch = GameObject.Find("witch");
+         mg_SoundManager = GameObject.Find("SoundManager");                 // ì‚¬ìš´ë“œ ë§¤ë‹ˆì € ê²Œì„ì˜¤ë¸Œì íŠ¸ ì—°ê²°
         mvm_VoiceManager = FindObjectOfType<VoiceManager>();
-        // À½¼ºÃâ·ÂÀÌ ¾ÈµÆ´Ù¸é
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÆ´Ù¸ï¿½
         if (!mb_PlayFirstVoice){
-            // 22¹øÂ° À½¼º Ãâ·Â
+            // 22ï¿½ï¿½Â° ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
             mvm_VoiceManager.playVoice(22);
             mb_PlayFirstVoice = true;
         }
     }
     void Update(){
-        // ÇîÁ©°ú ±×·¹ÅÚÀ» ¸ñÀûÁö·Î ÀÌµ¿½ÃÄÑÁØ´Ù
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½
         mg_Hansel.transform.position = Vector3.MoveTowards(mg_Hansel.transform.position, mv3_HanselPos, 0.04f);
         mg_Gretel.transform.position = Vector3.MoveTowards(mg_Gretel.transform.position, mv3_GretelPos, 0.04f);
-        // ¸¶³à´Â ÇîÁ©°ú ±×·¹ÅÚº¸´Ù ´À¸®°Ô ÀÌµ¿½ÃÅ²´Ù
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½Úºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Å²ï¿½ï¿½
         mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(15, -2.47f, 0), 0.02f);
 
-        // ÇîÁ©°ú ±×·¹ÅÚÀÌ ¸ñÀûÁö¿¡ µµÂøÇÏ¸é ´ÙÀ½¾ÀÀ¸·Î ÀÌµ¿½ÃÅ²´Ù
+        if(mb_Runing == false){
+            mg_SoundManager.GetComponent<SoundManager>().playSound("Runing");     // ê²Œì„ ë ë²„íŠ¼ íš¨ê³¼ìŒ ì¬ìƒ
+        }
+        mb_Runing = true;
+
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½×·ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ï¿½ï¿½Å²ï¿½ï¿½
         if(mg_Hansel.transform.position == mv3_HanselPos && mb_PlayFirstVoice && mvm_VoiceManager.isPlaying() == false){
             Invoke("v_ChangeNextScene", 1f);
         }
