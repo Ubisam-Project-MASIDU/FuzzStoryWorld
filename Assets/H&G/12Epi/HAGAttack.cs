@@ -7,22 +7,41 @@
  * 
  * - History
  * 1) 2021-08-13 : 코드 구현중. 
- * 2) 2021-08-13 : 주석 작성.
- *  
- * - Variable 
+ * 2) 2021-08-17 : 개발 수정
+ * 3) 2021-08-18 : 코드 추가
+ * 4) 2021-08-30 : 코드 획일화 및 주석 처리
  * 
+ * - Variable 
+ * mr_CheckRay                                     마우스가 클릭된 곳을 카메라에서부터 레이저를 쏘아 감지하기 위한 Ray
+ * mrch_CheckHit                                   레이저가 쏜 곳에 오브젝트가 있는지 확인                                   
+ * mv3_TargetPos                                   BonePrefab이 생성되는 장소
+ * mb_SetPos                                       위치를 확인하기 위한 bool 변수 
+ * mgo_witch
+ * BonePos
+ * HAG
+ * mst_WitchStatus
+ * mst_WitchStatus
+ * ms12c_CharacterInfo
+ * mst_HAGStatus
+ * mgo_BonePrefab    
+ * mgo_IntantBone
+ * mb_CheckBone
+ * mb_DelayThrowing
+ * mg_SoundManager
  *
  * - Function
- * 
+ * void MakeBone()
+ * void OnTriggerEnter(Collider other)
+ * void HitWitch() 
  * 
  */
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 public class HAGAttack : MonoBehaviour {
-    private Ray mr_CheckRay;                      // 마우스가 클릭된 곳을 카메라에서부터 레이져를 쏘아 감지하기 위한 Ray 
-    private RaycastHit mrch_CheckHit;            // 레이져를 쏜 곳에 오브젝트가 
-    private GameObject mgo_Target;
+    private Ray mr_CheckRay;                     
+    private RaycastHit mrch_CheckHit;           
+    //private GameObject mgo_Target;
     private Vector3 mv3_TargetPos;
     private bool mb_SetPos = false;
     public GameObject mgo_witch;

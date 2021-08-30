@@ -60,7 +60,7 @@ public class GotoForest : MonoBehaviour{
         mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(15, -2.47f, 0), 3f * Time.deltaTime);
         // 게임 끝 버튼 효과음 재생
         if (mb_Runing == false){
-            mg_SoundManager.GetComponent<SoundManager>().playSound("Runing"); 
+            //mg_SoundManager.GetComponent<SoundManager>().playSound("Runing"); 
         }
         mb_Runing = true;
 
