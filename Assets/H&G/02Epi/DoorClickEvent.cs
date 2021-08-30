@@ -151,7 +151,7 @@ public class DoorClickEvent : MonoBehaviour{
 
     // 다음 씬으로 넘어가기 위한 함수
     public void v_ChangeNextScene(){
-        mg_SoundManager.GetComponent<SoundManager>().playSound("PlayMiniGame1");   // 시작 버튼을 눌렀을 때 나오는 효과음 재생
+        //mg_SoundManager.GetComponent<SoundManager>().playSound("PlayMiniGame1");   // 시작 버튼을 눌렀을 때 나오는 효과음 재생
         Invoke("LoadScene", 1f);
         SceneManager.LoadScene("1_02H&G_Game");
     }
