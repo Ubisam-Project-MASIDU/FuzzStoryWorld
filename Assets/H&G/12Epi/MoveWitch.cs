@@ -14,8 +14,8 @@
  * - Variable 
  * mgo_HanselGretel                             헨젤과 그레텔 게임오브젝트
  * mani_Witch                                   마녀 애니메이션
- * spr_InvertWitch                               이미지 상태 변경 컴포넌트
- * 
+ * spr_InvertWitch                              이미지 상태 변경 컴포넌트
+ * mg_SoundManager                              나레이션이 나오기 위한 변수
  */
 
 using System.Collections;
@@ -28,7 +28,7 @@ public class MoveWitch : MonoBehaviour
     // 목표 오브젝트를 따라가기 위해 필요한 변수들
     public GameObject mgo_HanselGretel;
     private bool mb_StartRangeAttack = false;
-
+    // 나레이션을 위한 변수들
     GameObject mg_SoundManager;
     public bool isRangeAttacking {
         get {
@@ -43,7 +43,6 @@ public class MoveWitch : MonoBehaviour
     SpriteRenderer spr_InvertWitch;
     Rigidbody rigid;
     // 초기화
-
     void Start(){
         mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
     }
@@ -84,13 +83,15 @@ public class MoveWitch : MonoBehaviour
             }
         }
     }
+    // 마녀와 뼈가 충돌하면
+    // 마녀가 데미지를 입는다.
     void OnTriggerEnter(Collider collision) {
         if(collision.gameObject.tag == "bone") {
             mg_SoundManager.GetComponent<SoundManager>().playSound("HitbyB");   // 뻐다귀를 맞았을 때 
             OnDamaged(collision.transform.position);            
         }
     }
-    
+    // 마녀가 공격받으면 색이 투명해진다.
     void OnDamaged(Vector3 targetPos) {
         gameObject.layer = 15;
         spr_InvertWitch.color = new Color(1, 1, 1, 0.4f);
@@ -98,6 +99,7 @@ public class MoveWitch : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(dirc, 7, 7), ForceMode.Impulse);
         Invoke("OffDamaged", 0.7f);
     }
+    // 다시 원래 색으로 돌아간다.
     void OffDamaged() {
         gameObject.layer = 11;
         spr_InvertWitch.color = new Color(1, 1, 1, 1);
