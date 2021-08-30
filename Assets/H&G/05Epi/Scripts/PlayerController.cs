@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour{
     Animator animator;
     GameObject SoundManager;
     VoiceManager mvm_VoiceManager;
-    
+
     void Start(){
         mb_IsJump = false;
         mb_IsTop = false;
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour{
         if(mb_IsJump){ 
             // 일정 높이에 아직 도달하지 않으면
             if(transform.position.y <= mf_JumpHeight - 0.1f && !mb_IsTop){ 
-                transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x, mf_JumpHeight), mf_jumpSpeed * Time.deltaTime);
+                transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x, mf_JumpHeight), mf_JumpSpeed * Time.deltaTime);
             }// 일정 높이에 도달한 상태이면 isTop 변수를 참으로 변경하고 더이상 Lerp함수가 작동하지 않게 함.
             else{ 
                 mb_IsTop = true;
