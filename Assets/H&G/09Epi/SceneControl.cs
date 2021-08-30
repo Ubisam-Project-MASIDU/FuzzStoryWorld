@@ -1,156 +1,114 @@
-﻿using System.Collections;
+﻿/*
+ * - Name : SceneControl.cs
+ * - Writer : 유희수
+
+ * - Content : Scene9를 전체적으로 컨트롤해서 스토리 진행하는 스크립트
+ *
+ * - History
+ * 1) 2021-08-13 : 초기 개발
+ * 2) 2021-08-17 : 코드 획일화 및 주석 처리
+ * 3) 2021-08-24 : 게임건너뛰기 기능 구현 (김명현)
+ * 3) 2021-08-25 : 게임 소리 나기 작업 (이병권)
+ * 
+ * - Variable 
+ * mvm_VoiceManager                                       나레이션을 위한 변수
+ * mcc_CaptionControl                                     CaptionControl 클래스에서 자막 인덱스를 가져오기 위한 객체
+ * mb_PlayFirstVoice                                      첫번째 나레이션의 실행 유무를 위한 flag
+ * mb_PlaySecondVoice                                     두번째 나레이션의 실행 유무를 위한 flag
+ * mb_PlayThirdVoice                                      세번째 나레이션의 실행 유무를 위한 flag
+ * ms_CaptionTemp                                         자막을 일시적으로 저장하는 변수
+ * mg_WitchText                                           마녀의 말풍선 오브젝트
+ * mg_VibrateAni                                          헨젤과 그레텔에게 붙여줄 떨리는 애니메이션
+ * mt_Text                                                가장 위에 나오는 스토리 진행 텍스트
+ * mb_ObjClickStart                                       SceneControl 스크립트가 끝나고 ObjectClick 스크립트를 시작해도 됨을 알려주는 flag
+ * mb_ChangeColorOnce                                 
+ * mspr_BackGrouond                                       배경 스프라이트 연결을 위한 변수
+ * mspr_Witch                                             마녀 스프라이트 연결을 위한 변수
+ * 
+ * - Function
+ * v_GotoDoor()                                     문을 클릭해서 문에 헨젤과 그레텔이 다다를수있게 하는 함수
+ * v_TutorialText()                                 문 클릭 이벤트 지시를 도와주기 위한 튜토리얼 텍스트와 애니메이션을 활성화해주는 함수
+ * v_ChangeNextScene()                              다음 씬으로 넘어가기 위한 함수
+ * v_ChangeNextSceneWhenSkipGame()                  게임이 스킵되는경우 다음씬으로 넘어가기 위한 함수
+ */
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SceneControl : MonoBehaviour
-{
-
+public class SceneControl : MonoBehaviour{
     public VoiceManager mvm_VoiceManager;
-    public CaptionControl cc;
+    public CaptionControl mcc_CaptionControl;
     private bool mb_PlayFirstVoice = false;
     private bool mb_PlaySecondVoice = false;
     private bool mb_PlayThirdVoice = false;
-    string temp;
-
+    string ms_CaptionTemp;
     public GameObject mg_WitchText;
-    public GameObject vibrate;
+    public GameObject mg_VibrateAni;
     public Text mt_Text;
-    public bool hidestartflag = false;
+    private string ms_Temp2;
+    public bool mb_ObjClickStart = false;
     bool mb_ChangeColorOnce = false;
-    private SpriteRenderer background;
-    private SpriteRenderer witch;
+    private SpriteRenderer mspr_BackGrouond;
+    private SpriteRenderer mspr_Witch;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    void Start(){
         mvm_VoiceManager = FindObjectOfType<VoiceManager>();
-        cc = GameObject.Find("CaptionPanel").GetComponent<CaptionControl>();
-
+        mcc_CaptionControl = GameObject.Find("CaptionPanel").GetComponent<CaptionControl>();
+        mspr_BackGrouond = GameObject.Find("Background").GetComponent<SpriteRenderer>();
+        mspr_Witch = GameObject.Find("witch").GetComponent<SpriteRenderer>();
         mg_WitchText.SetActive(false);
-        background = GameObject.Find("Background").GetComponent<SpriteRenderer>();
-        witch = GameObject.Find("witch").GetComponent<SpriteRenderer>();
-
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (!mb_PlayFirstVoice)
-        {
-            mvm_VoiceManager.playVoice(13); //그때무서운마녀가 나타났어요
-            temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_LangIndex].mvifl_setVoiceInfoList[13].words;
-            cc.mt_CaptionText.GetComponent<Text>().text = temp;
+    void Update(){
+        // 첫번째 나레이션 시작 전이라면
+        if (!mb_PlayFirstVoice){
+            // 첫번째 나레이션 음성을 출력해주고,
+            mvm_VoiceManager.playVoice(13);
+            // 언어 자막에 선택한 나라에 맞는 언어로 자막을 출력해준다
+            ms_CaptionTemp = mvm_VoiceManager.mlva_LanguageVoices[mcc_CaptionControl.mn_LangIndex].mvifl_setVoiceInfoList[13].words;
+            mcc_CaptionControl.mt_CaptionText.GetComponent<Text>().text = ms_CaptionTemp;
             mb_PlayFirstVoice = true;
-            Invoke("v_WitchText", 2.5f); //누가 내 집을 먹는게냐 텍스트
+            // 스토리 진행상 마녀의 말풍선이 나오는 함수 진행
+            Invoke("v_WitchText", 2.5f);
         }
-
-        if (mvm_VoiceManager.isPlaying() == false && mb_PlayFirstVoice && !mb_PlaySecondVoice) //사실 그 마녀는 웅엥
-        {
-            mvm_VoiceManager.playVoice(14); //사실 그 할머니는 어쩌구
-            cc.mn_VoiceIndex = 14;
-            temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_LangIndex].mvifl_setVoiceInfoList[14].words;
-            cc.mt_CaptionText.GetComponent<Text>().text = temp;
+        // 두번째 나레이션의 실행 조건 검사
+        if (mvm_VoiceManager.isPlaying() == false && mb_PlayFirstVoice && !mb_PlaySecondVoice){
+            // 두번째 나레이션 음성을 출력해주고,
+            mvm_VoiceManager.playVoice(14); 
+            // 언어 자막에 선택한 나라에 맞는 언어로 자막을 출력해준다
+            mcc_CaptionControl.mn_VoiceIndex = 14;
+            ms_CaptionTemp = mvm_VoiceManager.mlva_LanguageVoices[mcc_CaptionControl.mn_LangIndex].mvifl_setVoiceInfoList[14].words;
+            mcc_CaptionControl.mt_CaptionText.GetComponent<Text>().text = ms_CaptionTemp;
             mb_PlaySecondVoice = true;
+            // 스토리 진행상 마녀의 말풍선 오브젝트 없애기
             mg_WitchText.SetActive(false);
-            mt_Text.text = "\n       사실 그 할머니는 아이들을 잡아먹는 무서운 마녀였어요.        \n";
-
+            // 스토리 진행하는 한국어 자막 변경
+            ms_Temp2 = mvm_VoiceManager.mlva_LanguageVoices[0].mvifl_setVoiceInfoList[14].words;
+            mt_Text.text = "\n        " + ms_Temp2 + "         \n";
+            //mt_Text.text = "\n       사실 그 할머니는 아이들을 잡아먹는 무서운 마녀였어요.        \n"; 
         }
-
-        if (mvm_VoiceManager.isPlaying() == false && mb_PlaySecondVoice && !mb_PlayThirdVoice)
-        {
-            //mvm_VoiceManager.playVoice(18);
-            if (PlayerPrefs.GetInt("SkipGame") == 0)
-            {
+        // 세번째 나레이션의 실행 조건 검사
+        if (mvm_VoiceManager.isPlaying() == false && mb_PlaySecondVoice && !mb_PlayThirdVoice){
+            if (PlayerPrefs.GetInt("SkipGame") == 0){
                 mvm_VoiceManager.playVoice(15);
-                cc.mn_VoiceIndex = 15;
-                temp = mvm_VoiceManager.mlva_LanguageVoices[cc.mn_LangIndex].mvifl_setVoiceInfoList[15].words;
-                cc.mt_CaptionText.GetComponent<Text>().text = temp;
-                mt_Text.text = "\n       물체를 클릭해서 마녀에게로부터 헨젤과 그레텔을 숨겨주세요.        \n";
+                mcc_CaptionControl.mn_VoiceIndex = 15;
+                ms_CaptionTemp = mvm_VoiceManager.mlva_LanguageVoices[mcc_CaptionControl.mn_LangIndex].mvifl_setVoiceInfoList[15].words;
+                mcc_CaptionControl.mt_CaptionText.GetComponent<Text>().text = ms_CaptionTemp;
+                ms_Temp2 = mvm_VoiceManager.mlva_LanguageVoices[0].mvifl_setVoiceInfoList[15].words;
+                mt_Text.text = "\n        " + ms_Temp2 + "         \n";
+                //mt_Text.text = "\n       물체를 클릭해서 마녀에게로부터 헨젤과 그레텔을 숨겨주세요.        \n";
                 mb_PlayThirdVoice = true;
             }
-            if(mb_ChangeColorOnce == false)
-            {
+            if(mb_ChangeColorOnce == false){
                 mb_ChangeColorOnce = true;
                 Invoke("ColorChange", 2f);
             }
         }
-
-        /*if (mvm_VoiceManager.isPlaying() == false && mb_PlayThirdVoice)
-            if (!mb_PlayFirstVoice)
-            {                                                             // 나레이션1 실행조건 검사
-                mvm_VoiceManager.playVoice(15); //그때무서운마녀가 나타났어요
-                mb_PlayFirstVoice = true;
-                Invoke("SecondEvent", 4f);
-                Invoke("ThirdEvent", 8f);
-                Invoke("FourthEvent", 12f);
-                Invoke("ColorChange", 14f);
-                // 나레이션1 출력 완료 
-            }
-        }*/
     }
-    void ColorChange()
-    {
-        background.color = new Color(75 / 255f, 75 / 255f, 75 / 255f, 255 / 255f);
-        witch.color = new Color(85 / 255f, 85 / 255f, 85 / 255f, 255 / 255f);
-        hidestartflag = true;
-        Debug.Log("colorChange");
+    void ColorChange(){
+        mspr_BackGrouond.color = new Color(75 / 255f, 75 / 255f, 75 / 255f, 255 / 255f);
+        mspr_Witch.color = new Color(85 / 255f, 85 / 255f, 85 / 255f, 255 / 255f);
+        mb_ObjClickStart = true;
     }
 }
-        /*if (!mb_PlayFirstVoice)
-        {                                                             // 나레이션1 실행조건 검사
-            mvm_VoiceManager.playVoice(17);
-            mb_PlayFirstVoice = true;
-            Invoke("SecondEvent", 4f);
-        }
-
-        if (mvm_VoiceManager.isPlaying() == false && mb_PlayFirstVoice && !mb_PlaySecondVoice)
-        {
-            mvm_VoiceManager.playVoice(18);
-            mb_PlaySecondVoice = true;
-            ThirdEvent();
-
-            // 나레이션1 출력 완료 
-        }
-
-        if (mvm_VoiceManager.isPlaying() == false && mb_PlaySecondVoice)
-        {
-            FourthEvent();
-            Invoke("ColorChange", 2f);
-        }
-
-    
-    void StopVibrate()
-    {
-        vibrate.SetActive(false);
-    }
-    void v_WitchText()
-    {
-        mg_WitchText.SetActive(true);
-        Debug.Log("2");
-    }
-
-    void ThirdEvent()
-    {
-        mg_WitchText.SetActive(false);
-        mt_Text.text = "\n       사실 그 할머니는 아이들을 잡아먹는 무서운 마녀였어요.        \n";
-        //mvm_VoiceManager.playVoice(18);
-        Debug.Log("3");// 나레이션1과 playVoice(0) 연결됨
-    }
-
-    void FourthEvent()
-    {
-        mvm_VoiceManager.playVoice(18);
-        mt_Text.text = "\n       물체를 클릭해서 마녀에게로부터 헨젤과 그레텔을 숨겨주세요.        \n";
-        Debug.Log("4");
-    }
-    
-
-    void ColorChange()
-    {
-        background.color = new Color(75 / 255f, 75 / 255f, 75 / 255f, 255 / 255f);
-        witch.color = new Color(85 / 255f, 85 / 255f, 85 / 255f, 255 / 255f);
-        hidestartflag = true;
-        Debug.Log("colorChange");
-    }
-}*/
