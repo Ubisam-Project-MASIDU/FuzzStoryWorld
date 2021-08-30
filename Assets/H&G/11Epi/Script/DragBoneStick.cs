@@ -21,9 +21,9 @@
  * 1) OnMouseDown()                오브젝트를 클릭한 경우
  * 2) OnMouseDrag()                오브젝트를 드래그한 경우
  * 3) OnMouseUp()                  오브젝트에서 손을 떼는 경우
- * 4) OnTriggerEnter : 해당 트리거 콜라이더와 트리거와 접촉한 강체(or 강체가 없다면 콜라이더)로 보내집니다 (충돌)
- * 5) cCollider.tag : 충돌해야 하는 물체를 이름을 설정해서 지정해주는 것
- * 6) Destory : 충돌하였을 때 사라지게 하는 것
+ * 4) OnTriggerEnter :             해당 트리거 콜라이더와 트리거와 접촉한 강체(or 강체가 없다면 콜라이더)로 보내집니다 (충돌)
+ * 5) cCollider.tag :              충돌해야 하는 물체를 이름을 설정해서 지정해주는 것
+ * 6) Destory :                    충돌하였을 때 사라지게 하는 것
  */
 
 
@@ -44,7 +44,7 @@ public class DragBoneStick : MonoBehaviour
 
     // 오브젝트를 클릭한 경우
     private void OnMouseDown(){
-        mg_SoundManager.GetComponent<SoundManager>().playSound("Clik3");                    // 들었을 때 소리 나게 하기
+        mg_SoundManager.GetComponent<SoundManager>().playSound("Clik3");                    // 물체를 견인을 때 소리 나게 하기
         screenSpace = Camera.main.WorldToScreenPoint(transform.position);
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z));
     }
