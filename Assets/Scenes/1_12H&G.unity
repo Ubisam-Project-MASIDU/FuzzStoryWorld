@@ -1832,12 +1832,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 524639438}
   m_CullTransparentMesh: 1
---- !u!1 &541628816 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5016832935264139667, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1022751273}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &543415376
 GameObject:
   m_ObjectHideFlags: 0
@@ -3762,7 +3756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mgo_WinHAGPos: {fileID: 1746152401}
-  mgo_Script: {fileID: 541628816}
+  mgo_Script: {fileID: 1022751274}
 --- !u!114 &841037266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4077,7 +4071,7 @@ PrefabInstance:
     - target: {fileID: 5016832934214608465, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 338
+      value: 473
       objectReference: {fileID: 0}
     - target: {fileID: 5016832934214608465, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
         type: 3}
@@ -4197,7 +4191,19 @@ PrefabInstance:
     - target: {fileID: 5016832935403608147, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
         type: 3}
       propertyPath: m_Text
-      value: "   \uB9C8\uB140\uB97C \uBB34\uCC0C\uB974\uC138\uC694!  "
+      value: "    \uD5E8\uC824\uACFC \uADF8\uB808\uD154\uC740 \uB9C8\uB140\uC5D0\uAC8C\uC11C
+        \uB3C4\uB9DD\uCE58\uB824\uD588\uC5B4\uC694. \n                    \uB9C8\uB140\uB97C
+        \uBB34\uCC0C\uB974\uC138\uC694!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016832935403608147, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
+        type: 3}
+      propertyPath: m_FontData.m_Alignment
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016832935403608147, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
+        type: 3}
+      propertyPath: m_FontData.m_LineSpacing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5016832935403608148, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
         type: 3}
@@ -4221,6 +4227,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5016832935403608148, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
         type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5016832935403608148, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
+        type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -4231,6 +4242,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a, type: 3}
+--- !u!1 &1022751274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5016832934214608466, guid: 0bf25f2ebcfa645fd8d9a31e2d37148a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1022751273}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1030615952
 GameObject:
   m_ObjectHideFlags: 0
