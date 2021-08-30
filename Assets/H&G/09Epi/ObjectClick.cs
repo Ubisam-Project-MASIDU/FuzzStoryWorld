@@ -88,6 +88,7 @@ public class ObjectClick : MonoBehaviour {
     GameObject mg_SoundManager;
 
     void Start(){
+        // 오브젝트 연결
         mg_Plant = GameObject.Find("Plant");
         mg_Cauldron = GameObject.Find("Cauldron");
         mg_Tree = GameObject.Find("Tree");
@@ -104,9 +105,9 @@ public class ObjectClick : MonoBehaviour {
         mg_Witch = GameObject.Find("witch");
         // mn_count 초기화
         mn_count = 0;
+        // 사운드 매니저 게임오브젝트 연결
+        mg_SoundManager = GameObject.Find("SoundManager");
         // 헨젤과 그레텔이 처음에 초기 위치에 있게 하기 위함.
-        mg_SoundManager = GameObject.Find("SoundManager");                 // 사운드 매니저 게임오브젝트 연결
-    
         v_SetPos();
     }
 
