@@ -2119,7 +2119,7 @@ PrefabInstance:
     - target: {fileID: 830698020278158766, guid: e19d2a3be1155f747878c3281ac23fb9,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -664
+      value: -907
       objectReference: {fileID: 0}
     - target: {fileID: 830698020278158766, guid: e19d2a3be1155f747878c3281ac23fb9,
         type: 3}
@@ -2249,7 +2249,7 @@ PrefabInstance:
     - target: {fileID: 2703894739252198526, guid: bdd3cf5aade587e46b5355d8cf65265f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -664
+      value: -907
       objectReference: {fileID: 0}
     - target: {fileID: 2703894739252198526, guid: bdd3cf5aade587e46b5355d8cf65265f,
         type: 3}
@@ -4121,7 +4121,7 @@ PrefabInstance:
     - target: {fileID: 2590997350383192227, guid: 74151ff15bb6a324680e30ce1eac36c9,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: -500
+      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 2590997350383192227, guid: 74151ff15bb6a324680e30ce1eac36c9,
         type: 3}
@@ -4157,6 +4157,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: CaptionPanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285828629870323763, guid: 74151ff15bb6a324680e30ce1eac36c9,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1800
+      objectReference: {fileID: 0}
+    - target: {fileID: 6285828629870323763, guid: 74151ff15bb6a324680e30ce1eac36c9,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 80
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74151ff15bb6a324680e30ce1eac36c9, type: 3}
