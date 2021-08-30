@@ -1921,7 +1921,7 @@ PrefabInstance:
     - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
       propertyPath: mssl_saveSounds.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
@@ -1930,7 +1930,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
+      propertyPath: mssl_saveSounds.Array.data[1].name
+      value: Runing1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[2].name
+      value: Runing2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
       propertyPath: mssl_saveSounds.Array.data[0].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 65ff39654b3fb6d438804a1bbb92764e, type: 3}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[1].sound
+      value: 
+      objectReference: {fileID: 8300000, guid: 65ff39654b3fb6d438804a1bbb92764e, type: 3}
+    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: mssl_saveSounds.Array.data[2].sound
       value: 
       objectReference: {fileID: 8300000, guid: 65ff39654b3fb6d438804a1bbb92764e, type: 3}
     m_RemovedComponents: []
