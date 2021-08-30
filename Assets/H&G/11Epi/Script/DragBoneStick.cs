@@ -44,7 +44,7 @@ public class DragBoneStick : MonoBehaviour
 
     // 오브젝트를 클릭한 경우
     private void OnMouseDown(){
-        mg_SoundManager.GetComponent<SoundManager>().playSound("Clik3");                    // 들었을 때 소리 나게 하기
+        mg_SoundManager.GetComponent<SoundManager>().playSound("Clik3");                    // 물체를 견인을 때 소리 나게 하기
         screenSpace = Camera.main.WorldToScreenPoint(transform.position);
         offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenSpace.z));
     }
