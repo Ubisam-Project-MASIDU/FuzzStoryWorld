@@ -41,6 +41,9 @@ public class GotoForest : MonoBehaviour
 
     bool mb_Runing = false;
 
+    bool mb_Runing1 = false;
+
+    bool mb_Runing2 = false;
     void Start(){
         mg_Hansel = GameObject.Find("hansel");
         mg_Gretel = GameObject.Find("gretel");
@@ -57,14 +60,25 @@ public class GotoForest : MonoBehaviour
     void Update(){
         // ������ �׷����� �������� �̵������ش�
         mg_Hansel.transform.position = Vector3.MoveTowards(mg_Hansel.transform.position, mv3_HanselPos, 0.04f);
-        mg_Gretel.transform.position = Vector3.MoveTowards(mg_Gretel.transform.position, mv3_GretelPos, 0.04f);
-        // ����� ������ �׷��ں��� ������ �̵���Ų��
-        mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(15, -2.47f, 0), 0.02f);
 
         if(mb_Runing == false){
             mg_SoundManager.GetComponent<SoundManager>().playSound("Runing");     // 게임 끝 버튼 효과음 재생
         }
         mb_Runing = true;
+        
+        mg_Gretel.transform.position = Vector3.MoveTowards(mg_Gretel.transform.position, mv3_GretelPos, 0.04f);
+        
+        if(mb_Runing1 == false){
+            mg_SoundManager.GetComponent<SoundManager>().playSound("Runing1");     // 게임 끝 버튼 효과음 재생
+        }
+        mb_Runing1 = true;
+
+        mg_Witch.transform.position = Vector3.MoveTowards(mg_Witch.transform.position, new Vector3(15, -2.47f, 0), 0.02f);
+
+        if(mb_Runing2 == false){
+            mg_SoundManager.GetComponent<SoundManager>().playSound("Runing2");     // 게임 끝 버튼 효과음 재생
+        }
+        mb_Runing2 = true;
 
         // ������ �׷����� �������� �����ϸ� ���������� �̵���Ų��
         if(mg_Hansel.transform.position == mv3_HanselPos && mb_PlayFirstVoice && mvm_VoiceManager.isPlaying() == false){

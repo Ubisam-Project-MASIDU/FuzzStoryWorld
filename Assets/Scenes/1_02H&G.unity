@@ -123,106 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &292058328
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1983530800160481096, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
-    - target: {fileID: 1983530800160481096, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1983530800160481097, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: m_Name
-      value: SoundManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1170
-      objectReference: {fileID: 0}
-    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 836.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1983530800160481102, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: mssl_saveSounds.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: mssl_saveSounds.Array.data[0].name
-      value: PlayMiniGame1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
-        type: 3}
-      propertyPath: mssl_saveSounds.Array.data[0].sound
-      value: 
-      objectReference: {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d56623e6ba012449d9e09e4fe31f9598, type: 3}
---- !u!82 &292058329 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1983530800160481096, guid: d56623e6ba012449d9e09e4fe31f9598,
-    type: 3}
-  m_PrefabInstance: {fileID: 292058328}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &347735941
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +217,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 292058329}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
         m_MethodName: Play
         m_Mode: 1
