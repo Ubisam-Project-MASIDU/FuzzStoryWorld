@@ -19,6 +19,6 @@
   - Image
     - 구현에 필요한 이미지 파일들은 모두 FuzzStoryWorld/Assets/Image/ 에서 참고하였다.
   - Scene
-    - Scene파일의 경우에도 FuzzStoryWorld/Assets/Scenes/daejus_yeeun_intro.unity 에서 진행하였다.
+    - Scene파일의 경우에도 FuzzStoryWorld/Assets/Scenes/1_01H&G.unity  에서 진행하였다.
 
 ***
