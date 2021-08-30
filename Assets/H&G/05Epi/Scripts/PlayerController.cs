@@ -13,8 +13,8 @@
  * <Variable>
  * mb_isJump           플레이어가 점프하고 있는 상태인지 체크하는 변수
  * mb_isTop            일정 높이에 도달한 상태인지 체크하는 변수
- * mf_jumpHeight       플레이어가 올라가는 높이 변수
- * mf_jumpSpeed        플레이어가 올라가는 속도 변수
+ * mf_JumpHeight       플레이어가 올라가는 높이 변수
+ * mf_JumpSpeed        플레이어가 올라가는 속도 변수
  * mn_cntRock          조약돌 몇개 먹었는지 세는 변수
  * mn_totalRockNum     게임 시작 시 주어지는 조약돌 총 갯수 저장하는 변수
  * mn_Showcnt          남은 횟수 저장 변수
@@ -33,26 +33,25 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour{
-    bool mb_isJump; 
-    bool mb_isTop;
-    public float mf_jumpHeight;
-    public float mf_jumpSpeed;
+    public float mf_JumpHeight;
+    public float mf_JumpSpeed;
+    public string ms_ChangeNextSceneName;
+    public int mn_PlayVoiceIndex;
+    public Text ScriptTxt;
+    bool mb_IsJump; 
+    bool mb_IsTop;
+    bool mb_PlayOnce = false;
     int mn_cntRock;
     int mn_totalRockNum;
     int mn_Showcnt;
     Vector2 mv2_startPosition;
     Animator animator;
     GameObject SoundManager;
-    public Text ScriptTxt;
-
-    private VoiceManager mvm_VoiceManager;
-    private bool mb_PlayOnce = false;
-    public string ms_ChangeNextSceneName;
-    public int mn_PlayVoiceIndex;
+    VoiceManager mvm_VoiceManager;
     
     void Start(){
-        mb_isJump = false;
-        mb_isTop = false;
+        mb_IsJump = false;
+        mb_IsTop = false;
 
         mn_totalRockNum = UnityEngine.Random.Range(3,8);   // 게임시작할 때 플레이어가 주어야하는 조약돌의 갯수를 랜덤으로 배정해줌
         mn_Showcnt = mn_totalRockNum;                      // 남은 횟수를 처음에 총 횟수로 초기화
@@ -81,29 +80,29 @@ public class PlayerController : MonoBehaviour{
         // 게임 시작 버튼을 누른 후 화면을 누르면 플레이어 점프 시키기
         // 화면 터치 여부 : GetMouseButtonDown(0) 함수 사용
         if(Input.GetMouseButtonDown(0) && GameManager.instance.mb_isPlay){ 
-            mb_isJump = true; //점프동작 실행
+            mb_IsJump = true; //점프동작 실행
         }// 플레이어가 mv2_startPosition 낮은 위치에 오면
         else if(transform.position.y <= mv2_startPosition.y){ 
-            mb_isJump = false;
-            mb_isTop = false;
+            mb_IsJump = false;
+            mb_IsTop = false;
             transform.position = mv2_startPosition; // 현재 위치를 mv2_startPosition 다시 초기화
         }
 
         // GetMouseButtonDown(0) 조건문 안에 플레이어가 점프하는 코드를 바로 적지 않는 이유는 GetMouseButtonDown(0)함수는 버튼이 다운될 때 한번만 실행 되기 때문에 버튼이 눌린 순간만 올라가고 멈춰버림.
         // 점프 변수가 참일 때 플레이어 위치 위로 올리기
-        if(mb_isJump){ 
+        if(mb_IsJump){ 
             // 일정 높이에 아직 도달하지 않으면
-            if(transform.position.y <= mf_jumpHeight - 0.1f && !mb_isTop){ 
-                transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x, mf_jumpHeight), mf_jumpSpeed * Time.deltaTime);
+            if(transform.position.y <= mf_JumpHeight - 0.1f && !mb_IsTop){ 
+                transform.position = Vector2.Lerp(transform.position, new Vector2(transform.position.x, mf_JumpHeight), mf_jumpSpeed * Time.deltaTime);
             }// 일정 높이에 도달한 상태이면 isTop 변수를 참으로 변경하고 더이상 Lerp함수가 작동하지 않게 함.
             else{ 
-                mb_isTop = true;
+                mb_IsTop = true;
             }
             
             // 일정 높이에 도달한 상태이면 
-            if(transform.position.y > mv2_startPosition.y && mb_isTop){ 
+            if(transform.position.y > mv2_startPosition.y && mb_IsTop){ 
                 //플레이어를 mv2_startPosition로 옮기기 (위에서 아래로)
-                transform.position = Vector2.MoveTowards(transform.position,mv2_startPosition,mf_jumpSpeed * Time.deltaTime); 
+                transform.position = Vector2.MoveTowards(transform.position,mv2_startPosition,mf_JumpSpeed * Time.deltaTime); 
             }
         }
     }
