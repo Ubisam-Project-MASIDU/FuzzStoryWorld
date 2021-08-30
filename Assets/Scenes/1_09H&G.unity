@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028328, g: 0.22571322, b: 0.30692163, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -10830,11 +10830,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mvm_VoiceManager: {fileID: 0}
-  cc: {fileID: 0}
+  mcc_CaptionControl: {fileID: 0}
   mg_WitchText: {fileID: 1214376268}
-  vibrate: {fileID: 1793824684}
+  mg_VibrateAni: {fileID: 1793824684}
   mt_Text: {fileID: 2054376048}
-  hidestartflag: 0
+  mb_ObjClickStart: 0
 --- !u!4 &854316282
 Transform:
   m_ObjectHideFlags: 0
@@ -26551,7 +26551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8139ac740f07cf0428dd52d414fd9fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mn_langIndex: 9
+  mn_LangIndex: 9
   mt_CaptionText: {fileID: 0}
   mn_VoiceIndex: 13
 --- !u!114 &1911978110

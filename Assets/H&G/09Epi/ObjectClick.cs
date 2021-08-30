@@ -112,10 +112,10 @@ public class ObjectClick : MonoBehaviour {
 
     void Update(){
         // SceneContorl 스크립트에서 스크립트 진행이 끝났음을 알려주는 flag가 true가 되면 ObjectClick 스크립트 진행
-        if (msc_TextFinishFlag.hidestartflag) {
+        if (msc_TextFinishFlag.mb_ObjClickStart) {
             mg_Witch.GetComponent<MoveWitchToHAG>().enabled = false;
             // 진동애니메이션 비활성화
-            msc_Vibrate.vibrate.SetActive(false);
+            msc_Vibrate.mg_VibrateAni.SetActive(false);
             // 만약 게임 스킵모드일 경우 미니게임 건너뛰기
             if(PlayerPrefs.GetInt("SkipGame") == 1){
                 mn_count = 6;

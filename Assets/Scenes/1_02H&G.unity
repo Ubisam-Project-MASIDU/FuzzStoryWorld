@@ -130,6 +130,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1983530800160481096, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 79180f511d89441b9aa23ccae1992fe0, type: 3}
+    - target: {fileID: 1983530800160481096, guid: d56623e6ba012449d9e09e4fe31f9598,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1983530800160481097, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
       propertyPath: m_Name
@@ -442,7 +452,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1714531726}
+      - m_Target: {fileID: 487077727}
         m_TargetAssemblyTypeName: DoorClickEvent, Assembly-CSharp
         m_MethodName: v_GotoDoor
         m_Mode: 1
@@ -1950,7 +1960,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714531723}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5d717440a47012e439203b52b9727e08, type: 3}
   m_Name: 
@@ -2462,7 +2472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8139ac740f07cf0428dd52d414fd9fb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mn_langIndex: 9
+  mn_LangIndex: 9
   mt_CaptionText: {fileID: 0}
   mn_VoiceIndex: 1
 --- !u!114 &5454299426059536642

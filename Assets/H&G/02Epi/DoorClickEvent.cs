@@ -78,20 +78,27 @@ public class DoorClickEvent : MonoBehaviour{
             mvm_VoiceManager.playVoice(1);                                                                                          // 나레이션1과 playVoice(1) 연결됨
             mb_PlayFirstVoice = true;                                                                                               // 나레이션1 출력 완료 
         }
-        else if (mvm_VoiceManager.isPlaying() == false && mb_PlayFirstVoice)
+        /*
+        if (mvm_VoiceManager.isPlaying() == false && mb_PlayFirstVoice)
         {
             v_TutorialText();
         }
-        
+        */
         if (mvm_VoiceManager.isPlaying() == false && mb_PlaySecondVoice){                    // 나레이션2까지 출력 끝나면 다음씬으로 이동
+            Debug.Log("11111111111111111111111");
             if (PlayerPrefs.GetInt("SkipGame") == 1)
             {
+                Debug.Log("dssds");
                 Invoke("v_ChangeNextSceneWhenSkipGame", 1f);
             }
             else
             {
                 mg_Popup.SetActive(true);                                                                                               // 다음씬으로 이동하기 위한 함수
             }
+        }
+        else if (mvm_VoiceManager.isPlaying() == false && mb_PlayFirstVoice)
+        {
+            v_TutorialText();
         }
     }
 
