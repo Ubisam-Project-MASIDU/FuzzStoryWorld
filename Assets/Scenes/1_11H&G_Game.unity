@@ -869,7 +869,7 @@ PrefabInstance:
         type: 3}
       propertyPath: mssl_saveSounds.Array.data[0].sound
       value: 
-      objectReference: {fileID: 8300000, guid: c3e80dd3a2492e84ea7b76763131ac4d, type: 3}
+      objectReference: {fileID: 8300000, guid: 8736b44474515644184f30232457a701, type: 3}
     - target: {fileID: 1983530800160481103, guid: d56623e6ba012449d9e09e4fe31f9598,
         type: 3}
       propertyPath: mssl_saveSounds.Array.data[1].sound
