@@ -88,6 +88,7 @@ public class ObjectClick : MonoBehaviour {
     GameObject mg_SoundManager;
 
     void Start(){
+        // 오브젝트 연결
         mg_Plant = GameObject.Find("Plant");
         mg_Cauldron = GameObject.Find("Cauldron");
         mg_Tree = GameObject.Find("Tree");
