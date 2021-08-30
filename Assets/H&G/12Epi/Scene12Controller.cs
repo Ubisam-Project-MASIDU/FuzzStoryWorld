@@ -57,8 +57,7 @@ public class Scene12Controller : MonoBehaviour {
         mst_WitchStatus = new Status(Status.Character.Witch);
         mspr_SetBrightness = GameObject.Find("Bright").GetComponent<SpriteRenderer>();
         // 마녀를 무찌르세요 ! 라는 문구 0_01Straing 씬에서 VMLoader -> VMController -> KRVoiceManager, ENVoiceManager, JPVoiceManager, CNVoiceManager 각각 인스펙터창에 삽입하기
-        mvm_VoiceManager.playVoice(5);
-        //
+        mvm_VoiceManager.playVoice(20);
     }
     
 
@@ -148,7 +147,7 @@ public class Scene12Controller : MonoBehaviour {
     }
     void Update() {
        if(mvm_VoiceManager.isPlaying() == false) {
-             mgo_Script.SetActive(false);
+            mgo_Script.SetActive(false);
           }  
     }
 }
