@@ -53,13 +53,30 @@ public class ObjectClick : MonoBehaviour {
     private GameObject mg_Hansel;
     private GameObject mg_Gretel;
     private GameObject mg_Witch;
+    private GameObject mg_Plant;
+    private GameObject mg_Cauldron;
+    private GameObject mg_Tree;
+    private GameObject mg_Log;
+    private GameObject mg_Stone;
+    private GameObject mg_House;
+    private GameObject mg_Tree2;
+    private GameObject mg_Caulron2;
+
+    // 오브젝트의 위치를 저장하는 변수
     private Vector3 mv3_ObjectPos;
+    // 오브젝트의 이름을 저장하는 변수
     private string ms_ObjectName;
+    // 레이저를 쏜 곳에 있는 오브젝트를 반환
     private RaycastHit mrch_CheckClickObj;
+    // 초기 위치에 있는지 알려주는 flag
     private bool mb_InitPos;
+    // 클릭된 오브젝트의 개수를 세는 변수
     private int mn_count;
+    // 마녀가 집으로 돌아가도 되는지 확인해주는 flag
     private bool mb_WitchToHomeFlag = false;
+    // 헨젤,그레텔과 같이 있는 마녀 spirte 연결
     public Sprite ms_WitchWithcHAG;
+    // 클릭한 오브젝트를 저장하는 배열
     private SpriteRenderer[] mspra_ClickObject = new SpriteRenderer[6];
 
     // 오브젝트 위치 설정
@@ -70,16 +87,6 @@ public class ObjectClick : MonoBehaviour {
     private Vector3 mv3_StonePos = new Vector3(-23.9f, 1.8f, -7.9f);
     private Vector3 mv3_HousePos = new Vector3(13.6f, 3.7f, -6.9f);
     private float mf_Speed = 0.05f;
-
-    //
-    private GameObject mg_Plant;
-    private GameObject mg_Cauldron;
-    private GameObject mg_Tree;
-    private GameObject mg_Log;
-    private GameObject mg_Stone;
-    private GameObject mg_House;
-    private GameObject mg_Tree2;
-    private GameObject mg_Caulron2;
 
     // SceneControl 스크립트 변수
     private SceneControl msc_TextFinishFlag;
@@ -97,7 +104,6 @@ public class ObjectClick : MonoBehaviour {
         mg_House = GameObject.Find("House");
         mg_Tree2 = GameObject.Find("Tree2");
         mg_Caulron2 = GameObject.Find("Cauldron2");
-
         msc_TextFinishFlag = GameObject.Find("GameControl").GetComponent<SceneControl>();
         msc_Vibrate = GameObject.Find("GameControl").GetComponent<SceneControl>();
         mg_Hansel = GameObject.Find("Hansel");
