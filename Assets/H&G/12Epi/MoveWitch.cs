@@ -1,4 +1,4 @@
-/*
+  /*
  * - Name : MoveWitch.class
  * - Writer : 이예은
  * 
@@ -15,7 +15,14 @@
  * mgo_HanselGretel                             헨젤과 그레텔 게임오브젝트
  * mani_Witch                                   마녀 애니메이션
  * spr_InvertWitch                              이미지 상태 변경 컴포넌트
- * mg_SoundManager                              나레이션이 나오기 위한 변수
+ * mb_StartRangeAttack                          RangeAttack 확인 논리형 변수
+ * mg_SoundManage                               음성 출력 변수                              
+ *
+ * - Function
+ * void OnTriggerEnter(Collider collision)      충돌 감지 함수
+ * void OnDamaged(Vector3 targetPos)            데미지를 입었을 때 함수
+ * void OffDamaged()                            데미지가 끝났을 때 함수 
+ *
  */
 
 using System.Collections;
