@@ -26,7 +26,7 @@ using UnityEngine.UI;
 public class RandomPuzzles : MonoBehaviour{
 
     public VoiceManager mvm_VoiceManager;
-    private bool mb_PlayFirstVoice = false;
+    // private bool mb_PlayFirstVoice = false;
     public Sprite[] mspa_PuzzlePieces = new Sprite[4];                                                    //오브젝트 연결을 위한 배열 -> 퍼즐 조각 이미지 9개 연결
     private GameObject[] mga_Slot = new GameObject[4];                                                    //각각의 퍼즐 조각이 들어갈 슬롯 연결을 위한 배열
     int[] mna_RandNumArray = new int[4];                                                                  //퍼즐조각을 랜덤으로 섞기 위한 배열
